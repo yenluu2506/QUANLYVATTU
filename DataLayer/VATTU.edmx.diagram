@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="72c077654f104b49a63a733f7d2faa05" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="VATTU.tb_CHUNGTU_CT" PointX="4.75" PointY="11.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_CONGTY" PointX="2.75" PointY="11.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_DVT" PointX="12.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_SYS_FUNC" PointX="10.75" PointY="7.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_SYS_GROUP" PointX="10.75" PointY="4.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_SYS_REPORT" PointX="10.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_SYS_RIGHT" PointX="8.75" PointY="9.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_SYS_RIGHT_REP" PointX="8.75" PointY="6.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_SYS_USER" PointX="0.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_TONKHO" PointX="6.75" PointY="7.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_XUATXU" PointX="4.75" PointY="7.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.V_FUNC_SYS_RIGHT" PointX="2.75" PointY="7.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.V_REP_SYS_RIGHT_REP" PointX="6.75" PointY="4.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.V_USER_IN_GROUP" PointX="6.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.V_USER_NOTIN_GROUP" PointX="0.75" PointY="5.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VATTU.tb_DONVI" PointX="4.75" PointY="3.75" Width="1.5" />
+        <EntityTypeShape EntityType="VATTU.tb_NHOMHH" PointX="4.75" PointY="0.75" Width="1.5" />
+        <EntityTypeShape EntityType="VATTU.tb_SYS_SEQUENCE" PointX="10.75" PointY="11.75" Width="1.5" />
+        <EntityTypeShape EntityType="VATTU.tb_CHUNGTU" PointX="8.75" PointY="0.75" Width="1.5" />
+        <EntityTypeShape EntityType="VATTU.tb_HANGHOA" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="VATTU.tb_NHACUNGCAP" Width="1.5" PointX="13.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

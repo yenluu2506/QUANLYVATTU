@@ -1,0 +1,281 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F9801B3-6190-45CE-89DA-0A8F5C8021DE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MATERIAL</RootNamespace>
+    <AssemblyName>MATERIAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v23.1" />
+    <Reference Include="DevExpress.Charts.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.Desktop.v23.1" />
+    <Reference Include="DevExpress.Data.v23.1" />
+    <Reference Include="DevExpress.Utils.v23.1" />
+    <Reference Include="DevExpress.Sparkline.v23.1.Core" />
+    <Reference Include="DevExpress.Utils.v23.1.UI, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v23.1.UI, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v23.1.Wizard, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v23.1" />
+    <Reference Include="DevExpress.Printing.v23.1.Core" />
+    <Reference Include="DevExpress.Drawing.v23.1" />
+    <Reference Include="DevExpress.XtraGrid.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmDONVITINH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDONVITINH.Designer.cs">
+      <DependentUpon>frmDONVITINH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCONGTY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCONGTY.Designer.cs">
+      <DependentUpon>frmCONGTY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConnect.Designer.cs">
+      <DependentUpon>frmConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDONVI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDONVI.Designer.cs">
+      <DependentUpon>frmDONVI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHANGHOA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHANGHOA.Designer.cs">
+      <DependentUpon>frmHANGHOA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhapMua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhapMua.Designer.cs">
+      <DependentUpon>frmNhapMua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNHOMHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNHOMHH.Designer.cs">
+      <DependentUpon>frmNHOMHH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWaiting.Designer.cs">
+      <DependentUpon>frmWaiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXUATXU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXUATXU.Designer.cs">
+      <DependentUpon>frmXUATXU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNHACUNGCAP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNHACUNGCAP.Designer.cs">
+      <DependentUpon>frmNHACUNGCAP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmDONVITINH.resx">
+      <DependentUpon>frmDONVITINH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCONGTY.resx">
+      <DependentUpon>frmCONGTY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConnect.resx">
+      <DependentUpon>frmConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDONVI.resx">
+      <DependentUpon>frmDONVI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHANGHOA.resx">
+      <DependentUpon>frmHANGHOA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhapMua.resx">
+      <DependentUpon>frmNhapMua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNHOMHH.resx">
+      <DependentUpon>frmNHOMHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWaiting.resx">
+      <DependentUpon>frmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXUATXU.resx">
+      <DependentUpon>frmXUATXU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNHACUNGCAP.resx">
+      <DependentUpon>frmNHACUNGCAP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinesssLayer\BusinesssLayer.csproj">
+      <Project>{63ffbd2b-f6f3-4ef3-892d-54a907292bb8}</Project>
+      <Name>BusinesssLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{b12f9ac3-fd33-4ae9-abf5-53abd46efbc1}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_hethong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_baocao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_thoat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_baocao1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_hethong1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner21.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner22.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1564491_add_create_new_plus_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_sua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_xoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_boqua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_out1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_out2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del_Icon_x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_excel1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

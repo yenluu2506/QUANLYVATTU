@@ -56,7 +56,7 @@
             this.GHICHU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TRANGTHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.pageDanhSach = new DevExpress.XtraTab.XtraTabControl();
+            this.tabChungTu = new DevExpress.XtraTab.XtraTabControl();
             this.pageChiTiet = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -69,7 +69,7 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtSoPhieu = new System.Windows.Forms.TextBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.dpNgay = new System.Windows.Forms.DateTimePicker();
+            this.dtNgay = new System.Windows.Forms.DateTimePicker();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.gcChiTiet = new DevExpress.XtraGrid.GridControl();
             this.gvChiTiet = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -79,7 +79,7 @@
             this.SOLUONGCT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.THANHTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.pageDanhSach = new DevExpress.XtraTab.XtraTabPage();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -90,8 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageDanhSach)).BeginInit();
-            this.pageDanhSach.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabChungTu)).BeginInit();
+            this.tabChungTu.SuspendLayout();
             this.pageChiTiet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).BeginInit();
@@ -101,7 +101,7 @@
             this.splitContainerControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTiet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChiTiet)).BeginInit();
-            this.xtraTabPage1.SuspendLayout();
+            this.pageDanhSach.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -425,18 +425,18 @@
             this.gridView1.GridControl = this.gcDanhSach;
             this.gridView1.Name = "gridView1";
             // 
-            // pageDanhSach
+            // tabChungTu
             // 
-            this.pageDanhSach.Appearance.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pageDanhSach.Appearance.Options.UseBackColor = true;
-            this.pageDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pageDanhSach.Location = new System.Drawing.Point(0, 69);
-            this.pageDanhSach.Name = "pageDanhSach";
-            this.pageDanhSach.SelectedTabPage = this.pageChiTiet;
-            this.pageDanhSach.Size = new System.Drawing.Size(1017, 694);
-            this.pageDanhSach.TabIndex = 5;
-            this.pageDanhSach.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
+            this.tabChungTu.Appearance.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.tabChungTu.Appearance.Options.UseBackColor = true;
+            this.tabChungTu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabChungTu.Location = new System.Drawing.Point(0, 69);
+            this.tabChungTu.Name = "tabChungTu";
+            this.tabChungTu.SelectedTabPage = this.pageChiTiet;
+            this.tabChungTu.Size = new System.Drawing.Size(1017, 694);
+            this.tabChungTu.TabIndex = 5;
+            this.tabChungTu.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.pageDanhSach,
             this.pageChiTiet});
             // 
             // pageChiTiet
@@ -467,7 +467,7 @@
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl7);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtSoPhieu);
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl6);
-            this.splitContainerControl2.Panel1.Controls.Add(this.dpNgay);
+            this.splitContainerControl2.Panel1.Controls.Add(this.dtNgay);
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl5);
             this.splitContainerControl2.Panel1.Text = "Panel1";
             // 
@@ -584,15 +584,15 @@
             this.labelControl6.TabIndex = 4;
             this.labelControl6.Text = "Số Phiếu";
             // 
-            // dpNgay
+            // dtNgay
             // 
-            this.dpNgay.CustomFormat = "dd/MM/yyyy";
-            this.dpNgay.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dpNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpNgay.Location = new System.Drawing.Point(136, 19);
-            this.dpNgay.Name = "dpNgay";
-            this.dpNgay.Size = new System.Drawing.Size(163, 29);
-            this.dpNgay.TabIndex = 3;
+            this.dtNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtNgay.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNgay.Location = new System.Drawing.Point(136, 19);
+            this.dtNgay.Name = "dtNgay";
+            this.dtNgay.Size = new System.Drawing.Size(163, 29);
+            this.dtNgay.TabIndex = 3;
             // 
             // labelControl5
             // 
@@ -628,6 +628,7 @@
             this.gvChiTiet.Name = "gvChiTiet";
             this.gvChiTiet.OptionsView.ShowGroupPanel = false;
             this.gvChiTiet.RowHeight = 25;
+            this.gvChiTiet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvChiTiet_KeyDown);
             // 
             // BARCODE
             // 
@@ -692,19 +693,19 @@
             this.STT.Name = "STT";
             this.STT.Width = 94;
             // 
-            // xtraTabPage1
+            // pageDanhSach
             // 
-            this.xtraTabPage1.Controls.Add(this.splitContainerControl1);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1015, 664);
-            this.xtraTabPage1.Text = "Danh Sách";
+            this.pageDanhSach.Controls.Add(this.splitContainerControl1);
+            this.pageDanhSach.Name = "pageDanhSach";
+            this.pageDanhSach.Size = new System.Drawing.Size(1015, 664);
+            this.pageDanhSach.Text = "Danh Sách";
             // 
             // frmNhapMua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1017, 763);
-            this.Controls.Add(this.pageDanhSach);
+            this.Controls.Add(this.tabChungTu);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNhapMua";
@@ -724,8 +725,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageDanhSach)).EndInit();
-            this.pageDanhSach.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabChungTu)).EndInit();
+            this.tabChungTu.ResumeLayout(false);
             this.pageChiTiet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).EndInit();
             this.splitContainerControl2.Panel1.ResumeLayout(false);
@@ -736,7 +737,7 @@
             this.splitContainerControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTiet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChiTiet)).EndInit();
-            this.xtraTabPage1.ResumeLayout(false);
+            this.pageDanhSach.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -772,12 +773,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn GHICHU;
         private DevExpress.XtraGrid.Columns.GridColumn TRANGTHAI;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraTab.XtraTabControl pageDanhSach;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabControl tabChungTu;
+        private DevExpress.XtraTab.XtraTabPage pageDanhSach;
         private DevExpress.XtraTab.XtraTabPage pageChiTiet;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private System.Windows.Forms.DateTimePicker dpNgay;
+        private System.Windows.Forms.DateTimePicker dtNgay;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.ComboBox cboTrangThai;
         private DevExpress.XtraEditors.LabelControl labelControl7;

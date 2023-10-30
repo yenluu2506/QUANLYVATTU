@@ -60,6 +60,7 @@
     <Compile Include="SYS_FUNC.cs" />
     <Compile Include="SYS_SEQUENCE.cs" />
     <Compile Include="XUATXU.cs" />
+    <Compile Include="_TRANGTHAI.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

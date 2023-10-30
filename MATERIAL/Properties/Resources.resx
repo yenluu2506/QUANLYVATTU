@@ -130,11 +130,11 @@
   <data name="1564491_add_create_new_plus_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1564491_add_create_new_plus_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_hethong1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_hethong1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_out1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_out1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="del_Icon_x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\del_Icon_x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_thoat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_thoat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,8 +142,11 @@
   <data name="icon_sua" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_sua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_out" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="banner21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\banner21.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,14 +154,17 @@
   <data name="icon_baocao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_baocao1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="del_Icon_x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\del_Icon_x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_baocao" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_baocao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="banner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\banner2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_delete1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_delete1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_excel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_excel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_xoa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_xoa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,19 +172,22 @@
   <data name="icon_boqua" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_boqua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_hethong1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_hethong1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_import1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_import1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_baocao" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_baocao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="banner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\banner2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_out2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_out2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_excel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_excel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_delete11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_delete1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -53,15 +53,49 @@ namespace BusinesssLayer
             return lstObj;
         }
 
-        //public List<tb_HANGHOA> getAll()
-        //{
-        //    return db.tb_HANGHOA.ToList();
-        //}
+        public obj_HANGHOA getItemFull(string barcode)
+        {
+            var _h = db.tb_HANGHOA.FirstOrDefault(x=>x.BARCODE == barcode);
+            obj_HANGHOA hh = new obj_HANGHOA();
+            hh.BARCODE = _h.BARCODE;
+            hh.TENHH = _h.TENHH;
+            hh.TENTAT = _h.TENTAT;
+            hh.IDNHOM = _h.IDNHOM;
+            hh.MAXX = _h.MAXX;
+            hh.DONGIA = _h.DONGIA;
+            hh.MOTA = _h.MOTA;
+            hh.DVT = _h.DVT;
+            hh.DISABLED = _h.DISABLED;
+            hh.MANCC = _h.MANCC;
+            var cc = db.tb_NHACUNGCAP.FirstOrDefault(x=>x.MANCC == _h.MANCC);
+            hh.TENNCC = cc.TENNCC;
 
-        //public List<tb_HANGHOA> getAll(string barcode)
-        //{
-        //    return db.tb_HANGHOA.Where(x => x.BARCODE == barcode).ToList();
-        //}
+            return hh;
+        }
+
+        public List<tb_HANGHOA> getList()
+        {
+            return db.tb_HANGHOA.ToList();
+        }
+
+        public List<tb_HANGHOA> getList(string barcode)
+        {
+            return db.tb_HANGHOA.Where(x => x.BARCODE == barcode).ToList();
+        }
+
+        public List<tb_HANGHOA> getListByKeyword(string keyword)
+        {
+            return db.tb_HANGHOA.Where(ts=>ts.TENHH.Contains(keyword)).ToList();
+        }
+
+        public bool checkExist(string barcode)
+        {
+            var h = db.tb_HANGHOA.FirstOrDefault(x=>x.BARCODE == barcode);
+            if (h == null)
+                return true;
+            else 
+                return false;
+        }
 
         public tb_HANGHOA add(tb_HANGHOA hh)
         {

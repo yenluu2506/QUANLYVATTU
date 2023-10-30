@@ -173,6 +173,26 @@ namespace MATERIAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_delete1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_delete1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_delete11 {
+            get {
+                object obj = ResourceManager.GetObject("icon_delete11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_excel1 {
             get {
                 object obj = ResourceManager.GetObject("icon_excel1", resourceCulture);
@@ -196,6 +216,16 @@ namespace MATERIAL.Properties {
         internal static System.Drawing.Bitmap icon_hethong1 {
             get {
                 object obj = ResourceManager.GetObject("icon_hethong1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_import1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_import1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

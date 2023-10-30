@@ -326,6 +326,7 @@
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.RowHeight = 25;
+            this.gvDanhSach.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDanhSach_CustomDrawCell);
             // 
             // DELETED_BY
             // 
@@ -628,6 +629,7 @@
             this.gvChiTiet.Name = "gvChiTiet";
             this.gvChiTiet.OptionsView.ShowGroupPanel = false;
             this.gvChiTiet.RowHeight = 25;
+            this.gvChiTiet.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvChiTiet_CellValueChanged);
             this.gvChiTiet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvChiTiet_KeyDown);
             // 
             // BARCODE

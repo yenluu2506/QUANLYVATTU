@@ -121,6 +121,12 @@
     <Compile Include="frmWaiting.Designer.cs">
       <DependentUpon>frmWaiting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXuatNoiBo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXuatNoiBo.Designer.cs">
+      <DependentUpon>frmXuatNoiBo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmXUATXU.cs">
       <SubType>Form</SubType>
     </Compile>

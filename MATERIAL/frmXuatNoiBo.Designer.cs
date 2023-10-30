@@ -64,8 +64,8 @@
             this.SOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TONGTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GHICHU = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pageDanhSach = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.tabChungTu = new DevExpress.XtraTab.XtraTabControl();
+            this.pageDanhSach = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.cboDonVi = new System.Windows.Forms.ComboBox();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -97,9 +97,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageDanhSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabChungTu)).BeginInit();
+            this.tabChungTu.SuspendLayout();
             this.pageDanhSach.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -347,6 +347,8 @@
             this.gvChiTiet.OptionsEditForm.PopupEditFormWidth = 640;
             this.gvChiTiet.OptionsView.ShowGroupPanel = false;
             this.gvChiTiet.RowHeight = 20;
+            this.gvChiTiet.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvChiTiet_CustomDrawRowIndicator);
+            this.gvChiTiet.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvChiTiet_CellValueChanged);
             this.gvChiTiet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvChiTiet_KeyDown);
             // 
             // BARCODE
@@ -448,6 +450,9 @@
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsEditForm.PopupEditFormWidth = 640;
             this.gvDanhSach.RowHeight = 20;
+            this.gvDanhSach.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvDanhSach_CustomDrawRowIndicator);
+            this.gvDanhSach.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDanhSach_CustomDrawCell);
+            this.gvDanhSach.DoubleClick += new System.EventHandler(this.gvDanhSach_DoubleClick);
             // 
             // DELETED_BY
             // 
@@ -527,28 +532,29 @@
             this.GHICHU.VisibleIndex = 5;
             this.GHICHU.Width = 200;
             // 
+            // tabChungTu
+            // 
+            this.tabChungTu.Appearance.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.tabChungTu.Appearance.Options.UseBackColor = true;
+            this.tabChungTu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabChungTu.Location = new System.Drawing.Point(0, 62);
+            this.tabChungTu.Margin = new System.Windows.Forms.Padding(2);
+            this.tabChungTu.Name = "tabChungTu";
+            this.tabChungTu.SelectedTabPage = this.pageChiTiet;
+            this.tabChungTu.Size = new System.Drawing.Size(812, 334);
+            this.tabChungTu.TabIndex = 7;
+            this.tabChungTu.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.pageDanhSach,
+            this.pageChiTiet});
+            this.tabChungTu.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tabChungTu_SelectedPageChanged);
+            // 
             // pageDanhSach
             // 
-            this.pageDanhSach.Appearance.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pageDanhSach.Appearance.Options.UseBackColor = true;
-            this.pageDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pageDanhSach.Location = new System.Drawing.Point(0, 62);
+            this.pageDanhSach.Controls.Add(this.splitContainerControl1);
             this.pageDanhSach.Margin = new System.Windows.Forms.Padding(2);
             this.pageDanhSach.Name = "pageDanhSach";
-            this.pageDanhSach.SelectedTabPage = this.pageChiTiet;
-            this.pageDanhSach.Size = new System.Drawing.Size(812, 334);
-            this.pageDanhSach.TabIndex = 7;
-            this.pageDanhSach.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
-            this.pageChiTiet});
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.splitContainerControl1);
-            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(2);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(810, 309);
-            this.xtraTabPage1.Text = "Danh Sách";
+            this.pageDanhSach.Size = new System.Drawing.Size(810, 309);
+            this.pageDanhSach.Text = "Danh Sách";
             // 
             // splitContainerControl1
             // 
@@ -632,6 +638,8 @@
             this.dtDenNgay.Name = "dtDenNgay";
             this.dtDenNgay.Size = new System.Drawing.Size(161, 25);
             this.dtDenNgay.TabIndex = 3;
+            this.dtDenNgay.ValueChanged += new System.EventHandler(this.dtDenNgay_ValueChanged);
+            this.dtDenNgay.Leave += new System.EventHandler(this.dtDenNgay_Leave);
             // 
             // labelControl2
             // 
@@ -654,6 +662,8 @@
             this.dtTuNgay.Name = "dtTuNgay";
             this.dtTuNgay.Size = new System.Drawing.Size(161, 25);
             this.dtTuNgay.TabIndex = 1;
+            this.dtTuNgay.ValueChanged += new System.EventHandler(this.dtTuNgay_ValueChanged);
+            this.dtTuNgay.Leave += new System.EventHandler(this.dtTuNgay_Leave);
             // 
             // labelControl1
             // 
@@ -770,7 +780,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 396);
-            this.Controls.Add(this.pageDanhSach);
+            this.Controls.Add(this.tabChungTu);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmXuatNoiBo";
             this.Text = "frmXuatNoiBo";
@@ -791,9 +801,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageDanhSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabChungTu)).EndInit();
+            this.tabChungTu.ResumeLayout(false);
             this.pageDanhSach.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
             this.splitContainerControl1.Panel1.ResumeLayout(false);
             this.splitContainerControl1.Panel1.PerformLayout();
@@ -840,8 +850,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn SOLUONG;
         private DevExpress.XtraGrid.Columns.GridColumn TONGTIEN;
         private DevExpress.XtraGrid.Columns.GridColumn GHICHU;
-        private DevExpress.XtraTab.XtraTabControl pageDanhSach;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabControl tabChungTu;
+        private DevExpress.XtraTab.XtraTabPage pageDanhSach;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private System.Windows.Forms.ComboBox cboDonVi;
         private DevExpress.XtraEditors.LabelControl labelControl4;

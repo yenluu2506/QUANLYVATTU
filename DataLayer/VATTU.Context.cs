@@ -25,7 +25,6 @@ namespace DataLayer
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tb_CHUNGTU_CT> tb_CHUNGTU_CT { get; set; }
         public virtual DbSet<tb_CONGTY> tb_CONGTY { get; set; }
         public virtual DbSet<tb_DVT> tb_DVT { get; set; }
         public virtual DbSet<tb_SYS_FUNC> tb_SYS_FUNC { get; set; }
@@ -46,5 +45,6 @@ namespace DataLayer
         public virtual DbSet<tb_CHUNGTU> tb_CHUNGTU { get; set; }
         public virtual DbSet<tb_HANGHOA> tb_HANGHOA { get; set; }
         public virtual DbSet<tb_NHACUNGCAP> tb_NHACUNGCAP { get; set; }
+        public virtual DbSet<tb_CHUNGTU_CT> tb_CHUNGTU_CT { get; set; }
     }
 }

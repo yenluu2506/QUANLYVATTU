@@ -39,6 +39,7 @@
           <Property Name="DONGIA" Type="float" />
           <Property Name="THANHTIEN" Type="float" />
           <Property Name="NGAY" Type="datetime" />
+          <Property Name="STT" Type="int" />
         </EntityType>
         <EntityType Name="tb_CONGTY">
           <Key>
@@ -345,18 +346,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VATTU" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="tb_CHUNGTU_CT">
-          <Key>
-            <PropertyRef Name="KHOACT" />
-          </Key>
-          <Property Name="KHOACT" Nullable="false" Type="Guid" />
-          <Property Name="KHOA" Type="Guid" />
-          <Property Name="BARCODE" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="SOLUONG" Type="Int32" />
-          <Property Name="DONGIA" Type="Double" />
-          <Property Name="THANHTIEN" Type="Double" />
-          <Property Name="NGAY" Precision="3" Type="DateTime" />
-        </EntityType>
         <EntityType Name="tb_CONGTY">
           <Key>
             <PropertyRef Name="MACTY" />
@@ -523,7 +512,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="ISGROUP" Type="Boolean" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tb_CHUNGTU_CT" EntityType="Self.tb_CHUNGTU_CT" />
           <EntitySet Name="tb_CONGTY" EntityType="Self.tb_CONGTY" />
           <EntitySet Name="tb_DVT" EntityType="Self.tb_DVT" />
           <EntitySet Name="tb_SYS_FUNC" EntityType="Self.tb_SYS_FUNC" />
@@ -544,6 +532,7 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
           <EntitySet Name="tb_HANGHOA" EntityType="VATTU.tb_HANGHOA" />
           <EntitySet Name="tb_NHACUNGCAP" EntityType="VATTU.tb_NHACUNGCAP" />
+          <EntitySet Name="tb_CHUNGTU_CT" EntityType="VATTU.tb_CHUNGTU_CT" />
         </EntityContainer>
         <EntityType Name="tb_DONVI">
           <Key>
@@ -628,25 +617,25 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="DISABLED" Type="Boolean" />
         </EntityType>
+        <EntityType Name="tb_CHUNGTU_CT">
+          <Key>
+            <PropertyRef Name="KHOACT" />
+          </Key>
+          <Property Name="KHOACT" Type="Guid" Nullable="false" />
+          <Property Name="KHOA" Type="Guid" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="DONGIA" Type="Double" />
+          <Property Name="THANHTIEN" Type="Double" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="VATTUStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="tb_CHUNGTU_CT">
-            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU_CT">
-              <MappingFragment StoreEntitySet="tb_CHUNGTU_CT">
-                <ScalarProperty Name="KHOACT" ColumnName="KHOACT" />
-                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
-                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
-                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_CONGTY">
             <EntityTypeMapping TypeName="VATTU.tb_CONGTY">
               <MappingFragment StoreEntitySet="tb_CONGTY">
@@ -904,6 +893,20 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="TENNCC" ColumnName="TENNCC" />
                 <ScalarProperty Name="MANCC" ColumnName="MANCC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_CHUNGTU_CT">
+            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU_CT">
+              <MappingFragment StoreEntitySet="tb_CHUNGTU_CT">
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
+                <ScalarProperty Name="KHOACT" ColumnName="KHOACT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

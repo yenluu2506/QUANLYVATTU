@@ -126,57 +126,62 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStrip1.Size = new System.Drawing.Size(1017, 69);
+            this.toolStrip1.Size = new System.Drawing.Size(1017, 77);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnThem
             // 
+            this.btnThem.Image = global::MATERIAL.Properties.Resources.icon_add1;
             this.btnThem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThem.Name = "btnThem";
             this.btnThem.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnThem.Size = new System.Drawing.Size(70, 60);
+            this.btnThem.Size = new System.Drawing.Size(70, 68);
             this.btnThem.Text = "Thêm";
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
+            this.btnSua.Image = global::MATERIAL.Properties.Resources.icon_sua;
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSua.Name = "btnSua";
             this.btnSua.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSua.Size = new System.Drawing.Size(62, 60);
+            this.btnSua.Size = new System.Drawing.Size(62, 68);
             this.btnSua.Text = "Sửa";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
+            this.btnXoa.Image = global::MATERIAL.Properties.Resources.icon_xoa;
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnXoa.Size = new System.Drawing.Size(63, 60);
+            this.btnXoa.Size = new System.Drawing.Size(63, 68);
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLuu
             // 
+            this.btnLuu.Image = global::MATERIAL.Properties.Resources.icon_save;
             this.btnLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnLuu.Size = new System.Drawing.Size(64, 60);
+            this.btnLuu.Size = new System.Drawing.Size(64, 68);
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnBoQua
             // 
+            this.btnBoQua.Image = global::MATERIAL.Properties.Resources.icon_boqua;
             this.btnBoQua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBoQua.Name = "btnBoQua";
             this.btnBoQua.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnBoQua.Size = new System.Drawing.Size(84, 60);
+            this.btnBoQua.Size = new System.Drawing.Size(84, 68);
             this.btnBoQua.Text = "Bỏ qua";
             this.btnBoQua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
@@ -184,11 +189,12 @@
             // btnThoat
             // 
             this.btnThoat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_thoat;
             this.btnThoat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoat.Margin = new System.Windows.Forms.Padding(610, 1, 0, 2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(52, 60);
+            this.btnThoat.Size = new System.Drawing.Size(68, 68);
             this.btnThoat.Text = "toolStripButton6";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
@@ -431,10 +437,10 @@
             this.tabChungTu.Appearance.BackColor = System.Drawing.Color.PaleTurquoise;
             this.tabChungTu.Appearance.Options.UseBackColor = true;
             this.tabChungTu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabChungTu.Location = new System.Drawing.Point(0, 69);
+            this.tabChungTu.Location = new System.Drawing.Point(0, 77);
             this.tabChungTu.Name = "tabChungTu";
             this.tabChungTu.SelectedTabPage = this.pageChiTiet;
-            this.tabChungTu.Size = new System.Drawing.Size(1017, 694);
+            this.tabChungTu.Size = new System.Drawing.Size(1017, 686);
             this.tabChungTu.TabIndex = 5;
             this.tabChungTu.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageDanhSach,
@@ -444,7 +450,7 @@
             // 
             this.pageChiTiet.Controls.Add(this.splitContainerControl2);
             this.pageChiTiet.Name = "pageChiTiet";
-            this.pageChiTiet.Size = new System.Drawing.Size(1015, 664);
+            this.pageChiTiet.Size = new System.Drawing.Size(1015, 656);
             this.pageChiTiet.Text = "Chi Tiết";
             // 
             // splitContainerControl2
@@ -478,7 +484,7 @@
             this.splitContainerControl2.Panel2.Appearance.Options.UseBackColor = true;
             this.splitContainerControl2.Panel2.Controls.Add(this.gcChiTiet);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1015, 664);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1015, 656);
             this.splitContainerControl2.SplitterPosition = 151;
             this.splitContainerControl2.TabIndex = 0;
             // 
@@ -611,7 +617,7 @@
             this.gcChiTiet.Location = new System.Drawing.Point(0, 0);
             this.gcChiTiet.MainView = this.gvChiTiet;
             this.gcChiTiet.Name = "gcChiTiet";
-            this.gcChiTiet.Size = new System.Drawing.Size(1015, 501);
+            this.gcChiTiet.Size = new System.Drawing.Size(1015, 493);
             this.gcChiTiet.TabIndex = 0;
             this.gcChiTiet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvChiTiet});
@@ -710,25 +716,28 @@
             this.lblXoaChiTiet,
             this.lblImportExcel});
             this.contextMenuChiTiet.Name = "contextMenuChiTiet";
-            this.contextMenuChiTiet.Size = new System.Drawing.Size(166, 82);
+            this.contextMenuChiTiet.Size = new System.Drawing.Size(215, 110);
             // 
             // lblXoa
             // 
             this.lblXoa.BackColor = System.Drawing.Color.Transparent;
+            this.lblXoa.Image = global::MATERIAL.Properties.Resources.icon_cuctayxoa1;
             this.lblXoa.Name = "lblXoa";
-            this.lblXoa.Size = new System.Drawing.Size(165, 26);
+            this.lblXoa.Size = new System.Drawing.Size(214, 26);
             this.lblXoa.Text = "Xóa dòng";
             // 
             // lblXoaChiTiet
             // 
+            this.lblXoaChiTiet.Image = global::MATERIAL.Properties.Resources.icon_thungrac;
             this.lblXoaChiTiet.Name = "lblXoaChiTiet";
-            this.lblXoaChiTiet.Size = new System.Drawing.Size(165, 26);
+            this.lblXoaChiTiet.Size = new System.Drawing.Size(214, 26);
             this.lblXoaChiTiet.Text = "Xóa chi tiết";
             // 
             // lblImportExcel
             // 
+            this.lblImportExcel.Image = global::MATERIAL.Properties.Resources.icon_importexcel1;
             this.lblImportExcel.Name = "lblImportExcel";
-            this.lblImportExcel.Size = new System.Drawing.Size(165, 26);
+            this.lblImportExcel.Size = new System.Drawing.Size(214, 26);
             this.lblImportExcel.Text = "Import Excel";
             // 
             // frmNhapMua

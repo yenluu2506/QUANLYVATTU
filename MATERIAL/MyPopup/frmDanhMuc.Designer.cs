@@ -102,7 +102,6 @@
             // 
             // btnImport
             // 
-            this.btnImport.Image = global::MATERIAL.Properties.Resources.icon_import1;
             this.btnImport.Location = new System.Drawing.Point(256, 12);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(93, 45);

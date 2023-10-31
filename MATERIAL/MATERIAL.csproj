@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>F:\QUANLYVATTU\MATERIAL\Properties\Resources.resx</Win32Resource>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v23.1" />
     <Reference Include="DevExpress.Charts.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -196,6 +199,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -203,11 +207,41 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\1564491_add_create_new_plus_icon.png" />
+    <None Include="Resources\banner.gif" />
+    <None Include="Resources\banner2.gif" />
+    <None Include="Resources\banner21.gif" />
+    <None Include="Resources\banner22.gif" />
+    <None Include="Resources\del_Icon_x16.png" />
+    <None Include="Resources\icon_add.png" />
+    <None Include="Resources\icon_add1.png" />
+    <None Include="Resources\icon_baocao.png" />
+    <None Include="Resources\icon_baocao1.png" />
+    <None Include="Resources\icon_boqua.png" />
+    <None Include="Resources\icon_delete1.jpg" />
+    <None Include="Resources\icon_delete1.png" />
+    <None Include="Resources\icon_excel1.png" />
+    <None Include="Resources\icon_hethong.png" />
+    <None Include="Resources\icon_hethong1.png" />
+    <None Include="Resources\icon_import1.png" />
+    <None Include="Resources\icon_out.png" />
+    <None Include="Resources\icon_out1.png" />
+    <None Include="Resources\icon_out2.png" />
+    <None Include="Resources\icon_save.png" />
+    <None Include="Resources\icon_sua.png" />
+    <None Include="Resources\icon_thoat.png" />
+    <None Include="Resources\icon_thungrac.png" />
+    <None Include="Resources\icon_xoa.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinesssLayer\BusinesssLayer.csproj">
@@ -220,79 +254,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon_hethong.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_baocao.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_thoat.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_baocao1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_hethong1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\banner.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\banner2.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\banner21.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\banner22.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1564491_add_create_new_plus_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_add1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_sua.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_xoa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_save.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_boqua.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_out.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_out1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_out2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\del_Icon_x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_excel1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_import1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_delete1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_delete1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_thungrac.png" />
+    <Content Include="Resources\icon_cuctayxoa.jpg" />
+    <Content Include="Resources\icon_cuctayxoa.png" />
+    <None Include="Resources\icon_importexcel1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

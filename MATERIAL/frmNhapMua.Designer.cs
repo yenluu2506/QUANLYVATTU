@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
@@ -80,6 +81,10 @@
             this.THANHTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pageDanhSach = new DevExpress.XtraTab.XtraTabPage();
+            this.contextMenuChiTiet = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblXoa = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblXoaChiTiet = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblImportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -102,6 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTiet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChiTiet)).BeginInit();
             this.pageDanhSach.SuspendLayout();
+            this.contextMenuChiTiet.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -126,7 +132,6 @@
             // 
             // btnThem
             // 
-            this.btnThem.Image = global::MATERIAL.Properties.Resources.icon_add1;
             this.btnThem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThem.Name = "btnThem";
@@ -138,7 +143,6 @@
             // 
             // btnSua
             // 
-            this.btnSua.Image = global::MATERIAL.Properties.Resources.icon_sua;
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSua.Name = "btnSua";
             this.btnSua.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -149,7 +153,6 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Image = global::MATERIAL.Properties.Resources.icon_xoa;
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -160,7 +163,6 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Image = global::MATERIAL.Properties.Resources.icon_save;
             this.btnLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -171,7 +173,6 @@
             // 
             // btnBoQua
             // 
-            this.btnBoQua.Image = global::MATERIAL.Properties.Resources.icon_boqua;
             this.btnBoQua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBoQua.Name = "btnBoQua";
             this.btnBoQua.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -183,7 +184,6 @@
             // btnThoat
             // 
             this.btnThoat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_out2;
             this.btnThoat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoat.Margin = new System.Windows.Forms.Padding(610, 1, 0, 2);
@@ -702,6 +702,35 @@
             this.pageDanhSach.Size = new System.Drawing.Size(1015, 664);
             this.pageDanhSach.Text = "Danh Sách";
             // 
+            // contextMenuChiTiet
+            // 
+            this.contextMenuChiTiet.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblXoa,
+            this.lblXoaChiTiet,
+            this.lblImportExcel});
+            this.contextMenuChiTiet.Name = "contextMenuChiTiet";
+            this.contextMenuChiTiet.Size = new System.Drawing.Size(166, 82);
+            // 
+            // lblXoa
+            // 
+            this.lblXoa.BackColor = System.Drawing.Color.Transparent;
+            this.lblXoa.Name = "lblXoa";
+            this.lblXoa.Size = new System.Drawing.Size(165, 26);
+            this.lblXoa.Text = "Xóa dòng";
+            // 
+            // lblXoaChiTiet
+            // 
+            this.lblXoaChiTiet.Name = "lblXoaChiTiet";
+            this.lblXoaChiTiet.Size = new System.Drawing.Size(165, 26);
+            this.lblXoaChiTiet.Text = "Xóa chi tiết";
+            // 
+            // lblImportExcel
+            // 
+            this.lblImportExcel.Name = "lblImportExcel";
+            this.lblImportExcel.Size = new System.Drawing.Size(165, 26);
+            this.lblImportExcel.Text = "Import Excel";
+            // 
             // frmNhapMua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -740,6 +769,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTiet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChiTiet)).EndInit();
             this.pageDanhSach.ResumeLayout(false);
+            this.contextMenuChiTiet.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -799,5 +829,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn SOLUONGCT;
         private DevExpress.XtraGrid.Columns.GridColumn THANHTIEN;
         private DevExpress.XtraGrid.Columns.GridColumn STT;
+        private System.Windows.Forms.ContextMenuStrip contextMenuChiTiet;
+        private System.Windows.Forms.ToolStripMenuItem lblXoa;
+        private System.Windows.Forms.ToolStripMenuItem lblXoaChiTiet;
+        private System.Windows.Forms.ToolStripMenuItem lblImportExcel;
     }
 }

@@ -10,6 +10,7 @@
             <PropertyRef Name="KHOA" />
           </Key>
           <Property Name="KHOA" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LCT" Type="int" />
           <Property Name="SCT" Type="nvarchar" MaxLength="50" />
           <Property Name="NGAY" Type="datetime" />
           <Property Name="SCT2" Type="nvarchar" MaxLength="50" />
@@ -529,10 +530,10 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_DONVI" EntityType="VATTU.tb_DONVI" />
           <EntitySet Name="tb_NHOMHH" EntityType="VATTU.tb_NHOMHH" />
           <EntitySet Name="tb_SYS_SEQUENCE" EntityType="VATTU.tb_SYS_SEQUENCE" />
-          <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
           <EntitySet Name="tb_HANGHOA" EntityType="VATTU.tb_HANGHOA" />
           <EntitySet Name="tb_NHACUNGCAP" EntityType="VATTU.tb_NHACUNGCAP" />
           <EntitySet Name="tb_CHUNGTU_CT" EntityType="VATTU.tb_CHUNGTU_CT" />
+          <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
         </EntityContainer>
         <EntityType Name="tb_DONVI">
           <Key>
@@ -563,29 +564,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           </Key>
           <Property Name="SEQNAME" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="SEQVALUE" Type="Int32" />
-        </EntityType>
-        <EntityType Name="tb_CHUNGTU">
-          <Key>
-            <PropertyRef Name="KHOA" />
-          </Key>
-          <Property Name="KHOA" Nullable="false" Type="Guid" />
-          <Property Name="SCT" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="NGAY" Precision="3" Type="DateTime" />
-          <Property Name="SCT2" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="NGAY2" Precision="3" Type="DateTime" />
-          <Property Name="SOLUONG" Type="Int32" />
-          <Property Name="TONGTIEN" Type="Double" />
-          <Property Name="GHICHU" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MACTY" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MADVI" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MADVI2" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="TRANGTHAI" Type="Boolean" />
-          <Property Name="CREATED_DATE" Precision="3" Type="DateTime" />
-          <Property Name="CREATED_BY" Type="Int32" />
-          <Property Name="UPDATED_DATE" Precision="3" Type="DateTime" />
-          <Property Name="UPDATED_BY" Type="Int32" />
-          <Property Name="DELETED_DATE" Precision="3" Type="DateTime" />
-          <Property Name="DELETED_BY" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_HANGHOA">
           <Key>
@@ -629,6 +607,30 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="THANHTIEN" Type="Double" />
           <Property Name="NGAY" Type="DateTime" Precision="3" />
           <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_CHUNGTU">
+          <Key>
+            <PropertyRef Name="KHOA" />
+          </Key>
+          <Property Name="KHOA" Type="Guid" Nullable="false" />
+          <Property Name="LCT" Type="Int32" />
+          <Property Name="SCT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="SCT2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY2" Type="DateTime" Precision="3" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="TONGTIEN" Type="Double" />
+          <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MACTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MADVI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MADVI2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRANGTHAI" Type="Boolean" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -840,30 +842,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_CHUNGTU">
-            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU">
-              <MappingFragment StoreEntitySet="tb_CHUNGTU">
-                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
-                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
-                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
-                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
-                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
-                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
-                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
-                <ScalarProperty Name="MADVI2" ColumnName="MADVI2" />
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="NGAY2" ColumnName="NGAY2" />
-                <ScalarProperty Name="SCT2" ColumnName="SCT2" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-                <ScalarProperty Name="SCT" ColumnName="SCT" />
-                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_HANGHOA">
             <EntityTypeMapping TypeName="VATTU.tb_HANGHOA">
               <MappingFragment StoreEntitySet="tb_HANGHOA">
@@ -907,6 +885,31 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
                 <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
                 <ScalarProperty Name="KHOA" ColumnName="KHOA" />
                 <ScalarProperty Name="KHOACT" ColumnName="KHOACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_CHUNGTU">
+            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU">
+              <MappingFragment StoreEntitySet="tb_CHUNGTU">
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="MADVI2" ColumnName="MADVI2" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="NGAY2" ColumnName="NGAY2" />
+                <ScalarProperty Name="SCT2" ColumnName="SCT2" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="SCT" ColumnName="SCT" />
+                <ScalarProperty Name="LCT" ColumnName="LCT" />
+                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

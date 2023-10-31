@@ -30,6 +30,10 @@ namespace BusinesssLayer
         {
             return db.tb_CHUNGTU.Where(x => x.KHOA == khoa).ToList();
         }
+        public List<tb_CHUNGTU> getList(int lct, DateTime tungay, DateTime denngay, string madvi)
+        {
+            return db.tb_CHUNGTU.Where(x => x.MADVI == madvi && x.NGAY >= tungay && x.NGAY < denngay && x.LCT == lct).OrderBy(x=>x.SCT).ToList();
+        }
 
         public tb_CHUNGTU add(tb_CHUNGTU ct)
         {
@@ -48,6 +52,7 @@ namespace BusinesssLayer
         public tb_CHUNGTU update(tb_CHUNGTU ct)
         {
             tb_CHUNGTU _ct = db.tb_CHUNGTU.FirstOrDefault(x => x.KHOA == ct.KHOA);
+            _ct.LCT = ct.LCT;
             _ct.SCT = ct.SCT;
             _ct.NGAY = ct.NGAY;
             _ct.SCT2 = ct.SCT2;
@@ -70,7 +75,7 @@ namespace BusinesssLayer
             }
         }
 
-        public void delete(Guid khoa)
+        public void deleteAll(Guid khoa)
         {
             tb_CHUNGTU _ct = db.tb_CHUNGTU.FirstOrDefault(x => x.KHOA == khoa);
             _ct.TRANGTHAI = true;

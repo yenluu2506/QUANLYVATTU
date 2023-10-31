@@ -143,7 +143,7 @@ namespace MATERIAL
         {
             double _TONGCONG = 0;
             tb_DONVI dvi = _donvi.getItem(cboDonVi.SelectedValue.ToString());
-            _seq = dvi = _sequence.getItem("NHM@" + DateTime.Today.Year.ToString() + "@" + dvi.KYHIEU);
+            _seq  = _sequence.getItem("NHM@" + DateTime.Today.Year.ToString() + "@" + dvi.KYHIEU);
             if (_seq == null)
             {
                 _seq = new tb_SYS_SEQUENCE();
@@ -163,7 +163,7 @@ namespace MATERIAL
             chungtu.MACTY = cboCongTy.SelectedValue.ToString();
             chungtu.MADVI = cboDonVi.SelectedValue.ToString();
             chungtu.MADVI2 = cboNhaCC.SelectedValue.ToString();
-            chungtu.TRANGTHAI = int.Parse(cboTrangThai.SelectedValue.ToString());
+            chungtu.TRANGTHAI = int.Parse(cboTrangThai.SelectedValue.ToString()) == 1;
             chungtu.GHICHU = txtGhiChu.Text;
             chungtu.SOLUONG = int.Parse(gvChiTiet.Columns["SOLUONG"].SummaryItem.SummaryValue.ToString());
             for (int i = 0; i < gvChiTiet.RowCount; i++)
@@ -351,31 +351,31 @@ namespace MATERIAL
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (_right == 1)
-            {
-                MessageBox.Show("Không có quyền thao tác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else
-            {
-                tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
-                if(current.TRANGTHAI == 1)
-                {
-                    _them = false;
-                    _sua = true;
-                    showHideControl(false);
-                    _enabled(true);
-                    tabChungTu.SelectedTabPage= pageChiTiet;
-                    tabChungTu.TabPages[0].PageEnabled = false;
-                    gvChiTiet.OptionsBehavior.Editable= true;
-                    contentMenuChiTiet.Enabled = true;
-                    cboDonVi.Enabled = false;
-                    if (gvChiTiet.RowCount == 0)
-                    {
-                        List<V_CHUNGTU_CT> _lstChiTiet
-                    }
-                }
-            }
+            //if (_right == 1)
+            //{
+            //    MessageBox.Show("Không có quyền thao tác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //else
+            //{
+            //    tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
+            //    if(current.TRANGTHAI == 1)
+            //    {
+            //        _them = false;
+            //        _sua = true;
+            //        showHideControl(false);
+            //        _enabled(true);
+            //        tabChungTu.SelectedTabPage= pageChiTiet;
+            //        tabChungTu.TabPages[0].PageEnabled = false;
+            //        gvChiTiet.OptionsBehavior.Editable= true;
+            //        contextMenuChiTiet.Enabled = true;
+            //        cboDonVi.Enabled = false;
+            //        if (gvChiTiet.RowCount == 0)
+            //        {
+            //            List<V_CHUNGTU_CT> _lstChiTiet
+            //        }
+            //    }
+            //}
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

@@ -22,10 +22,10 @@
         <EntityTypeShape EntityType="VATTU.tb_DONVI" PointX="4.75" PointY="3.75" Width="1.5" />
         <EntityTypeShape EntityType="VATTU.tb_NHOMHH" PointX="4.75" PointY="0.75" Width="1.5" />
         <EntityTypeShape EntityType="VATTU.tb_SYS_SEQUENCE" PointX="10.75" PointY="11.75" Width="1.5" />
-        <EntityTypeShape EntityType="VATTU.tb_CHUNGTU" PointX="8.75" PointY="0.75" Width="1.5" />
         <EntityTypeShape EntityType="VATTU.tb_HANGHOA" Width="1.5" PointX="7.375" PointY="12.75" />
         <EntityTypeShape EntityType="VATTU.tb_NHACUNGCAP" Width="1.5" PointX="13.375" PointY="3.75" />
         <EntityTypeShape EntityType="VATTU.tb_CHUNGTU_CT" Width="1.5" PointX="13.375" PointY="7.75" />
+        <EntityTypeShape EntityType="VATTU.tb_CHUNGTU" Width="1.5" PointX="13.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

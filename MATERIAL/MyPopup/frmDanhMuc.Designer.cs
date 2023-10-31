@@ -91,7 +91,6 @@
             // 
             // btnDong
             // 
-            this.btnDong.Image = global::MATERIAL.Properties.Resources.icon_delete11;
             this.btnDong.Location = new System.Drawing.Point(406, 12);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(93, 45);

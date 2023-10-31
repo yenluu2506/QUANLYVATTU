@@ -15,6 +15,7 @@ namespace DataLayer
     public partial class tb_CHUNGTU
     {
         public System.Guid KHOA { get; set; }
+        public Nullable<int> LCT { get; set; }
         public string SCT { get; set; }
         public Nullable<System.DateTime> NGAY { get; set; }
         public string SCT2 { get; set; }

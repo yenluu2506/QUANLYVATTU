@@ -42,9 +42,9 @@ namespace DataLayer
         public virtual DbSet<tb_DONVI> tb_DONVI { get; set; }
         public virtual DbSet<tb_NHOMHH> tb_NHOMHH { get; set; }
         public virtual DbSet<tb_SYS_SEQUENCE> tb_SYS_SEQUENCE { get; set; }
-        public virtual DbSet<tb_CHUNGTU> tb_CHUNGTU { get; set; }
         public virtual DbSet<tb_HANGHOA> tb_HANGHOA { get; set; }
         public virtual DbSet<tb_NHACUNGCAP> tb_NHACUNGCAP { get; set; }
         public virtual DbSet<tb_CHUNGTU_CT> tb_CHUNGTU_CT { get; set; }
+        public virtual DbSet<tb_CHUNGTU> tb_CHUNGTU { get; set; }
     }
 }

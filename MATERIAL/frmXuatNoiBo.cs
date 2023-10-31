@@ -2,6 +2,7 @@
 using DataLayer;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
+using MATERIAL.MyPopup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,12 +69,12 @@ namespace MATERIAL
             dtTuNgay.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             dtDenNgay.Value = DateTime.Now;
 
-            _bdChungTu.PositionChanged += _bdChungTu_SelectedIndexChanged;
+            _bdChungTu.PositionChanged += _bdChungTu_PositionChanged;
             loadCongTy();
             cboCongTy.SelectedValue = myFunctions._macty;
             cboCongTy.SelectedIndexChanged += CboCongTy_SelectedIndexChanged;
 
-            _trangthai = _TRANGTHAI.getlist();
+            _trangthai = _TRANGTHAI.getList();
             cboTrangThai.DataSource = _trangthai;
             cboTrangThai.DisplayMember = "_display";
             cboTrangThai.ValueMember = "_value";
@@ -236,7 +237,7 @@ namespace MATERIAL
             _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(_khoa);
             gcChiTiet.DataSource = _bdChungTuCT;
             gvChiTiet.AddNewRow();
-            tabChungTu.SelectedTabPage = panelChiTiet;
+            tabChungTu.SelectedTabPage = pageChiTiet;
             gvChiTiet.OptionsBehavior.Editable = true;
             contextMenuChiTiet.Enable = true;
             _them = true;
@@ -692,7 +693,7 @@ namespace MATERIAL
                         {
                             errExport _err = new errExport();
                             _err._barcode = range.Cells[i,1].Value.ToString();
-                            _err.soluong = int.Parse(range.Cell[i,2].Value.ToString());
+                            _err._soluong = int.Parse(range.Cells[i,2].Value.ToString());
                             _err._errcode = "Barcode không tồn tại";
                             err.Add(_err);
                             continue;
@@ -702,7 +703,7 @@ namespace MATERIAL
                             if(_exist.Find(x=>x.Equals(hh.BARCODE))!=null) {
                                 errExport _err = new errExport();
                                 _err._barcode = range.Cells[i, 1].Value.ToString();
-                                _err.soluong = int.Parse(range.Cell[i, 2].Value.ToString());
+                                _err._soluong = int.Parse(range.Cells[i, 2].Value.ToString());
                                 _err._errcode = "Trùng Barcode";
                                 err.Add(_err);
                                 continue;

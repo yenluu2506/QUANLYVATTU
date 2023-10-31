@@ -31,12 +31,12 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnDong = new System.Windows.Forms.Button();
-            this.btnImport = new System.Windows.Forms.Button();
             this.BARCODE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TENHH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDong = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -89,28 +89,6 @@
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
             // 
-            // btnDong
-            // 
-            this.btnDong.Location = new System.Drawing.Point(406, 12);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(93, 45);
-            this.btnDong.TabIndex = 1;
-            this.btnDong.Text = "Đóng";
-            this.btnDong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDong.UseVisualStyleBackColor = true;
-            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
-            // 
-            // btnImport
-            // 
-            this.btnImport.Location = new System.Drawing.Point(256, 12);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(93, 45);
-            this.btnImport.TabIndex = 0;
-            this.btnImport.Text = "Import";
-            this.btnImport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
             // BARCODE
             // 
             this.BARCODE.Caption = "BARCODE";
@@ -154,6 +132,30 @@
             this.DONGIA.Visible = true;
             this.DONGIA.VisibleIndex = 3;
             this.DONGIA.Width = 100;
+            // 
+            // btnDong
+            // 
+            this.btnDong.Image = global::MATERIAL.Properties.Resources.icon_delete11;
+            this.btnDong.Location = new System.Drawing.Point(406, 12);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(93, 45);
+            this.btnDong.TabIndex = 1;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Image = global::MATERIAL.Properties.Resources.icon_import1;
+            this.btnImport.Location = new System.Drawing.Point(256, 12);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(93, 45);
+            this.btnImport.TabIndex = 0;
+            this.btnImport.Text = "Import";
+            this.btnImport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // frmDanhMuc
             // 

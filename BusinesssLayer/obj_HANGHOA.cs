@@ -20,5 +20,6 @@ namespace BusinesssLayer
         public Nullable<int> IDNHOM { get; set; }
         public string TENNHOM { get; set; }
         public string MOTA { get; set; }
+        public Nullable<bool> DISABLED { get; set; }
     }
 }

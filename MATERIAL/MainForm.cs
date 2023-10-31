@@ -137,12 +137,12 @@ namespace MATERIAL
                         frm.ShowDialog();
                         break;
                     }
-                case "XUATNB":
-                    {
-                        frmXuatNoiBo frm = new frmXuatNoiBo(_user,_uRight.USER_RIGHT.Value);
-                        frm.ShowDialog();
-                        break;
-                    }
+                //case "XUATNB":
+                //    {
+                //        frmXuatNoiBo frm = new frmXuatNoiBo(_user,_uRight.USER_RIGHT.Value);
+                //        frm.ShowDialog();
+                //        break;
+                //    }
             }
             //}
         }

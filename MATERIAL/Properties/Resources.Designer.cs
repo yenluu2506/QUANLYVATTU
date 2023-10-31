@@ -63,26 +63,6 @@ namespace MATERIAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1564491_add_create_new_plus_icon {
-            get {
-                object obj = ResourceManager.GetObject("1564491_add_create_new_plus_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap banner {
-            get {
-                object obj = ResourceManager.GetObject("banner", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap banner2 {
             get {
                 object obj = ResourceManager.GetObject("banner2", resourceCulture);
@@ -143,16 +123,6 @@ namespace MATERIAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_baocao {
-            get {
-                object obj = ResourceManager.GetObject("icon_baocao", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icon_baocao1 {
             get {
                 object obj = ResourceManager.GetObject("icon_baocao1", resourceCulture);
@@ -166,26 +136,6 @@ namespace MATERIAL.Properties {
         internal static System.Drawing.Bitmap icon_boqua {
             get {
                 object obj = ResourceManager.GetObject("icon_boqua", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icon_cuctayxoa {
-            get {
-                object obj = ResourceManager.GetObject("icon_cuctayxoa", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icon_cuctayxoa1 {
-            get {
-                object obj = ResourceManager.GetObject("icon_cuctayxoa1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,16 +266,6 @@ namespace MATERIAL.Properties {
         internal static System.Drawing.Bitmap icon_thoat {
             get {
                 object obj = ResourceManager.GetObject("icon_thoat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icon_thungrac {
-            get {
-                object obj = ResourceManager.GetObject("icon_thungrac", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

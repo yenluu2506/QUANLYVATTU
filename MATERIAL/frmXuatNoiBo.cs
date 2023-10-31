@@ -705,7 +705,7 @@ namespace MATERIAL
                                 _err.soluong = int.Parse(range.Cell[i, 2].Value.ToString());
                                 _err._errcode = "Trùng Barcode";
                                 err.Add(_err);
-                                continue
+                                continue;
                             }
                             else
                             {

@@ -82,9 +82,9 @@
             this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pageDanhSach = new DevExpress.XtraTab.XtraTabPage();
             this.contextMenuChiTiet = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.lblXoa = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblXoaChiTiet = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblImportExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnXoaDong = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnXoaChiTiet = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnImportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -711,30 +711,33 @@
             // 
             this.contextMenuChiTiet.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblXoa,
-            this.lblXoaChiTiet,
-            this.lblImportExcel});
+            this.mnXoaDong,
+            this.mnXoaChiTiet,
+            this.mnImportExcel});
             this.contextMenuChiTiet.Name = "contextMenuChiTiet";
-            this.contextMenuChiTiet.Size = new System.Drawing.Size(162, 76);
+            this.contextMenuChiTiet.Size = new System.Drawing.Size(211, 104);
             // 
-            // lblXoa
+            // mnXoaDong
             // 
-            this.lblXoa.BackColor = System.Drawing.Color.Transparent;
-            this.lblXoa.Name = "lblXoa";
-            this.lblXoa.Size = new System.Drawing.Size(161, 24);
-            this.lblXoa.Text = "Xóa dòng";
+            this.mnXoaDong.BackColor = System.Drawing.Color.Transparent;
+            this.mnXoaDong.Name = "mnXoaDong";
+            this.mnXoaDong.Size = new System.Drawing.Size(210, 24);
+            this.mnXoaDong.Text = "Xóa dòng";
+            this.mnXoaDong.Click += new System.EventHandler(this.mnXoaDong_Click);
             // 
-            // lblXoaChiTiet
+            // mnXoaChiTiet
             // 
-            this.lblXoaChiTiet.Name = "lblXoaChiTiet";
-            this.lblXoaChiTiet.Size = new System.Drawing.Size(161, 24);
-            this.lblXoaChiTiet.Text = "Xóa chi tiết";
+            this.mnXoaChiTiet.Name = "mnXoaChiTiet";
+            this.mnXoaChiTiet.Size = new System.Drawing.Size(210, 24);
+            this.mnXoaChiTiet.Text = "Xóa chi tiết";
+            this.mnXoaChiTiet.Click += new System.EventHandler(this.mnXoaChiTiet_Click);
             // 
-            // lblImportExcel
+            // mnImportExcel
             // 
-            this.lblImportExcel.Name = "lblImportExcel";
-            this.lblImportExcel.Size = new System.Drawing.Size(161, 24);
-            this.lblImportExcel.Text = "Import Excel";
+            this.mnImportExcel.Name = "mnImportExcel";
+            this.mnImportExcel.Size = new System.Drawing.Size(210, 24);
+            this.mnImportExcel.Text = "Import Excel";
+            this.mnImportExcel.Click += new System.EventHandler(this.mnImportExcel_Click);
             // 
             // frmNhapMua
             // 
@@ -835,8 +838,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn THANHTIEN;
         private DevExpress.XtraGrid.Columns.GridColumn STT;
         private System.Windows.Forms.ContextMenuStrip contextMenuChiTiet;
-        private System.Windows.Forms.ToolStripMenuItem lblXoa;
-        private System.Windows.Forms.ToolStripMenuItem lblXoaChiTiet;
-        private System.Windows.Forms.ToolStripMenuItem lblImportExcel;
+        private System.Windows.Forms.ToolStripMenuItem mnXoaDong;
+        private System.Windows.Forms.ToolStripMenuItem mnXoaChiTiet;
+        private System.Windows.Forms.ToolStripMenuItem mnImportExcel;
     }
 }

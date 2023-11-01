@@ -123,12 +123,12 @@ namespace MATERIAL
                 cboTrangThai.SelectedValue = current.TRANGTHAI;
                 if (current.DELETED_BY != null)
                 {
-                    lblXoa.Visible = true;
+                    mnXoaDong.Visible = true;
                     btnXoa.Visible = false;
                 }
                 else
                 {
-                    lblXoa.Visible = false;
+                    mnXoaDong.Visible = false;
                     btnXoa.Enabled = true;
                 }
                 _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(current.KHOA);
@@ -417,7 +417,7 @@ namespace MATERIAL
                     int index = _bdChungTu.Position;
                     _chungtu.deleteAll(current.KHOA, 1);
                     gvDanhSach.SetRowCellValue(index, "DELETED_BY", 0);
-                    lblXoa.Visible = true;
+                    mnXoaDong.Visible = true;
                 }
                 else
                     return;
@@ -426,12 +426,28 @@ namespace MATERIAL
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
+            luuThongTin();
+            _them = false;
+            _sua = false;
+            gvChiTiet.OptionsBehavior.Editable = false;
+            contextMenuChiTiet.Enabled = false;
+            tabChungTu.TabPages[0].PageEnabled = true;
+            showHideControl(true);
+            _enabled(false);
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)
         {
-
+            _them = false;
+            _sua = false;
+            showHideControl(true);
+            _reset();
+            _enabled(false);
+            xuatThongTin();
+            tabChungTu.TabPages[0].PageEnabled = true;
+            tabChungTu.SelectedTabPage = pageDanhSach;
+            gvChiTiet.OptionsBehavior.Editable = false;
+            contextMenuChiTiet.Enabled = false;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -581,6 +597,19 @@ namespace MATERIAL
             }
         }
 
-       
+        private void mnXoaDong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnXoaChiTiet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnImportExcel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

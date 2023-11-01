@@ -170,7 +170,8 @@ namespace MATERIAL
 
         void _reset()
         {
-
+            txtSoPhieu.Text = "";
+            txtGhiChu.Text = "";
         }
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -206,33 +207,33 @@ namespace MATERIAL
             }
             else
             {
-                //tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
-                //if (current.TRANGTHAI == 1)
-                //{
-                //    _them = false;
-                //    _sua = true;
-                //    showHideControl(false);
-                //    _edControl(true);
-                //    tabChungTu.SelectedTabPage = pageChiTiet;
-                //    tabChungTu.TabPages[0].PageEnabled = false;
-                //    gvChiTiet.OptionsBehavior.Editable = true;
-                //    contextMenuChiTiet.Enabled = true;
-                //    cboDonVi.Enabled = false;
-                //    if (gvChiTiet.RowCount == 0)
-                //    {
-                //        //List<V_CHUNGTU_CT> _lstChitiet = new List<V_CHUNGTU_CT>();
-                //        _bdChungTu.DataSource = _lstChitiet;
-                //        gcChiTiet.DataSource = _bdChungTu;
-                //        gvChiTiet.AddNewRow();
-                //        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "STT", 1);
-                //    }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Không được phép chỉnh sửa chứng từ đã hoàn tất", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return;
+                tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
+                if (current.TRANGTHAI == 1)
+                {
+                    _them = false;
+                    _sua = true;
+                    showHideControl(false);
+                    _edControl(true);
+                    tabChungTu.SelectedTabPage = pageChiTiet;
+                    tabChungTu.TabPages[0].PageEnabled = false;
+                    gvChiTiet.OptionsBehavior.Editable = true;
+                    contextMenuChiTiet.Enabled = true;
+                    cboDonVi.Enabled = false;
+                    if (gvChiTiet.RowCount == 0)
+                    {
+                        List<V_CHUNGTU_CT> _lstChitiet = new List<V_CHUNGTU_CT>();
+                        _bdChungTu.DataSource = _lstChitiet;
+                        gcChiTiet.DataSource = _bdChungTu;
+                        gvChiTiet.AddNewRow();
+                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "STT", 1);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không được phép chỉnh sửa chứng từ đã hoàn tất", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
 
-                //}
+                }
             }
             _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(_khoa);
             gcChiTiet.DataSource = _bdChungTuCT;
@@ -256,11 +257,11 @@ namespace MATERIAL
             }
             else
             {
-                if (MessageBox.Show("Bạn có chắc muốn hủy phiếu nhập này ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có chắc muốn hủy phiếu này ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
                     int index = _bdChungTu.Position;
-                    //_chungtu.deleteAll(current.KHOA, 1);
+                    _chungtu.deleteAll(current.KHOA, 1);
                     gvDanhSach.SetRowCellValue(index, "DELETED_BY", 0);
                     lblXoa.Visible = true;
                 }
@@ -360,7 +361,7 @@ namespace MATERIAL
             chungtu.MACTY = cboCongTy.SelectedValue.ToString();
             chungtu.MADVI = cboDonViXuat.SelectedValue.ToString();
             chungtu.MADVI2 = cboDonViNhap.SelectedValue.ToString();
-            chungtu.TRANGTHAI = int.Parse(cboTrangThai.SelectedValue.ToString()) == 1;
+            chungtu.TRANGTHAI = int.Parse(cboTrangThai.SelectedValue.ToString());
             chungtu.GHICHU = txtGhiChu.Text;
             chungtu.SOLUONG = int.Parse(gvChiTiet.Columns["SOLUONG"].SummaryItem.SummaryValue.ToString());
             for (int i = 0; i < gvChiTiet.RowCount; i++)

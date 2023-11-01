@@ -26,7 +26,7 @@ namespace DataLayer
         public string MACTY { get; set; }
         public string MADVI { get; set; }
         public string MADVI2 { get; set; }
-        public Nullable<bool> TRANGTHAI { get; set; }
+        public Nullable<int> TRANGTHAI { get; set; }
         public Nullable<System.DateTime> CREATED_DATE { get; set; }
         public Nullable<int> CREATED_BY { get; set; }
         public Nullable<System.DateTime> UPDATED_DATE { get; set; }

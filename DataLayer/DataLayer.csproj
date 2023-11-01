@@ -123,6 +123,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VATTU.edmx</DependentUpon>
     </Compile>
+    <Compile Include="V_CHUNGTU_CT.cs">
+      <DependentUpon>VATTU.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_FUNC_SYS_RIGHT.cs">
       <DependentUpon>VATTU.tt</DependentUpon>
     </Compile>

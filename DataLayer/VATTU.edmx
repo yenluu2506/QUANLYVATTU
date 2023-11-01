@@ -21,7 +21,7 @@
           <Property Name="MACTY" Type="nvarchar" MaxLength="50" />
           <Property Name="MADVI" Type="nvarchar" MaxLength="50" />
           <Property Name="MADVI2" Type="nvarchar" MaxLength="50" />
-          <Property Name="TRANGTHAI" Type="bit" />
+          <Property Name="TRANGTHAI" Type="int" />
           <Property Name="CREATED_DATE" Type="datetime" />
           <Property Name="CREATED_BY" Type="int" />
           <Property Name="UPDATED_DATE" Type="datetime" />
@@ -211,6 +211,21 @@
           <Property Name="TEN" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'QUANLY_VATTU.dbo.V_CHUNGTU_CT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_CHUNGTU_CT">
+          <Key>
+            <PropertyRef Name="BARCODE" />
+            <PropertyRef Name="KHOACT" />
+          </Key>
+          <Property Name="BARCODE" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="TENHH" Type="nvarchar" MaxLength="50" />
+          <Property Name="DVT" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOLUONG" Type="int" />
+          <Property Name="THANHTIEN" Type="float" />
+          <Property Name="KHOACT" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="KHOA" Type="uniqueidentifier" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'QUANLY_VATTU.dbo.V_FUNC_SYS_RIGHT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_FUNC_SYS_RIGHT">
           <Key>
@@ -293,6 +308,17 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_SYS_USER" EntityType="Self.tb_SYS_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_TONKHO" EntityType="Self.tb_TONKHO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_XUATXU" EntityType="Self.tb_XUATXU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="V_CHUNGTU_CT" EntityType="Self.V_CHUNGTU_CT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_CHUNGTU_CT].[BARCODE] AS [BARCODE], 
+    [V_CHUNGTU_CT].[TENHH] AS [TENHH], 
+    [V_CHUNGTU_CT].[DVT] AS [DVT], 
+    [V_CHUNGTU_CT].[SOLUONG] AS [SOLUONG], 
+    [V_CHUNGTU_CT].[THANHTIEN] AS [THANHTIEN], 
+    [V_CHUNGTU_CT].[KHOACT] AS [KHOACT], 
+    [V_CHUNGTU_CT].[KHOA] AS [KHOA]
+    FROM [dbo].[V_CHUNGTU_CT] AS [V_CHUNGTU_CT]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_FUNC_SYS_RIGHT" EntityType="Self.V_FUNC_SYS_RIGHT" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_FUNC_SYS_RIGHT].[FUNC_CODE] AS [FUNC_CODE], 
@@ -347,223 +373,76 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VATTU" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_CHUNGTU_CT" EntityType="VATTU.tb_CHUNGTU_CT" />
+          <EntitySet Name="tb_CONGTY" EntityType="VATTU.tb_CONGTY" />
+          <EntitySet Name="tb_DONVI" EntityType="VATTU.tb_DONVI" />
+          <EntitySet Name="tb_DVT" EntityType="VATTU.tb_DVT" />
+          <EntitySet Name="tb_HANGHOA" EntityType="VATTU.tb_HANGHOA" />
+          <EntitySet Name="tb_NHACUNGCAP" EntityType="VATTU.tb_NHACUNGCAP" />
+          <EntitySet Name="tb_NHOMHH" EntityType="VATTU.tb_NHOMHH" />
+          <EntitySet Name="tb_SYS_FUNC" EntityType="VATTU.tb_SYS_FUNC" />
+          <EntitySet Name="tb_SYS_GROUP" EntityType="VATTU.tb_SYS_GROUP" />
+          <EntitySet Name="tb_SYS_REPORT" EntityType="VATTU.tb_SYS_REPORT" />
+          <EntitySet Name="tb_SYS_RIGHT" EntityType="VATTU.tb_SYS_RIGHT" />
+          <EntitySet Name="tb_SYS_RIGHT_REP" EntityType="VATTU.tb_SYS_RIGHT_REP" />
+          <EntitySet Name="tb_SYS_SEQUENCE" EntityType="VATTU.tb_SYS_SEQUENCE" />
+          <EntitySet Name="tb_SYS_USER" EntityType="VATTU.tb_SYS_USER" />
+          <EntitySet Name="tb_TONKHO" EntityType="VATTU.tb_TONKHO" />
+          <EntitySet Name="tb_XUATXU" EntityType="VATTU.tb_XUATXU" />
+          <EntitySet Name="V_FUNC_SYS_RIGHT" EntityType="VATTU.V_FUNC_SYS_RIGHT" />
+          <EntitySet Name="V_REP_SYS_RIGHT_REP" EntityType="VATTU.V_REP_SYS_RIGHT_REP" />
+          <EntitySet Name="V_USER_IN_GROUP" EntityType="VATTU.V_USER_IN_GROUP" />
+          <EntitySet Name="V_USER_NOTIN_GROUP" EntityType="VATTU.V_USER_NOTIN_GROUP" />
+          <EntitySet Name="V_CHUNGTU_CT" EntityType="VATTU.V_CHUNGTU_CT" />
+          <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
+        </EntityContainer>
+        <EntityType Name="tb_CHUNGTU_CT">
+          <Key>
+            <PropertyRef Name="KHOACT" />
+          </Key>
+          <Property Name="KHOACT" Type="Guid" Nullable="false" />
+          <Property Name="KHOA" Type="Guid" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="DONGIA" Type="Double" />
+          <Property Name="THANHTIEN" Type="Double" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
         <EntityType Name="tb_CONGTY">
           <Key>
             <PropertyRef Name="MACTY" />
           </Key>
-          <Property Name="MACTY" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="TENCTY" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="DIENTHOAI" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="EMAIL" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="FAX" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="DIACHI" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="MACTY" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TENCTY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DIENTHOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DISABLED" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tb_DONVI">
+          <Key>
+            <PropertyRef Name="MADVI" />
+          </Key>
+          <Property Name="MADVI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENDVI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DIENTHOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MACTY" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DISABLED" Type="Boolean" />
+          <Property Name="KHO" Type="Boolean" />
+          <Property Name="KYHIEU" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tb_DVT">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="TEN" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-        </EntityType>
-        <EntityType Name="tb_SYS_FUNC">
-          <Key>
-            <PropertyRef Name="FUNC_CODE" />
-            <PropertyRef Name="SORT" />
-          </Key>
-          <Property Name="FUNC_CODE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="SORT" Nullable="false" Type="Int32" />
-          <Property Name="DESCRIPTION" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="ISGROUP" Type="Boolean" />
-          <Property Name="PARENT" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="MENU" Type="Boolean" />
-          <Property Name="TIPS" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
-        </EntityType>
-        <EntityType Name="tb_SYS_GROUP">
-          <Key>
-            <PropertyRef Name="GROUP" />
-            <PropertyRef Name="MEMBER" />
-          </Key>
-          <Property Name="GROUP" Nullable="false" Type="Int32" />
-          <Property Name="MEMBER" Nullable="false" Type="Int32" />
-        </EntityType>
-        <EntityType Name="tb_SYS_REPORT">
-          <Key>
-            <PropertyRef Name="REP_CODE" />
-          </Key>
-          <Property Name="REP_CODE" Nullable="false" Type="Int32" />
-          <Property Name="DESCRIPTION" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="REP_NAME" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="VISIBLED" Type="Boolean" />
-          <Property Name="TUNGAY" Type="Boolean" />
-          <Property Name="THANGNAM" Type="Boolean" />
-          <Property Name="MACTY" Type="Boolean" />
-          <Property Name="MADVI" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="tb_SYS_RIGHT">
-          <Key>
-            <PropertyRef Name="FUNC_CODE" />
-            <PropertyRef Name="IDUSER" />
-          </Key>
-          <Property Name="FUNC_CODE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="IDUSER" Nullable="false" Type="Int32" />
-          <Property Name="USER_RIGHT" Type="Int32" />
-        </EntityType>
-        <EntityType Name="tb_SYS_RIGHT_REP">
-          <Key>
-            <PropertyRef Name="REP_CODE" />
-            <PropertyRef Name="IDUSER" />
-          </Key>
-          <Property Name="REP_CODE" Nullable="false" Type="Int32" />
-          <Property Name="IDUSER" Nullable="false" Type="Int32" />
-          <Property Name="USER_RIGHT" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="tb_SYS_USER">
-          <Key>
-            <PropertyRef Name="IDUSER" />
-          </Key>
-          <Property Name="IDUSER" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="USERNAME" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PASSWD" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="FULLNAME" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MACTY" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MADVI" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="LAST_PWD_CHANGED" Precision="3" Type="DateTime" />
-          <Property Name="DISABLED" Type="Boolean" />
-          <Property Name="ISGROUP" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="tb_TONKHO">
-          <Key>
-            <PropertyRef Name="KHOA" />
-          </Key>
-          <Property Name="KHOA" Nullable="false" Type="Guid" />
-          <Property Name="NAMKY" Type="Int32" />
-          <Property Name="NAM" Type="Int32" />
-          <Property Name="KY" Type="Int32" />
-          <Property Name="MADVI" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="LG_DAU" Type="Int32" />
-          <Property Name="LG_NHAP" Type="Int32" />
-          <Property Name="LG_XUAT" Type="Int32" />
-          <Property Name="LG_CUOI" Type="Int32" />
-          <Property Name="THANHTIEN" Type="Double" />
-          <Property Name="NGAY" Precision="3" Type="DateTime" />
-        </EntityType>
-        <EntityType Name="tb_XUATXU">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="TEN" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-        </EntityType>
-        <EntityType Name="V_FUNC_SYS_RIGHT">
-          <Key>
-            <PropertyRef Name="FUNC_CODE" />
-            <PropertyRef Name="SORT" />
-            <PropertyRef Name="IDUSER" />
-          </Key>
-          <Property Name="FUNC_CODE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="DESCRIPTION" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="ISGROUP" Type="Boolean" />
-          <Property Name="PARENT" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="SORT" Nullable="false" Type="Int32" />
-          <Property Name="IDUSER" Nullable="false" Type="Int32" />
-          <Property Name="QUYEN" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-        </EntityType>
-        <EntityType Name="V_REP_SYS_RIGHT_REP">
-          <Key>
-            <PropertyRef Name="REP_CODE" />
-            <PropertyRef Name="IDUSER" />
-          </Key>
-          <Property Name="REP_CODE" Nullable="false" Type="Int32" />
-          <Property Name="DESCRIPTION" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="REP_NAME" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="VISIBLED" Type="Boolean" />
-          <Property Name="IDUSER" Nullable="false" Type="Int32" />
-          <Property Name="QUYEN" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-        </EntityType>
-        <EntityType Name="V_USER_IN_GROUP">
-          <Key>
-            <PropertyRef Name="GROUP" />
-            <PropertyRef Name="MEMBER" />
-          </Key>
-          <Property Name="GROUP" Nullable="false" Type="Int32" />
-          <Property Name="MEMBER" Nullable="false" Type="Int32" />
-          <Property Name="IDUSER" Type="Int32" />
-          <Property Name="USERNAME" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PASSWD" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="FULLNAME" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MACTY" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MADVI" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="LAST_PWD_CHANGED" Precision="3" Type="DateTime" />
-          <Property Name="DISABLED" Type="Boolean" />
-          <Property Name="ISGROUP" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="V_USER_NOTIN_GROUP">
-          <Key>
-            <PropertyRef Name="IDUSER" />
-          </Key>
-          <Property Name="IDUSER" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="USERNAME" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PASSWD" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="FULLNAME" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MACTY" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MADVI" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="LAST_PWD_CHANGED" Precision="3" Type="DateTime" />
-          <Property Name="DISABLED" Type="Boolean" />
-          <Property Name="ISGROUP" Type="Boolean" />
-        </EntityType>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tb_CONGTY" EntityType="Self.tb_CONGTY" />
-          <EntitySet Name="tb_DVT" EntityType="Self.tb_DVT" />
-          <EntitySet Name="tb_SYS_FUNC" EntityType="Self.tb_SYS_FUNC" />
-          <EntitySet Name="tb_SYS_GROUP" EntityType="Self.tb_SYS_GROUP" />
-          <EntitySet Name="tb_SYS_REPORT" EntityType="Self.tb_SYS_REPORT" />
-          <EntitySet Name="tb_SYS_RIGHT" EntityType="Self.tb_SYS_RIGHT" />
-          <EntitySet Name="tb_SYS_RIGHT_REP" EntityType="Self.tb_SYS_RIGHT_REP" />
-          <EntitySet Name="tb_SYS_USER" EntityType="Self.tb_SYS_USER" />
-          <EntitySet Name="tb_TONKHO" EntityType="Self.tb_TONKHO" />
-          <EntitySet Name="tb_XUATXU" EntityType="Self.tb_XUATXU" />
-          <EntitySet Name="V_FUNC_SYS_RIGHT" EntityType="Self.V_FUNC_SYS_RIGHT" />
-          <EntitySet Name="V_REP_SYS_RIGHT_REP" EntityType="Self.V_REP_SYS_RIGHT_REP" />
-          <EntitySet Name="V_USER_IN_GROUP" EntityType="Self.V_USER_IN_GROUP" />
-          <EntitySet Name="V_USER_NOTIN_GROUP" EntityType="Self.V_USER_NOTIN_GROUP" />
-          <EntitySet Name="tb_DONVI" EntityType="VATTU.tb_DONVI" />
-          <EntitySet Name="tb_NHOMHH" EntityType="VATTU.tb_NHOMHH" />
-          <EntitySet Name="tb_SYS_SEQUENCE" EntityType="VATTU.tb_SYS_SEQUENCE" />
-          <EntitySet Name="tb_HANGHOA" EntityType="VATTU.tb_HANGHOA" />
-          <EntitySet Name="tb_NHACUNGCAP" EntityType="VATTU.tb_NHACUNGCAP" />
-          <EntitySet Name="tb_CHUNGTU_CT" EntityType="VATTU.tb_CHUNGTU_CT" />
-          <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
-        </EntityContainer>
-        <EntityType Name="tb_DONVI">
-          <Key>
-            <PropertyRef Name="MADVI" />
-          </Key>
-          <Property Name="MADVI" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="TENDVI" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="DIENTHOAI" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="FAX" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="EMAIL" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="DIACHI" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MACTY" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="DISABLED" Type="Boolean" />
-          <Property Name="KHO" Type="Boolean" />
-          <Property Name="KYHIEU" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-        </EntityType>
-        <EntityType Name="tb_NHOMHH">
-          <Key>
-            <PropertyRef Name="IDNHOM" />
-          </Key>
-          <Property Name="IDNHOM" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="TENNHOM" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="GHICHU" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
-        </EntityType>
-        <EntityType Name="tb_SYS_SEQUENCE">
-          <Key>
-            <PropertyRef Name="SEQNAME" />
-          </Key>
-          <Property Name="SEQNAME" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="SEQVALUE" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tb_HANGHOA">
           <Key>
@@ -595,18 +474,179 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="DISABLED" Type="Boolean" />
         </EntityType>
-        <EntityType Name="tb_CHUNGTU_CT">
+        <EntityType Name="tb_NHOMHH">
           <Key>
-            <PropertyRef Name="KHOACT" />
+            <PropertyRef Name="IDNHOM" />
           </Key>
-          <Property Name="KHOACT" Type="Guid" Nullable="false" />
-          <Property Name="KHOA" Type="Guid" />
-          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SOLUONG" Type="Int32" />
-          <Property Name="DONGIA" Type="Double" />
+          <Property Name="IDNHOM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENNHOM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_SYS_FUNC">
+          <Key>
+            <PropertyRef Name="FUNC_CODE" />
+            <PropertyRef Name="SORT" />
+          </Key>
+          <Property Name="FUNC_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SORT" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ISGROUP" Type="Boolean" />
+          <Property Name="PARENT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MENU" Type="Boolean" />
+          <Property Name="TIPS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_SYS_GROUP">
+          <Key>
+            <PropertyRef Name="GROUP" />
+            <PropertyRef Name="MEMBER" />
+          </Key>
+          <Property Name="GROUP" Type="Int32" Nullable="false" />
+          <Property Name="MEMBER" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_SYS_REPORT">
+          <Key>
+            <PropertyRef Name="REP_CODE" />
+          </Key>
+          <Property Name="REP_CODE" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="REP_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLED" Type="Boolean" />
+          <Property Name="TUNGAY" Type="Boolean" />
+          <Property Name="THANGNAM" Type="Boolean" />
+          <Property Name="MACTY" Type="Boolean" />
+          <Property Name="MADVI" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tb_SYS_RIGHT">
+          <Key>
+            <PropertyRef Name="FUNC_CODE" />
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="FUNC_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDUSER" Type="Int32" Nullable="false" />
+          <Property Name="USER_RIGHT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_SYS_RIGHT_REP">
+          <Key>
+            <PropertyRef Name="REP_CODE" />
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="REP_CODE" Type="Int32" Nullable="false" />
+          <Property Name="IDUSER" Type="Int32" Nullable="false" />
+          <Property Name="USER_RIGHT" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tb_SYS_SEQUENCE">
+          <Key>
+            <PropertyRef Name="SEQNAME" />
+          </Key>
+          <Property Name="SEQNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SEQVALUE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_SYS_USER">
+          <Key>
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="IDUSER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FULLNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MACTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MADVI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_PWD_CHANGED" Type="DateTime" Precision="3" />
+          <Property Name="DISABLED" Type="Boolean" />
+          <Property Name="ISGROUP" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tb_TONKHO">
+          <Key>
+            <PropertyRef Name="KHOA" />
+          </Key>
+          <Property Name="KHOA" Type="Guid" Nullable="false" />
+          <Property Name="NAMKY" Type="Int32" />
+          <Property Name="NAM" Type="Int32" />
+          <Property Name="KY" Type="Int32" />
+          <Property Name="MADVI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LG_DAU" Type="Int32" />
+          <Property Name="LG_NHAP" Type="Int32" />
+          <Property Name="LG_XUAT" Type="Int32" />
+          <Property Name="LG_CUOI" Type="Int32" />
           <Property Name="THANHTIEN" Type="Double" />
           <Property Name="NGAY" Type="DateTime" Precision="3" />
-          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_XUATXU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_FUNC_SYS_RIGHT">
+          <Key>
+            <PropertyRef Name="FUNC_CODE" />
+            <PropertyRef Name="SORT" />
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="FUNC_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ISGROUP" Type="Boolean" />
+          <Property Name="PARENT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SORT" Type="Int32" Nullable="false" />
+          <Property Name="IDUSER" Type="Int32" Nullable="false" />
+          <Property Name="QUYEN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_REP_SYS_RIGHT_REP">
+          <Key>
+            <PropertyRef Name="REP_CODE" />
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="REP_CODE" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="REP_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLED" Type="Boolean" />
+          <Property Name="IDUSER" Type="Int32" Nullable="false" />
+          <Property Name="QUYEN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_USER_IN_GROUP">
+          <Key>
+            <PropertyRef Name="GROUP" />
+            <PropertyRef Name="MEMBER" />
+          </Key>
+          <Property Name="GROUP" Type="Int32" Nullable="false" />
+          <Property Name="MEMBER" Type="Int32" Nullable="false" />
+          <Property Name="IDUSER" Type="Int32" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FULLNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MACTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MADVI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_PWD_CHANGED" Type="DateTime" Precision="3" />
+          <Property Name="DISABLED" Type="Boolean" />
+          <Property Name="ISGROUP" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_USER_NOTIN_GROUP">
+          <Key>
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="IDUSER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FULLNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MACTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MADVI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_PWD_CHANGED" Type="DateTime" Precision="3" />
+          <Property Name="DISABLED" Type="Boolean" />
+          <Property Name="ISGROUP" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_CHUNGTU_CT">
+          <Key>
+            <PropertyRef Name="BARCODE" />
+            <PropertyRef Name="KHOACT" />
+          </Key>
+          <Property Name="BARCODE" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="TENHH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="THANHTIEN" Type="Double" />
+          <Property Name="KHOACT" Type="Guid" Nullable="false" />
+          <Property Name="KHOA" Type="Guid" />
         </EntityType>
         <EntityType Name="tb_CHUNGTU">
           <Key>
@@ -624,7 +664,7 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="MACTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MADVI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MADVI2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TRANGTHAI" Type="Boolean" />
+          <Property Name="TRANGTHAI" Type="Int32" />
           <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="CREATED_BY" Type="Int32" />
           <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
@@ -632,180 +672,36 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
           <Property Name="DELETED_BY" Type="Int32" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="VATTUStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="tb_CHUNGTU_CT">
+            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU_CT">
+              <MappingFragment StoreEntitySet="tb_CHUNGTU_CT">
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
+                <ScalarProperty Name="KHOACT" ColumnName="KHOACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tb_CONGTY">
             <EntityTypeMapping TypeName="VATTU.tb_CONGTY">
               <MappingFragment StoreEntitySet="tb_CONGTY">
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="TENCTY" ColumnName="TENCTY" />
-                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
                 <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
-                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_DVT">
-            <EntityTypeMapping TypeName="VATTU.tb_DVT">
-              <MappingFragment StoreEntitySet="tb_DVT">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TEN" ColumnName="TEN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_SYS_FUNC">
-            <EntityTypeMapping TypeName="VATTU.tb_SYS_FUNC">
-              <MappingFragment StoreEntitySet="tb_SYS_FUNC">
-                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
-                <ScalarProperty Name="SORT" ColumnName="SORT" />
-                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
-                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
-                <ScalarProperty Name="PARENT" ColumnName="PARENT" />
-                <ScalarProperty Name="MENU" ColumnName="MENU" />
-                <ScalarProperty Name="TIPS" ColumnName="TIPS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_SYS_GROUP">
-            <EntityTypeMapping TypeName="VATTU.tb_SYS_GROUP">
-              <MappingFragment StoreEntitySet="tb_SYS_GROUP">
-                <ScalarProperty Name="GROUP" ColumnName="GROUP" />
-                <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_SYS_REPORT">
-            <EntityTypeMapping TypeName="VATTU.tb_SYS_REPORT">
-              <MappingFragment StoreEntitySet="tb_SYS_REPORT">
-                <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
-                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
-                <ScalarProperty Name="REP_NAME" ColumnName="REP_NAME" />
-                <ScalarProperty Name="VISIBLED" ColumnName="VISIBLED" />
-                <ScalarProperty Name="TUNGAY" ColumnName="TUNGAY" />
-                <ScalarProperty Name="THANGNAM" ColumnName="THANGNAM" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="TENCTY" ColumnName="TENCTY" />
                 <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_SYS_RIGHT">
-            <EntityTypeMapping TypeName="VATTU.tb_SYS_RIGHT">
-              <MappingFragment StoreEntitySet="tb_SYS_RIGHT">
-                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
-                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
-                <ScalarProperty Name="USER_RIGHT" ColumnName="USER_RIGHT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_SYS_RIGHT_REP">
-            <EntityTypeMapping TypeName="VATTU.tb_SYS_RIGHT_REP">
-              <MappingFragment StoreEntitySet="tb_SYS_RIGHT_REP">
-                <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
-                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
-                <ScalarProperty Name="USER_RIGHT" ColumnName="USER_RIGHT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_SYS_USER">
-            <EntityTypeMapping TypeName="VATTU.tb_SYS_USER">
-              <MappingFragment StoreEntitySet="tb_SYS_USER">
-                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
-                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
-                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
-                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-                <ScalarProperty Name="LAST_PWD_CHANGED" ColumnName="LAST_PWD_CHANGED" />
-                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
-                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_TONKHO">
-            <EntityTypeMapping TypeName="VATTU.tb_TONKHO">
-              <MappingFragment StoreEntitySet="tb_TONKHO">
-                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
-                <ScalarProperty Name="NAMKY" ColumnName="NAMKY" />
-                <ScalarProperty Name="NAM" ColumnName="NAM" />
-                <ScalarProperty Name="KY" ColumnName="KY" />
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-                <ScalarProperty Name="LG_DAU" ColumnName="LG_DAU" />
-                <ScalarProperty Name="LG_NHAP" ColumnName="LG_NHAP" />
-                <ScalarProperty Name="LG_XUAT" ColumnName="LG_XUAT" />
-                <ScalarProperty Name="LG_CUOI" ColumnName="LG_CUOI" />
-                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_XUATXU">
-            <EntityTypeMapping TypeName="VATTU.tb_XUATXU">
-              <MappingFragment StoreEntitySet="tb_XUATXU">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TEN" ColumnName="TEN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_FUNC_SYS_RIGHT">
-            <EntityTypeMapping TypeName="VATTU.V_FUNC_SYS_RIGHT">
-              <MappingFragment StoreEntitySet="V_FUNC_SYS_RIGHT">
-                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
-                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
-                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
-                <ScalarProperty Name="PARENT" ColumnName="PARENT" />
-                <ScalarProperty Name="SORT" ColumnName="SORT" />
-                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
-                <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_REP_SYS_RIGHT_REP">
-            <EntityTypeMapping TypeName="VATTU.V_REP_SYS_RIGHT_REP">
-              <MappingFragment StoreEntitySet="V_REP_SYS_RIGHT_REP">
-                <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
-                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
-                <ScalarProperty Name="REP_NAME" ColumnName="REP_NAME" />
-                <ScalarProperty Name="VISIBLED" ColumnName="VISIBLED" />
-                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
-                <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_USER_IN_GROUP">
-            <EntityTypeMapping TypeName="VATTU.V_USER_IN_GROUP">
-              <MappingFragment StoreEntitySet="V_USER_IN_GROUP">
-                <ScalarProperty Name="GROUP" ColumnName="GROUP" />
-                <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />
-                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
-                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
-                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
-                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-                <ScalarProperty Name="LAST_PWD_CHANGED" ColumnName="LAST_PWD_CHANGED" />
-                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
-                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_USER_NOTIN_GROUP">
-            <EntityTypeMapping TypeName="VATTU.V_USER_NOTIN_GROUP">
-              <MappingFragment StoreEntitySet="V_USER_NOTIN_GROUP">
-                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
-                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
-                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
-                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-                <ScalarProperty Name="LAST_PWD_CHANGED" ColumnName="LAST_PWD_CHANGED" />
-                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
-                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -825,20 +721,11 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_NHOMHH">
-            <EntityTypeMapping TypeName="VATTU.tb_NHOMHH">
-              <MappingFragment StoreEntitySet="tb_NHOMHH">
-                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-                <ScalarProperty Name="TENNHOM" ColumnName="TENNHOM" />
-                <ScalarProperty Name="IDNHOM" ColumnName="IDNHOM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_SYS_SEQUENCE">
-            <EntityTypeMapping TypeName="VATTU.tb_SYS_SEQUENCE">
-              <MappingFragment StoreEntitySet="tb_SYS_SEQUENCE">
-                <ScalarProperty Name="SEQVALUE" ColumnName="SEQVALUE" />
-                <ScalarProperty Name="SEQNAME" ColumnName="SEQNAME" />
+          <EntitySetMapping Name="tb_DVT">
+            <EntityTypeMapping TypeName="VATTU.tb_DVT">
+              <MappingFragment StoreEntitySet="tb_DVT">
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -874,17 +761,183 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_CHUNGTU_CT">
-            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU_CT">
-              <MappingFragment StoreEntitySet="tb_CHUNGTU_CT">
-                <ScalarProperty Name="STT" ColumnName="STT" />
+          <EntitySetMapping Name="tb_NHOMHH">
+            <EntityTypeMapping TypeName="VATTU.tb_NHOMHH">
+              <MappingFragment StoreEntitySet="tb_NHOMHH">
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="TENNHOM" ColumnName="TENNHOM" />
+                <ScalarProperty Name="IDNHOM" ColumnName="IDNHOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SYS_FUNC">
+            <EntityTypeMapping TypeName="VATTU.tb_SYS_FUNC">
+              <MappingFragment StoreEntitySet="tb_SYS_FUNC">
+                <ScalarProperty Name="TIPS" ColumnName="TIPS" />
+                <ScalarProperty Name="MENU" ColumnName="MENU" />
+                <ScalarProperty Name="PARENT" ColumnName="PARENT" />
+                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SYS_GROUP">
+            <EntityTypeMapping TypeName="VATTU.tb_SYS_GROUP">
+              <MappingFragment StoreEntitySet="tb_SYS_GROUP">
+                <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />
+                <ScalarProperty Name="GROUP" ColumnName="GROUP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SYS_REPORT">
+            <EntityTypeMapping TypeName="VATTU.tb_SYS_REPORT">
+              <MappingFragment StoreEntitySet="tb_SYS_REPORT">
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="THANGNAM" ColumnName="THANGNAM" />
+                <ScalarProperty Name="TUNGAY" ColumnName="TUNGAY" />
+                <ScalarProperty Name="VISIBLED" ColumnName="VISIBLED" />
+                <ScalarProperty Name="REP_NAME" ColumnName="REP_NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SYS_RIGHT">
+            <EntityTypeMapping TypeName="VATTU.tb_SYS_RIGHT">
+              <MappingFragment StoreEntitySet="tb_SYS_RIGHT">
+                <ScalarProperty Name="USER_RIGHT" ColumnName="USER_RIGHT" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SYS_RIGHT_REP">
+            <EntityTypeMapping TypeName="VATTU.tb_SYS_RIGHT_REP">
+              <MappingFragment StoreEntitySet="tb_SYS_RIGHT_REP">
+                <ScalarProperty Name="USER_RIGHT" ColumnName="USER_RIGHT" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+                <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SYS_SEQUENCE">
+            <EntityTypeMapping TypeName="VATTU.tb_SYS_SEQUENCE">
+              <MappingFragment StoreEntitySet="tb_SYS_SEQUENCE">
+                <ScalarProperty Name="SEQVALUE" ColumnName="SEQVALUE" />
+                <ScalarProperty Name="SEQNAME" ColumnName="SEQNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SYS_USER">
+            <EntityTypeMapping TypeName="VATTU.tb_SYS_USER">
+              <MappingFragment StoreEntitySet="tb_SYS_USER">
+                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="LAST_PWD_CHANGED" ColumnName="LAST_PWD_CHANGED" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_TONKHO">
+            <EntityTypeMapping TypeName="VATTU.tb_TONKHO">
+              <MappingFragment StoreEntitySet="tb_TONKHO">
                 <ScalarProperty Name="NGAY" ColumnName="NGAY" />
                 <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
-                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="LG_CUOI" ColumnName="LG_CUOI" />
+                <ScalarProperty Name="LG_XUAT" ColumnName="LG_XUAT" />
+                <ScalarProperty Name="LG_NHAP" ColumnName="LG_NHAP" />
+                <ScalarProperty Name="LG_DAU" ColumnName="LG_DAU" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="KY" ColumnName="KY" />
+                <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="NAMKY" ColumnName="NAMKY" />
+                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_XUATXU">
+            <EntityTypeMapping TypeName="VATTU.tb_XUATXU">
+              <MappingFragment StoreEntitySet="tb_XUATXU">
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_FUNC_SYS_RIGHT">
+            <EntityTypeMapping TypeName="VATTU.V_FUNC_SYS_RIGHT">
+              <MappingFragment StoreEntitySet="V_FUNC_SYS_RIGHT">
+                <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="PARENT" ColumnName="PARENT" />
+                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_REP_SYS_RIGHT_REP">
+            <EntityTypeMapping TypeName="VATTU.V_REP_SYS_RIGHT_REP">
+              <MappingFragment StoreEntitySet="V_REP_SYS_RIGHT_REP">
+                <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+                <ScalarProperty Name="VISIBLED" ColumnName="VISIBLED" />
+                <ScalarProperty Name="REP_NAME" ColumnName="REP_NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_USER_IN_GROUP">
+            <EntityTypeMapping TypeName="VATTU.V_USER_IN_GROUP">
+              <MappingFragment StoreEntitySet="V_USER_IN_GROUP">
+                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="LAST_PWD_CHANGED" ColumnName="LAST_PWD_CHANGED" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+                <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />
+                <ScalarProperty Name="GROUP" ColumnName="GROUP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_USER_NOTIN_GROUP">
+            <EntityTypeMapping TypeName="VATTU.V_USER_NOTIN_GROUP">
+              <MappingFragment StoreEntitySet="V_USER_NOTIN_GROUP">
+                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="LAST_PWD_CHANGED" ColumnName="LAST_PWD_CHANGED" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_CHUNGTU_CT">
+            <EntityTypeMapping TypeName="VATTU.V_CHUNGTU_CT">
+              <MappingFragment StoreEntitySet="V_CHUNGTU_CT">
                 <ScalarProperty Name="KHOA" ColumnName="KHOA" />
                 <ScalarProperty Name="KHOACT" ColumnName="KHOACT" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+                <ScalarProperty Name="TENHH" ColumnName="TENHH" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

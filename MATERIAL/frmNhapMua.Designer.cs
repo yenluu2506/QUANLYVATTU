@@ -223,7 +223,7 @@
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.gcDanhSach);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1015, 664);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1015, 595);
             this.splitContainerControl1.SplitterPosition = 132;
             this.splitContainerControl1.TabIndex = 4;
             // 
@@ -311,7 +311,7 @@
             this.gcDanhSach.Location = new System.Drawing.Point(0, 0);
             this.gcDanhSach.MainView = this.gvDanhSach;
             this.gcDanhSach.Name = "gcDanhSach";
-            this.gcDanhSach.Size = new System.Drawing.Size(1015, 520);
+            this.gcDanhSach.Size = new System.Drawing.Size(1015, 451);
             this.gcDanhSach.TabIndex = 0;
             this.gcDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach,
@@ -436,11 +436,10 @@
             // 
             this.tabChungTu.Appearance.BackColor = System.Drawing.Color.PaleTurquoise;
             this.tabChungTu.Appearance.Options.UseBackColor = true;
-            this.tabChungTu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabChungTu.Location = new System.Drawing.Point(0, 77);
             this.tabChungTu.Name = "tabChungTu";
             this.tabChungTu.SelectedTabPage = this.pageChiTiet;
-            this.tabChungTu.Size = new System.Drawing.Size(1017, 686);
+            this.tabChungTu.Size = new System.Drawing.Size(1017, 625);
             this.tabChungTu.TabIndex = 5;
             this.tabChungTu.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageDanhSach,
@@ -450,7 +449,7 @@
             // 
             this.pageChiTiet.Controls.Add(this.splitContainerControl2);
             this.pageChiTiet.Name = "pageChiTiet";
-            this.pageChiTiet.Size = new System.Drawing.Size(1015, 656);
+            this.pageChiTiet.Size = new System.Drawing.Size(1015, 595);
             this.pageChiTiet.Text = "Chi Tiết";
             // 
             // splitContainerControl2
@@ -484,7 +483,7 @@
             this.splitContainerControl2.Panel2.Appearance.Options.UseBackColor = true;
             this.splitContainerControl2.Panel2.Controls.Add(this.gcChiTiet);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1015, 656);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1015, 595);
             this.splitContainerControl2.SplitterPosition = 151;
             this.splitContainerControl2.TabIndex = 0;
             // 
@@ -617,7 +616,7 @@
             this.gcChiTiet.Location = new System.Drawing.Point(0, 0);
             this.gcChiTiet.MainView = this.gvChiTiet;
             this.gcChiTiet.Name = "gcChiTiet";
-            this.gcChiTiet.Size = new System.Drawing.Size(1015, 493);
+            this.gcChiTiet.Size = new System.Drawing.Size(1015, 432);
             this.gcChiTiet.TabIndex = 0;
             this.gcChiTiet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvChiTiet});
@@ -705,7 +704,7 @@
             // 
             this.pageDanhSach.Controls.Add(this.splitContainerControl1);
             this.pageDanhSach.Name = "pageDanhSach";
-            this.pageDanhSach.Size = new System.Drawing.Size(1015, 664);
+            this.pageDanhSach.Size = new System.Drawing.Size(1015, 595);
             this.pageDanhSach.Text = "Danh Sách";
             // 
             // contextMenuChiTiet
@@ -716,28 +715,25 @@
             this.lblXoaChiTiet,
             this.lblImportExcel});
             this.contextMenuChiTiet.Name = "contextMenuChiTiet";
-            this.contextMenuChiTiet.Size = new System.Drawing.Size(215, 110);
+            this.contextMenuChiTiet.Size = new System.Drawing.Size(162, 76);
             // 
             // lblXoa
             // 
             this.lblXoa.BackColor = System.Drawing.Color.Transparent;
-            this.lblXoa.Image = global::MATERIAL.Properties.Resources.icon_cuctayxoa1;
             this.lblXoa.Name = "lblXoa";
-            this.lblXoa.Size = new System.Drawing.Size(214, 26);
+            this.lblXoa.Size = new System.Drawing.Size(161, 24);
             this.lblXoa.Text = "Xóa dòng";
             // 
             // lblXoaChiTiet
             // 
-            this.lblXoaChiTiet.Image = global::MATERIAL.Properties.Resources.icon_thungrac;
             this.lblXoaChiTiet.Name = "lblXoaChiTiet";
-            this.lblXoaChiTiet.Size = new System.Drawing.Size(214, 26);
+            this.lblXoaChiTiet.Size = new System.Drawing.Size(161, 24);
             this.lblXoaChiTiet.Text = "Xóa chi tiết";
             // 
             // lblImportExcel
             // 
-            this.lblImportExcel.Image = global::MATERIAL.Properties.Resources.icon_importexcel1;
             this.lblImportExcel.Name = "lblImportExcel";
-            this.lblImportExcel.Size = new System.Drawing.Size(214, 26);
+            this.lblImportExcel.Size = new System.Drawing.Size(161, 24);
             this.lblImportExcel.Text = "Import Excel";
             // 
             // frmNhapMua

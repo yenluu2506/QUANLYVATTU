@@ -78,7 +78,19 @@ namespace BusinesssLayer
         public void deleteAll(Guid khoa)
         {
             tb_CHUNGTU _ct = db.tb_CHUNGTU.FirstOrDefault(x => x.KHOA == khoa);
-            _ct.TRANGTHAI = true;
+            _ct.TRANGTHAI = 2;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu." + ex.Message);
+            }
+        }
+        public void deleteAll(Guid khoa,int V)
+        {
+            tb_CHUNGTU _ct = db.tb_CHUNGTU.FirstOrDefault(x => x.KHOA == khoa && x.TRANGTHAI == V);
             try
             {
                 db.SaveChanges();

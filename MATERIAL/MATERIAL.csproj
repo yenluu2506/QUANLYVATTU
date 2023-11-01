@@ -35,18 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-<<<<<<< Updated upstream
-    <Win32Resource>F:\QUANLYVATTU\MATERIAL\Properties\Resources.resx</Win32Resource>
-=======
     <Win32Resource>
     </Win32Resource>
-<<<<<<< Updated upstream
-=======
-  </PropertyGroup>
-  <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v23.1" />
@@ -138,6 +128,12 @@
     <Compile Include="frmWaiting.Designer.cs">
       <DependentUpon>frmWaiting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXuatNoiBo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXuatNoiBo.Designer.cs">
+      <DependentUpon>frmXuatNoiBo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmXUATXU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXuatNoiBo.resx">
+      <DependentUpon>frmXuatNoiBo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmXUATXU.resx">
       <DependentUpon>frmXUATXU.cs</DependentUpon>

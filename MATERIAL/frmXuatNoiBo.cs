@@ -71,7 +71,7 @@ namespace MATERIAL
 
             _bdChungTu.PositionChanged += _bdChungTu_PositionChanged;
             loadCongTy();
-            cboCongTy.SelectedValue = myFunctions._macty;
+            //cboCongTy.SelectedValue = myFunctions._macty;
             cboCongTy.SelectedIndexChanged += CboCongTy_SelectedIndexChanged;
 
             _trangthai = _TRANGTHAI.getList();
@@ -82,7 +82,7 @@ namespace MATERIAL
             loadDonVi();
             loadDonViXuat();
             loadDonViNhap();
-            _lstChungTu = _chungtu.getlist(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
+            _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
             _bdChungTu.DataSource = _lstChungTu;
             gcDanhSach.DataSource = _bdChungTu;
 
@@ -90,12 +90,12 @@ namespace MATERIAL
             cboDonVi.SelectedIndexChanged += CboDonVi_SelectedIndexChanged;
             //cboKho.SelectedIndexChanged += CboKho_SelectedIndexChanged;
             showHideControl(true);
-            contextMenuChiTiet.Enable = false;
+            contextMenuChiTiet.Enabled = false;
         }
 
         private void CboDonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _lstChungTu = _chungtu.getlist(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
+            _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
             _bdChungTu.DataSource = _lstChungTu;
             gcDanhSach.DataSource = _bdChungTu;
             xuatThongTin();
@@ -165,12 +165,13 @@ namespace MATERIAL
             cboTrangThai.Enabled = t;
             cboDonViXuat.Enabled = t;
             cboDonViNhap.Enabled = t;
-            dpNgay.Enabled = t;
+            dtNgay.Enabled = t;
         }
 
         void _reset()
         {
-
+            txtSoPhieu.Text = "";
+            txtGhiChu.Text = "";
         }
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -190,7 +191,7 @@ namespace MATERIAL
             gvChiTiet.AddNewRow();
             tabChungTu.SelectedTabPage = pageChiTiet;
             gvChiTiet.OptionsBehavior.Editable = true;
-            contextMenuChiTiet.Enable = true;
+            contextMenuChiTiet.Enabled = true;
             _them = true;
             _sua = false;
             showHideControl(false);
@@ -239,7 +240,7 @@ namespace MATERIAL
             gvChiTiet.AddNewRow();
             tabChungTu.SelectedTabPage = pageChiTiet;
             gvChiTiet.OptionsBehavior.Editable = true;
-            contextMenuChiTiet.Enable = true;
+            contextMenuChiTiet.Enabled = true;
             _them = true;
             _sua = false;
             showHideControl(false);
@@ -256,11 +257,11 @@ namespace MATERIAL
             }
             else
             {
-                if (MessageBox.Show("Bạn có chắc muốn hủy phiếu nhập này ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có chắc muốn hủy phiếu này ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
                     int index = _bdChungTu.Position;
-                    _chungtu.delete(current.KHOA, 1);
+                    _chungtu.deleteAll(current.KHOA, 1);
                     gvDanhSach.SetRowCellValue(index, "DELETED_BY", 0);
                     lblXoa.Visible = true;
                 }
@@ -275,7 +276,7 @@ namespace MATERIAL
             _them = false;
             _sua = false;
             gvChiTiet.OptionsBehavior.Editable = false;
-            contextMenuChiTiet.Enable = false;
+            contextMenuChiTiet.Enabled = false;
             tabChungTu.TabPages[0].PageEnabled = true;
             showHideControl(true);
             _edControl(false);
@@ -310,7 +311,7 @@ namespace MATERIAL
             tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
             if (current != null)
             {
-                dpNgay.Value = current.NGAY.Value;
+                dtNgay.Value = current.NGAY.Value;
                 txtSoPhieu.Text = current.SCT;
                 txtGhiChu.Text = current.GHICHU;
                 cboDonViXuat.SelectedValue = current.MADVI;
@@ -394,12 +395,12 @@ namespace MATERIAL
                     _ct.KHOACT = Guid.Parse(Guid.NewGuid().ToString().ToUpper());
                     _ct.KHOA = chungtu.KHOA;
                     _ct.STT = i + 1;
-                    _ct.NGAY = dpNgay.Value;
+                    _ct.NGAY = dtNgay.Value;
                     _ct.BARCODE = gvChiTiet.GetRowCellValue(i, "BARCODE").ToString();
                     _ct.SOLUONG = int.Parse(gvChiTiet.GetRowCellValue(i, "SOLUONG").ToString());
                     _ct.DONGIA = double.Parse(gvChiTiet.GetRowCellValue(i, "DONGIA").ToString());
                     _ct.THANHTIEN = double.Parse(gvChiTiet.GetRowCellValue(i, "THANHTIEN").ToString());
-                    _chungtu.add(_ct);
+                    ////_chungtu.add(_ct);
                 }
             }
         }
@@ -439,7 +440,7 @@ namespace MATERIAL
                 var resultCTu = _chungtu.update(ctu);
                 ChungTuCT_Info(resultCTu);
                 _lstChungTu = null;
-                _lstChungTu = _chungtu.getlist(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
+                _lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
 
                 _bdChungTu.DataSource = _lstChungTu;
                 gvDanhSach.ClearSorting();
@@ -914,7 +915,7 @@ namespace MATERIAL
             }
             else
             {
-                _lstChungTu = _chungtu.getList(2,dtTuNgay.Value.AddDays(1),cboDonVi.SelectedValue.ToString());
+                //_lstChungTu = _chungtu.getList(2,dtTuNgay.Value.AddDays(1),cboDonVi.SelectedValue.ToString());
                 _bdChungTu.DataSource= _lstChungTu;
             }
         }
@@ -938,7 +939,7 @@ namespace MATERIAL
             }
             else
             {
-                _lstChungTu = _chungtu.getList(2, dtTuNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
+                //_lstChungTu = _chungtu.getList(2, dtTuNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
                 _bdChungTu.DataSource = _lstChungTu;
             }
         }

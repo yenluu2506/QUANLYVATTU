@@ -63,6 +63,16 @@ namespace USERMANAGEMENT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Customer_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Customer_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Team_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Team_16x16", resourceCulture);

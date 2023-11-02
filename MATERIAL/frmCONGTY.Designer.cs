@@ -149,7 +149,7 @@
             this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoat.Margin = new System.Windows.Forms.Padding(610, 1, 0, 2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(52, 52);
+            this.btnThoat.Size = new System.Drawing.Size(52, 60);
             this.btnThoat.Text = "toolStripButton6";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
@@ -185,6 +185,7 @@
             // 
             this.DISABLED.Caption = "DEL";
             this.DISABLED.FieldName = "DISABLED";
+            this.DISABLED.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.DISABLED.MinWidth = 25;
             this.DISABLED.Name = "DISABLED";
             this.DISABLED.Visible = true;

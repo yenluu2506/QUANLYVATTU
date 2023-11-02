@@ -490,7 +490,6 @@
         private System.Windows.Forms.ToolStripButton btnSua;
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnLuu;
-        private System.Windows.Forms.ToolStripButton btnBoQua;
         private System.Windows.Forms.ToolStripButton btnThoat;
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
@@ -516,7 +515,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn DIACHI;
         private DevExpress.XtraGrid.Columns.GridColumn CREATE_DATE;
         private System.Windows.Forms.DateTimePicker dtpCreateDate;
-        private System.Windows.Forms.TextBox txtMaNCC;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }

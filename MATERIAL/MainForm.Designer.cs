@@ -197,7 +197,8 @@
             this.ClientSize = new System.Drawing.Size(1077, 640);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.toolStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";

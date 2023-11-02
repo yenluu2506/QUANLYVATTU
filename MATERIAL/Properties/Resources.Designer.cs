@@ -93,6 +93,16 @@ namespace MATERIAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Customer_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Customer_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap del_Icon_x16 {
             get {
                 object obj = ResourceManager.GetObject("del_Icon_x16", resourceCulture);
@@ -276,16 +286,6 @@ namespace MATERIAL.Properties {
         internal static System.Drawing.Bitmap icon_xoa {
             get {
                 object obj = ResourceManager.GetObject("icon_xoa", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap tinh_ton {
-            get {
-                object obj = ResourceManager.GetObject("tinh_ton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

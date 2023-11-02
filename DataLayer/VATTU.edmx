@@ -85,7 +85,7 @@
           <Property Name="TENTAT" Type="nvarchar" MaxLength="50" />
           <Property Name="DVT" Type="nvarchar" MaxLength="50" />
           <Property Name="DONGIA" Type="float" />
-          <Property Name="MANCC" Type="int" />
+          <Property Name="MANCC" Type="nvarchar" MaxLength="10" />
           <Property Name="MAXX" Type="int" />
           <Property Name="IDNHOM" Type="int" />
           <Property Name="MOTA" Type="nvarchar" MaxLength="500" />
@@ -97,7 +97,7 @@
           <Key>
             <PropertyRef Name="MANCC" />
           </Key>
-          <Property Name="MANCC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MANCC" Type="nvarchar" MaxLength="10" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="DIENTHOAI" Type="nvarchar" MaxLength="50" />
@@ -195,12 +195,18 @@
           <Property Name="NAMKY" Type="int" />
           <Property Name="NAM" Type="int" />
           <Property Name="KY" Type="int" />
+          <Property Name="MACTY" Type="nvarchar" MaxLength="50" />
           <Property Name="MADVI" Type="nvarchar" MaxLength="50" />
-          <Property Name="LG_DAU" Type="int" />
-          <Property Name="LG_NHAP" Type="int" />
-          <Property Name="LG_XUAT" Type="int" />
+          <Property Name="BARCODE" Type="nvarchar" MaxLength="13" />
+          <Property Name="LG_DAU" Type="nchar" MaxLength="10" />
+          <Property Name="LG_NHAPMUA" Type="nchar" MaxLength="10" />
+          <Property Name="LG_NHAPNB" Type="int" />
+          <Property Name="LG_XUATNB" Type="int" />
+          <Property Name="LG_XUATSI" Type="int" />
+          <Property Name="LG_BANLE" Type="int" />
           <Property Name="LG_CUOI" Type="int" />
-          <Property Name="THANHTIEN" Type="float" />
+          <Property Name="TRIGIA" Type="float" />
+          <Property Name="TIEN_CUOI" Type="float" />
           <Property Name="NGAY" Type="datetime" />
         </EntityType>
         <EntityType Name="tb_XUATXU">
@@ -290,6 +296,10 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="DISABLED" Type="bit" />
           <Property Name="ISGROUP" Type="bit" />
         </EntityType>
+        <Function Name="TINH_TONKHO_DONVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAYC" Type="datetime" Mode="In" />
+          <Parameter Name="MADVI" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="VATTUStoreContainer">
           <EntitySet Name="tb_CHUNGTU" EntityType="Self.tb_CHUNGTU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_CHUNGTU_CT" EntityType="Self.tb_CHUNGTU_CT" Schema="dbo" store:Type="Tables" />
@@ -396,6 +406,10 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="V_USER_NOTIN_GROUP" EntityType="VATTU.V_USER_NOTIN_GROUP" />
           <EntitySet Name="V_CHUNGTU_CT" EntityType="VATTU.V_CHUNGTU_CT" />
           <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
+          <FunctionImport Name="TINH_TONKHO_DONVI">
+            <Parameter Name="NGAYC" Mode="In" Type="DateTime" />
+            <Parameter Name="MADVI" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="tb_CHUNGTU_CT">
           <Key>
@@ -570,6 +584,15 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="LG_CUOI" Type="Int32" />
           <Property Name="THANHTIEN" Type="Double" />
           <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="MACTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BARCODE" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="LG_NHAPMUA" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LG_NHAPNB" Type="Int32" />
+          <Property Name="LG_XUATNB" Type="Int32" />
+          <Property Name="LG_XUATSI" Type="Int32" />
+          <Property Name="LG_BANLE" Type="Int32" />
+          <Property Name="TRIGIA" Type="Double" />
+          <Property Name="TIEN_CUOI" Type="Double" />
         </EntityType>
         <EntityType Name="tb_XUATXU">
           <Key>
@@ -849,11 +872,17 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySetMapping Name="tb_TONKHO">
             <EntityTypeMapping TypeName="VATTU.tb_TONKHO">
               <MappingFragment StoreEntitySet="tb_TONKHO">
+                <ScalarProperty Name="TIEN_CUOI" ColumnName="TIEN_CUOI" />
+                <ScalarProperty Name="TRIGIA" ColumnName="TRIGIA" />
+                <ScalarProperty Name="LG_BANLE" ColumnName="LG_BANLE" />
+                <ScalarProperty Name="LG_XUATSI" ColumnName="LG_XUATSI" />
+                <ScalarProperty Name="LG_XUATNB" ColumnName="LG_XUATNB" />
+                <ScalarProperty Name="LG_NHAPNB" ColumnName="LG_NHAPNB" />
+                <ScalarProperty Name="LG_NHAPMUA" ColumnName="LG_NHAPMUA" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
                 <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
                 <ScalarProperty Name="LG_CUOI" ColumnName="LG_CUOI" />
-                <ScalarProperty Name="LG_XUAT" ColumnName="LG_XUAT" />
-                <ScalarProperty Name="LG_NHAP" ColumnName="LG_NHAP" />
                 <ScalarProperty Name="LG_DAU" ColumnName="LG_DAU" />
                 <ScalarProperty Name="MADVI" ColumnName="MADVI" />
                 <ScalarProperty Name="KY" ColumnName="KY" />
@@ -966,6 +995,7 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TINH_TONKHO_DONVI" FunctionName="VATTU.Store.TINH_TONKHO_DONVI" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

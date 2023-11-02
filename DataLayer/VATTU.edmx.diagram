@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="72c077654f104b49a63a733f7d2faa05" Name="Diagram1" ZoomLevel="52">
-        <EntityTypeShape EntityType="VATTU.tb_CHUNGTU_CT" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VATTU.tb_CHUNGTU_CT" Width="1.375" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="VATTU.tb_CONGTY" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="VATTU.tb_DONVI" Width="1.5" PointX="2.75" PointY="4.75" />
         <EntityTypeShape EntityType="VATTU.tb_DVT" Width="1.5" PointX="4.75" PointY="4.75" />

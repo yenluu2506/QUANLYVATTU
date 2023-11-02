@@ -19,7 +19,7 @@ namespace DataLayer
         public string TENTAT { get; set; }
         public string DVT { get; set; }
         public Nullable<double> DONGIA { get; set; }
-        public Nullable<int> MANCC { get; set; }
+        public string MANCC { get; set; }
         public Nullable<int> MAXX { get; set; }
         public Nullable<int> IDNHOM { get; set; }
         public string MOTA { get; set; }

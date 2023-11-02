@@ -16,7 +16,7 @@ namespace BusinesssLayer
             db = Entities.CreateEntities();
         }
 
-        public tb_NHACUNGCAP getItem(int mancc)
+        public tb_NHACUNGCAP getItem(string mancc)
         {
             return db.tb_NHACUNGCAP.FirstOrDefault(x => x.MANCC == mancc);
         }
@@ -26,7 +26,7 @@ namespace BusinesssLayer
             return db.tb_NHACUNGCAP.ToList();
         }
 
-        public List<tb_NHACUNGCAP> getAll(int mancc)
+        public List<tb_NHACUNGCAP> getAll(string mancc)
         {
             return db.tb_NHACUNGCAP.Where(x => x.MANCC == mancc).ToList();
         }
@@ -65,7 +65,7 @@ namespace BusinesssLayer
             }
         }
 
-        public void delete(int mancc)
+        public void delete(string mancc)
         {
             tb_NHACUNGCAP ncc = db.tb_NHACUNGCAP.FirstOrDefault(x => x.MANCC == mancc);
             if (ncc != null)

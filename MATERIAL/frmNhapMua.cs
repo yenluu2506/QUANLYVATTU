@@ -118,7 +118,7 @@ namespace MATERIAL
                 txtSoPhieu.Text = current.SCT;
                 txtGhiChu.Text = current.GHICHU;
                 cboDonVi.SelectedValue = current.MADVI;
-                cboNhaCC.SelectedValue = int.Parse(current.MADVI2);
+                cboNhaCC.SelectedValue = current.MADVI2;
 
                 cboTrangThai.SelectedValue = current.TRANGTHAI;
                 if (current.DELETED_BY != null)
@@ -611,5 +611,15 @@ namespace MATERIAL
         {
 
         }
+
+        private void XuatReport(string _reportName, string _tieude)
+        {
+            if(_khoa != null)
+            {
+                Form frm = new Form();
+                CrystalReportViewer 
+            }
+        }
+
     }
 }

@@ -999,7 +999,7 @@ namespace MATERIAL
                     }
                     SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
                     Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
-                    BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvDanhSach); }));
+                    BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvChiTiet); }));
                 }
             }
             else
@@ -1008,7 +1008,7 @@ namespace MATERIAL
                 e.Info.DisplayText = string.Format("[{0}]", (e.RowHandle * -1));
                 SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
                 Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
-                BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvDanhSach); }));
+                BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvChiTiet); }));
             }
         }
     }

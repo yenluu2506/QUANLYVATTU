@@ -14,6 +14,10 @@ namespace BusinesssLayer
         {
             db = Entities.CreateEntities();
         }
+        public tb_SYS_USER getItem(int idUser)
+        {
+            return db.tb_SYS_USER.FirstOrDefault(x=>x.IDUSER == idUser);
+        }
         public List<tb_SYS_USER> getAll()
         {
             return db.tb_SYS_USER.ToList();
@@ -37,6 +41,28 @@ namespace BusinesssLayer
             try
             {
                 db.tb_SYS_USER.Add(us);
+                db.SaveChanges();
+                return us;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
+        public tb_SYS_USER update(tb_SYS_USER us)
+        {
+            var _us = db.tb_SYS_USER.FirstOrDefault(x=>x.IDUSER==us.IDUSER);
+            _us.USERNAME = us.USERNAME;
+            _us.FULLNAME = us.FULLNAME;
+            _us.ISGROUP = us.ISGROUP;
+            _us.DISABLED = us.DISABLED;
+            _us.MACTY = us.MACTY;
+            _us.MADVI = us.MADVI;
+            _us.PASSWD = us.PASSWD;
+            _us.LAST_PWD_CHANGED = DateTime.Now;
+            try
+            {
                 db.SaveChanges();
                 return us;
             }

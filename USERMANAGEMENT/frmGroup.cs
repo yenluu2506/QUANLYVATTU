@@ -29,9 +29,24 @@ namespace USERMANAGEMENT
         public bool _them;
         SYS_USER _sysUser;
         tb_SYS_USER _user;
+        VIEW_USER_IN_GROUP _vUserInGroup;
         private void frmGroup_Load(object sender, EventArgs e)
         {
             _sysUser = new SYS_USER();
+            if (!_them)
+            {
+                var user = _sysUser.getItem(_idUser);
+                txtTenNhom.Text = user.USERNAME;
+                _macty = user.MACTY;
+                _madvi = user.MADVI;
+                txtMoTa.Text = user.FULLNAME;
+                txtTenNhom.ReadOnly = true;
+            }
+            else
+            {
+                txtMoTa.Text = "";
+                txtTenNhom.Text = "";
+            }
 
         }
 
@@ -72,12 +87,28 @@ namespace USERMANAGEMENT
                 _user.MACTY = _macty;
                 _user.MADVI = _madvi;
                 _sysUser.add(_user );
-                objMain.loadUser(_macty, _madvi);
             }
             else
             {
-
+                _user = _sysUser.getItem(_idUser);
+                _user.FULLNAME= txtMoTa.Text;
+                _sysUser.update(_user);
             }
+            objMain.loadUser(_macty, _madvi);
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            frmShowMembers frm = new frmShowMembers();
+            frm._idGroup = _idUser;
+            frm._macty = _macty;
+            frm._madvi= _madvi;
+            frm.ShowDialog();
+        }
+
+        private void btnBot_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

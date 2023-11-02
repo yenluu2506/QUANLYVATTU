@@ -12,6 +12,8 @@ namespace DataLayer
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class Entities : DbContext
     {
@@ -29,8 +31,6 @@ namespace DataLayer
         public virtual DbSet<tb_CONGTY> tb_CONGTY { get; set; }
         public virtual DbSet<tb_DONVI> tb_DONVI { get; set; }
         public virtual DbSet<tb_DVT> tb_DVT { get; set; }
-        public virtual DbSet<tb_HANGHOA> tb_HANGHOA { get; set; }
-        public virtual DbSet<tb_NHACUNGCAP> tb_NHACUNGCAP { get; set; }
         public virtual DbSet<tb_NHOMHH> tb_NHOMHH { get; set; }
         public virtual DbSet<tb_SYS_FUNC> tb_SYS_FUNC { get; set; }
         public virtual DbSet<tb_SYS_GROUP> tb_SYS_GROUP { get; set; }
@@ -47,5 +47,20 @@ namespace DataLayer
         public virtual DbSet<V_USER_NOTIN_GROUP> V_USER_NOTIN_GROUP { get; set; }
         public virtual DbSet<V_CHUNGTU_CT> V_CHUNGTU_CT { get; set; }
         public virtual DbSet<tb_CHUNGTU> tb_CHUNGTU { get; set; }
+        public virtual DbSet<tb_NHACUNGCAP> tb_NHACUNGCAP { get; set; }
+        public virtual DbSet<tb_HANGHOA> tb_HANGHOA { get; set; }
+    
+        public virtual int TINH_TONKHO_DONVI(Nullable<System.DateTime> nGAYC, string mADVI)
+        {
+            var nGAYCParameter = nGAYC.HasValue ?
+                new ObjectParameter("NGAYC", nGAYC) :
+                new ObjectParameter("NGAYC", typeof(System.DateTime));
+    
+            var mADVIParameter = mADVI != null ?
+                new ObjectParameter("MADVI", mADVI) :
+                new ObjectParameter("MADVI", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TINH_TONKHO_DONVI", nGAYCParameter, mADVIParameter);
+        }
     }
 }

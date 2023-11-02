@@ -163,7 +163,7 @@ namespace MATERIAL
                 hh.TENTAT = txtTenTat.Text;
                 hh.IDNHOM = int.Parse(cboNhom.SelectedValue.ToString());
                 hh.MOTA = txtMoTa.Text;
-                hh.MANCC = int.Parse(cboNhaCC.SelectedValue.ToString());
+                hh.MANCC = cboNhaCC.SelectedValue.ToString();
                 hh.MAXX = int.Parse(cboXuatXu.SelectedValue.ToString());
                 hh.DVT = cboDVT.Text;
                 hh.DISABLED = chkDisabled.Checked;
@@ -181,7 +181,7 @@ namespace MATERIAL
                 hh.TENTAT = txtTenTat.Text;
                 hh.IDNHOM = int.Parse(cboNhom.SelectedValue.ToString());
                 hh.MOTA = txtMoTa.Text;
-                hh.MANCC = int.Parse(cboNhaCC.SelectedValue.ToString());
+                hh.MANCC = cboNhaCC.SelectedValue.ToString();
                 hh.MAXX = int.Parse(cboXuatXu.SelectedValue.ToString());
                 hh.DVT = cboDVT.Text;
                 hh.DISABLED = chkDisabled.Checked;

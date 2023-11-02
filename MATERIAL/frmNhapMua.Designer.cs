@@ -723,7 +723,7 @@
             this.mnXoaChiTiet,
             this.mnImportExcel});
             this.contextMenuChiTiet.Name = "contextMenuChiTiet";
-            this.contextMenuChiTiet.Size = new System.Drawing.Size(162, 76);
+            this.contextMenuChiTiet.Size = new System.Drawing.Size(211, 104);
             // 
             // mnXoaDong
             // 

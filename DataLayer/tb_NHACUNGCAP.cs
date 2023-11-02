@@ -14,7 +14,7 @@ namespace DataLayer
     
     public partial class tb_NHACUNGCAP
     {
-        public int MANCC { get; set; }
+        public string MANCC { get; set; }
         public string TENNCC { get; set; }
         public string EMAIL { get; set; }
         public string DIENTHOAI { get; set; }

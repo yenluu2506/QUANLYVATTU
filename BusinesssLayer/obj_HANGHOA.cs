@@ -13,7 +13,7 @@ namespace BusinesssLayer
         public string TENTAT { get; set; }
         public string DVT { get; set; }
         public double? DONGIA { get; set; }
-        public int? MANCC { get; set; }
+        public string MANCC { get; set; }
         public string TENNCC { get; set; }
         public int? MAXX { get; set; }
         public string TENXX { get; set; }

@@ -35,6 +35,11 @@ namespace BusinesssLayer
             return db.tb_CHUNGTU.Where(x => x.MADVI == madvi && x.NGAY >= tungay && x.NGAY < denngay && x.LCT == lct).OrderBy(x=>x.SCT).ToList();
         }
 
+        public List<tb_CHUNGTU> getPhieuNhap(int lct, DateTime tungay, DateTime denngay, string madvi)
+        {
+            return db.tb_CHUNGTU.Where(x => x.MADVI2 == madvi && x.NGAY >= tungay && x.NGAY < denngay && x.LCT == lct && x.TRANGTHAI==2).OrderBy(x => x.SCT).ToList();
+        }
+
         public tb_CHUNGTU add(tb_CHUNGTU ct)
         {
             try

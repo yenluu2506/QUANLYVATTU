@@ -1,0 +1,83 @@
+﻿using BusinesssLayer;
+using DataLayer;
+using DevExpress.XtraBars.ToastNotifications;
+using DevExpress.XtraEditors;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace USERMANAGEMENT
+{
+    public partial class frmGroup : DevExpress.XtraEditors.XtraForm
+    {
+        public frmGroup()
+        {
+            InitializeComponent();
+        }
+        frmMain objMain = (frmMain)Application.OpenForms["frmMain"];
+        public string _macty;
+        public string _madvi;
+        public int _idUser;
+        public string _username;
+        public string _fullname;
+        public bool _them;
+        SYS_USER _sysUser;
+        tb_SYS_USER _user;
+        private void frmGroup_Load(object sender, EventArgs e)
+        {
+            _sysUser = new SYS_USER();
+
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (txtTenNhom.Text.Trim() == "")
+            {
+                MessageBox.Show("Chưa nhập tên nhóm. Tên nhóm nhập không dấu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTenNhom.SelectAll();
+                txtTenNhom.Focus();
+                return;
+            }
+            saveData();
+        }
+
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        void saveData()
+        {
+            if (_them)
+            {
+                bool checkedUser = _sysUser.checkUserExist(_macty, _madvi, txtTenNhom.Text.Trim());
+                if (checkedUser)
+                {
+                    MessageBox.Show("Nhóm đã tồn tại. Vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtTenNhom.SelectAll();
+                    txtTenNhom.Focus();
+                    return;
+                }
+                _user = new tb_SYS_USER();
+                _user.USERNAME = txtTenNhom.Text.Trim();
+                _user.FULLNAME = txtMoTa.Text;
+                _user.ISGROUP = true;
+                _user.DISABLED = false;
+                _user.MACTY = _macty;
+                _user.MADVI = _madvi;
+                _sysUser.add(_user );
+                objMain.loadUser(_macty, _madvi);
+            }
+            else
+            {
+
+            }
+        }
+    }
+}

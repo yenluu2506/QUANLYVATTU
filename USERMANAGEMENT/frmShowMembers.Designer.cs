@@ -71,8 +71,6 @@
             this.IDUSER.MaxWidth = 30;
             this.IDUSER.MinWidth = 26;
             this.IDUSER.Name = "IDUSER";
-            this.IDUSER.Visible = true;
-            this.IDUSER.VisibleIndex = 0;
             this.IDUSER.Width = 30;
             // 
             // USERNAME

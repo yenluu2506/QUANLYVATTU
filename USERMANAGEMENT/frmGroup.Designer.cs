@@ -185,8 +185,6 @@
             this.IDUSER.MaxWidth = 30;
             this.IDUSER.MinWidth = 26;
             this.IDUSER.Name = "IDUSER";
-            this.IDUSER.Visible = true;
-            this.IDUSER.VisibleIndex = 0;
             this.IDUSER.Width = 30;
             // 
             // USERNAME
@@ -197,7 +195,7 @@
             this.USERNAME.MinWidth = 69;
             this.USERNAME.Name = "USERNAME";
             this.USERNAME.Visible = true;
-            this.USERNAME.VisibleIndex = 1;
+            this.USERNAME.VisibleIndex = 0;
             this.USERNAME.Width = 81;
             // 
             // FULLNAME
@@ -208,7 +206,7 @@
             this.FULLNAME.MinWidth = 86;
             this.FULLNAME.Name = "FULLNAME";
             this.FULLNAME.Visible = true;
-            this.FULLNAME.VisibleIndex = 2;
+            this.FULLNAME.VisibleIndex = 1;
             this.FULLNAME.Width = 86;
             // 
             // btnLuu

@@ -43,7 +43,7 @@ namespace USERMANAGEMENT
                 _madvi = user.MADVI;
                 txtMoTa.Text = user.FULLNAME;
                 txtTenNhom.ReadOnly = true;
-                loadUserInGroup();
+                loadUserInGroup(_idUser);
             }
             else
             {
@@ -53,10 +53,10 @@ namespace USERMANAGEMENT
 
         }
 
-        public void loadUserInGroup()
+        public void loadUserInGroup(int idGroup)
         {
             _vUserInGroup= new VIEW_USER_IN_GROUP();
-            gcThanhVien.DataSource = _vUserInGroup.getUserInGroup(_madvi, _macty);
+            gcThanhVien.DataSource = _vUserInGroup.getUserInGroup(_madvi, _macty, idGroup);
             gvThanhVien.OptionsBehavior.Editable = false;
         }
         private void btnLuu_Click(object sender, EventArgs e)
@@ -69,6 +69,7 @@ namespace USERMANAGEMENT
                 return;
             }
             saveData();
+            this.Close();
         }
 
 
@@ -113,6 +114,7 @@ namespace USERMANAGEMENT
             frm._macty = _macty;
             frm._madvi= _madvi;
             frm.ShowDialog();
+            this.Close();
         }
 
         private void btnBot_Click(object sender, EventArgs e)
@@ -120,7 +122,7 @@ namespace USERMANAGEMENT
             if(gvThanhVien.GetFocusedRowCellValue("IDUSER")!= null)
             {
                 _sysGroup.delGroup(int.Parse(gvThanhVien.GetFocusedRowCellValue("IDUSER").ToString()), _idUser);
-                loadUserInGroup
+                loadUserInGroup(_idUser);
             }
         }
     }

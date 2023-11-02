@@ -45,7 +45,8 @@ namespace USERMANAGEMENT
             gr.GROUP = _idGroup;
             gr.MEMBER = int.Parse(gvThanhVien.GetFocusedRowCellValue("IDUSER").ToString());
             _sysGroup.add(gr);
-            objGroup.loadUserInGroup();
+            objGroup.loadUserInGroup(_idGroup);
+            this.Close();
         }
 
         private void btnDong_Click(object sender, EventArgs e)

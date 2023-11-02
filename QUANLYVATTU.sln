@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MATERIAL", "MATERIAL\MATERI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS", "POS\POS.csproj", "{B50734B6-4A59-4B36-B62E-79FFE637A5B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USERMANAGEMENT", "USERMANAGEMENT\USERMANAGEMENT.csproj", "{7DF35C56-5AEF-4E0C-AF5B-BA780BF96B0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B50734B6-4A59-4B36-B62E-79FFE637A5B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B50734B6-4A59-4B36-B62E-79FFE637A5B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B50734B6-4A59-4B36-B62E-79FFE637A5B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF35C56-5AEF-4E0C-AF5B-BA780BF96B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF35C56-5AEF-4E0C-AF5B-BA780BF96B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF35C56-5AEF-4E0C-AF5B-BA780BF96B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF35C56-5AEF-4E0C-AF5B-BA780BF96B0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

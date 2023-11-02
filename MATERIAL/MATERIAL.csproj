@@ -267,8 +267,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Customer_16x16.png" />
     <Content Include="Resources\icon_cuctayxoa.jpg" />
     <Content Include="Resources\icon_cuctayxoa.png" />
+    <None Include="Resources\Team_16x16.png" />
     <None Include="Resources\icon_importexcel1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

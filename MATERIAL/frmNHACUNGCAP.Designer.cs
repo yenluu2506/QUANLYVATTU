@@ -150,7 +150,7 @@
             this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoat.Margin = new System.Windows.Forms.Padding(610, 1, 0, 2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(52, 60);
+            this.btnThoat.Size = new System.Drawing.Size(52, 52);
             this.btnThoat.Text = "toolStripButton6";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
@@ -444,7 +444,6 @@
         private System.Windows.Forms.ToolStripButton btnSua;
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnLuu;
-        private System.Windows.Forms.ToolStripButton btnBoQua;
         private System.Windows.Forms.ToolStripButton btnThoat;
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
@@ -470,5 +469,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn DIACHI;
         private DevExpress.XtraGrid.Columns.GridColumn CREATE_DATE;
         private System.Windows.Forms.DateTimePicker dtpCreateDate;
+        private System.Windows.Forms.ToolStripButton btnBoQua;
     }
 }

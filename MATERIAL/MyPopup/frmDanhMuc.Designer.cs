@@ -164,6 +164,7 @@
             this.ClientSize = new System.Drawing.Size(566, 428);
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "frmDanhMuc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmDanhMuc";
             this.Load += new System.EventHandler(this.frmDanhMuc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();

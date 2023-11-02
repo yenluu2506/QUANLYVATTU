@@ -90,7 +90,7 @@
             // 
             this.btnUser.Caption = "Người Dùng";
             this.btnUser.Id = 2;
-            this.btnUser.ImageOptions.Image = global::USERMANAGEMENT.Properties.Resources.Team_16x16;
+            this.btnUser.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.ImageOptions.Image")));
             this.btnUser.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUser.ImageOptions.LargeImage")));
             this.btnUser.Name = "btnUser";
             this.btnUser.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;

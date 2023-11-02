@@ -36,6 +36,7 @@ namespace USERMANAGEMENT
         }
         public void loadUser(string macty, string madvi)
         {
+            _sysUser = new SYS_USER();
             gcUser.DataSource = _sysUser.getUserByDVI(macty, madvi);
             gvUser.OptionsBehavior.Editable = false;
         }
@@ -93,6 +94,20 @@ namespace USERMANAGEMENT
             _treeview.dropDown.Close();
         }
 
+        private void _treeView_TextChanged(object sender, EventArgs e)
+        {
+            _isRoot = true;
+            loadUser(_macty, _madvi);
+        }
+
+        private void _treeView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
+
         private void btnGroup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if(_treeview.Text == "")
@@ -109,12 +124,35 @@ namespace USERMANAGEMENT
 
         private void btnUser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            if (_treeview.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn Đơn vị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            frmUser frm = new frmUser();
+            frm._them = true;
+            frm._macty = _macty;
+            frm._madvi = _madvi;
+            frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
+            frm.ShowDialog();
         }
 
         private void btnCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            if (gvUser.RowCount > 0 && gvUser.GetFocusedRowCellValue("ISGROUP").Equals(true))
+            {
+                frmGroup frm = new frmGroup();
+                frm._them = false;
+                frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
+                frm.ShowDialog();
+            }
+            else
+            {
+                frmUser frm = new frmUser();
+                frm._them = false;
+                frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
+                frm.ShowDialog();
+            }
         }
 
         private void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -134,22 +172,35 @@ namespace USERMANAGEMENT
 
         private void gvUser_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
-            if (e.Column.Name == "ISGROUP" && bool.Parse(e.CellValue.ToString()) == false)
-            {
-                Image img = Properties.Resources.Team_16x16;
-                e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
-                e.Handled = true;
-            }
             if (e.Column.Name == "ISGROUP" && bool.Parse(e.CellValue.ToString()) == true)
             {
                 Image img = Properties.Resources.Team_16x16;
                 e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
                 e.Handled = true;
             }
+            if (e.Column.Name == "ISGROUP" && bool.Parse(e.CellValue.ToString()) == false)
+            {
+                Image img = Properties.Resources.Customer_16x16;
+                e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
+                e.Handled = true;
+            }
         }
         private void gvUser_DoubleClick(object sender, EventArgs e)
         {
-            if (gvUser.GetFocusedRowCellValue("ISGROUP")) { }
+            if (gvUser.RowCount > 0 && gvUser.GetFocusedRowCellValue("ISGROUP").Equals(true))
+            {
+                frmGroup frm = new frmGroup();
+                frm._them = false;
+                frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
+                frm.ShowDialog();
+            }
+            else
+            {
+                frmUser frm = new frmUser();
+                frm._them = false;
+                frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
+                frm.ShowDialog();
+            }
         }
 
     }

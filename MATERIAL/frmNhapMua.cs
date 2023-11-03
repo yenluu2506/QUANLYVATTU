@@ -14,6 +14,9 @@ using MATERIAL.MyPopup;
 using DevExpress.XtraSplashScreen;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
+using CrystalDecisions.Windows.Forms;
+using CrystalDecisions.Shared;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace MATERIAL
 {
@@ -1016,6 +1019,50 @@ namespace MATERIAL
                 Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
                 BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvDanhSach); }));
             }
+        }
+
+        private void XuatReport(string _reportName, string _tieude)
+        {
+            if(_khoa != null)
+            {
+                Form frm = new Form();
+                CrystalReportViewer Crv = new CrystalReportViewer();
+                Crv.ShowGroupTreeButton = false;
+                Crv.ShowParameterPanelButton = false;
+                Crv.ToolPanelView = ToolPanelViewType.None;
+                TableLogOnInfo Thongtin;
+                ReportDocument doc = new ReportDocument();
+                doc.Load(Application.StartupPath + "\\Reports\\" + _reportName + @".rpt");
+                Thongtin = doc.Database.Tables[0].LogOnInfo;
+                Thongtin.ConnectionInfo.ServerName = myFunctions._srv;
+                Thongtin.ConnectionInfo.DatabaseName = myFunctions._db;
+                Thongtin.ConnectionInfo.UserID = myFunctions._us;
+                Thongtin.ConnectionInfo.Password = myFunctions._pw;
+                doc.Database.Tables[0].ApplyLogOnInfo(Thongtin);
+                try
+                {
+                    doc.SetParameterValue("@khoa", _khoa.ToString());
+                    Crv.Dock = DockStyle.Fill;
+                    Crv.ReportSource = doc;
+                    frm.Controls.Add(Crv);
+                    Crv.Refresh();
+                    frm.Text = _tieude;
+                    frm.WindowState = FormWindowState.Maximized;
+                    frm.ShowDialog();
+                }
+                catch(Exception ex) {
+                    MessageBox.Show("Lỗi: " + ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            XuatReport("PHIEU_NHAPMUA_NCC", "Phiếu nhập mua nhà cung cấp");
         }
     }
 }

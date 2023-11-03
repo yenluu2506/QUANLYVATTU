@@ -28,10 +28,12 @@ namespace USERMANAGEMENT
         public bool _them;
         SYS_USER _sysUser;
         tb_SYS_USER _user;
-
+        SYS_GROUP _sysGroup;
+        VIEW_USER_IN_GROUP _vUserInGroup;
         private void frmUser_Load(object sender, EventArgs e)
         {
             _sysUser = new SYS_USER();
+            _sysGroup = new SYS_GROUP();
             if (!_them)
             {
                 var user = _sysUser.getItem(_idUser);
@@ -41,8 +43,9 @@ namespace USERMANAGEMENT
                 txtHoTen.Text = user.FULLNAME;
                 chkDissabled.Checked = user.DISABLED.Value;
                 txtUsername.ReadOnly = true;
-                txtPass.Text = Encryptor.Encrypt(user.PASSWD, "qwert@123poiuy", true);
-                txtRePass.Text = Encryptor.Encrypt(user.PASSWD, "qwert@123poiuy", true);
+                txtPass.Text = Encryptor.Decrypt(user.PASSWD, "qwert@123poiuy", true);
+                txtRePass.Text = Encryptor.Decrypt(user.PASSWD, "qwert@123poiuy", true);
+                loadGroupByUser(_idUser);
             }
             else
             {
@@ -51,6 +54,12 @@ namespace USERMANAGEMENT
                 txtRePass.Text = "";
                 chkDissabled.Checked = false;
             }
+        }
+        public void loadGroupByUser(int idUser)
+        {
+            _vUserInGroup = new VIEW_USER_IN_GROUP();
+            gcThanhVien.DataSource = _vUserInGroup.getGroupByUser(_macty, _madvi, idUser);
+            gvThanhVien.OptionsBehavior.Editable = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -62,7 +71,7 @@ namespace USERMANAGEMENT
                 txtUsername.Focus();
                 return;
             }
-            if (txtPass.Text.Equals(txtRePass.Text))
+            if (!txtPass.Text.Equals(txtRePass.Text))//Ngài hãy lãnh đạo chúng toioke em
             {
                 MessageBox.Show("Mật khẩu không trùng khớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtUsername.SelectAll();
@@ -109,6 +118,21 @@ namespace USERMANAGEMENT
                 _sysUser.update(_user);
             }
             objMain.loadUser(_macty, _madvi);
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            frmShowGroups frm = new frmShowGroups();
+            frm._idUser = _idUser;
+            frm._macty = _macty;
+            frm._madvi = _madvi;
+            frm.ShowDialog();
+        }
+
+        private void btnBot_Click(object sender, EventArgs e)
+        {
+            _sysGroup.delGroup(_idUser, int.Parse(gvThanhVien.GetFocusedRowCellValue("IDUSER").ToString()));
+            loadGroupByUser(_idUser);
         }
     }
 }

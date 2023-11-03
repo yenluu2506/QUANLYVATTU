@@ -151,7 +151,26 @@ namespace MATERIAL
                     //        }
                     //}
             }
+        }
+
+        private void btnTinhTon_Click(object sender, EventArgs e)
+        {
+            //string madvi = "";
+            //TONKHO _tonkho = new TONKHO();
+            //if (myFunctions._madvi == "~")
+            //    madvi = "CTKHO1";
+            //else
+            //    madvi = myFunctions._madvi;
+            //if (_tonkho.TinhTon(madvi, DateTime.Now))
+            //{
+            //    MessageBox.Show("Cập nhật tồn kho thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Cập nhật tồn kho không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             //}
         }
+
     }
 }

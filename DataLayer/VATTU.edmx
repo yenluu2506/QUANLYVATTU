@@ -97,7 +97,7 @@
           <Key>
             <PropertyRef Name="MANCC" />
           </Key>
-          <Property Name="MANCC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MANCC" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="TENNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="DIENTHOAI" Type="nvarchar" MaxLength="50" />
@@ -217,32 +217,6 @@
           <Property Name="TEN" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'QUANLY_VATTU.dbo.R_CHUNGTU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="R_CHUNGTU">
-          <Key>
-            <PropertyRef Name="KHOA" />
-          </Key>
-          <Property Name="KHOA" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="NGAY" Type="datetime" />
-          <Property Name="SCT" Type="nvarchar" MaxLength="50" />
-          <Property Name="SCT2" Type="nvarchar" MaxLength="50" />
-          <Property Name="NGAY2" Type="datetime" />
-          <Property Name="LCT" Type="int" />
-          <Property Name="TRANGTHAI" Type="int" />
-          <Property Name="SOLUONG" Type="int" />
-          <Property Name="TONGTIEN" Type="float" />
-          <Property Name="GHICHU" Type="nvarchar" MaxLength="500" />
-          <Property Name="MACTY" Type="nvarchar" MaxLength="50" />
-          <Property Name="MADVI" Type="nvarchar" MaxLength="50" />
-          <Property Name="MADVI2" Type="nvarchar" MaxLength="50" />
-          <Property Name="CREATED_BY" Type="int" />
-          <Property Name="CREATED_DATE" Type="datetime" />
-          <Property Name="UPDATED_BY" Type="int" />
-          <Property Name="UPDATED_DATE" Type="datetime" />
-          <Property Name="DELETED_BY" Type="int" />
-          <Property Name="DELETED_DATE" Type="datetime" />
-        </EntityType>
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'QUANLY_VATTU.dbo.V_CHUNGTU_CT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_CHUNGTU_CT">
           <Key>
@@ -322,6 +296,16 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="DISABLED" Type="bit" />
           <Property Name="ISGROUP" Type="bit" />
         </EntityType>
+        <Function Name="spNGAY_TINHTON" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAYC" Type="datetime" Mode="InOut" />
+          <Parameter Name="NGAYD" Type="datetime" Mode="InOut" />
+          <Parameter Name="NAM" Type="int" Mode="InOut" />
+          <Parameter Name="KY" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="TINH_TONKHO_DONVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAYC" Type="datetime" Mode="In" />
+          <Parameter Name="MADVI" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="VATTUStoreContainer">
           <EntitySet Name="tb_CHUNGTU" EntityType="Self.tb_CHUNGTU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_CHUNGTU_CT" EntityType="Self.tb_CHUNGTU_CT" Schema="dbo" store:Type="Tables" />
@@ -340,29 +324,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_SYS_USER" EntityType="Self.tb_SYS_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_TONKHO" EntityType="Self.tb_TONKHO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_XUATXU" EntityType="Self.tb_XUATXU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="R_CHUNGTU" EntityType="Self.R_CHUNGTU" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [R_CHUNGTU].[KHOA] AS [KHOA], 
-    [R_CHUNGTU].[NGAY] AS [NGAY], 
-    [R_CHUNGTU].[SCT] AS [SCT], 
-    [R_CHUNGTU].[SCT2] AS [SCT2], 
-    [R_CHUNGTU].[NGAY2] AS [NGAY2], 
-    [R_CHUNGTU].[LCT] AS [LCT], 
-    [R_CHUNGTU].[TRANGTHAI] AS [TRANGTHAI], 
-    [R_CHUNGTU].[SOLUONG] AS [SOLUONG], 
-    [R_CHUNGTU].[TONGTIEN] AS [TONGTIEN], 
-    [R_CHUNGTU].[GHICHU] AS [GHICHU], 
-    [R_CHUNGTU].[MACTY] AS [MACTY], 
-    [R_CHUNGTU].[MADVI] AS [MADVI], 
-    [R_CHUNGTU].[MADVI2] AS [MADVI2], 
-    [R_CHUNGTU].[CREATED_BY] AS [CREATED_BY], 
-    [R_CHUNGTU].[CREATED_DATE] AS [CREATED_DATE], 
-    [R_CHUNGTU].[UPDATED_BY] AS [UPDATED_BY], 
-    [R_CHUNGTU].[UPDATED_DATE] AS [UPDATED_DATE], 
-    [R_CHUNGTU].[DELETED_BY] AS [DELETED_BY], 
-    [R_CHUNGTU].[DELETED_DATE] AS [DELETED_DATE]
-    FROM [dbo].[R_CHUNGTU] AS [R_CHUNGTU]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="V_CHUNGTU_CT" EntityType="Self.V_CHUNGTU_CT" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_CHUNGTU_CT].[BARCODE] AS [BARCODE], 
@@ -434,6 +395,7 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
             <Parameter Name="MADVI" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
+          <EntitySet Name="tb_CHUNGTU_CT" EntityType="VATTU.tb_CHUNGTU_CT" />
           <EntitySet Name="tb_CONGTY" EntityType="VATTU.tb_CONGTY" />
           <EntitySet Name="tb_DONVI" EntityType="VATTU.tb_DONVI" />
           <EntitySet Name="tb_DVT" EntityType="VATTU.tb_DVT" />
@@ -449,14 +411,17 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_SYS_USER" EntityType="VATTU.tb_SYS_USER" />
           <EntitySet Name="tb_TONKHO" EntityType="VATTU.tb_TONKHO" />
           <EntitySet Name="tb_XUATXU" EntityType="VATTU.tb_XUATXU" />
-          <EntitySet Name="R_CHUNGTU" EntityType="VATTU.R_CHUNGTU" />
           <EntitySet Name="V_CHUNGTU_CT" EntityType="VATTU.V_CHUNGTU_CT" />
           <EntitySet Name="V_FUNC_SYS_RIGHT" EntityType="VATTU.V_FUNC_SYS_RIGHT" />
           <EntitySet Name="V_REP_SYS_RIGHT_REP" EntityType="VATTU.V_REP_SYS_RIGHT_REP" />
           <EntitySet Name="V_USER_IN_GROUP" EntityType="VATTU.V_USER_IN_GROUP" />
           <EntitySet Name="V_USER_NOTIN_GROUP" EntityType="VATTU.V_USER_NOTIN_GROUP" />
-          <EntitySet Name="V_CHUNGTU_CT" EntityType="VATTU.V_CHUNGTU_CT" />
-          <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
+          <FunctionImport Name="spNGAY_TINHTON">
+            <Parameter Name="NGAYC" Mode="InOut" Type="DateTime" />
+            <Parameter Name="NGAYD" Mode="InOut" Type="DateTime" />
+            <Parameter Name="NAM" Mode="InOut" Type="Int32" />
+            <Parameter Name="KY" Mode="InOut" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="tb_CHUNGTU">
           <Key>
@@ -481,6 +446,19 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="UPDATED_BY" Type="Int32" />
           <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
           <Property Name="DELETED_BY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_CHUNGTU_CT">
+          <Key>
+            <PropertyRef Name="KHOACT" />
+          </Key>
+          <Property Name="KHOACT" Type="Guid" Nullable="false" />
+          <Property Name="KHOA" Type="Guid" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="DONGIA" Type="Double" />
+          <Property Name="THANHTIEN" Type="Double" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="STT" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_CONGTY">
           <Key>
@@ -648,15 +626,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="TRIGIA" Type="Double" />
           <Property Name="TIEN_CUOI" Type="Double" />
           <Property Name="NGAY" Type="DateTime" Precision="3" />
-          <Property Name="MACTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BARCODE" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Name="LG_NHAPMUA" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="LG_NHAPNB" Type="Int32" />
-          <Property Name="LG_XUATNB" Type="Int32" />
-          <Property Name="LG_XUATSI" Type="Int32" />
-          <Property Name="LG_BANLE" Type="Int32" />
-          <Property Name="TRIGIA" Type="Double" />
-          <Property Name="TIEN_CUOI" Type="Double" />
         </EntityType>
         <EntityType Name="tb_XUATXU">
           <Key>
@@ -664,30 +633,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="R_CHUNGTU">
-          <Key>
-            <PropertyRef Name="KHOA" />
-          </Key>
-          <Property Name="KHOA" Type="Guid" Nullable="false" />
-          <Property Name="NGAY" Type="DateTime" Precision="3" />
-          <Property Name="SCT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SCT2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NGAY2" Type="DateTime" Precision="3" />
-          <Property Name="LCT" Type="Int32" />
-          <Property Name="TRANGTHAI" Type="Int32" />
-          <Property Name="SOLUONG" Type="Int32" />
-          <Property Name="TONGTIEN" Type="Double" />
-          <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MACTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MADVI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MADVI2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CREATED_BY" Type="Int32" />
-          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATED_BY" Type="Int32" />
-          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
-          <Property Name="DELETED_BY" Type="Int32" />
-          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="V_CHUNGTU_CT">
           <Key>
@@ -759,19 +704,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="DISABLED" Type="Boolean" />
           <Property Name="ISGROUP" Type="Boolean" />
         </EntityType>
-        <EntityType Name="tb_CHUNGTU_CT">
-          <Key>
-            <PropertyRef Name="KHOACT" />
-          </Key>
-          <Property Name="KHOACT" Type="Guid" Nullable="false" />
-          <Property Name="KHOA" Type="Guid" />
-          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SOLUONG" Type="Int32" />
-          <Property Name="DONGIA" Type="Double" />
-          <Property Name="THANHTIEN" Type="Double" />
-          <Property Name="NGAY" Type="DateTime" Precision="3" />
-          <Property Name="STT" Type="Int32" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -801,6 +733,20 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
                 <ScalarProperty Name="SCT" ColumnName="SCT" />
                 <ScalarProperty Name="LCT" ColumnName="LCT" />
                 <ScalarProperty Name="KHOA" ColumnName="KHOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_CHUNGTU_CT">
+            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU_CT">
+              <MappingFragment StoreEntitySet="tb_CHUNGTU_CT">
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
+                <ScalarProperty Name="KHOACT" ColumnName="KHOACT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -961,20 +907,15 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySetMapping Name="tb_TONKHO">
             <EntityTypeMapping TypeName="VATTU.tb_TONKHO">
               <MappingFragment StoreEntitySet="tb_TONKHO">
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
                 <ScalarProperty Name="TIEN_CUOI" ColumnName="TIEN_CUOI" />
                 <ScalarProperty Name="TRIGIA" ColumnName="TRIGIA" />
+                <ScalarProperty Name="LG_CUOI" ColumnName="LG_CUOI" />
                 <ScalarProperty Name="LG_BANLE" ColumnName="LG_BANLE" />
                 <ScalarProperty Name="LG_XUATSI" ColumnName="LG_XUATSI" />
                 <ScalarProperty Name="LG_XUATNB" ColumnName="LG_XUATNB" />
                 <ScalarProperty Name="LG_NHAPNB" ColumnName="LG_NHAPNB" />
                 <ScalarProperty Name="LG_NHAPMUA" ColumnName="LG_NHAPMUA" />
-                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
-                <ScalarProperty Name="LG_CUOI" ColumnName="LG_CUOI" />
-                <ScalarProperty Name="LG_XUAT" ColumnName="LG_XUAT" />
-                <ScalarProperty Name="LG_NHAP" ColumnName="LG_NHAP" />
                 <ScalarProperty Name="LG_DAU" ColumnName="LG_DAU" />
                 <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
                 <ScalarProperty Name="MADVI" ColumnName="MADVI" />
@@ -991,31 +932,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
               <MappingFragment StoreEntitySet="tb_XUATXU">
                 <ScalarProperty Name="TEN" ColumnName="TEN" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="R_CHUNGTU">
-            <EntityTypeMapping TypeName="VATTU.R_CHUNGTU">
-              <MappingFragment StoreEntitySet="R_CHUNGTU">
-                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
-                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
-                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
-                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
-                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
-                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
-                <ScalarProperty Name="MADVI2" ColumnName="MADVI2" />
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
-                <ScalarProperty Name="LCT" ColumnName="LCT" />
-                <ScalarProperty Name="NGAY2" ColumnName="NGAY2" />
-                <ScalarProperty Name="SCT2" ColumnName="SCT2" />
-                <ScalarProperty Name="SCT" ColumnName="SCT" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1090,21 +1006,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spNGAY_TINHTON" FunctionName="VATTU.Store.spNGAY_TINHTON" />
-          <EntitySetMapping Name="tb_CHUNGTU_CT">
-            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU_CT">
-              <MappingFragment StoreEntitySet="tb_CHUNGTU_CT">
-                <ScalarProperty Name="STT" ColumnName="STT" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
-                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
-                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
-                <ScalarProperty Name="KHOACT" ColumnName="KHOACT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="TINH_TONKHO_DONVI" FunctionName="VATTU.Store.TINH_TONKHO_DONVI" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcUsers = new DevExpress.XtraGrid.GridControl();
             this.gvUsers = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -37,9 +38,11 @@
             this.USERNAME = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FULLNAME = new DevExpress.XtraGrid.Columns.GridColumn();
             this.IDUSER = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
+            this.gcChucNang = new DevExpress.XtraGrid.GridControl();
+            this.gvChucNang = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.FUNC_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DESCRIPTION = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -48,8 +51,14 @@
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1.Panel1)).BeginInit();
+            this.gridSplitContainer1.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1.Panel2)).BeginInit();
+            this.gridSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcChucNang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChucNang)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -65,7 +74,6 @@
             // 
             // splitContainerControl1.Panel2
             // 
-            this.splitContainerControl1.Panel2.Controls.Add(this.gcChucNang);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(977, 549);
             this.splitContainerControl1.SplitterPosition = 353;
@@ -94,6 +102,7 @@
             this.gvUsers.OptionsView.ShowGroupPanel = false;
             this.gvUsers.RowHeight = 25;
             this.gvUsers.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvUsers_CustomDrawCell);
+            this.gvUsers.Click += new System.EventHandler(this.gvUsers_Click);
             // 
             // gcChucNang
             // 
@@ -156,6 +165,44 @@
             this.IDUSER.Name = "IDUSER";
             this.IDUSER.Width = 94;
             // 
+            // gridSplitContainer1
+            // 
+            this.gridSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridSplitContainer1.Grid = this.gcChucNang;
+            this.gridSplitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.gridSplitContainer1.Name = "gridSplitContainer1";
+            // 
+            // gridSplitContainer1.Panel1
+            // 
+            this.gridSplitContainer1.Panel1.Controls.Add(this.gcChucNang);
+            this.gridSplitContainer1.Size = new System.Drawing.Size(612, 549);
+            this.gridSplitContainer1.TabIndex = 0;
+            // 
+            // gcChucNang
+            // 
+            this.gcChucNang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcChucNang.Location = new System.Drawing.Point(0, 0);
+            this.gcChucNang.MainView = this.gvChucNang;
+            this.gcChucNang.Name = "gcChucNang";
+            this.gcChucNang.Size = new System.Drawing.Size(612, 549);
+            this.gcChucNang.TabIndex = 0;
+            this.gcChucNang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvChucNang});
+            // 
+            // gvChucNang
+            // 
+            this.gvChucNang.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.FUNC_CODE,
+            this.DESCRIPTION,
+            this.QUYEN,
+            this.cISGROUP});
+            this.gvChucNang.GridControl = this.gcChucNang;
+            this.gvChucNang.Name = "gvChucNang";
+            this.gvChucNang.OptionsMenu.EnableGroupRowMenu = true;
+            this.gvChucNang.OptionsSelection.MultiSelect = true;
+            this.gvChucNang.RowHeight = 25;
+            this.gvChucNang.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvChucNang_PopupMenuShowing);
+            // 
             // FUNC_CODE
             // 
             this.FUNC_CODE.Caption = "FUNC_CODE";
@@ -175,15 +222,7 @@
             this.DESCRIPTION.VisibleIndex = 0;
             this.DESCRIPTION.Width = 200;
             // 
-            // gridColumn3
             // 
-            this.gridColumn3.Caption = "Quyền";
-            this.gridColumn3.MaxWidth = 150;
-            this.gridColumn3.MinWidth = 100;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
-            this.gridColumn3.Width = 100;
             // 
             // frmPhanQuyenChucNang
             // 
@@ -202,8 +241,14 @@
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1.Panel1)).EndInit();
+            this.gridSplitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1.Panel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).EndInit();
+            this.gridSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcChucNang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChucNang)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -221,6 +266,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn IDUSER;
         private DevExpress.XtraGrid.Columns.GridColumn FUNC_CODE;
         private DevExpress.XtraGrid.Columns.GridColumn DESCRIPTION;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }

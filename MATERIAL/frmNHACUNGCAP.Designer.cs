@@ -81,8 +81,8 @@
             this.btnThoat});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStrip1.Size = new System.Drawing.Size(1017, 69);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.toolStrip1.Size = new System.Drawing.Size(872, 62);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -93,7 +93,7 @@
             this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThem.Name = "btnThem";
             this.btnThem.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnThem.Size = new System.Drawing.Size(70, 60);
+            this.btnThem.Size = new System.Drawing.Size(59, 55);
             this.btnThem.Text = "Thêm";
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -104,7 +104,7 @@
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSua.Name = "btnSua";
             this.btnSua.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSua.Size = new System.Drawing.Size(62, 60);
+            this.btnSua.Size = new System.Drawing.Size(54, 55);
             this.btnSua.Text = "Sửa";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -115,7 +115,7 @@
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnXoa.Size = new System.Drawing.Size(63, 60);
+            this.btnXoa.Size = new System.Drawing.Size(56, 55);
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -126,7 +126,7 @@
             this.btnLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnLuu.Size = new System.Drawing.Size(64, 60);
+            this.btnLuu.Size = new System.Drawing.Size(56, 55);
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -137,7 +137,7 @@
             this.btnBoQua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBoQua.Name = "btnBoQua";
             this.btnBoQua.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnBoQua.Size = new System.Drawing.Size(84, 60);
+            this.btnBoQua.Size = new System.Drawing.Size(72, 55);
             this.btnBoQua.Text = "Bỏ qua";
             this.btnBoQua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
@@ -150,18 +150,20 @@
             this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoat.Margin = new System.Windows.Forms.Padding(610, 1, 0, 2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(52, 52);
+            this.btnThoat.Size = new System.Drawing.Size(52, 60);
             this.btnThoat.Text = "toolStripButton6";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // gcDanhSach
             // 
             this.gcDanhSach.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcDanhSach.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcDanhSach.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gcDanhSach.Location = new System.Drawing.Point(0, 69);
+            this.gcDanhSach.Location = new System.Drawing.Point(0, 62);
             this.gcDanhSach.MainView = this.gvDanhSach;
+            this.gcDanhSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcDanhSach.Name = "gcDanhSach";
-            this.gcDanhSach.Size = new System.Drawing.Size(1017, 402);
+            this.gcDanhSach.Size = new System.Drawing.Size(872, 327);
             this.gcDanhSach.TabIndex = 2;
             this.gcDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
@@ -177,8 +179,10 @@
             this.FAX,
             this.DIACHI,
             this.CREATE_DATE});
+            this.gvDanhSach.DetailHeight = 284;
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
+            this.gvDanhSach.OptionsEditForm.PopupEditFormWidth = 686;
             this.gvDanhSach.OptionsView.ShowGroupPanel = false;
             this.gvDanhSach.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDanhSach_CustomDrawCell);
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
@@ -187,79 +191,79 @@
             // 
             this.DISABLED.Caption = "DEL";
             this.DISABLED.FieldName = "DISABLED";
-            this.DISABLED.MinWidth = 25;
+            this.DISABLED.MinWidth = 21;
             this.DISABLED.Name = "DISABLED";
             this.DISABLED.Visible = true;
             this.DISABLED.VisibleIndex = 0;
-            this.DISABLED.Width = 45;
+            this.DISABLED.Width = 39;
             // 
             // MANCC
             // 
             this.MANCC.Caption = "NHÀ CUNG CẤP";
             this.MANCC.FieldName = "MANCC";
-            this.MANCC.MinWidth = 25;
+            this.MANCC.MinWidth = 21;
             this.MANCC.Name = "MANCC";
-            this.MANCC.Width = 94;
+            this.MANCC.Width = 81;
             // 
             // TENNCC
             // 
             this.TENNCC.Caption = "TÊN NHÀ CUNG CẤP";
             this.TENNCC.FieldName = "TENNCC";
-            this.TENNCC.MinWidth = 25;
+            this.TENNCC.MinWidth = 21;
             this.TENNCC.Name = "TENNCC";
             this.TENNCC.Visible = true;
             this.TENNCC.VisibleIndex = 1;
-            this.TENNCC.Width = 263;
+            this.TENNCC.Width = 225;
             // 
             // EMAIL
             // 
             this.EMAIL.Caption = "EMAIL";
             this.EMAIL.FieldName = "EMAIL";
-            this.EMAIL.MinWidth = 25;
+            this.EMAIL.MinWidth = 21;
             this.EMAIL.Name = "EMAIL";
             this.EMAIL.Visible = true;
             this.EMAIL.VisibleIndex = 2;
-            this.EMAIL.Width = 211;
+            this.EMAIL.Width = 181;
             // 
             // DIENTHOAI
             // 
             this.DIENTHOAI.Caption = "ĐIỆN THOẠI";
             this.DIENTHOAI.FieldName = "DIENTHOAI";
-            this.DIENTHOAI.MinWidth = 25;
+            this.DIENTHOAI.MinWidth = 21;
             this.DIENTHOAI.Name = "DIENTHOAI";
             this.DIENTHOAI.Visible = true;
             this.DIENTHOAI.VisibleIndex = 3;
-            this.DIENTHOAI.Width = 114;
+            this.DIENTHOAI.Width = 98;
             // 
             // FAX
             // 
             this.FAX.Caption = "FAX";
             this.FAX.FieldName = "FAX";
-            this.FAX.MinWidth = 25;
+            this.FAX.MinWidth = 21;
             this.FAX.Name = "FAX";
             this.FAX.Visible = true;
             this.FAX.VisibleIndex = 4;
-            this.FAX.Width = 114;
+            this.FAX.Width = 98;
             // 
             // DIACHI
             // 
             this.DIACHI.Caption = "ĐỊA CHỈ";
             this.DIACHI.FieldName = "DIACHI";
-            this.DIACHI.MinWidth = 25;
+            this.DIACHI.MinWidth = 21;
             this.DIACHI.Name = "DIACHI";
             this.DIACHI.Visible = true;
             this.DIACHI.VisibleIndex = 5;
-            this.DIACHI.Width = 114;
+            this.DIACHI.Width = 98;
             // 
             // CREATE_DATE
             // 
             this.CREATE_DATE.Caption = "NGÀY HỢP TÁC";
             this.CREATE_DATE.FieldName = "CREATE_DATE";
-            this.CREATE_DATE.MinWidth = 25;
+            this.CREATE_DATE.MinWidth = 21;
             this.CREATE_DATE.Name = "CREATE_DATE";
             this.CREATE_DATE.Visible = true;
             this.CREATE_DATE.VisibleIndex = 6;
-            this.CREATE_DATE.Width = 126;
+            this.CREATE_DATE.Width = 108;
             // 
             // grcThongTinDV
             // 
@@ -287,18 +291,20 @@
             this.grcThongTinDV.Controls.Add(this.lblDienThoai);
             this.grcThongTinDV.Controls.Add(this.lblTen);
             this.grcThongTinDV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grcThongTinDV.Location = new System.Drawing.Point(0, 471);
+            this.grcThongTinDV.Location = new System.Drawing.Point(0, 389);
+            this.grcThongTinDV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grcThongTinDV.Name = "grcThongTinDV";
-            this.grcThongTinDV.Size = new System.Drawing.Size(1017, 292);
+            this.grcThongTinDV.Size = new System.Drawing.Size(872, 237);
             this.grcThongTinDV.TabIndex = 3;
             this.grcThongTinDV.Text = "Thông Tin Đơn Vị";
             // 
             // dtpCreateDate
             // 
             this.dtpCreateDate.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpCreateDate.Location = new System.Drawing.Point(153, 141);
+            this.dtpCreateDate.Location = new System.Drawing.Point(131, 115);
+            this.dtpCreateDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpCreateDate.Name = "dtpCreateDate";
-            this.dtpCreateDate.Size = new System.Drawing.Size(339, 29);
+            this.dtpCreateDate.Size = new System.Drawing.Size(291, 25);
             this.dtpCreateDate.TabIndex = 18;
             // 
             // chkDisable
@@ -306,9 +312,10 @@
             this.chkDisable.AutoSize = true;
             this.chkDisable.BackColor = System.Drawing.Color.Transparent;
             this.chkDisable.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDisable.Location = new System.Drawing.Point(153, 194);
+            this.chkDisable.Location = new System.Drawing.Point(131, 158);
+            this.chkDisable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkDisable.Name = "chkDisable";
-            this.chkDisable.Size = new System.Drawing.Size(91, 26);
+            this.chkDisable.Size = new System.Drawing.Size(74, 22);
             this.chkDisable.TabIndex = 17;
             this.chkDisable.Text = "Disable";
             this.chkDisable.UseVisualStyleBackColor = false;
@@ -316,34 +323,38 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(638, 141);
+            this.txtEmail.Location = new System.Drawing.Point(547, 115);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(339, 29);
+            this.txtEmail.Size = new System.Drawing.Size(291, 25);
             this.txtEmail.TabIndex = 14;
             // 
             // txtFax
             // 
             this.txtFax.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFax.Location = new System.Drawing.Point(638, 92);
+            this.txtFax.Location = new System.Drawing.Point(547, 75);
+            this.txtFax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFax.Name = "txtFax";
-            this.txtFax.Size = new System.Drawing.Size(339, 29);
+            this.txtFax.Size = new System.Drawing.Size(291, 25);
             this.txtFax.TabIndex = 13;
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiaChi.Location = new System.Drawing.Point(638, 45);
+            this.txtDiaChi.Location = new System.Drawing.Point(547, 37);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(339, 29);
+            this.txtDiaChi.Size = new System.Drawing.Size(291, 25);
             this.txtDiaChi.TabIndex = 12;
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(41, 148);
+            this.labelControl1.Location = new System.Drawing.Point(35, 120);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(105, 22);
+            this.labelControl1.Size = new System.Drawing.Size(87, 18);
             this.labelControl1.TabIndex = 11;
             this.labelControl1.Text = "Ngày hợp tác";
             // 
@@ -351,9 +362,10 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(526, 148);
+            this.labelControl2.Location = new System.Drawing.Point(451, 120);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(45, 22);
+            this.labelControl2.Size = new System.Drawing.Size(35, 17);
             this.labelControl2.TabIndex = 10;
             this.labelControl2.Text = "Email";
             // 
@@ -361,9 +373,10 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(526, 99);
+            this.labelControl3.Location = new System.Drawing.Point(451, 80);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(28, 22);
+            this.labelControl3.Size = new System.Drawing.Size(22, 17);
             this.labelControl3.TabIndex = 9;
             this.labelControl3.Text = "Fax";
             // 
@@ -371,35 +384,39 @@
             // 
             this.lblDiaChi.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiaChi.Appearance.Options.UseFont = true;
-            this.lblDiaChi.Location = new System.Drawing.Point(526, 52);
+            this.lblDiaChi.Location = new System.Drawing.Point(451, 42);
+            this.lblDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblDiaChi.Name = "lblDiaChi";
-            this.lblDiaChi.Size = new System.Drawing.Size(56, 22);
+            this.lblDiaChi.Size = new System.Drawing.Size(46, 18);
             this.lblDiaChi.TabIndex = 8;
             this.lblDiaChi.Text = "Địa chỉ";
             // 
             // txtDienThoai
             // 
             this.txtDienThoai.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDienThoai.Location = new System.Drawing.Point(153, 92);
+            this.txtDienThoai.Location = new System.Drawing.Point(131, 75);
+            this.txtDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDienThoai.Name = "txtDienThoai";
-            this.txtDienThoai.Size = new System.Drawing.Size(337, 29);
+            this.txtDienThoai.Size = new System.Drawing.Size(289, 25);
             this.txtDienThoai.TabIndex = 7;
             // 
             // txtTen
             // 
             this.txtTen.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTen.Location = new System.Drawing.Point(153, 45);
+            this.txtTen.Location = new System.Drawing.Point(131, 37);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(337, 29);
+            this.txtTen.Size = new System.Drawing.Size(289, 25);
             this.txtTen.TabIndex = 6;
             // 
             // lblDienThoai
             // 
             this.lblDienThoai.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDienThoai.Appearance.Options.UseFont = true;
-            this.lblDienThoai.Location = new System.Drawing.Point(41, 99);
+            this.lblDienThoai.Location = new System.Drawing.Point(35, 80);
+            this.lblDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblDienThoai.Name = "lblDienThoai";
-            this.lblDienThoai.Size = new System.Drawing.Size(88, 22);
+            this.lblDienThoai.Size = new System.Drawing.Size(72, 18);
             this.lblDienThoai.TabIndex = 3;
             this.lblDienThoai.Text = "Điện Thoại";
             // 
@@ -407,21 +424,23 @@
             // 
             this.lblTen.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTen.Appearance.Options.UseFont = true;
-            this.lblTen.Location = new System.Drawing.Point(41, 52);
+            this.lblTen.Location = new System.Drawing.Point(35, 42);
+            this.lblTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(72, 22);
+            this.lblTen.Size = new System.Drawing.Size(56, 17);
             this.lblTen.TabIndex = 2;
             this.lblTen.Text = "Tên NCC";
             // 
             // frmNHACUNGCAP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 763);
+            this.ClientSize = new System.Drawing.Size(872, 620);
             this.Controls.Add(this.grcThongTinDV);
             this.Controls.Add(this.gcDanhSach);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmNHACUNGCAP";
             this.Text = "NHACUNGCAP";
             this.Load += new System.EventHandler(this.frmNHACUNGCAP_Load);

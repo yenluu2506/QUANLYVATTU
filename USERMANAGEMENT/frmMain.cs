@@ -157,7 +157,7 @@ namespace USERMANAGEMENT
 
         private void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            frmPhan
         }
 
         private void btnBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

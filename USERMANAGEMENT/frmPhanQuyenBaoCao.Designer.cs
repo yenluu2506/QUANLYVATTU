@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcUsers = new DevExpress.XtraGrid.GridControl();
             this.gvUsers = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -38,10 +39,14 @@
             this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
             this.gcChucNang = new DevExpress.XtraGrid.GridControl();
             this.gvChucNang = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.FUNC_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.REP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DESCRIPTION = new DevExpress.XtraGrid.Columns.GridColumn();
             this.QUYEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cISGROUP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnCamQuyen = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnToanQuyen = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -57,6 +62,7 @@
             this.gridSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcChucNang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChucNang)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -100,6 +106,8 @@
             this.gvUsers.Name = "gvUsers";
             this.gvUsers.OptionsView.ShowGroupPanel = false;
             this.gvUsers.RowHeight = 25;
+            this.gvUsers.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvUsers_CustomDrawCell);
+            this.gvUsers.Click += new System.EventHandler(this.gvUsers_Click);
             // 
             // ISGROUP
             // 
@@ -157,6 +165,7 @@
             // gcChucNang
             // 
             this.gcChucNang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcChucNang.EmbeddedNavigator.ContextMenuStrip = this.contextMenuStrip1;
             this.gcChucNang.Location = new System.Drawing.Point(0, 0);
             this.gcChucNang.MainView = this.gvChucNang;
             this.gcChucNang.Name = "gcChucNang";
@@ -168,7 +177,7 @@
             // gvChucNang
             // 
             this.gvChucNang.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.FUNC_CODE,
+            this.REP_CODE,
             this.DESCRIPTION,
             this.QUYEN,
             this.cISGROUP});
@@ -177,14 +186,15 @@
             this.gvChucNang.OptionsMenu.EnableGroupRowMenu = true;
             this.gvChucNang.OptionsSelection.MultiSelect = true;
             this.gvChucNang.RowHeight = 25;
+            this.gvChucNang.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvChucNang_PopupMenuShowing);
             // 
-            // FUNC_CODE
+            // REP_CODE
             // 
-            this.FUNC_CODE.Caption = "FUNC_CODE";
-            this.FUNC_CODE.FieldName = "FUNC_CODE";
-            this.FUNC_CODE.MinWidth = 25;
-            this.FUNC_CODE.Name = "FUNC_CODE";
-            this.FUNC_CODE.Width = 94;
+            this.REP_CODE.Caption = "REP_CODE";
+            this.REP_CODE.FieldName = "REP_CODE";
+            this.REP_CODE.MinWidth = 25;
+            this.REP_CODE.Name = "REP_CODE";
+            this.REP_CODE.Width = 94;
             // 
             // DESCRIPTION
             // 
@@ -216,6 +226,40 @@
             this.cISGROUP.Name = "cISGROUP";
             this.cISGROUP.Width = 94;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Constantia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnCamQuyen,
+            this.toolStripSeparator2,
+            this.mnToanQuyen});
+            this.contextMenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(172, 62);
+            // 
+            // mnCamQuyen
+            // 
+            this.mnCamQuyen.Image = global::USERMANAGEMENT.Properties.Resources._299051_ban_sign_icon;
+            this.mnCamQuyen.Name = "mnCamQuyen";
+            this.mnCamQuyen.Size = new System.Drawing.Size(214, 26);
+            this.mnCamQuyen.Text = "Khóa quyền";
+            this.mnCamQuyen.Click += new System.EventHandler(this.mnCamQuyen_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
+            // 
+            // mnToanQuyen
+            // 
+            this.mnToanQuyen.Image = global::USERMANAGEMENT.Properties.Resources._131490_manager_global_control_global_government_police_icon;
+            this.mnToanQuyen.Name = "mnToanQuyen";
+            this.mnToanQuyen.Size = new System.Drawing.Size(214, 26);
+            this.mnToanQuyen.Text = "Toàn quyền";
+            this.mnToanQuyen.Click += new System.EventHandler(this.mnToanQuyen_Click);
+            // 
             // frmPhanQuyenBaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -224,6 +268,7 @@
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "frmPhanQuyenBaoCao";
             this.Text = "frmPhanQuyenBaoCao";
+            this.Load += new System.EventHandler(this.frmPhanQuyenBaoCao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
             this.splitContainerControl1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).EndInit();
@@ -239,6 +284,7 @@
             this.gridSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcChucNang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChucNang)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -255,9 +301,13 @@
         private DevExpress.XtraGrid.GridSplitContainer gridSplitContainer1;
         private DevExpress.XtraGrid.GridControl gcChucNang;
         private DevExpress.XtraGrid.Views.Grid.GridView gvChucNang;
-        private DevExpress.XtraGrid.Columns.GridColumn FUNC_CODE;
+        private DevExpress.XtraGrid.Columns.GridColumn REP_CODE;
         private DevExpress.XtraGrid.Columns.GridColumn DESCRIPTION;
         private DevExpress.XtraGrid.Columns.GridColumn QUYEN;
         private DevExpress.XtraGrid.Columns.GridColumn cISGROUP;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mnCamQuyen;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem mnToanQuyen;
     }
 }

@@ -10,7 +10,8 @@ namespace BusinesssLayer
     public class TONKHO
     {
         Entities db;
-        public TONKHO() {
+        public TONKHO()
+        {
             db = Entities.CreateEntities();
         }
 
@@ -24,7 +25,7 @@ namespace BusinesssLayer
             catch (Exception ex)
             {
                 return false;
-                throw new Exception("Lỗi: "+ ex.Message);
+                throw new Exception("Lỗi: "+ex.Message);
             }
         }
     }

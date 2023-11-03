@@ -63,6 +63,36 @@ namespace USERMANAGEMENT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _131490_manager_global_control_global_government_police_icon {
+            get {
+                object obj = ResourceManager.GetObject("131490_manager_global_control_global government_police_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _211739_eye_icon {
+            get {
+                object obj = ResourceManager.GetObject("211739_eye_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _299051_ban_sign_icon {
+            get {
+                object obj = ResourceManager.GetObject("299051_ban_sign_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Customer_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Customer_16x16", resourceCulture);
@@ -86,6 +116,16 @@ namespace USERMANAGEMENT.Properties {
         internal static System.Drawing.Bitmap Team_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Team_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("User_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

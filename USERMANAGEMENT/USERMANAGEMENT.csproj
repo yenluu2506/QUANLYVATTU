@@ -75,6 +75,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPhanQuyenChucNang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhanQuyenChucNang.Designer.cs">
+      <DependentUpon>frmPhanQuyenChucNang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmShowGroups.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhanQuyenChucNang.resx">
+      <DependentUpon>frmPhanQuyenChucNang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmShowGroups.resx">
       <DependentUpon>frmShowGroups.cs</DependentUpon>
@@ -157,6 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\del_Icon_x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\131490_manager_global_control_global government_police_icon.png" />
+    <Content Include="Resources\211739_eye_icon.png" />
+    <Content Include="Resources\299051_ban_sign_icon.png" />
+    <None Include="Resources\User_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

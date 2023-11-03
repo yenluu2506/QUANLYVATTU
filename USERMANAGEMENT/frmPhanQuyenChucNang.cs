@@ -36,12 +36,12 @@ namespace USERMANAGEMENT
         {
             if (_macty == null && _madvi == null)
             {
-                gcUsers.DataSource = _sysUser.getUserByDViFunc("CT01", "~");
+                gcUsers.DataSource = _sysUser.getUserByDVIFunc("CT01", "~");
                 gvUsers.OptionsBehavior.Editable = false;
             }
             else
             {
-                gcUsers.DataSource = _sysUser.getUserByDViFunc(_macty, _madvi);
+                gcUsers.DataSource = _sysUser.getUserByDVIFunc(_macty, _madvi);
                 gvUsers.OptionsBehavior.Editable = false;
             }
         }

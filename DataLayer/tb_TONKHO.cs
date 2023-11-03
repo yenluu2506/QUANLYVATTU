@@ -31,5 +31,14 @@ namespace DataLayer
         public Nullable<double> TRIGIA { get; set; }
         public Nullable<double> TIEN_CUOI { get; set; }
         public Nullable<System.DateTime> NGAY { get; set; }
+        public string MACTY { get; set; }
+        public string BARCODE { get; set; }
+        public string LG_NHAPMUA { get; set; }
+        public Nullable<int> LG_NHAPNB { get; set; }
+        public Nullable<int> LG_XUATNB { get; set; }
+        public Nullable<int> LG_XUATSI { get; set; }
+        public Nullable<int> LG_BANLE { get; set; }
+        public Nullable<double> TRIGIA { get; set; }
+        public Nullable<double> TIEN_CUOI { get; set; }
     }
 }

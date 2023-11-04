@@ -73,10 +73,10 @@ namespace BusinesssLayer
             return hh;
         }
 
-        public List<tb_HANGHOA> getList()
-        {
-            return db.tb_HANGHOA.ToList();
-        }
+        //public List<tb_HANGHOA> getList()
+        //{
+        //    return db.tb_HANGHOA.ToList();
+        //}
 
         public List<tb_HANGHOA> getList(string barcode)
         {
@@ -86,6 +86,35 @@ namespace BusinesssLayer
         public List<tb_HANGHOA> getListByKeyword(string keyword)
         {
             return db.tb_HANGHOA.Where(ts=>ts.TENHH.Contains(keyword)).ToList();
+        }
+
+        public List<obj_HANGHOA> getList()
+        {
+            List<obj_HANGHOA> _lstHH = new List<obj_HANGHOA>();
+            var lstHH = db.tb_HANGHOA.ToList();
+            obj_HANGHOA hh;
+            foreach (var item in lstHH)
+            {
+                hh = new obj_HANGHOA();
+                hh.BARCODE = item.BARCODE;
+                hh.TENHH = item.TENHH;
+                hh.TENTAT = item.TENTAT;
+                hh.IDNHOM = item.IDNHOM;
+                var n = db.tb_NHOMHH.FirstOrDefault(x=>x.IDNHOM == item.IDNHOM);
+                hh.TENNHOM = n.TENNHOM;
+                hh.MAXX = item.MAXX;
+                var xx = db.tb_XUATXU.FirstOrDefault(x => x.ID == item.MAXX);
+                hh.TENXX = xx.TEN;
+                hh.MOTA = item.MOTA;
+                hh.DVT = item.DVT;
+                hh.DISABLED = item.DISABLED;
+                hh.CREATED_DATE = item.CREATED_DATE;
+                hh.MANCC = item.MANCC;
+                var cc = db.tb_NHACUNGCAP.FirstOrDefault(x=>x.MANCC == item.MANCC);
+                hh.TENNCC = cc.TENNCC;
+                _lstHH.Add(hh);
+            }
+            return _lstHH;
         }
 
         public bool checkExist(string barcode)
@@ -146,5 +175,23 @@ namespace BusinesssLayer
                 throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu." + ex.Message);
             }
         }
+        public List<obj_PRINTBARCODE> getDanhMucInBarcode(int idNhom)
+        {
+            var lstDM = db.tb_HANGHOA.Where(x=>x.IDNHOM == idNhom).ToList();
+            List<obj_PRINTBARCODE> lstPrintBarcode = new List<obj_PRINTBARCODE>();
+            obj_PRINTBARCODE obj;
+            foreach (var item in lstDM)
+            {
+                obj = new obj_PRINTBARCODE();
+                obj.BARCODE = item.BARCODE;
+                obj.TENHH = item.TENHH;
+                obj.TENTAT = item.TENTAT;
+                obj.DONGIA = item.DONGIA;
+                obj.SOTEM = null;
+                lstPrintBarcode.Add(obj);
+            }
+            return lstPrintBarcode;
+        }
+
     }
 }

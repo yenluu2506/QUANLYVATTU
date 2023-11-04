@@ -169,6 +169,12 @@ namespace MATERIAL
                 }
             }
         }
+
+        private void btnBarcode_Click(object sender, EventArgs e)
+        {
+            frmInBarcode frm = new frmInBarcode();
+            frm.ShowDialog();
+        }
     }
 
         //private void btnTinhTon_Click(object sender, EventArgs e)

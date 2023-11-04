@@ -187,13 +187,13 @@ namespace USERMANAGEMENT
             }
             if (e.Column.Name == "ISGROUP" && bool.Parse(e.CellValue.ToString()) == false)
             {
-                Image img = Properties.Resources.Customer_16x16;
+                Image img = Properties.Resources.User_16x16;
                 e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
                 e.Handled = true;
             }
             if (e.Column.Name == "DISABLED" && bool.Parse(e.CellValue.ToString()) == true)
             {
-                Image img = Properties.Resources.del_Icon_x16;
+                Image img = Properties.Resources.delete_16x16;
                 e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
                 e.Handled = true;
             }

@@ -180,6 +180,7 @@
     <Content Include="Resources\131490_manager_global_control_global government_police_icon.png" />
     <Content Include="Resources\211739_eye_icon.png" />
     <Content Include="Resources\299051_ban_sign_icon.png" />
+    <None Include="Resources\delete_16x16.png" />
     <None Include="Resources\User_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

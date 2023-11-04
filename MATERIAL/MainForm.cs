@@ -131,25 +131,32 @@ namespace MATERIAL
                         frm.ShowDialog();
                         break;
                     }
-                case "NHAPMUA":
-                    {
-                        frmNhapMua frm = new frmNhapMua();
-                        frm.ShowDialog();
-                        break;
-                    }
-                    //case "XUATNB":
-                    //    {
-                    //        frmXuatNoiBo frm = new frmXuatNoiBo(_user,_uRight.USER_RIGHT.Value);
-                    //        frm.ShowDialog();
-                    //        break;
-                    //    }
-                    //    case "NHAPNB":
-                    //        {
-                    //            frmNhapNoiBo frm = new frmNhapNoiBo(_user, _uRight.USER_RIGHT.Value);
-                    //            frm.ShowDialog();
-                    //            break;
-                    //        }
-                    //}
+                //case "NHAPMUA":
+                //    {
+                //        frmNhapMua frm = new frmNhapMua(_user,_uRight.USER_RIGHT.Value);
+                //        frm.ShowDialog();
+                //        break;
+                //    }
+                //case "XUATNB":
+                //    {
+                //        frmXuatNoiBo frm = new frmXuatNoiBo(_user,_uRight.USER_RIGHT.Value);
+                //        frm.ShowDialog();
+                //        break;
+                //    }
+                //    case "NHAPNB":
+                //        {
+                //            frmNhapNoiBo frm = new frmNhapNoiBo(_user, _uRight.USER_RIGHT.Value);
+                //            frm.ShowDialog();
+                //            break;
+                //        }
+                //case "XUATSI":
+                //    {
+                //        frmXuatSi frm = new frmXuatSi(_user, _uRight.USER_RIGHT.Value);
+                //        frm.ShowDialog();
+                //        break;
+                //    }
+                //}
+
             }
         }
 

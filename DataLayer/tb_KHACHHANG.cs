@@ -12,16 +12,13 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_CHUNGTU_CT
+    public partial class tb_KHACHHANG
     {
-        public System.Guid KHOACT { get; set; }
-        public Nullable<System.Guid> KHOA { get; set; }
-        public string BARCODE { get; set; }
-        public Nullable<int> SOLUONG { get; set; }
-        public Nullable<double> DONGIA { get; set; }
-        public Nullable<int> CHIETKHAU { get; set; }
-        public Nullable<double> THANHTIEN { get; set; }
-        public Nullable<System.DateTime> NGAY { get; set; }
-        public Nullable<int> STT { get; set; }
+        public int IDKH { get; set; }
+        public string HOTEN { get; set; }
+        public string DIENTHOAI { get; set; }
+        public string EMAIL { get; set; }
+        public string DIACHI { get; set; }
+        public string MST { get; set; }
     }
 }

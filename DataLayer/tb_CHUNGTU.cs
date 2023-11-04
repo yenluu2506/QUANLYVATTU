@@ -21,6 +21,7 @@ namespace DataLayer
         public string SCT2 { get; set; }
         public Nullable<System.DateTime> NGAY2 { get; set; }
         public Nullable<int> SOLUONG { get; set; }
+        public Nullable<int> CHIETKHAU { get; set; }
         public Nullable<double> TONGTIEN { get; set; }
         public string GHICHU { get; set; }
         public string MACTY { get; set; }

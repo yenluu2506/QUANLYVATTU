@@ -130,6 +130,7 @@
     <Compile Include="DONVITINH.cs" />
     <Compile Include="errExport.cs" />
     <Compile Include="HANGHOA.cs" />
+    <Compile Include="KHACHHANG.cs" />
     <Compile Include="NHACUNGCAP.cs" />
     <Compile Include="NHOMHH.cs" />
     <Compile Include="obj_CHUNGTU_CT.cs" />

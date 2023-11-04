@@ -146,6 +146,9 @@
     <Compile Include="tb_HANGHOA.cs">
       <DependentUpon>VATTU.tt</DependentUpon>
     </Compile>
+    <Compile Include="tb_KHACHHANG.cs">
+      <DependentUpon>VATTU.tt</DependentUpon>
+    </Compile>
     <Compile Include="tb_NHACUNGCAP.cs">
       <DependentUpon>VATTU.tt</DependentUpon>
     </Compile>

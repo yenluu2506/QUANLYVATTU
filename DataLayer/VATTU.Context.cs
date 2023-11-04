@@ -27,8 +27,6 @@ namespace DataLayer
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tb_CHUNGTU> tb_CHUNGTU { get; set; }
-        public virtual DbSet<tb_CHUNGTU_CT> tb_CHUNGTU_CT { get; set; }
         public virtual DbSet<tb_CONGTY> tb_CONGTY { get; set; }
         public virtual DbSet<tb_DONVI> tb_DONVI { get; set; }
         public virtual DbSet<tb_DVT> tb_DVT { get; set; }
@@ -49,6 +47,9 @@ namespace DataLayer
         public virtual DbSet<V_REP_SYS_RIGHT_REP> V_REP_SYS_RIGHT_REP { get; set; }
         public virtual DbSet<V_USER_IN_GROUP> V_USER_IN_GROUP { get; set; }
         public virtual DbSet<V_USER_NOTIN_GROUP> V_USER_NOTIN_GROUP { get; set; }
+        public virtual DbSet<tb_CHUNGTU_CT> tb_CHUNGTU_CT { get; set; }
+        public virtual DbSet<tb_KHACHHANG> tb_KHACHHANG { get; set; }
+        public virtual DbSet<tb_CHUNGTU> tb_CHUNGTU { get; set; }
     
         public virtual int TINH_TONKHO_DONVI(Nullable<System.DateTime> nGAYC, string mADVI)
         {

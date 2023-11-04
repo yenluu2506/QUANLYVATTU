@@ -16,6 +16,7 @@
           <Property Name="SCT2" Type="nvarchar" MaxLength="50" />
           <Property Name="NGAY2" Type="datetime" />
           <Property Name="SOLUONG" Type="int" />
+          <Property Name="CHIETKHAU" Type="int" />
           <Property Name="TONGTIEN" Type="float" />
           <Property Name="GHICHU" Type="nvarchar" MaxLength="500" />
           <Property Name="MACTY" Type="nvarchar" MaxLength="50" />
@@ -38,6 +39,7 @@
           <Property Name="BARCODE" Type="nvarchar" MaxLength="50" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="DONGIA" Type="float" />
+          <Property Name="CHIETKHAU" Type="int" />
           <Property Name="THANHTIEN" Type="float" />
           <Property Name="NGAY" Type="datetime" />
           <Property Name="STT" Type="int" />
@@ -92,6 +94,19 @@
           <Property Name="CREATED_DATE" Type="datetime" />
           <Property Name="CREATED_BY" Type="int" />
           <Property Name="DISABLED" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QUANLY_VATTU.dbo.tb_KHACHHANG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tb_KHACHHANG">
+          <Key>
+            <PropertyRef Name="IDKH" />
+          </Key>
+          <Property Name="IDKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HOTEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIENTHOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="300" />
+          <Property Name="MST" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tb_NHACUNGCAP">
           <Key>
@@ -324,6 +339,16 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_SYS_USER" EntityType="Self.tb_SYS_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_TONKHO" EntityType="Self.tb_TONKHO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_XUATXU" EntityType="Self.tb_XUATXU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_KHACHHANG" EntityType="Self.tb_KHACHHANG" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_KHACHHANG].[IDKH] AS [IDKH], 
+    [tb_KHACHHANG].[HOTEN] AS [HOTEN], 
+    [tb_KHACHHANG].[DIENTHOAI] AS [DIENTHOAI], 
+    [tb_KHACHHANG].[EMAIL] AS [EMAIL], 
+    [tb_KHACHHANG].[DIACHI] AS [DIACHI], 
+    [tb_KHACHHANG].[MST] AS [MST]
+    FROM [dbo].[tb_KHACHHANG] AS [tb_KHACHHANG]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_CHUNGTU_CT" EntityType="Self.V_CHUNGTU_CT" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_CHUNGTU_CT].[BARCODE] AS [BARCODE], 
@@ -394,8 +419,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
             <Parameter Name="NGAYC" Mode="In" Type="DateTime" />
             <Parameter Name="MADVI" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
-          <EntitySet Name="tb_CHUNGTU_CT" EntityType="VATTU.tb_CHUNGTU_CT" />
           <EntitySet Name="tb_CONGTY" EntityType="VATTU.tb_CONGTY" />
           <EntitySet Name="tb_DONVI" EntityType="VATTU.tb_DONVI" />
           <EntitySet Name="tb_DVT" EntityType="VATTU.tb_DVT" />
@@ -422,44 +445,10 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
             <Parameter Name="NAM" Mode="InOut" Type="Int32" />
             <Parameter Name="KY" Mode="InOut" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="tb_CHUNGTU_CT" EntityType="VATTU.tb_CHUNGTU_CT" />
+          <EntitySet Name="tb_KHACHHANG" EntityType="VATTU.tb_KHACHHANG" />
+          <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
         </EntityContainer>
-        <EntityType Name="tb_CHUNGTU">
-          <Key>
-            <PropertyRef Name="KHOA" />
-          </Key>
-          <Property Name="KHOA" Type="Guid" Nullable="false" />
-          <Property Name="LCT" Type="Int32" />
-          <Property Name="SCT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NGAY" Type="DateTime" Precision="3" />
-          <Property Name="SCT2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NGAY2" Type="DateTime" Precision="3" />
-          <Property Name="SOLUONG" Type="Int32" />
-          <Property Name="TONGTIEN" Type="Double" />
-          <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MACTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MADVI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MADVI2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TRANGTHAI" Type="Int32" />
-          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATED_BY" Type="Int32" />
-          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATED_BY" Type="Int32" />
-          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
-          <Property Name="DELETED_BY" Type="Int32" />
-        </EntityType>
-        <EntityType Name="tb_CHUNGTU_CT">
-          <Key>
-            <PropertyRef Name="KHOACT" />
-          </Key>
-          <Property Name="KHOACT" Type="Guid" Nullable="false" />
-          <Property Name="KHOA" Type="Guid" />
-          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SOLUONG" Type="Int32" />
-          <Property Name="DONGIA" Type="Double" />
-          <Property Name="THANHTIEN" Type="Double" />
-          <Property Name="NGAY" Type="DateTime" Precision="3" />
-          <Property Name="STT" Type="Int32" />
-        </EntityType>
         <EntityType Name="tb_CONGTY">
           <Key>
             <PropertyRef Name="MACTY" />
@@ -704,6 +693,56 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="DISABLED" Type="Boolean" />
           <Property Name="ISGROUP" Type="Boolean" />
         </EntityType>
+        <EntityType Name="tb_CHUNGTU_CT">
+          <Key>
+            <PropertyRef Name="KHOACT" />
+          </Key>
+          <Property Name="KHOACT" Type="Guid" Nullable="false" />
+          <Property Name="KHOA" Type="Guid" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="DONGIA" Type="Double" />
+          <Property Name="CHIETKHAU" Type="Int32" />
+          <Property Name="THANHTIEN" Type="Double" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_KHACHHANG">
+          <Key>
+            <PropertyRef Name="IDKH" />
+          </Key>
+          <Property Name="IDKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="MST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_CHUNGTU">
+          <Key>
+            <PropertyRef Name="KHOA" />
+          </Key>
+          <Property Name="KHOA" Type="Guid" Nullable="false" />
+          <Property Name="LCT" Type="Int32" />
+          <Property Name="SCT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="SCT2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY2" Type="DateTime" Precision="3" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="CHIETKHAU" Type="Int32" />
+          <Property Name="TONGTIEN" Type="Double" />
+          <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MACTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MADVI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MADVI2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRANGTHAI" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -711,45 +750,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="VATTUStoreContainer" CdmEntityContainer="Entities">
           <FunctionImportMapping FunctionImportName="TINH_TONKHO_DONVI" FunctionName="VATTU.Store.TINH_TONKHO_DONVI" />
-          <EntitySetMapping Name="tb_CHUNGTU">
-            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU">
-              <MappingFragment StoreEntitySet="tb_CHUNGTU">
-                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
-                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
-                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
-                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
-                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
-                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
-                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
-                <ScalarProperty Name="MADVI2" ColumnName="MADVI2" />
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="NGAY2" ColumnName="NGAY2" />
-                <ScalarProperty Name="SCT2" ColumnName="SCT2" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-                <ScalarProperty Name="SCT" ColumnName="SCT" />
-                <ScalarProperty Name="LCT" ColumnName="LCT" />
-                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_CHUNGTU_CT">
-            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU_CT">
-              <MappingFragment StoreEntitySet="tb_CHUNGTU_CT">
-                <ScalarProperty Name="STT" ColumnName="STT" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
-                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
-                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
-                <ScalarProperty Name="KHOACT" ColumnName="KHOACT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_CONGTY">
             <EntityTypeMapping TypeName="VATTU.tb_CONGTY">
               <MappingFragment StoreEntitySet="tb_CONGTY">
@@ -1006,6 +1006,59 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spNGAY_TINHTON" FunctionName="VATTU.Store.spNGAY_TINHTON" />
+          <EntitySetMapping Name="tb_CHUNGTU_CT">
+            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU_CT">
+              <MappingFragment StoreEntitySet="tb_CHUNGTU_CT">
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="CHIETKHAU" ColumnName="CHIETKHAU" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
+                <ScalarProperty Name="KHOACT" ColumnName="KHOACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_KHACHHANG">
+            <EntityTypeMapping TypeName="VATTU.tb_KHACHHANG">
+              <MappingFragment StoreEntitySet="tb_KHACHHANG">
+                <ScalarProperty Name="MST" ColumnName="MST" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+                <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_CHUNGTU">
+            <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU">
+              <MappingFragment StoreEntitySet="tb_CHUNGTU">
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="MADVI2" ColumnName="MADVI2" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+                <ScalarProperty Name="CHIETKHAU" ColumnName="CHIETKHAU" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="NGAY2" ColumnName="NGAY2" />
+                <ScalarProperty Name="SCT2" ColumnName="SCT2" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="SCT" ColumnName="SCT" />
+                <ScalarProperty Name="LCT" ColumnName="LCT" />
+                <ScalarProperty Name="KHOA" ColumnName="KHOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

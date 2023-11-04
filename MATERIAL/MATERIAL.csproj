@@ -211,6 +211,12 @@
     <Compile Include="frmXuatNoiBo.Designer.cs">
       <DependentUpon>frmXuatNoiBo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXuatSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXuatSi.Designer.cs">
+      <DependentUpon>frmXuatSi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmXUATXU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,7 @@
     <Compile Include="frmNHACUNGCAP.Designer.cs">
       <DependentUpon>frmNHACUNGCAP.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyFunctions\myFunctions.cs" />
     <Compile Include="MyPopup\frmDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmXuatNoiBo.resx">
       <DependentUpon>frmXuatNoiBo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXuatSi.resx">
+      <DependentUpon>frmXuatSi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmXUATXU.resx">
       <DependentUpon>frmXUATXU.cs</DependentUpon>

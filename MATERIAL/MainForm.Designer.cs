@@ -102,7 +102,7 @@
             this.btnTinhTon.Size = new System.Drawing.Size(74, 55);
             this.btnTinhTon.Text = "Tính tồn";
             this.btnTinhTon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnTinhTon.Click += new System.EventHandler(this.btnTinhTon_Click);
+            //this.btnTinhTon.Click += new System.EventHandler(this.btnTinhTon_Click);
             // 
             // btnThoat
             // 

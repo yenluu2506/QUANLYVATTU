@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinesssLayer
 {
+    [Serializable]
     public class SYS_RIGHT
     {
         Entities db;

@@ -147,6 +147,12 @@
     <Compile Include="frmSetParam.Designer.cs">
       <DependentUpon>frmSetParam.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTonKhoCongTy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTonKhoCongTy.Designer.cs">
+      <DependentUpon>frmTonKhoCongTy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,7 @@
     <Compile Include="frmNHACUNGCAP.Designer.cs">
       <DependentUpon>frmNHACUNGCAP.cs</DependentUpon>
     </Compile>
+    <Compile Include="myFunctions.cs" />
     <Compile Include="MyPopup\frmDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetParam.resx">
       <DependentUpon>frmSetParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTonKhoCongTy.resx">
+      <DependentUpon>frmTonKhoCongTy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>

@@ -57,18 +57,13 @@ namespace BusinesssLayer
         public tb_CHUNGTU update(tb_CHUNGTU ct)
         {
             tb_CHUNGTU _ct = db.tb_CHUNGTU.FirstOrDefault(x => x.KHOA == ct.KHOA);
-            _ct.LCT = ct.LCT;
-            _ct.SCT = ct.SCT;
-            _ct.NGAY = ct.NGAY;
-            _ct.SCT2 = ct.SCT2;
-            _ct.NGAY2 = ct.NGAY2;
             _ct.SOLUONG = ct.SOLUONG;
+            _ct.CHIETKHAU = ct.CHIETKHAU;
             _ct.TONGTIEN = ct.TONGTIEN;
             _ct.GHICHU = ct.GHICHU;
-            _ct.MACTY = ct.MACTY;
-            _ct.MADVI = ct.MADVI;
-            _ct.MADVI2 = ct.MADVI2;
             _ct.TRANGTHAI = ct.TRANGTHAI;
+            _ct.UPDATED_BY = ct.UPDATED_BY;
+            _ct.UPDATED_DATE=ct.UPDATED_DATE;
             try
             {
                 db.SaveChanges();

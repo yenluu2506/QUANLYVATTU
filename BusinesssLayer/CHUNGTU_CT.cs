@@ -42,6 +42,7 @@ namespace BusinesssLayer
                 obj.DVT = n.DVT;
                 obj.SOLUONG = item.SOLUONG;
                 obj.DONGIA = item.DONGIA;
+                obj.CHIETKHAU = item.CHIETKHAU;
                 obj.THANHTIEN = item.THANHTIEN;
                 obj.STT = item.STT;
                 obj.NGAY = item.NGAY;
@@ -69,6 +70,7 @@ namespace BusinesssLayer
             tb_CHUNGTU_CT _chungtuct = db.tb_CHUNGTU_CT.FirstOrDefault(x => x.KHOACT == chungtuct.KHOACT);
             _chungtuct.SOLUONG = chungtuct.SOLUONG;
             _chungtuct.DONGIA = chungtuct.DONGIA;
+            _chungtuct.CHIETKHAU = chungtuct.CHIETKHAU;
             _chungtuct.THANHTIEN = chungtuct.THANHTIEN;
             _chungtuct.NGAY = chungtuct.NGAY;
             try

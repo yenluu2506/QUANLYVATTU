@@ -15,6 +15,7 @@ namespace BusinesssLayer
         public string DVT { get; set; }
         public Nullable<int> SOLUONG { get; set; }
         public Nullable<double> DONGIA { get; set; }
+        public Nullable<int> CHIETKHAU { get; set; }
         public Nullable<double> THANHTIEN { get; set; }
         public Nullable<System.DateTime> NGAY { get; set; }
         public Nullable<int> STT { get; set; }

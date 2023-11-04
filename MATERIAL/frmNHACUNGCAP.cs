@@ -30,7 +30,6 @@ namespace MATERIAL
             showHideControl(true);
             _enabled(false);
             loadData();
-            txtMaNCC.Enabled = false;
         }
 
         void _enabled(bool t)
@@ -76,7 +75,6 @@ namespace MATERIAL
             showHideControl(false);
             _enabled(true);
             _reset();
-            txtMaNCC.Enabled = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -84,7 +82,6 @@ namespace MATERIAL
             _them = false;
             _enabled(true);
             showHideControl(false);
-            txtMaNCC.Enabled = false;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -98,15 +95,9 @@ namespace MATERIAL
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtMaNCC.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập mã nhà cung cấp?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                return;
-            }
             if (_them)
             {
                 tb_NHACUNGCAP ncc = new tb_NHACUNGCAP();
-                ncc.MANCC = txtMaNCC.Text;
                 ncc.TENNCC = txtTen.Text;
                 ncc.DIACHI = txtDiaChi.Text;
                 ncc.DIENTHOAI = txtDienThoai.Text;
@@ -132,7 +123,6 @@ namespace MATERIAL
             loadData();
             _enabled(false);
             showHideControl(true);
-            txtMaNCC.Enabled = false;
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)
@@ -141,7 +131,6 @@ namespace MATERIAL
             showHideControl(true);
             _enabled(false);
             loadData();
-            txtMaNCC.Enabled = false;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -154,7 +143,6 @@ namespace MATERIAL
             if (gvDanhSach.RowCount > 0)
             {
                 _mancc = gvDanhSach.GetFocusedRowCellValue("MANCC").ToString();
-                txtMaNCC.Text = gvDanhSach.GetFocusedRowCellValue("MANCC").ToString();
                 txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TENNCC").ToString();
                 txtDienThoai.Text = gvDanhSach.GetFocusedRowCellValue("DIENTHOAI").ToString();
                 txtFax.Text = gvDanhSach.GetFocusedRowCellValue("FAX").ToString();

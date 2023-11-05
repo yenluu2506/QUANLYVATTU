@@ -104,8 +104,8 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private System.Windows.Forms.ComboBox cboDonVi;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.ComboBox cboCongTy;
+        public System.Windows.Forms.ComboBox cboDonVi;
+        public System.Windows.Forms.ComboBox cboCongTy;
     }
 }

@@ -83,6 +83,7 @@
             this.btnDong.Size = new System.Drawing.Size(117, 33);
             this.btnDong.TabIndex = 10;
             this.btnDong.Text = "Đóng";
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnXacNhan
             // 
@@ -95,6 +96,7 @@
             this.btnXacNhan.Size = new System.Drawing.Size(117, 33);
             this.btnXacNhan.TabIndex = 9;
             this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // frmBaoCao
             // 

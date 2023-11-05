@@ -112,9 +112,9 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.DateTimePicker dtDenNgay;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private System.Windows.Forms.DateTimePicker dtTuNgay;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        public System.Windows.Forms.DateTimePicker dtDenNgay;
+        public System.Windows.Forms.DateTimePicker dtTuNgay;
     }
 }

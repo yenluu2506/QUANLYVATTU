@@ -1,6 +1,10 @@
 ﻿using BusinesssLayer;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Windows.Forms;
 using DataLayer;
 using DevExpress.XtraEditors;
+using MATERIAL.MyFunctions;
 using MATERIAL.ucControls;
 using System;
 using System.Collections.Generic;
@@ -81,6 +85,54 @@ namespace MATERIAL
             _ctrl.Reverse();
             _panel.Controls.AddRange(_ctrl.ToArray());
             this.splBaoCao.Panel2.Controls.Add(_panel);
+        }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+            tb_SYS_REPORT rp = _sysReport.getItem(int.Parse(lstDanhSach.SelectedValue.ToString()));
+            Form frm = new Form();
+            CrystalReportViewer Crv = new CrystalReportViewer();
+            Crv.ShowGroupTreeButton = false;
+            Crv.ShowParameterPanelButton = false;
+            Crv.ToolPanelView = ToolPanelViewType.None;
+            TableLogOnInfo ThongTin;
+            ReportDocument doc = new ReportDocument();
+            doc.Load(Application.StartupPath + "\\Reports\\" + rp.REP_NAME + @".rpt");
+            ThongTin = doc.Database.Tables[0].LogOnInfo;
+            ThongTin.ConnectionInfo.ServerName = myFunctions._srv;
+            ThongTin.ConnectionInfo.DatabaseName = myFunctions._db;
+            ThongTin.ConnectionInfo.UserID = myFunctions._us;
+            ThongTin.ConnectionInfo.Password = myFunctions._pw;
+            doc.Database.Tables[0].ApplyLogOnInfo(ThongTin);
+
+            if (rp.TUNGAY == true)
+            {
+                doc.SetParameterValue("@NGAYD", _uTuNgay.dtTuNgay.Value);
+                doc.SetParameterValue("@NGAYD", _uTuNgay.dtDenNgay.Value);
+            }
+
+            if (rp.MACTY == true)
+            {
+                doc.SetParameterValue("@MACTY", _uCongTy.cboCongTy.SelectedValue.ToString());
+            }
+
+            if (rp.MADVI == true)
+            {
+                //doc.SetParameterValue("@MACTY", _uDonVi.cboCongTy.SelectedValue.ToString());
+                doc.SetParameterValue("@MADVI", _uDonVi.cboDonVi.SelectedValue.ToString());
+            }
+            Crv.Dock=DockStyle.Fill;
+            Crv.ReportSource = doc;
+            frm.Controls.Add(Crv);
+            Crv.Refresh();
+            frm.Text = rp.DESCRIPTION;
+            frm.WindowState= FormWindowState.Maximized;
+            frm.ShowDialog();
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

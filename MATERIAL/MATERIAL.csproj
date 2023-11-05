@@ -238,6 +238,24 @@
     <Compile Include="frmNHOMHH.Designer.cs">
       <DependentUpon>frmNHOMHH.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSetParam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetParam.Designer.cs">
+      <DependentUpon>frmSetParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTonKhoCongTy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTonKhoCongTy.Designer.cs">
+      <DependentUpon>frmTonKhoCongTy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTraHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTraHang.Designer.cs">
+      <DependentUpon>frmTraHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +292,7 @@
     <Compile Include="frmNHACUNGCAP.Designer.cs">
       <DependentUpon>frmNHACUNGCAP.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyFunctions\myFunctions.cs" />
     <Compile Include="MyPopup\frmDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +307,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptPrintBarcode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPrintBarcode.Designer.cs">
+      <DependentUpon>rptPrintBarcode.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDONVITINH.resx">
       <DependentUpon>frmDONVITINH.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +345,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNHOMHH.resx">
       <DependentUpon>frmNHOMHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetParam.resx">
+      <DependentUpon>frmSetParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTonKhoCongTy.resx">
+      <DependentUpon>frmTonKhoCongTy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTraHang.resx">
+      <DependentUpon>frmTraHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>
@@ -408,6 +442,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\8541700_barcode_code_icon.png" />
     <Content Include="Resources\icon_cuctayxoa.jpg" />
     <Content Include="Resources\icon_cuctayxoa.png" />
     <None Include="Resources\staff.png" />

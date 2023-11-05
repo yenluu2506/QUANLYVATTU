@@ -12,7 +12,10 @@ namespace BusinesssLayer
         public SYS_GROUP() { 
             db = Entities.CreateEntities();
         }
-
+        public tb_SYS_GROUP getGroupByMemBer(int idUser)
+        {
+            return db.tb_SYS_GROUP.FirstOrDefault(x => x.MEMBER == idUser);
+        }
         public void add(tb_SYS_GROUP gr)
         {
             try

@@ -166,6 +166,24 @@ namespace MATERIAL
                             frm.ShowDialog();
                             break;
                         }
+                    case "TONKHODVI":
+                        {
+                            frmTonKhoDonVi frm = new frmTonKhoDonVi(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "DOIMATKHAU":
+                        {
+                            frmChangePassword frm = new frmChangePassword(_user);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "BACKUP":
+                        {
+                            frmBackup frm = new frmBackup();
+                            frm.ShowDialog();
+                            break;
+                        }
                 }
             }
         }

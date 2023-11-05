@@ -89,6 +89,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackup.Designer.cs">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDONVITINH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +236,12 @@
     <Compile Include="Reports\rptPrintBarcode.Designer.cs">
       <DependentUpon>rptPrintBarcode.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmBackup.resx">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDONVITINH.resx">
       <DependentUpon>frmDONVITINH.cs</DependentUpon>
     </EmbeddedResource>

@@ -167,6 +167,12 @@
     <Compile Include="frmTonKhoCongTy.Designer.cs">
       <DependentUpon>frmTonKhoCongTy.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTonKhoDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTonKhoDonVi.Designer.cs">
+      <DependentUpon>frmTonKhoDonVi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTonKhoCongTy.resx">
       <DependentUpon>frmTonKhoCongTy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTonKhoDonVi.resx">
+      <DependentUpon>frmTonKhoDonVi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>

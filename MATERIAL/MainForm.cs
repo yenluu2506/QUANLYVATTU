@@ -184,6 +184,12 @@ namespace MATERIAL
                             frm.ShowDialog();
                             break;
                         }
+                    case "RESTORE":
+                        {
+                            frmRestore frm = new frmRestore();
+                            frm.ShowDialog();
+                            break;
+                        }
                 }
             }
         }

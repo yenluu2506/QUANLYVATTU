@@ -68,5 +68,19 @@ namespace DataLayer
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spNGAY_TINHTON", nGAYC, nGAYD, nAM, kY);
         }
+    
+        [DbFunction("Entities", "FN_DOANHTHU_THEONHOMHANG")]
+        public virtual IQueryable<FN_DOANHTHU_THEONHOMHANG_Result> FN_DOANHTHU_THEONHOMHANG(Nullable<System.DateTime> nGAYD, Nullable<System.DateTime> nGAYC)
+        {
+            var nGAYDParameter = nGAYD.HasValue ?
+                new ObjectParameter("NGAYD", nGAYD) :
+                new ObjectParameter("NGAYD", typeof(System.DateTime));
+    
+            var nGAYCParameter = nGAYC.HasValue ?
+                new ObjectParameter("NGAYC", nGAYC) :
+                new ObjectParameter("NGAYC", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FN_DOANHTHU_THEONHOMHANG_Result>("[Entities].[FN_DOANHTHU_THEONHOMHANG](@NGAYD, @NGAYC)", nGAYDParameter, nGAYCParameter);
+        }
     }
 }

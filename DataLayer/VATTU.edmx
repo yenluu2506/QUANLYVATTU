@@ -312,6 +312,19 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="DISABLED" Type="bit" />
           <Property Name="ISGROUP" Type="bit" />
         </EntityType>
+        <Function Name="FN_DOANHTHU_THEONHOMHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAYD" Type="datetime" Mode="In" />
+          <Parameter Name="NGAYC" Type="datetime" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="IDNHOM" Type="int" />
+                <Property Name="TENNHOM" Type="nvarchar" MaxLength="200" />
+                <Property Name="THANHTIEN" Type="float" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <Function Name="spNGAY_TINHTON" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NGAYC" Type="datetime" Mode="InOut" />
           <Parameter Name="NGAYD" Type="datetime" Mode="InOut" />
@@ -449,6 +462,10 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_KHACHHANG" EntityType="VATTU.tb_KHACHHANG" />
           <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
           <EntitySet Name="tb_SYS_REPORT" EntityType="VATTU.tb_SYS_REPORT" />
+          <FunctionImport Name="FN_DOANHTHU_THEONHOMHANG" IsComposable="true" ReturnType="Collection(VATTU.FN_DOANHTHU_THEONHOMHANG_Result)">
+            <Parameter Name="NGAYD" Mode="In" Type="DateTime" />
+            <Parameter Name="NGAYC" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="tb_CONGTY">
           <Key>
@@ -745,6 +762,11 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="MADVI" Type="Boolean" />
           <Property Name="TONKHO" Type="Boolean" />
         </EntityType>
+        <ComplexType Name="FN_DOANHTHU_THEONHOMHANG_Result">
+          <Property Type="Int32" Name="IDNHOM" Nullable="true" />
+          <Property Type="String" Name="TENNHOM" Nullable="true" MaxLength="200" />
+          <Property Type="Double" Name="THANHTIEN" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1062,6 +1084,15 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FN_DOANHTHU_THEONHOMHANG" FunctionName="VATTU.Store.FN_DOANHTHU_THEONHOMHANG">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VATTU.FN_DOANHTHU_THEONHOMHANG_Result">
+                <ScalarProperty Name="IDNHOM" ColumnName="IDNHOM" />
+                <ScalarProperty Name="TENNHOM" ColumnName="TENNHOM" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

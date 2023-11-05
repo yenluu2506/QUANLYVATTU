@@ -133,6 +133,7 @@
     <Compile Include="KHACHHANG.cs" />
     <Compile Include="NHACUNGCAP.cs" />
     <Compile Include="NHOMHH.cs" />
+    <Compile Include="obj_BAOCAO_NHOMHH.cs" />
     <Compile Include="obj_CHUNGTU_CT.cs" />
     <Compile Include="obj_HANGHOA.cs" />
     <Compile Include="obj_PRINTBARCODE.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="SYS_RIGHT_REP.cs" />
     <Compile Include="SYS_SEQUENCE.cs" />
     <Compile Include="SYS_USER.cs" />
+    <Compile Include="THONGKE.cs" />
     <Compile Include="TONKHO.cs" />
     <Compile Include="View_FUNC_SYS_RIGHT.cs" />
     <Compile Include="View_REP_SYS_RIGHT_REP.cs" />

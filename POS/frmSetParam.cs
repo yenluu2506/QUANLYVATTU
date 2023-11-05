@@ -36,7 +36,7 @@ namespace POS
             loadDonVi();
         }
 
-        void loadCongty()
+        void loadCongTy()
         {
             cboCongTy.DataSource = _congty.getAll();
             cboCongTy.DisplayMember = "TENCTY";
@@ -57,7 +57,7 @@ namespace POS
             string madvi = (cboDonVi.Text.Trim()=="")?"~":cboDonVi.SelectedValue.ToString();
             SYS_PARAM _sysParam = new SYS_PARAM(macty,madvi);
             _sysParam.SaveFile();
-            MessageBox.Show("Xác lập đơn vị sử dụng thành công","Thông báo",MessageButtons.Ok,MessageBoxIcon.Information);
+            MessageBox.Show("Xác lập đơn vị sử dụng thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

@@ -1,7 +1,6 @@
 ﻿using BusinesssLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
-using MATERIAL.MyFunctions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MATERIAL
+namespace POS
 {
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
@@ -26,7 +25,7 @@ namespace MATERIAL
         SYS_USER _sysUser;
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            _sysUser = new SYS_USER(); 
+            _sysUser = new SYS_USER();
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = File.Open("sysparam.ini", FileMode.Open, FileAccess.Read);
             _sysParam = (SYS_PARAM)bf.Deserialize(fs);

@@ -19,11 +19,22 @@ namespace MATERIAL
         {
             InitializeComponent();
         }
+        public MainForm(tb_SYS_USER user)
+        {
+            InitializeComponent();
+            this._user = user;
+            this.Text = "HỆ THỐNG QUẢN LÝ KHO VẬT TƯ - " + _user.FULLNAME;
+        }
         SYS_FUNC _func;
-
+        tb_SYS_USER _user;
+        SYS_GROUP _sysGroup;
+        SYS_RIGHT _sysRight;
         private void MainForm_Load(object sender, EventArgs e)
         {
             _func = new SYS_FUNC();
+            _user = new tb_SYS_USER();
+            _sysGroup = new SYS_GROUP();
+            _sysRight = new SYS_RIGHT();
             leftMenu();
         }
 
@@ -71,15 +82,15 @@ namespace MATERIAL
         private void navMain_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             string func_code = e.Link.Item.Tag.ToString();
-            //var _group = _sysGroup.getGroupByMember(_user.IDUSER);
-            //var _uRight = _sysRight.getRight(_user.IDUSER, func_code);
+            var _group = _sysGroup.getGroupByMemBer(_user.IDUSER);
+            var _uRight = _sysRight.getRight(_user.IDUSER, func_code);
 
-            //if(_group != null)
-            //{
-            //    var _groupRight = tb_SYS_RIGHT.getRight(_group.IDUSER, func_code);
-            //    if (_uRight.USER_RIGHT < _groupRight.USER_RIGHT)
-            //        _uRight.USER_RIGHT = _groupRight.USER_RIGHT;
-            //}
+            if (_group != null)
+            {
+                var _groupRight = _sysRight.getRight(_group.GROUP, func_code);  
+                if (_uRight.USER_RIGHT < _groupRight.USER_RIGHT)
+                    _uRight.USER_RIGHT = _groupRight.USER_RIGHT;
+            }
 
             //if(_uRight.USER_RIGHT == 0)
             //{
@@ -131,53 +142,50 @@ namespace MATERIAL
                         frm.ShowDialog();
                         break;
                     }
-                //case "NHAPMUA":
-                //    {
-                //        frmNhapMua frm = new frmNhapMua(_user,_uRight.USER_RIGHT.Value);
-                //        frm.ShowDialog();
-                //        break;
-                //    }
-                //case "XUATNB":
-                //    {
-                //        frmXuatNoiBo frm = new frmXuatNoiBo(_user,_uRight.USER_RIGHT.Value);
-                //        frm.ShowDialog();
-                //        break;
-                //    }
-                //    case "NHAPNB":
-                //        {
-                //            frmNhapNoiBo frm = new frmNhapNoiBo(_user, _uRight.USER_RIGHT.Value);
-                //            frm.ShowDialog();
-                //            break;
-                //        }
-                //case "XUATSI":
-                //    {
-                //        frmXuatSi frm = new frmXuatSi(_user, _uRight.USER_RIGHT.Value);
-                //        frm.ShowDialog();
-                //        break;
-                //    }
-                //}
-
+                case "NHAPMUA":
+                    {
+                        frmNhapMua frm = new frmNhapMua();
+                        frm.ShowDialog();
+                        break;
+                    }
+                    //case "XUATNB":
+                    //    {
+                    //        frmXuatNoiBo frm = new frmXuatNoiBo(_user,_uRight.USER_RIGHT.Value);
+                    //        frm.ShowDialog();
+                    //        break;
+                    //    }
+                    //    case "NHAPNB":
+                    //        {
+                    //            frmNhapNoiBo frm = new frmNhapNoiBo(_user, _uRight.USER_RIGHT.Value);
+                    //            frm.ShowDialog();
+                    //            break;
+                    //        }
+                    //}
             }
         }
 
-        private void btnTinhTon_Click(object sender, EventArgs e)
+        private void btnBarcode_Click(object sender, EventArgs e)
         {
-            //string madvi = "";
-            //TONKHO _tonkho = new TONKHO();
-            //if (myFunctions._madvi == "~")
-            //    madvi = "CTKHO1";
-            //else
-            //    madvi = myFunctions._madvi;
-            //if (_tonkho.TinhTon(madvi, DateTime.Now))
-            //{
-            //    MessageBox.Show("Cập nhật tồn kho thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Cập nhật tồn kho không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //}
+            frmInBarcode frm = new frmInBarcode();
+            frm.ShowDialog();
         }
-
     }
+
+        //private void btnTinhTon_Click(object sender, EventArgs e)
+        //{
+        //    string madvi = "";
+        //    TONKHO _tonkho = new TONKHO();
+        //    if (myFunctions._madvi == "~")
+        //        madvi = "CTKHO1";
+        //    else
+        //        madvi = myFunctions._madvi;
+        //    if (_tonkho.TinhTon(madvi, DateTime.Now))
+        //    {
+        //        MessageBox.Show("Cập nhật tồn kho thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Cập nhật tồn kho không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //    }
 }

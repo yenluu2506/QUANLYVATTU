@@ -25,6 +25,7 @@ namespace POS
 
         public MainForm(tb_SYS_USER user, int right)
         {
+            InitializeComponent();
             this._user = user;
             this._right = right;
         }
@@ -59,7 +60,7 @@ namespace POS
                 return;
             }
             luuThongTin();
-            XuatReport("PHIEU_BANLE_VP", "Phiếu bán lẻ");
+            XuatReport("PHIEU_BANLE", "Phiếu bán lẻ");
             lstChungTuCT = new List<obj_CHUNGTU_CT>();
             gcChiTiet.DataSource = lstChungTuCT;
         }
@@ -257,10 +258,8 @@ namespace POS
                     Crv.Dock = DockStyle.Fill;
                     Crv.ReportSource = doc;
                     frm.Controls.Add(Crv);
+                    Crv.PrintReport();
                     Crv.Refresh();
-                    frm.Text = _tieude;
-                    frm.WindowState = FormWindowState.Maximized;
-                    frm.ShowDialog();
                 }
                 catch (Exception ex)
                 {
@@ -271,6 +270,11 @@ namespace POS
             {
                 MessageBox.Show("Không có dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

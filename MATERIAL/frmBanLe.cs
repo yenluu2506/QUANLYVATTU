@@ -27,6 +27,7 @@ namespace MATERIAL
 
         public frmBanLe(tb_SYS_USER user, int right)
         {
+            InitializeComponent();
             this._user = user;
             this._right = right;
         }

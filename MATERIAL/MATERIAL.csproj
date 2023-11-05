@@ -105,6 +105,11 @@
     <Reference Include="DevExpress.Charts.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v23.1" />
     <Reference Include="DevExpress.Data.v23.1" />
+    <Reference Include="DevExpress.Office.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v23.1.Export, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v23.1" />
     <Reference Include="DevExpress.Sparkline.v23.1.Core" />
     <Reference Include="DevExpress.Utils.v23.1.UI, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -115,10 +120,14 @@
     <Reference Include="DevExpress.XtraEditors.v23.1" />
     <Reference Include="DevExpress.Printing.v23.1.Core" />
     <Reference Include="DevExpress.Drawing.v23.1" />
+    <Reference Include="DevExpress.XtraGauges.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v23.1.Extensions, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -193,6 +202,24 @@
     <Compile Include="frmHANGHOA.Designer.cs">
       <DependentUpon>frmHANGHOA.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInBarcode.Designer.cs">
+      <DependentUpon>frmInBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhapMua.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,12 +237,6 @@
     </Compile>
     <Compile Include="frmNHOMHH.Designer.cs">
       <DependentUpon>frmNHOMHH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTraHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTraHang.Designer.cs">
-      <DependentUpon>frmTraHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmWaiting.cs">
       <SubType>Form</SubType>
@@ -253,7 +274,6 @@
     <Compile Include="frmNHACUNGCAP.Designer.cs">
       <DependentUpon>frmNHACUNGCAP.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyFunctions\myFunctions.cs" />
     <Compile Include="MyPopup\frmDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,12 +288,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmBanLe.resx">
-      <DependentUpon>frmBanLe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmChietKhau.resx">
-      <DependentUpon>frmChietKhau.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDONVITINH.resx">
       <DependentUpon>frmDONVITINH.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +303,15 @@
     <EmbeddedResource Include="frmHANGHOA.resx">
       <DependentUpon>frmHANGHOA.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInBarcode.resx">
+      <DependentUpon>frmInBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNhapMua.resx">
       <DependentUpon>frmNhapMua.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,9 +320,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNHOMHH.resx">
       <DependentUpon>frmNHOMHH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTraHang.resx">
-      <DependentUpon>frmTraHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>
@@ -331,6 +351,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPrintBarcode.resx">
+      <DependentUpon>rptPrintBarcode.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -385,9 +408,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bar_code.png" />
     <Content Include="Resources\icon_cuctayxoa.jpg" />
     <Content Include="Resources\icon_cuctayxoa.png" />
+    <None Include="Resources\staff.png" />
+    <None Include="Resources\loading.png" />
     <None Include="Resources\tinh_ton.png" />
     <None Include="Resources\icon_importexcel1.png" />
   </ItemGroup>

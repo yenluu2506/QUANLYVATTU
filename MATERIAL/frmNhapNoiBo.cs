@@ -74,7 +74,7 @@ namespace MATERIAL
             loadDonVi();
             loadDonViXuat();
             loadDonViNhap();
-            if (myFunctions._madvi == "~")
+            if (myFunctions._madvi = "~")
             {
                 cboDonVi.SelectedValue = "CTKHO1";
                 cboDonVi.Enabled = false;
@@ -164,10 +164,10 @@ namespace MATERIAL
             {
                 tb_CHUNGTU ctu;
                 string madvi = "";
-                if (myFunctions._madvi == "~")
-                    madvi = "CTKHO1";
-                else
-                    madvi = cboDonVi.SelectedValue.ToString();
+                //if (myFunctions._madvi == "~")
+                //    madvi = "CTKHO1";
+                //else
+                //    madvi = cboDonVi.SelectedValue.ToString();
                 tb_DONVI dvi = _donvi.getItem(madvi);
                 _seq = _sequence.getItem("NNB@" + DateTime.Today.Year.ToString() + "@" + dvi.KYHIEU);
                 if (_seq == null)

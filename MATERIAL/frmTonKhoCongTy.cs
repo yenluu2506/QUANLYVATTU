@@ -2,6 +2,7 @@
 using DataLayer;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
+using MATERIAL.MyFunctions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

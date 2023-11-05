@@ -23,11 +23,10 @@ namespace POS
             InitializeComponent();
         }
 
-        public MainForm(tb_SYS_USER user, int right)
+        public MainForm(tb_SYS_USER user)
         {
             InitializeComponent();
             this._user = user;
-            this._right = right;
         }
         tb_SYS_USER _user;
         int _right;

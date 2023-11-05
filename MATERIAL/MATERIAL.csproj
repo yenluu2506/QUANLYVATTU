@@ -166,6 +166,12 @@
     <Compile Include="frmBanLe.Designer.cs">
       <DependentUpon>frmBanLe.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCao.Designer.cs">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChietKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +319,33 @@
     <Compile Include="Reports\rptPrintBarcode.Designer.cs">
       <DependentUpon>rptPrintBarcode.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucControls\frmShowDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ucControls\frmShowDonVi.Designer.cs">
+      <DependentUpon>frmShowDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\ucCongTy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControls\ucCongTy.Designer.cs">
+      <DependentUpon>ucCongTy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\ucDonVi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControls\ucDonVi.Designer.cs">
+      <DependentUpon>ucDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\ucTuNgay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControls\ucTuNgay.Designer.cs">
+      <DependentUpon>ucTuNgay.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmBaoCao.resx">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDONVITINH.resx">
       <DependentUpon>frmDONVITINH.cs</DependentUpon>
     </EmbeddedResource>
@@ -389,6 +422,18 @@
     <EmbeddedResource Include="Reports\rptPrintBarcode.resx">
       <DependentUpon>rptPrintBarcode.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\frmShowDonVi.resx">
+      <DependentUpon>frmShowDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\ucCongTy.resx">
+      <DependentUpon>ucCongTy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\ucDonVi.resx">
+      <DependentUpon>ucDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\ucTuNgay.resx">
+      <DependentUpon>ucTuNgay.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -442,7 +487,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\loading1.png" />
+    <None Include="Resources\staff1.png" />
     <None Include="Resources\8541700_barcode_code_icon.png" />
+    <None Include="Resources\fload.jpg" />
     <Content Include="Resources\icon_cuctayxoa.jpg" />
     <Content Include="Resources\icon_cuctayxoa.png" />
     <None Include="Resources\staff.png" />

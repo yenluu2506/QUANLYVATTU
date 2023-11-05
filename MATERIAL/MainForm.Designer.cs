@@ -74,7 +74,7 @@
             // btnBarcode
             // 
             this.btnBarcode.ForeColor = System.Drawing.Color.Black;
-            this.btnBarcode.Image = global::MATERIAL.Properties.Resources._8541700_barcode_code_icon;
+            this.btnBarcode.Image = global::MATERIAL.Properties.Resources.bar_code;
             this.btnBarcode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBarcode.Name = "btnBarcode";
             this.btnBarcode.Size = new System.Drawing.Size(85, 60);

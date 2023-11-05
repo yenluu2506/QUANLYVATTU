@@ -22,5 +22,6 @@ namespace DataLayer
         public Nullable<bool> THANGNAM { get; set; }
         public Nullable<bool> MACTY { get; set; }
         public Nullable<bool> MADVI { get; set; }
+        public Nullable<bool> TONKHO { get; set; }
     }
 }

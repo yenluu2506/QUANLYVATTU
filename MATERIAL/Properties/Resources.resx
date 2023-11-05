@@ -148,11 +148,17 @@
   <data name="icon_out" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Team_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Team_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_baocao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_baocao1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_hethong1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_hethong1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_boqua" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_boqua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="del_Icon_x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\del_Icon_x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,23 +169,20 @@
   <data name="icon_excel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_excel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_xoa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_xoa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_import1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_import1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bar_code" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bar_code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Customer_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Customer_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_boqua" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_boqua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_xoa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_xoa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="banner21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\banner21.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Team_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Team_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_import1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_import1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,7 +193,10 @@
   <data name="icon_out2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_out2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bar_code" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bar_code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="staff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\staff1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loading1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

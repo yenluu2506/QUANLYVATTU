@@ -40,7 +40,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(502, 66);
+            this.groupBox1.Size = new System.Drawing.Size(550, 66);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Công ty/Chi nhánh";
@@ -50,7 +50,7 @@
             this.cboCongTy.FormattingEnabled = true;
             this.cboCongTy.Location = new System.Drawing.Point(7, 24);
             this.cboCongTy.Name = "cboCongTy";
-            this.cboCongTy.Size = new System.Drawing.Size(489, 26);
+            this.cboCongTy.Size = new System.Drawing.Size(537, 26);
             this.cboCongTy.TabIndex = 0;
             // 
             // ucCongTy
@@ -59,7 +59,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "ucCongTy";
-            this.Size = new System.Drawing.Size(502, 85);
+            this.Size = new System.Drawing.Size(550, 85);
             this.Load += new System.EventHandler(this.ucCongTy_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

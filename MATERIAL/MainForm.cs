@@ -26,9 +26,10 @@ namespace MATERIAL
             InitializeComponent();
             this._user = user;
             this.Text = "HỆ THỐNG QUẢN LÝ KHO VẬT TƯ - " + _user.FULLNAME;
-            //    lblServer.Caption = "Server: " + myFunctions._srv;
-            //    lblDataBase.Caption = "Database: " + myFunctions._db;
-            //    lblDonVi.Caption = "Đơn vị: " + myFunctions._tendvi;
+            lblServer.Caption = "Server: " + myFunctions._srv;
+            lblDataBase.Caption = "Database: " + myFunctions._db;
+            lblDonVi.Caption = "Đơn vị: " + myFunctions._tendvi;
+            lblUserName.Caption = user.USERNAME;
         }
         SYS_FUNC _func;
         tb_SYS_USER _user;
@@ -39,7 +40,7 @@ namespace MATERIAL
         private void MainForm_Load(object sender, EventArgs e)
         {
             _func = new SYS_FUNC();
-            _user = new tb_SYS_USER();
+            //if(_user == null)
             _sysGroup = new SYS_GROUP();
             _sysRight = new SYS_RIGHT();
             _thongke = new THONGKE();
@@ -98,12 +99,13 @@ namespace MATERIAL
 
         private void btnBaoCao_Click(object sender, EventArgs e)
         {
-
+            frmBaoCao frm = new frmBaoCao(_user);
+            frm.ShowDialog();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+           this.Close();
         }
 
         private void navMain_LinkClicked(object sender, NavBarLinkEventArgs e)
@@ -111,7 +113,7 @@ namespace MATERIAL
             string func_code = e.Link.Item.Tag.ToString();
             var _group = _sysGroup.getGroupByMemBer(_user.IDUSER);
             var _uRight = _sysRight.getRight(_user.IDUSER, func_code);
-
+             
             if (_group != null)
             {
                 var _groupRight = _sysRight.getRight(_group.GROUP, func_code);
@@ -119,75 +121,81 @@ namespace MATERIAL
                     _uRight.USER_RIGHT = _groupRight.USER_RIGHT;
             }
 
-            //if(_uRight.USER_RIGHT == 0)
-            //{
-            //    MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            switch (func_code)
+            if (_uRight.USER_RIGHT == 0)
             {
-                case "CONGTY":
-                    {
-                        frmCONGTY frm = new frmCONGTY();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "DONVI":
-                    {
-                        frmDONVI frm = new frmDONVI();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "DVT":
-                    {
-                        frmDONVITINH frm = new frmDONVITINH();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "NCC":
-                    {
-                        frmNHACUNGCAP frm = new frmNHACUNGCAP();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "XX":
-                    {
-                        frmXUATXU frm = new frmXUATXU();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "NHOMHH":
-                    {
-                        frmNHOMHH frm = new frmNHOMHH();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "HANGHOA":
-                    {
-                        frmHANGHOA frm = new frmHANGHOA();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "NHAPMUA":
-                    {
-                        frmNhapMua frm = new frmNhapMua();
-                        frm.ShowDialog();
-                        break;
-                    }
-                    //case "XUATNB":
-                    //    {
-                    //        frmXuatNoiBo frm = new frmXuatNoiBo(_user,_uRight.USER_RIGHT.Value);
-                    //        frm.ShowDialog();
-                    //        break;
-                    //    }
-                    //    case "NHAPNB":
-                    //        {
-                    //            frmNhapNoiBo frm = new frmNhapNoiBo(_user, _uRight.USER_RIGHT.Value);
-                    //            frm.ShowDialog();
-                    //            break;
-                    //        }
-                    //}
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                switch (func_code)
+                {
+                    case "CONGTY":
+                        {
+                            frmCONGTY frm = new frmCONGTY();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "DONVI":
+                        {
+                            frmDONVI frm = new frmDONVI();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "DVT":
+                        {
+                            frmDONVITINH frm = new frmDONVITINH();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "NCC":
+                        {
+                            frmNHACUNGCAP frm = new frmNHACUNGCAP();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "XX":
+                        {
+                            frmXUATXU frm = new frmXUATXU();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "NHOMHH":
+                        {
+                            frmNHOMHH frm = new frmNHOMHH();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "HANGHOA":
+                        {
+                            frmHANGHOA frm = new frmHANGHOA();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "NHAPMUA":
+                        {
+                            frmNhapMua frm = new frmNhapMua();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "XUATNB":
+                        {
+                            frmXuatNoiBo frm = new frmXuatNoiBo(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "NHAPNB":
+                        {
+                            frmNhapNoiBo frm = new frmNhapNoiBo(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "TONKHOCTY":
+                        {
+                            frmTonKhoCongTy frm = new frmTonKhoCongTy(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                }
             }
         }
 

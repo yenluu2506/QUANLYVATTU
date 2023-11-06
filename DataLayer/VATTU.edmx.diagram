@@ -25,9 +25,9 @@
         <EntityTypeShape EntityType="VATTU.tb_NHACUNGCAP" Width="1.5" PointX="13.375" PointY="10.75" />
         <EntityTypeShape EntityType="VATTU.tb_HANGHOA" Width="1.5" PointX="9.375" PointY="14.75" />
         <EntityTypeShape EntityType="VATTU.tb_CHUNGTU_CT" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="VATTU.tb_KHACHHANG" Width="1.5" PointX="11.375" PointY="14.75" />
         <EntityTypeShape EntityType="VATTU.tb_CHUNGTU" Width="1.5" PointX="13.375" PointY="4.75" />
         <EntityTypeShape EntityType="VATTU.tb_SYS_REPORT" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="VATTU.tb_KHACHHANG" Width="1.5" PointX="11.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

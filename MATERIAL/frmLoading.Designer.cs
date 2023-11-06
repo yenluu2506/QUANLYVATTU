@@ -130,6 +130,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmLoading";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLoading";
             this.Load += new System.EventHandler(this.frmLoading_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();

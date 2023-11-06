@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnTraHang = new DevExpress.XtraEditors.SimpleButton();
             this.btnChietKhau = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnInBill = new DevExpress.XtraEditors.SimpleButton();
             this.txtBarcode = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gcChiTiet = new DevExpress.XtraGrid.GridControl();
             this.gvChiTiet = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.BARCODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,6 +66,16 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(918, 100);
             this.panelControl1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::POS.Properties.Resources.bar_code;
+            this.pictureBox1.Location = new System.Drawing.Point(5, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 56);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // btnTraHang
             // 
@@ -114,16 +124,6 @@
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(306, 56);
             this.txtBarcode.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::POS.Properties.Resources.bar_code;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 56);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // gcChiTiet
             // 
@@ -256,6 +256,7 @@
             this.Controls.Add(this.gcChiTiet);
             this.Controls.Add(this.panelControl1);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);

@@ -70,6 +70,7 @@
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.txtBarcode);
             this.Name = "frmTraHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trả hàng";
             this.Load += new System.EventHandler(this.frmTraHang_Load);
             this.ResumeLayout(false);

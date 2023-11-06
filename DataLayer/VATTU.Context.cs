@@ -47,9 +47,9 @@ namespace DataLayer
         public virtual DbSet<V_USER_IN_GROUP> V_USER_IN_GROUP { get; set; }
         public virtual DbSet<V_USER_NOTIN_GROUP> V_USER_NOTIN_GROUP { get; set; }
         public virtual DbSet<tb_CHUNGTU_CT> tb_CHUNGTU_CT { get; set; }
-        public virtual DbSet<tb_KHACHHANG> tb_KHACHHANG { get; set; }
         public virtual DbSet<tb_CHUNGTU> tb_CHUNGTU { get; set; }
         public virtual DbSet<tb_SYS_REPORT> tb_SYS_REPORT { get; set; }
+        public virtual DbSet<tb_KHACHHANG> tb_KHACHHANG { get; set; }
     
         public virtual int TINH_TONKHO_DONVI(Nullable<System.DateTime> nGAYC, string mADVI)
         {

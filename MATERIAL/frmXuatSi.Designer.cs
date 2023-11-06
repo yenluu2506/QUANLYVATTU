@@ -32,8 +32,14 @@
             this.tabChungTu = new DevExpress.XtraTab.XtraTabControl();
             this.pageChiTiet = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.txtChietKhau = new System.Windows.Forms.TextBox();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.lkKhachHang = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.IDKH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.HOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DIENTHOAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cboDonViXuat = new System.Windows.Forms.ComboBox();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.lblNhaCC = new DevExpress.XtraEditors.LabelControl();
@@ -51,6 +57,7 @@
             this.TENHH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SOLUONGCT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CHIETKHAU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.THANHTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pageDanhSach = new DevExpress.XtraTab.XtraTabPage();
@@ -87,13 +94,6 @@
             this.btnIn = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnThoat = new System.Windows.Forms.ToolStripButton();
-            this.CHIETKHAU = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.txtChietKhau = new System.Windows.Forms.TextBox();
-            this.btnCapNhat = new System.Windows.Forms.Button();
-            this.IDKH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.HOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DIENTHOAI = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabChungTu)).BeginInit();
             this.tabChungTu.SuspendLayout();
             this.pageChiTiet.SuspendLayout();
@@ -184,6 +184,35 @@
             this.splitContainerControl2.SplitterPosition = 121;
             this.splitContainerControl2.TabIndex = 0;
             // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Location = new System.Drawing.Point(578, 16);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(59, 23);
+            this.btnCapNhat.TabIndex = 21;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            // 
+            // txtChietKhau
+            // 
+            this.txtChietKhau.Location = new System.Drawing.Point(492, 17);
+            this.txtChietKhau.Name = "txtChietKhau";
+            this.txtChietKhau.Size = new System.Drawing.Size(80, 21);
+            this.txtChietKhau.TabIndex = 20;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.labelControl9.Location = new System.Drawing.Point(446, 19);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(40, 17);
+            this.labelControl9.TabIndex = 19;
+            this.labelControl9.Text = "CK(%)";
+            // 
             // lkKhachHang
             // 
             this.lkKhachHang.Location = new System.Drawing.Point(528, 48);
@@ -206,6 +235,39 @@
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // IDKH
+            // 
+            this.IDKH.Caption = "IDKH";
+            this.IDKH.FieldName = "IDKH";
+            this.IDKH.MaxWidth = 50;
+            this.IDKH.MinWidth = 50;
+            this.IDKH.Name = "IDKH";
+            this.IDKH.Visible = true;
+            this.IDKH.VisibleIndex = 0;
+            this.IDKH.Width = 50;
+            // 
+            // HOTEN
+            // 
+            this.HOTEN.Caption = "HỌ TÊN";
+            this.HOTEN.FieldName = "HOTEN";
+            this.HOTEN.MaxWidth = 150;
+            this.HOTEN.MinWidth = 150;
+            this.HOTEN.Name = "HOTEN";
+            this.HOTEN.Visible = true;
+            this.HOTEN.VisibleIndex = 1;
+            this.HOTEN.Width = 150;
+            // 
+            // DIENTHOAI
+            // 
+            this.DIENTHOAI.Caption = "ĐIỆN THOẠI";
+            this.DIENTHOAI.FieldName = "DIENTHOAI";
+            this.DIENTHOAI.MaxWidth = 120;
+            this.DIENTHOAI.MinWidth = 120;
+            this.DIENTHOAI.Name = "DIENTHOAI";
+            this.DIENTHOAI.Visible = true;
+            this.DIENTHOAI.VisibleIndex = 2;
+            this.DIENTHOAI.Width = 120;
             // 
             // cboDonViXuat
             // 
@@ -407,6 +469,17 @@
             this.SOLUONGCT.Visible = true;
             this.SOLUONGCT.VisibleIndex = 3;
             this.SOLUONGCT.Width = 80;
+            // 
+            // CHIETKHAU
+            // 
+            this.CHIETKHAU.Caption = "CHIẾT KHẤU";
+            this.CHIETKHAU.FieldName = "CHIETKHAU";
+            this.CHIETKHAU.MaxWidth = 120;
+            this.CHIETKHAU.MinWidth = 120;
+            this.CHIETKHAU.Name = "CHIETKHAU";
+            this.CHIETKHAU.Visible = true;
+            this.CHIETKHAU.VisibleIndex = 4;
+            this.CHIETKHAU.Width = 120;
             // 
             // THANHTIEN
             // 
@@ -816,79 +889,6 @@
             this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // CHIETKHAU
-            // 
-            this.CHIETKHAU.Caption = "CHIẾT KHẤU";
-            this.CHIETKHAU.FieldName = "CHIETKHAU";
-            this.CHIETKHAU.MaxWidth = 120;
-            this.CHIETKHAU.MinWidth = 120;
-            this.CHIETKHAU.Name = "CHIETKHAU";
-            this.CHIETKHAU.Visible = true;
-            this.CHIETKHAU.VisibleIndex = 4;
-            this.CHIETKHAU.Width = 120;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl9.Location = new System.Drawing.Point(446, 19);
-            this.labelControl9.Margin = new System.Windows.Forms.Padding(2);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(40, 17);
-            this.labelControl9.TabIndex = 19;
-            this.labelControl9.Text = "CK(%)";
-            // 
-            // txtChietKhau
-            // 
-            this.txtChietKhau.Location = new System.Drawing.Point(492, 17);
-            this.txtChietKhau.Name = "txtChietKhau";
-            this.txtChietKhau.Size = new System.Drawing.Size(80, 21);
-            this.txtChietKhau.TabIndex = 20;
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Location = new System.Drawing.Point(578, 16);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(59, 23);
-            this.btnCapNhat.TabIndex = 21;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-            // 
-            // IDKH
-            // 
-            this.IDKH.Caption = "IDKH";
-            this.IDKH.FieldName = "IDKH";
-            this.IDKH.MaxWidth = 50;
-            this.IDKH.MinWidth = 50;
-            this.IDKH.Name = "IDKH";
-            this.IDKH.Visible = true;
-            this.IDKH.VisibleIndex = 0;
-            this.IDKH.Width = 50;
-            // 
-            // HOTEN
-            // 
-            this.HOTEN.Caption = "HỌ TÊN";
-            this.HOTEN.FieldName = "HOTEN";
-            this.HOTEN.MaxWidth = 150;
-            this.HOTEN.MinWidth = 150;
-            this.HOTEN.Name = "HOTEN";
-            this.HOTEN.Visible = true;
-            this.HOTEN.VisibleIndex = 1;
-            this.HOTEN.Width = 150;
-            // 
-            // DIENTHOAI
-            // 
-            this.DIENTHOAI.Caption = "ĐIỆN THOẠI";
-            this.DIENTHOAI.FieldName = "DIENTHOAI";
-            this.DIENTHOAI.MaxWidth = 120;
-            this.DIENTHOAI.MinWidth = 120;
-            this.DIENTHOAI.Name = "DIENTHOAI";
-            this.DIENTHOAI.Visible = true;
-            this.DIENTHOAI.VisibleIndex = 2;
-            this.DIENTHOAI.Width = 120;
-            // 
             // frmXuatSi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -897,6 +897,7 @@
             this.Controls.Add(this.tabChungTu);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmXuatSi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phiếu xuất sỉ";
             this.Load += new System.EventHandler(this.frmXuatSi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabChungTu)).EndInit();

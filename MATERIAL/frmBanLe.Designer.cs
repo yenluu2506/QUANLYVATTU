@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBanLe));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gcChiTiet = new DevExpress.XtraGrid.GridControl();
             this.gvChiTiet = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -198,7 +197,6 @@
             // 
             // btnInBill
             // 
-            this.btnInBill.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInBill.ImageOptions.Image")));
             this.btnInBill.Location = new System.Drawing.Point(427, 320);
             this.btnInBill.Name = "btnInBill";
             this.btnInBill.Size = new System.Drawing.Size(95, 56);
@@ -208,7 +206,6 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
             this.btnLuu.Location = new System.Drawing.Point(528, 320);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(95, 56);
@@ -218,7 +215,6 @@
             // 
             // btnChietKhau
             // 
-            this.btnChietKhau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChietKhau.ImageOptions.Image")));
             this.btnChietKhau.Location = new System.Drawing.Point(629, 320);
             this.btnChietKhau.Name = "btnChietKhau";
             this.btnChietKhau.Size = new System.Drawing.Size(95, 56);
@@ -228,7 +224,6 @@
             // 
             // btnTraHang
             // 
-            this.btnTraHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTraHang.ImageOptions.Image")));
             this.btnTraHang.Location = new System.Drawing.Point(730, 320);
             this.btnTraHang.Name = "btnTraHang";
             this.btnTraHang.Size = new System.Drawing.Size(95, 56);
@@ -268,6 +263,7 @@
             this.Controls.Add(this.txtBarcode);
             this.Controls.Add(this.groupControl1);
             this.Name = "frmBanLe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phiếu bán lẻ";
             this.Load += new System.EventHandler(this.frmBanLe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

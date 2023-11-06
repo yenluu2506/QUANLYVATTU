@@ -57,7 +57,7 @@ namespace MATERIAL
 
                 if (File.Exists("sysparam.ini"))
                 {
-                    Application.Run(new MainForm());
+                    Application.Run(new frmLoading());
                 }
                 else
                 {

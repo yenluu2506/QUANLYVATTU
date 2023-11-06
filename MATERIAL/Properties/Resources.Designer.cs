@@ -313,6 +313,26 @@ namespace MATERIAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap print {
+            get {
+                object obj = ResourceManager.GetObject("print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap skip {
+            get {
+                object obj = ResourceManager.GetObject("skip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap staff {
             get {
                 object obj = ResourceManager.GetObject("staff", resourceCulture);
@@ -326,6 +346,16 @@ namespace MATERIAL.Properties {
         internal static System.Drawing.Bitmap Team_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Team_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tinhton {
+            get {
+                object obj = ResourceManager.GetObject("tinhton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

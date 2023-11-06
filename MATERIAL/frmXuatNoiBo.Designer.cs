@@ -761,7 +761,7 @@
             // 
             // btnIn
             // 
-            this.btnIn.Image = global::MATERIAL.Properties.Resources.icon_boqua;
+            this.btnIn.Image = global::MATERIAL.Properties.Resources.print;
             this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnIn.Name = "btnIn";
             this.btnIn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -820,6 +820,7 @@
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmXuatNoiBo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmXuatNoiBo";
             this.pageChiTiet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).EndInit();

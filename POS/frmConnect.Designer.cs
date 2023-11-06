@@ -176,6 +176,7 @@
             this.ClientSize = new System.Drawing.Size(495, 241);
             this.Controls.Add(this.groupControl1);
             this.Name = "frmConnect";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmConnect";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

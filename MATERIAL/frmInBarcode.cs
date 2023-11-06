@@ -50,6 +50,24 @@ namespace MATERIAL
         }
         private void btnInBarcode_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            List<obj_PRINTBARCODE> lst1 = new List<obj_PRINTBARCODE>();
+            obj_PRINTBARCODE obj;
+            for (int i = 0; i < gvDanhMuc.RowCount; i++)
+            {
+                if (gvDanhMuc.GetRowCellValue(i, "SOTEM") != null)
+                {
+                    for(int j=0; j<int.Parse(gvDanhMuc.GetRowCellValue(i, "SOTEM").ToString()) ; j++)
+                    {
+                        obj = new obj_PRINTBARCODE();
+                        obj.BARCODE = gvDanhMuc.GetRowCellValue(i, "BARCODE").ToString();
+                        obj.TENHH = gvDanhMuc.GetRowCellValue(i, "TENHH").ToString();
+                        obj.TENTAT = gvDanhMuc.GetRowCellValue(i, "TENTAT").ToString();
+                        obj.DONGIA = double.Parse(gvDanhMuc.GetRowCellValue(i, "DONGIA").ToString());
+                        lst1.Add(obj);
+                    }
+                }
+            }
+
             rptPrintBarcode rpt = new rptPrintBarcode();
             rpt.DataSource = lst;
             rpt.ShowPreviewDialog();

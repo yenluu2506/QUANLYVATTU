@@ -24,15 +24,22 @@ namespace MATERIAL
         }
         SYS_PARAM _sysParam;
         SYS_USER _sysUser;
+        DONVI _dv;
         private void frmLogin_Load(object sender, EventArgs e)
         {
             _sysUser = new SYS_USER(); 
+            _dv = new DONVI();
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fs = File.Open("sysparam.ini", FileMode.Open, FileAccess.Read);
             _sysParam = (SYS_PARAM)bf.Deserialize(fs);
             fs.Close();
             myFunctions._macty = _sysParam.macty;
             myFunctions._madvi = _sysParam.madvi;
+            if (myFunctions._madvi == "~")
+                myFunctions._tendvi = "";
+            else
+              myFunctions._tendvi = _dv.getItem(myFunctions._madvi).TENDVI;
+
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -52,8 +59,9 @@ namespace MATERIAL
             if (user.PASSWD.Equals(pass))
             {
                 MainForm frm = new MainForm(user);
-                frm.ShowDialog();
                 this.Hide();
+                frm.ShowDialog();
+                this.Show();
             }
             else
             {
@@ -68,6 +76,14 @@ namespace MATERIAL
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnSetParam_Click(object sender, EventArgs e)
+        {
+            frmSetParam frm = new frmSetParam();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
         }
     }
 }

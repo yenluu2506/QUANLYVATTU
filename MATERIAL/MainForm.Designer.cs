@@ -40,11 +40,21 @@
             this.navMain = new DevExpress.XtraNavBar.NavBarControl();
             this.lagreImage = new System.Windows.Forms.ImageList(this.components);
             this.smallImage = new System.Windows.Forms.ImageList(this.components);
-            this.chartDanhThuNhom = new DevExpress.XtraCharts.ChartControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.chartDanhThuNhom2 = new DevExpress.XtraCharts.ChartControl();
-            this.chartDanhThuNhom3 = new DevExpress.XtraCharts.ChartControl();
             this.chartDanhThuNhom4 = new DevExpress.XtraCharts.ChartControl();
+            this.chartDanhThuNhom3 = new DevExpress.XtraCharts.ChartControl();
+            this.chartDanhThuNhom = new DevExpress.XtraCharts.ChartControl();
+            this.chartDanhThuNhom2 = new DevExpress.XtraCharts.ChartControl();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.lblServer = new DevExpress.XtraBars.BarStaticItem();
+            this.lblDataBase = new DevExpress.XtraBars.BarStaticItem();
+            this.lblDonVi = new DevExpress.XtraBars.BarStaticItem();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.lblUserName = new DevExpress.XtraBars.BarStaticItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -53,11 +63,12 @@
             this.splitContainerControl1.Panel2.SuspendLayout();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -104,7 +115,7 @@
             // btnTinhTon
             // 
             this.btnTinhTon.ForeColor = System.Drawing.Color.Black;
-            this.btnTinhTon.Image = global::MATERIAL.Properties.Resources.icon_thoat;
+            this.btnTinhTon.Image = global::MATERIAL.Properties.Resources.tinhton;
             this.btnTinhTon.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTinhTon.Name = "btnTinhTon";
             this.btnTinhTon.Size = new System.Drawing.Size(74, 55);
@@ -152,7 +163,7 @@
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.tableLayoutPanel1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1077, 556);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1077, 534);
             this.splitContainerControl1.SplitterPosition = 195;
             this.splitContainerControl1.TabIndex = 1;
             // 
@@ -166,7 +177,7 @@
             this.navMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.navMain.Name = "navMain";
             this.navMain.OptionsNavPane.ExpandedWidth = 195;
-            this.navMain.Size = new System.Drawing.Size(195, 556);
+            this.navMain.Size = new System.Drawing.Size(195, 534);
             this.navMain.SmallImages = this.smallImage;
             this.navMain.TabIndex = 0;
             this.navMain.Text = "navBarControl1";
@@ -185,16 +196,6 @@
             this.smallImage.TransparentColor = System.Drawing.Color.Transparent;
             this.smallImage.Images.SetKeyName(0, "icon_point.png");
             // 
-            // chartDanhThuNhom
-            // 
-            this.chartDanhThuNhom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartDanhThuNhom.Legend.LegendID = -1;
-            this.chartDanhThuNhom.Location = new System.Drawing.Point(3, 3);
-            this.chartDanhThuNhom.Name = "chartDanhThuNhom";
-            this.chartDanhThuNhom.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartDanhThuNhom.Size = new System.Drawing.Size(430, 272);
-            this.chartDanhThuNhom.TabIndex = 0;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -210,8 +211,38 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(872, 556);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(872, 534);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // chartDanhThuNhom4
+            // 
+            this.chartDanhThuNhom4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartDanhThuNhom4.Legend.LegendID = -1;
+            this.chartDanhThuNhom4.Location = new System.Drawing.Point(439, 270);
+            this.chartDanhThuNhom4.Name = "chartDanhThuNhom4";
+            this.chartDanhThuNhom4.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this.chartDanhThuNhom4.Size = new System.Drawing.Size(430, 261);
+            this.chartDanhThuNhom4.TabIndex = 3;
+            // 
+            // chartDanhThuNhom3
+            // 
+            this.chartDanhThuNhom3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartDanhThuNhom3.Legend.LegendID = -1;
+            this.chartDanhThuNhom3.Location = new System.Drawing.Point(3, 270);
+            this.chartDanhThuNhom3.Name = "chartDanhThuNhom3";
+            this.chartDanhThuNhom3.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this.chartDanhThuNhom3.Size = new System.Drawing.Size(430, 261);
+            this.chartDanhThuNhom3.TabIndex = 2;
+            // 
+            // chartDanhThuNhom
+            // 
+            this.chartDanhThuNhom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartDanhThuNhom.Legend.LegendID = -1;
+            this.chartDanhThuNhom.Location = new System.Drawing.Point(3, 3);
+            this.chartDanhThuNhom.Name = "chartDanhThuNhom";
+            this.chartDanhThuNhom.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this.chartDanhThuNhom.Size = new System.Drawing.Size(430, 261);
+            this.chartDanhThuNhom.TabIndex = 0;
             // 
             // chartDanhThuNhom2
             // 
@@ -220,28 +251,98 @@
             this.chartDanhThuNhom2.Location = new System.Drawing.Point(439, 3);
             this.chartDanhThuNhom2.Name = "chartDanhThuNhom2";
             this.chartDanhThuNhom2.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartDanhThuNhom2.Size = new System.Drawing.Size(430, 272);
+            this.chartDanhThuNhom2.Size = new System.Drawing.Size(430, 261);
             this.chartDanhThuNhom2.TabIndex = 1;
             // 
-            // chartDanhThuNhom3
+            // barManager1
             // 
-            this.chartDanhThuNhom3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartDanhThuNhom3.Legend.LegendID = -1;
-            this.chartDanhThuNhom3.Location = new System.Drawing.Point(3, 281);
-            this.chartDanhThuNhom3.Name = "chartDanhThuNhom3";
-            this.chartDanhThuNhom3.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartDanhThuNhom3.Size = new System.Drawing.Size(430, 272);
-            this.chartDanhThuNhom3.TabIndex = 2;
+            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.bar1});
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.lblServer,
+            this.lblDataBase,
+            this.lblDonVi,
+            this.lblUserName});
+            this.barManager1.MaxItemId = 4;
+            this.barManager1.StatusBar = this.bar1;
             // 
-            // chartDanhThuNhom4
+            // bar1
             // 
-            this.chartDanhThuNhom4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartDanhThuNhom4.Legend.LegendID = -1;
-            this.chartDanhThuNhom4.Location = new System.Drawing.Point(439, 281);
-            this.chartDanhThuNhom4.Name = "chartDanhThuNhom4";
-            this.chartDanhThuNhom4.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartDanhThuNhom4.Size = new System.Drawing.Size(430, 272);
-            this.chartDanhThuNhom4.TabIndex = 3;
+            this.bar1.BarName = "Custom 2";
+            this.bar1.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.lblServer),
+            new DevExpress.XtraBars.LinkPersistInfo(this.lblDataBase),
+            new DevExpress.XtraBars.LinkPersistInfo(this.lblDonVi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.lblUserName)});
+            this.bar1.OptionsBar.AllowQuickCustomization = false;
+            this.bar1.OptionsBar.DrawDragBorder = false;
+            this.bar1.OptionsBar.UseWholeRow = true;
+            this.bar1.Text = "Custom 2";
+            // 
+            // lblServer
+            // 
+            this.lblServer.Caption = "barStaticItem1";
+            this.lblServer.Id = 0;
+            this.lblServer.Name = "lblServer";
+            // 
+            // lblDataBase
+            // 
+            this.lblDataBase.Caption = "barStaticItem2";
+            this.lblDataBase.Id = 1;
+            this.lblDataBase.Name = "lblDataBase";
+            // 
+            // lblDonVi
+            // 
+            this.lblDonVi.Caption = "barStaticItem3";
+            this.lblDonVi.Id = 2;
+            this.lblDonVi.Name = "lblDonVi";
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1077, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 592);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1077, 22);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 592);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1077, 0);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 592);
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.Caption = "barStaticItem1";
+            this.lblUserName.Id = 3;
+            this.lblUserName.Name = "lblUserName";
             // 
             // MainForm
             // 
@@ -250,6 +351,10 @@
             this.ClientSize = new System.Drawing.Size(1077, 614);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -264,11 +369,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,6 +397,16 @@
         private DevExpress.XtraCharts.ChartControl chartDanhThuNhom4;
         private DevExpress.XtraCharts.ChartControl chartDanhThuNhom3;
         private DevExpress.XtraCharts.ChartControl chartDanhThuNhom2;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraBars.BarStaticItem lblServer;
+        private DevExpress.XtraBars.BarStaticItem lblDataBase;
+        private DevExpress.XtraBars.BarStaticItem lblDonVi;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarStaticItem lblUserName;
     }
 }
 

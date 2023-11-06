@@ -34,7 +34,6 @@
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnLuu = new System.Windows.Forms.ToolStripButton();
             this.btnBoQua = new System.Windows.Forms.ToolStripButton();
-            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.DISABLED = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,6 +58,7 @@
             this.txtTen = new System.Windows.Forms.TextBox();
             this.lblDienThoai = new DevExpress.XtraEditors.LabelControl();
             this.lblTen = new DevExpress.XtraEditors.LabelControl();
+            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
@@ -141,18 +141,6 @@
             this.btnBoQua.Text = "Bỏ qua";
             this.btnBoQua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_out2;
-            this.btnThoat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(610, 1, 0, 2);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(52, 60);
-            this.btnThoat.Text = "toolStripButton6";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // gcDanhSach
             // 
@@ -431,6 +419,17 @@
             this.lblTen.TabIndex = 2;
             this.lblTen.Text = "Tên NCC";
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_thoat;
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnThoat.Size = new System.Drawing.Size(65, 55);
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // frmNHACUNGCAP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,6 +441,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmNHACUNGCAP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NHACUNGCAP";
             this.Load += new System.EventHandler(this.frmNHACUNGCAP_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -463,7 +463,6 @@
         private System.Windows.Forms.ToolStripButton btnSua;
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnLuu;
-        private System.Windows.Forms.ToolStripButton btnThoat;
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
         private DevExpress.XtraGrid.Columns.GridColumn DISABLED;
@@ -489,5 +488,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn CREATE_DATE;
         private System.Windows.Forms.DateTimePicker dtpCreateDate;
         private System.Windows.Forms.ToolStripButton btnBoQua;
+        private System.Windows.Forms.ToolStripButton btnThoat;
     }
 }

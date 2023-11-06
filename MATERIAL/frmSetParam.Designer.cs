@@ -44,7 +44,7 @@
             this.labelControl1.Location = new System.Drawing.Point(96, 17);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(174, 22);
+            this.labelControl1.Size = new System.Drawing.Size(136, 17);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Công Ty - Chi Nhánh";
             // 
@@ -55,7 +55,7 @@
             this.cboCongTy.Location = new System.Drawing.Point(96, 60);
             this.cboCongTy.Margin = new System.Windows.Forms.Padding(4);
             this.cboCongTy.Name = "cboCongTy";
-            this.cboCongTy.Size = new System.Drawing.Size(478, 30);
+            this.cboCongTy.Size = new System.Drawing.Size(478, 25);
             this.cboCongTy.TabIndex = 1;
             // 
             // cboDonVi
@@ -65,7 +65,7 @@
             this.cboDonVi.Location = new System.Drawing.Point(96, 164);
             this.cboDonVi.Margin = new System.Windows.Forms.Padding(4);
             this.cboDonVi.Name = "cboDonVi";
-            this.cboDonVi.Size = new System.Drawing.Size(478, 30);
+            this.cboDonVi.Size = new System.Drawing.Size(478, 25);
             this.cboDonVi.TabIndex = 3;
             // 
             // labelControl2
@@ -75,7 +75,7 @@
             this.labelControl2.Location = new System.Drawing.Point(96, 121);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(163, 22);
+            this.labelControl2.Size = new System.Drawing.Size(137, 18);
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Đơn Vị Trực Thuộc";
             // 
@@ -108,7 +108,7 @@
             // frmSetParam
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 385);
             this.Controls.Add(this.btnThoat);
@@ -120,6 +120,7 @@
             this.Font = new System.Drawing.Font("Constantia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSetParam";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thiết lập đơn vị sử dụng";
             this.Load += new System.EventHandler(this.frmSetParam_Load);
             this.ResumeLayout(false);

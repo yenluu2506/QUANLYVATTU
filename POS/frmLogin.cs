@@ -51,8 +51,9 @@ namespace POS
             if (user.PASSWD.Equals(pass))
             {
                 MainForm frm = new MainForm(user);
-                frm.ShowDialog();
                 this.Hide();
+                frm.ShowDialog();
+                this.Show();
             }
             else
             {
@@ -67,6 +68,14 @@ namespace POS
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnSetParam_Click(object sender, EventArgs e)
+        {
+            frmSetParam frm = new frmSetParam();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
         }
     }
 }

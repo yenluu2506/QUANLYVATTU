@@ -35,8 +35,9 @@
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnLuu = new System.Windows.Forms.ToolStripButton();
             this.btnBoQua = new System.Windows.Forms.ToolStripButton();
-            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.adu = new System.Windows.Forms.ToolStripTextBox();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDNHOM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TENNHOM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,14 +47,13 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.adu = new System.Windows.Forms.ToolStripTextBox();
+            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grcThongTinDV)).BeginInit();
             this.grcThongTinDV.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -132,18 +132,6 @@
             this.btnBoQua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
-            // btnThoat
-            // 
-            this.btnThoat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_out2;
-            this.btnThoat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(610, 1, 0, 2);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(52, 60);
-            this.btnThoat.Text = "toolStripButton6";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
             // gcDanhSach
             // 
             this.gcDanhSach.Dock = System.Windows.Forms.DockStyle.Top;
@@ -158,6 +146,20 @@
             this.gcDanhSach.TabIndex = 4;
             this.gcDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adu});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 29);
+            // 
+            // adu
+            // 
+            this.adu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.adu.Name = "adu";
+            this.adu.Size = new System.Drawing.Size(100, 23);
+            this.adu.Text = "Á đù";
             // 
             // gvDanhSach
             // 
@@ -276,19 +278,16 @@
             this.labelControl3.TabIndex = 9;
             this.labelControl3.Text = "Tên Nhóm Hàng Hóa";
             // 
-            // contextMenuStrip1
+            // btnThoat
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adu});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 29);
-            // 
-            // adu
-            // 
-            this.adu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.adu.Name = "adu";
-            this.adu.Size = new System.Drawing.Size(100, 23);
-            this.adu.Text = "Á đù";
+            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_thoat;
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnThoat.Size = new System.Drawing.Size(65, 55);
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // frmNHOMHH
             // 
@@ -301,17 +300,18 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmNHOMHH";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNHOMHH";
             this.Load += new System.EventHandler(this.frmNHOMHH_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grcThongTinDV)).EndInit();
             this.grcThongTinDV.ResumeLayout(false);
             this.grcThongTinDV.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,7 +325,6 @@
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnLuu;
         private System.Windows.Forms.ToolStripButton btnBoQua;
-        private System.Windows.Forms.ToolStripButton btnThoat;
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
         private DevExpress.XtraGrid.Columns.GridColumn IDNHOM;
@@ -338,5 +337,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripTextBox adu;
+        private System.Windows.Forms.ToolStripButton btnThoat;
     }
 }

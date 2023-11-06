@@ -39,6 +39,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSetParam = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,6 +60,7 @@
             this.btnThoat.TabIndex = 34;
             this.btnThoat.Text = "Exit";
             this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnLogin
             // 
@@ -162,6 +164,23 @@
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
+            // btnSetParam
+            // 
+            this.btnSetParam.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSetParam.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSetParam.FlatAppearance.BorderSize = 0;
+            this.btnSetParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetParam.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetParam.ForeColor = System.Drawing.Color.White;
+            this.btnSetParam.Location = new System.Drawing.Point(498, 445);
+            this.btnSetParam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSetParam.Name = "btnSetParam";
+            this.btnSetParam.Size = new System.Drawing.Size(219, 32);
+            this.btnSetParam.TabIndex = 35;
+            this.btnSetParam.Text = "Thiết lập đơn vị sử dụng";
+            this.btnSetParam.UseVisualStyleBackColor = false;
+            this.btnSetParam.Click += new System.EventHandler(this.btnSetParam_Click);
+            // 
             // frmLogin
             // 
             this.Appearance.BackColor = System.Drawing.Color.MediumTurquoise;
@@ -169,6 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 488);
+            this.Controls.Add(this.btnSetParam);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -181,6 +201,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
@@ -202,5 +223,6 @@
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSetParam;
     }
 }

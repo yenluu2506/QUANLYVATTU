@@ -505,6 +505,7 @@ namespace MATERIAL
                     {
                         _isImport = true;
                         frmDanhMuc _popDM = new frmDanhMuc(gvChiTiet, gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                        _popDM.TopMost= true;
                         _popDM.ShowDialog();
                     }
                 }

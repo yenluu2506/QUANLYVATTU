@@ -95,6 +95,12 @@
     <Compile Include="frmBackup.Designer.cs">
       <DependentUpon>frmBackup.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCao.Designer.cs">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,8 +248,35 @@
     <Compile Include="Reports\rptPrintBarcode.Designer.cs">
       <DependentUpon>rptPrintBarcode.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucControls\frmShowDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ucControls\frmShowDonVi.Designer.cs">
+      <DependentUpon>frmShowDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\ucCongTy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControls\ucCongTy.Designer.cs">
+      <DependentUpon>ucCongTy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\ucDonVi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControls\ucDonVi.Designer.cs">
+      <DependentUpon>ucDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\ucTuNgay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControls\ucTuNgay.Designer.cs">
+      <DependentUpon>ucTuNgay.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmBackup.resx">
       <DependentUpon>frmBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBaoCao.resx">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
@@ -324,6 +357,18 @@
     <EmbeddedResource Include="Reports\rptPrintBarcode.resx">
       <DependentUpon>rptPrintBarcode.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\frmShowDonVi.resx">
+      <DependentUpon>frmShowDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\ucCongTy.resx">
+      <DependentUpon>ucCongTy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\ucDonVi.resx">
+      <DependentUpon>ucDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\ucTuNgay.resx">
+      <DependentUpon>ucTuNgay.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -385,6 +430,7 @@
     <None Include="Resources\tinh_ton.png" />
     <None Include="Resources\icon_importexcel1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

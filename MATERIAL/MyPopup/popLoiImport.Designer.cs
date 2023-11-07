@@ -37,26 +37,32 @@
             // gcErrors
             // 
             this.gcErrors.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcErrors.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcErrors.Location = new System.Drawing.Point(0, 0);
             this.gcErrors.MainView = this.gvErrors;
+            this.gcErrors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcErrors.Name = "gcErrors";
-            this.gcErrors.Size = new System.Drawing.Size(676, 460);
+            this.gcErrors.Size = new System.Drawing.Size(579, 374);
             this.gcErrors.TabIndex = 0;
             this.gcErrors.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvErrors});
             // 
             // gvErrors
             // 
+            this.gvErrors.DetailHeight = 284;
             this.gvErrors.GridControl = this.gcErrors;
             this.gvErrors.Name = "gvErrors";
+            this.gvErrors.OptionsEditForm.PopupEditFormWidth = 686;
             // 
             // popLoiImport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 460);
+            this.ClientSize = new System.Drawing.Size(579, 374);
             this.Controls.Add(this.gcErrors);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "popLoiImport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "popLoiImport";
             this.Load += new System.EventHandler(this.popLoiImport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcErrors)).EndInit();

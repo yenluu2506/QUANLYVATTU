@@ -35,6 +35,10 @@
             this.tabChungTu = new DevExpress.XtraTab.XtraTabControl();
             this.pageChiTiet = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.txtSoPhieuNhap = new System.Windows.Forms.TextBox();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.dtNgayNhap = new System.Windows.Forms.DateTimePicker();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboDonViXuat = new System.Windows.Forms.ComboBox();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -83,10 +87,6 @@
             this.GHICHU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TRANGTHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txtSoPhieuNhap = new System.Windows.Forms.TextBox();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.dtNgayNhap = new System.Windows.Forms.DateTimePicker();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabChungTu)).BeginInit();
             this.tabChungTu.SuspendLayout();
@@ -155,7 +155,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_boqua;
+            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_thoat;
             this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -224,6 +224,50 @@
             this.splitContainerControl2.Size = new System.Drawing.Size(870, 533);
             this.splitContainerControl2.SplitterPosition = 154;
             this.splitContainerControl2.TabIndex = 0;
+            // 
+            // txtSoPhieuNhap
+            // 
+            this.txtSoPhieuNhap.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoPhieuNhap.Location = new System.Drawing.Point(407, 36);
+            this.txtSoPhieuNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSoPhieuNhap.Name = "txtSoPhieuNhap";
+            this.txtSoPhieuNhap.ReadOnly = true;
+            this.txtSoPhieuNhap.Size = new System.Drawing.Size(133, 25);
+            this.txtSoPhieuNhap.TabIndex = 18;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.labelControl9.Location = new System.Drawing.Point(294, 43);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(94, 18);
+            this.labelControl9.TabIndex = 17;
+            this.labelControl9.Text = "Số phiếu nhập";
+            // 
+            // dtNgayNhap
+            // 
+            this.dtNgayNhap.CustomFormat = "dd/MM/yyyy";
+            this.dtNgayNhap.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNgayNhap.Location = new System.Drawing.Point(109, 40);
+            this.dtNgayNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.dtNgayNhap.Name = "dtNgayNhap";
+            this.dtNgayNhap.Size = new System.Drawing.Size(131, 25);
+            this.dtNgayNhap.TabIndex = 16;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(21, 44);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(70, 18);
+            this.labelControl10.TabIndex = 15;
+            this.labelControl10.Text = "Ngày nhập";
             // 
             // groupBox1
             // 
@@ -711,7 +755,7 @@
             this.SCT2.MinWidth = 150;
             this.SCT2.Name = "SCT2";
             this.SCT2.Visible = true;
-            this.SCT2.VisibleIndex = 2;
+            this.SCT2.VisibleIndex = 3;
             this.SCT2.Width = 150;
             // 
             // NGAY2
@@ -722,7 +766,7 @@
             this.NGAY2.MinWidth = 120;
             this.NGAY2.Name = "NGAY2";
             this.NGAY2.Visible = true;
-            this.NGAY2.VisibleIndex = 4;
+            this.NGAY2.VisibleIndex = 5;
             this.NGAY2.Width = 120;
             // 
             // SOLUONG
@@ -733,7 +777,7 @@
             this.SOLUONG.MinWidth = 80;
             this.SOLUONG.Name = "SOLUONG";
             this.SOLUONG.Visible = true;
-            this.SOLUONG.VisibleIndex = 3;
+            this.SOLUONG.VisibleIndex = 4;
             this.SOLUONG.Width = 80;
             // 
             // TONGTIEN
@@ -744,7 +788,7 @@
             this.TONGTIEN.MinWidth = 96;
             this.TONGTIEN.Name = "TONGTIEN";
             this.TONGTIEN.Visible = true;
-            this.TONGTIEN.VisibleIndex = 4;
+            this.TONGTIEN.VisibleIndex = 6;
             this.TONGTIEN.Width = 96;
             // 
             // GHICHU
@@ -755,7 +799,7 @@
             this.GHICHU.MinWidth = 200;
             this.GHICHU.Name = "GHICHU";
             this.GHICHU.Visible = true;
-            this.GHICHU.VisibleIndex = 5;
+            this.GHICHU.VisibleIndex = 7;
             this.GHICHU.Width = 200;
             // 
             // TRANGTHAI
@@ -766,7 +810,7 @@
             this.TRANGTHAI.MinWidth = 80;
             this.TRANGTHAI.Name = "TRANGTHAI";
             this.TRANGTHAI.Visible = true;
-            this.TRANGTHAI.VisibleIndex = 6;
+            this.TRANGTHAI.VisibleIndex = 8;
             this.TRANGTHAI.Width = 80;
             // 
             // gridView1
@@ -776,50 +820,6 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 640;
             // 
-            // txtSoPhieuNhap
-            // 
-            this.txtSoPhieuNhap.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoPhieuNhap.Location = new System.Drawing.Point(407, 36);
-            this.txtSoPhieuNhap.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSoPhieuNhap.Name = "txtSoPhieuNhap";
-            this.txtSoPhieuNhap.ReadOnly = true;
-            this.txtSoPhieuNhap.Size = new System.Drawing.Size(133, 25);
-            this.txtSoPhieuNhap.TabIndex = 18;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl9.Location = new System.Drawing.Point(294, 43);
-            this.labelControl9.Margin = new System.Windows.Forms.Padding(2);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(94, 18);
-            this.labelControl9.TabIndex = 17;
-            this.labelControl9.Text = "Số phiếu nhập";
-            // 
-            // dtNgayNhap
-            // 
-            this.dtNgayNhap.CustomFormat = "dd/MM/yyyy";
-            this.dtNgayNhap.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNgayNhap.Location = new System.Drawing.Point(109, 40);
-            this.dtNgayNhap.Margin = new System.Windows.Forms.Padding(2);
-            this.dtNgayNhap.Name = "dtNgayNhap";
-            this.dtNgayNhap.Size = new System.Drawing.Size(131, 25);
-            this.dtNgayNhap.TabIndex = 16;
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(21, 44);
-            this.labelControl10.Margin = new System.Windows.Forms.Padding(2);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(70, 18);
-            this.labelControl10.TabIndex = 15;
-            this.labelControl10.Text = "Ngày nhập";
-            // 
             // frmNhapNoiBo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -828,6 +828,7 @@
             this.Controls.Add(this.tabChungTu);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmNhapNoiBo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phiếu nhập nội bộ";
             this.Load += new System.EventHandler(this.frmNhapNoiBo_Load);
             this.toolStrip1.ResumeLayout(false);

@@ -35,7 +35,6 @@
             this.btnLuu = new System.Windows.Forms.ToolStripButton();
             this.btnBoQua = new System.Windows.Forms.ToolStripButton();
             this.btnExport = new System.Windows.Forms.ToolStripButton();
-            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -70,6 +69,7 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -171,18 +171,6 @@
             this.btnExport.Text = "Export";
             this.btnExport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_out2;
-            this.btnThoat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(610, 1, 0, 2);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(52, 52);
-            this.btnThoat.Text = "toolStripButton6";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // splitContainerControl1
             // 
@@ -601,6 +589,17 @@
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Barcode";
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_thoat;
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnThoat.Size = new System.Drawing.Size(65, 55);
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // frmHANGHOA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,7 +607,7 @@
             this.ClientSize = new System.Drawing.Size(872, 620);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.toolStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmHANGHOA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -643,7 +642,6 @@
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnLuu;
         private System.Windows.Forms.ToolStripButton btnBoQua;
-        private System.Windows.Forms.ToolStripButton btnThoat;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
@@ -679,5 +677,6 @@
         private System.Windows.Forms.TextBox txtBarcode;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.ToolStripButton btnExport;
+        private System.Windows.Forms.ToolStripButton btnThoat;
     }
 }

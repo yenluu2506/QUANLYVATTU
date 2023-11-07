@@ -105,6 +105,11 @@
     <Reference Include="DevExpress.Charts.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v23.1" />
     <Reference Include="DevExpress.Data.v23.1" />
+    <Reference Include="DevExpress.Office.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v23.1.Export, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v23.1" />
     <Reference Include="DevExpress.Sparkline.v23.1.Core" />
     <Reference Include="DevExpress.Utils.v23.1.UI, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -115,10 +120,14 @@
     <Reference Include="DevExpress.XtraEditors.v23.1" />
     <Reference Include="DevExpress.Printing.v23.1.Core" />
     <Reference Include="DevExpress.Drawing.v23.1" />
+    <Reference Include="DevExpress.XtraGauges.v23.1.Core, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v23.1.Extensions, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -151,6 +160,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackup.Designer.cs">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBanLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBanLe.Designer.cs">
+      <DependentUpon>frmBanLe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCao.Designer.cs">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChietKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChietKhau.Designer.cs">
+      <DependentUpon>frmChietKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDONVITINH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +220,24 @@
     <Compile Include="frmHANGHOA.Designer.cs">
       <DependentUpon>frmHANGHOA.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInBarcode.Designer.cs">
+      <DependentUpon>frmInBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhapMua.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +255,36 @@
     </Compile>
     <Compile Include="frmNHOMHH.Designer.cs">
       <DependentUpon>frmNHOMHH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestore.Designer.cs">
+      <DependentUpon>frmRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetParam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetParam.Designer.cs">
+      <DependentUpon>frmSetParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTonKhoCongTy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTonKhoCongTy.Designer.cs">
+      <DependentUpon>frmTonKhoCongTy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTonKhoDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTonKhoDonVi.Designer.cs">
+      <DependentUpon>frmTonKhoDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTraHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTraHang.Designer.cs">
+      <DependentUpon>frmTraHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmWaiting.cs">
       <SubType>Form</SubType>
@@ -250,6 +337,48 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptPrintBarcode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPrintBarcode.Designer.cs">
+      <DependentUpon>rptPrintBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\frmShowDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ucControls\frmShowDonVi.Designer.cs">
+      <DependentUpon>frmShowDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\ucCongTy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControls\ucCongTy.Designer.cs">
+      <DependentUpon>ucCongTy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\ucDonVi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControls\ucDonVi.Designer.cs">
+      <DependentUpon>ucDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucControls\ucTuNgay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucControls\ucTuNgay.Designer.cs">
+      <DependentUpon>ucTuNgay.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmBackup.resx">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBanLe.resx">
+      <DependentUpon>frmBanLe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBaoCao.resx">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDONVITINH.resx">
       <DependentUpon>frmDONVITINH.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +394,15 @@
     <EmbeddedResource Include="frmHANGHOA.resx">
       <DependentUpon>frmHANGHOA.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInBarcode.resx">
+      <DependentUpon>frmInBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNhapMua.resx">
       <DependentUpon>frmNhapMua.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +411,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNHOMHH.resx">
       <DependentUpon>frmNHOMHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestore.resx">
+      <DependentUpon>frmRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetParam.resx">
+      <DependentUpon>frmSetParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTonKhoCongTy.resx">
+      <DependentUpon>frmTonKhoCongTy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTonKhoDonVi.resx">
+      <DependentUpon>frmTonKhoDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTraHang.resx">
+      <DependentUpon>frmTraHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWaiting.resx">
       <DependentUpon>frmWaiting.cs</DependentUpon>
@@ -304,6 +457,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPrintBarcode.resx">
+      <DependentUpon>rptPrintBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\frmShowDonVi.resx">
+      <DependentUpon>frmShowDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\ucCongTy.resx">
+      <DependentUpon>ucCongTy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\ucDonVi.resx">
+      <DependentUpon>ucDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucControls\ucTuNgay.resx">
+      <DependentUpon>ucTuNgay.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -358,8 +526,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\tinhton.png" />
+    <None Include="Resources\loading1.png" />
+    <None Include="Resources\staff1.png" />
+    <None Include="Resources\8541700_barcode_code_icon.png" />
+    <None Include="Resources\fload.jpg" />
     <Content Include="Resources\icon_cuctayxoa.jpg" />
     <Content Include="Resources\icon_cuctayxoa.png" />
+    <None Include="Resources\staff.png" />
+    <None Include="Resources\loading.png" />
     <None Include="Resources\tinh_ton.png" />
     <None Include="Resources\icon_importexcel1.png" />
   </ItemGroup>

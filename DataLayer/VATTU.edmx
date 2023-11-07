@@ -101,7 +101,7 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.tb_KHACHHANG' does not have a pri
           <Key>
             <PropertyRef Name="IDKH" />
           </Key>
-          <Property Name="IDKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDKH" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="HOTEN" Type="nvarchar" MaxLength="50" />
           <Property Name="DIENTHOAI" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
@@ -162,6 +162,7 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.tb_KHACHHANG' does not have a pri
           <Property Name="THANGNAM" Type="bit" />
           <Property Name="MACTY" Type="bit" />
           <Property Name="MADVI" Type="bit" />
+          <Property Name="TONKHO" Type="bit" />
         </EntityType>
         <EntityType Name="tb_SYS_RIGHT">
           <Key>
@@ -311,6 +312,19 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="DISABLED" Type="bit" />
           <Property Name="ISGROUP" Type="bit" />
         </EntityType>
+        <Function Name="FN_DOANHTHU_THEONHOMHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAYD" Type="datetime" Mode="In" />
+          <Parameter Name="NGAYC" Type="datetime" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="IDNHOM" Type="int" />
+                <Property Name="TENNHOM" Type="nvarchar" MaxLength="200" />
+                <Property Name="THANHTIEN" Type="float" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <Function Name="spNGAY_TINHTON" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NGAYC" Type="datetime" Mode="InOut" />
           <Parameter Name="NGAYD" Type="datetime" Mode="InOut" />
@@ -427,7 +441,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_NHOMHH" EntityType="VATTU.tb_NHOMHH" />
           <EntitySet Name="tb_SYS_FUNC" EntityType="VATTU.tb_SYS_FUNC" />
           <EntitySet Name="tb_SYS_GROUP" EntityType="VATTU.tb_SYS_GROUP" />
-          <EntitySet Name="tb_SYS_REPORT" EntityType="VATTU.tb_SYS_REPORT" />
           <EntitySet Name="tb_SYS_RIGHT" EntityType="VATTU.tb_SYS_RIGHT" />
           <EntitySet Name="tb_SYS_RIGHT_REP" EntityType="VATTU.tb_SYS_RIGHT_REP" />
           <EntitySet Name="tb_SYS_SEQUENCE" EntityType="VATTU.tb_SYS_SEQUENCE" />
@@ -446,8 +459,13 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
             <Parameter Name="KY" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="tb_CHUNGTU_CT" EntityType="VATTU.tb_CHUNGTU_CT" />
-          <EntitySet Name="tb_KHACHHANG" EntityType="VATTU.tb_KHACHHANG" />
           <EntitySet Name="tb_CHUNGTU" EntityType="VATTU.tb_CHUNGTU" />
+          <EntitySet Name="tb_SYS_REPORT" EntityType="VATTU.tb_SYS_REPORT" />
+          <FunctionImport Name="FN_DOANHTHU_THEONHOMHANG" IsComposable="true" ReturnType="Collection(VATTU.FN_DOANHTHU_THEONHOMHANG_Result)">
+            <Parameter Name="NGAYD" Mode="In" Type="DateTime" />
+            <Parameter Name="NGAYC" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="tb_KHACHHANG" EntityType="VATTU.tb_KHACHHANG" />
         </EntityContainer>
         <EntityType Name="tb_CONGTY">
           <Key>
@@ -541,19 +559,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           </Key>
           <Property Name="GROUP" Type="Int32" Nullable="false" />
           <Property Name="MEMBER" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="tb_SYS_REPORT">
-          <Key>
-            <PropertyRef Name="REP_CODE" />
-          </Key>
-          <Property Name="REP_CODE" Type="Int32" Nullable="false" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="REP_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="VISIBLED" Type="Boolean" />
-          <Property Name="TUNGAY" Type="Boolean" />
-          <Property Name="THANGNAM" Type="Boolean" />
-          <Property Name="MACTY" Type="Boolean" />
-          <Property Name="MADVI" Type="Boolean" />
         </EntityType>
         <EntityType Name="tb_SYS_RIGHT">
           <Key>
@@ -707,17 +712,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="NGAY" Type="DateTime" Precision="3" />
           <Property Name="STT" Type="Int32" />
         </EntityType>
-        <EntityType Name="tb_KHACHHANG">
-          <Key>
-            <PropertyRef Name="IDKH" />
-          </Key>
-          <Property Name="IDKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DIACHI" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="MST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="tb_CHUNGTU">
           <Key>
             <PropertyRef Name="KHOA" />
@@ -742,6 +736,36 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <Property Name="UPDATED_BY" Type="Int32" />
           <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
           <Property Name="DELETED_BY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_SYS_REPORT">
+          <Key>
+            <PropertyRef Name="REP_CODE" />
+          </Key>
+          <Property Name="REP_CODE" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="REP_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLED" Type="Boolean" />
+          <Property Name="TUNGAY" Type="Boolean" />
+          <Property Name="THANGNAM" Type="Boolean" />
+          <Property Name="MACTY" Type="Boolean" />
+          <Property Name="MADVI" Type="Boolean" />
+          <Property Name="TONKHO" Type="Boolean" />
+        </EntityType>
+        <ComplexType Name="FN_DOANHTHU_THEONHOMHANG_Result">
+          <Property Type="Int32" Name="IDNHOM" Nullable="true" />
+          <Property Type="String" Name="TENNHOM" Nullable="true" MaxLength="200" />
+          <Property Type="Double" Name="THANHTIEN" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tb_KHACHHANG">
+          <Key>
+            <PropertyRef Name="IDKH" />
+          </Key>
+          <Property Name="IDKH" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="MST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -846,20 +870,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
               <MappingFragment StoreEntitySet="tb_SYS_GROUP">
                 <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />
                 <ScalarProperty Name="GROUP" ColumnName="GROUP" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_SYS_REPORT">
-            <EntityTypeMapping TypeName="VATTU.tb_SYS_REPORT">
-              <MappingFragment StoreEntitySet="tb_SYS_REPORT">
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
-                <ScalarProperty Name="THANGNAM" ColumnName="THANGNAM" />
-                <ScalarProperty Name="TUNGAY" ColumnName="TUNGAY" />
-                <ScalarProperty Name="VISIBLED" ColumnName="VISIBLED" />
-                <ScalarProperty Name="REP_NAME" ColumnName="REP_NAME" />
-                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
-                <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1021,18 +1031,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_KHACHHANG">
-            <EntityTypeMapping TypeName="VATTU.tb_KHACHHANG">
-              <MappingFragment StoreEntitySet="tb_KHACHHANG">
-                <ScalarProperty Name="MST" ColumnName="MST" />
-                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
-                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
-                <ScalarProperty Name="IDKH" ColumnName="IDKH" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_CHUNGTU">
             <EntityTypeMapping TypeName="VATTU.tb_CHUNGTU">
               <MappingFragment StoreEntitySet="tb_CHUNGTU">
@@ -1056,6 +1054,42 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
                 <ScalarProperty Name="SCT" ColumnName="SCT" />
                 <ScalarProperty Name="LCT" ColumnName="LCT" />
                 <ScalarProperty Name="KHOA" ColumnName="KHOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SYS_REPORT">
+            <EntityTypeMapping TypeName="VATTU.tb_SYS_REPORT">
+              <MappingFragment StoreEntitySet="tb_SYS_REPORT">
+                <ScalarProperty Name="TONKHO" ColumnName="TONKHO" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="THANGNAM" ColumnName="THANGNAM" />
+                <ScalarProperty Name="TUNGAY" ColumnName="TUNGAY" />
+                <ScalarProperty Name="VISIBLED" ColumnName="VISIBLED" />
+                <ScalarProperty Name="REP_NAME" ColumnName="REP_NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FN_DOANHTHU_THEONHOMHANG" FunctionName="VATTU.Store.FN_DOANHTHU_THEONHOMHANG">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VATTU.FN_DOANHTHU_THEONHOMHANG_Result">
+                <ScalarProperty Name="IDNHOM" ColumnName="IDNHOM" />
+                <ScalarProperty Name="TENNHOM" ColumnName="TENNHOM" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tb_KHACHHANG">
+            <EntityTypeMapping TypeName="VATTU.tb_KHACHHANG">
+              <MappingFragment StoreEntitySet="tb_KHACHHANG">
+                <ScalarProperty Name="MST" ColumnName="MST" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+                <ScalarProperty Name="IDKH" ColumnName="IDKH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -294,6 +294,7 @@
             this.Controls.Add(this.splitContainerControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmPhanQuyenChucNang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phân Quyền Chức Năng";
             this.Load += new System.EventHandler(this.frmPhanQuyenChucNang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();

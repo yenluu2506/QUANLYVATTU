@@ -133,7 +133,6 @@ namespace USERMANAGEMENT
             frm._them = true;
             frm._macty = _macty;
             frm._madvi = _madvi;
-            frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
             frm.ShowDialog();
         }
 
@@ -166,7 +165,11 @@ namespace USERMANAGEMENT
 
         private void btnBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            frmPhanQuyenBaoCao frm = new frmPhanQuyenBaoCao();
+            frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
+            frm._macty = _macty;
+            frm._madvi = _madvi;
+            frm.ShowDialog();
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -184,13 +187,13 @@ namespace USERMANAGEMENT
             }
             if (e.Column.Name == "ISGROUP" && bool.Parse(e.CellValue.ToString()) == false)
             {
-                Image img = Properties.Resources.Customer_16x16;
+                Image img = Properties.Resources.User_16x16;
                 e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
                 e.Handled = true;
             }
             if (e.Column.Name == "DISABLED" && bool.Parse(e.CellValue.ToString()) == true)
             {
-                Image img = Properties.Resources.del_Icon_x16;
+                Image img = Properties.Resources.delete_16x16;
                 e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
                 e.Handled = true;
             }

@@ -15,7 +15,7 @@ namespace BusinesssLayer
             db = Entities.CreateEntities();
         }
 
-        public tb_KHACHHANG getInfoKH(int idKH)
+        public tb_KHACHHANG getInfoKH(string idKH)
         {
             return db.tb_KHACHHANG.FirstOrDefault(x => x.IDKH == idKH);
         }
@@ -25,7 +25,7 @@ namespace BusinesssLayer
             return db.tb_KHACHHANG.ToList();
         }
 
-        public List<tb_KHACHHANG> getAll(int idKH)
+        public List<tb_KHACHHANG> getAll(string idKH)
         {
             return db.tb_KHACHHANG.Where(x => x.IDKH == idKH).ToList();
         }
@@ -61,7 +61,7 @@ namespace BusinesssLayer
             }
         }
 
-        public void delete(int idKH)
+        public void delete(string idKH)
         {
             tb_KHACHHANG kh = db.tb_KHACHHANG.FirstOrDefault(x => x.IDKH == idKH);
             try

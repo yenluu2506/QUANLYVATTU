@@ -18,6 +18,7 @@ using CrystalDecisions.Windows.Forms;
 using CrystalDecisions.Shared;
 using CrystalDecisions.CrystalReports.Engine;
 using MATERIAL.MyFunctions;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace MATERIAL
 {
@@ -505,6 +506,7 @@ namespace MATERIAL
                     {
                         _isImport = true;
                         frmDanhMuc _popDM = new frmDanhMuc(gvChiTiet, gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                        _popDM.TopMost= true;
                         _popDM.ShowDialog();
                     }
                 }
@@ -1067,6 +1069,16 @@ namespace MATERIAL
         private void btnIn_Click(object sender, EventArgs e)
         {
             XuatReport("PHIEU_NHAPMUA_NCC", "Phiếu nhập mua nhà cung cấp");
+        }
+
+        private void gvChiTiet_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+                if (e.HitInfo.InRow)
+                {
+                    GridView view = sender as GridView;
+                    view.FocusedRowHandle = e.HitInfo.RowHandle;
+                    contextMenuChiTiet.Show(view.GridControl, e.Point);
+                }
         }
     }
 }

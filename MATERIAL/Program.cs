@@ -1,7 +1,9 @@
-﻿using DataLayer;
+﻿using BusinesssLayer;
+using DataLayer;
 using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+using MATERIAL.MyFunctions;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -36,10 +38,10 @@ namespace MATERIAL
                 conStr += "Data Source=" + servername + "; Initial Catalog=" + database + "; User ID=" +
                     username + "; Password = " + pass + ";";
                 connoi = conStr;
-                //myFunctions._srv = servername;
-                //myFunctions._us = username;
-                //myFunctions._pw = pass;
-                //myFunctions._db = database;
+                myFunctions._srv = servername;
+                myFunctions._us = username;
+                myFunctions._pw = pass;
+                myFunctions._db = database;
                 SqlConnection con = new SqlConnection(conStr);
 
                 try
@@ -52,16 +54,15 @@ namespace MATERIAL
                 }
                 con.Close();
                 fs.Close();
-                Application.Run(new MainForm());
 
-                //if (File.Exists("sysparam.ini"))
-                //{
-                //    Application.Run(new frmLogin());
-                //}
-                //else
-                //{
-                //    Application.Run(new frmSetParam());
-                //}
+                if (File.Exists("sysparam.ini"))
+                {
+                    Application.Run(new frmLoading());
+                }
+                else
+                {
+                    Application.Run(new frmSetParam());
+                }
             }
             else
             {

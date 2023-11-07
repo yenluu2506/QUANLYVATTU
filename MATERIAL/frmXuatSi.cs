@@ -251,9 +251,9 @@ namespace MATERIAL
                 {
                     tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
                     int index = _bdChungTu.Position;
-                    _chungtu.deleteAll(current.KHOA, _user.IDUSER);
+                    _chungtu.delete(current.KHOA, _user.IDUSER);
                     gvDanhSach.SetRowCellValue(index, "DELETED_BY", 0);
-                    lblXoa.Visible = true;
+                    //lblXoa.Visible = true;
                 }
                 else
                     return;
@@ -679,12 +679,12 @@ namespace MATERIAL
                 cboTrangThai.SelectedValue = current.TRANGTHAI;
                 if (current.DELETED_BY != null)
                 {
-                    lblXoa.Visible = true;
+                    //lblXoa.Visible = true;
                     btnXoa.Visible = false;
                 }
                 else
                 {
-                    lblXoa.Visible = false;
+                    //lblXoa.Visible = false;
                     btnXoa.Enabled = true;
                 }
                 _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(current.KHOA);

@@ -50,11 +50,11 @@
             this.lblServer = new DevExpress.XtraBars.BarStaticItem();
             this.lblDataBase = new DevExpress.XtraBars.BarStaticItem();
             this.lblDonVi = new DevExpress.XtraBars.BarStaticItem();
+            this.lblUserName = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.lblUserName = new DevExpress.XtraBars.BarStaticItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -216,6 +216,7 @@
             // 
             // chartDanhThuNhom4
             // 
+            this.chartDanhThuNhom4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.chartDanhThuNhom4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartDanhThuNhom4.Legend.LegendID = -1;
             this.chartDanhThuNhom4.Location = new System.Drawing.Point(439, 270);
@@ -226,6 +227,7 @@
             // 
             // chartDanhThuNhom3
             // 
+            this.chartDanhThuNhom3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.chartDanhThuNhom3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartDanhThuNhom3.Legend.LegendID = -1;
             this.chartDanhThuNhom3.Location = new System.Drawing.Point(3, 270);
@@ -236,6 +238,7 @@
             // 
             // chartDanhThuNhom
             // 
+            this.chartDanhThuNhom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.chartDanhThuNhom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartDanhThuNhom.Legend.LegendID = -1;
             this.chartDanhThuNhom.Location = new System.Drawing.Point(3, 3);
@@ -246,6 +249,7 @@
             // 
             // chartDanhThuNhom2
             // 
+            this.chartDanhThuNhom2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.chartDanhThuNhom2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartDanhThuNhom2.Legend.LegendID = -1;
             this.chartDanhThuNhom2.Location = new System.Drawing.Point(439, 3);
@@ -306,6 +310,12 @@
             this.lblDonVi.Id = 2;
             this.lblDonVi.Name = "lblDonVi";
             // 
+            // lblUserName
+            // 
+            this.lblUserName.Caption = "barStaticItem1";
+            this.lblUserName.Id = 3;
+            this.lblUserName.Name = "lblUserName";
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -337,12 +347,6 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1077, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 592);
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.Caption = "barStaticItem1";
-            this.lblUserName.Id = 3;
-            this.lblUserName.Name = "lblUserName";
             // 
             // MainForm
             // 

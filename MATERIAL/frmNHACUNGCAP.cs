@@ -148,7 +148,7 @@ namespace MATERIAL
                 txtFax.Text = gvDanhSach.GetFocusedRowCellValue("FAX").ToString();
                 txtEmail.Text = gvDanhSach.GetFocusedRowCellValue("EMAIL").ToString();
                 txtDiaChi.Text = gvDanhSach.GetFocusedRowCellValue("DIACHI").ToString();
-                dtpCreateDate.Text = gvDanhSach.GetFocusedRowCellValue("CREATE_DATE").ToString();
+                dtpCreateDate.Value = (DateTime)gvDanhSach.GetFocusedRowCellValue("CREATED_DATE");
                 chkDisable.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
             }
         }

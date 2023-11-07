@@ -93,6 +93,7 @@
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsEditForm.PopupEditFormWidth = 686;
+            this.gvDanhSach.OptionsSelection.MultiSelect = true;
             // 
             // BARCODE
             // 

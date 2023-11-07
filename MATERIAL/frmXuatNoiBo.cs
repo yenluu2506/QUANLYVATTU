@@ -77,7 +77,7 @@ namespace MATERIAL
 
             _bdChungTu.PositionChanged += _bdChungTu_PositionChanged;
             loadCongTy();
-            //cboCongTy.SelectedValue = myFunctions._macty;
+            cboCongTy.SelectedValue = myFunctions._macty;
             cboCongTy.SelectedIndexChanged += CboCongTy_SelectedIndexChanged;
 
             _trangthai = _TRANGTHAI.getList();
@@ -124,26 +124,12 @@ namespace MATERIAL
             cboCongTy.DisplayMember = "TENCTY";
             cboCongTy.ValueMember = "MACTY";
         }
-        //void loadKhoDanhSach()
-        //{
-        //    cboDonVi.DataSource = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
-        //    cboDonVi.DisplayMember = "TENDVI";
-        //    cboDonVi.ValueMember = "MADVI";
-        //}
-
         void loadDonVi()
         {
-            cboDonViXuat.DataSource = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
-            cboDonViXuat.DisplayMember = "TENDVI";
-            cboDonViXuat.ValueMember = "MADVI";
+            cboDonVi.DataSource = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
+            cboDonVi.DisplayMember = "TENDVI";
+            cboDonVi.ValueMember = "MADVI";
         }
-        //void loadNhaCC()
-        //{
-        //    cboNhaCC.DataSource = _ncc.getList();
-        //    cboNhaCC.DisplayMember = "TENNCC";
-        //    cboNhaCC.ValueMember = "MANCC";
-        //}
-
         void loadDonViXuat()
         {
             cboDonViXuat.DataSource = _donvi.getAll(cboCongTy.SelectedValue.ToString());
@@ -241,17 +227,17 @@ namespace MATERIAL
 
                 }
             }
-            _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(_khoa);
-            gcChiTiet.DataSource = _bdChungTuCT;
-            gvChiTiet.AddNewRow();
-            tabChungTu.SelectedTabPage = pageChiTiet;
-            gvChiTiet.OptionsBehavior.Editable = true;
-            contextMenuChiTiet.Enabled = true;
-            _them = true;
-            _sua = false;
-            showHideControl(false);
-            _edControl(true);
-            _reset();
+            //_bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(_khoa);
+            //gcChiTiet.DataSource = _bdChungTuCT;
+            //gvChiTiet.AddNewRow();
+            //tabChungTu.SelectedTabPage = pageChiTiet;
+            //gvChiTiet.OptionsBehavior.Editable = true;
+            //contextMenuChiTiet.Enabled = true;
+            //_them = true;
+            //_sua = false;
+            //showHideControl(false);
+            //_edControl(true);
+            //_reset();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -267,9 +253,9 @@ namespace MATERIAL
                 {
                     tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
                     int index = _bdChungTu.Position;
-                    _chungtu.deleteAll(current.KHOA, 1);
+                    _chungtu.delete(current.KHOA, _user.IDUSER);
                     gvDanhSach.SetRowCellValue(index, "DELETED_BY", 0);
-                    lblXoa.Visible = true;
+                    //lblXoa.Visible = true;
                 }
                 else
                     return;
@@ -327,12 +313,12 @@ namespace MATERIAL
                 cboTrangThai.SelectedValue = current.TRANGTHAI;
                 if (current.DELETED_BY != null)
                 {
-                    lblXoa.Visible = true;
+                    //lblXoa.Visible = true;
                     btnXoa.Visible = false;
                 }
                 else
                 {
-                    lblXoa.Visible = false;
+                    //lblXoa.Visible = false;
                     btnXoa.Enabled = true;
                 }
                 _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(current.KHOA);
@@ -513,31 +499,40 @@ namespace MATERIAL
             {
                 if (e.Column.FieldName == "BARCODE")
                 {
-                    if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString().IndexOf(".") == 0) ;
+                    if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString().IndexOf(".") == 0)
                     {
                         _isImport = true;
-                        frmDanhMuc _popDM=new frmDanhMuc(gvChiTiet,gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle,"BARCODE").ToString());
+                        frmDanhMuc _popDM = new frmDanhMuc(gvChiTiet, gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
                         _popDM.ShowDialog();
                     }
-                }
-                else
-                {
-                    tb_HANGHOA hh = _hanghoa.getItem(e.Value.ToString());
-                    if(hh != null)
+                    else
                     {
-                        if (_hanghoa.checkExist(hh.BARCODE))
+                        tb_HANGHOA hh = _hanghoa.getItem(e.Value.ToString());
+                        if (hh != null)
                         {
-                            List<string> s = new List<string>();
-                            if (gvChiTiet.RowCount > 1)
+                            if (_hanghoa.checkExist(hh.BARCODE))
                             {
-                                for(int i = 0; i < gvChiTiet.RowCount-1 ; i++)
+                                List<string> s = new List<string>();
+                                if (gvChiTiet.RowCount > 1)
                                 {
-                                    s.Add(gvChiTiet.GetRowCellValue(i, "BARCODE").ToString());
-                                }
-                                if(s.Find(x=>x.Equals(e.Value.ToString()))!=null)
-                                {
-                                    MessageBox.Show("Mã này đã có trong lưới nhập liệu.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
+                                    for (int i = 0; i < gvChiTiet.RowCount - 1; i++)
+                                    {
+                                        s.Add(gvChiTiet.GetRowCellValue(i, "BARCODE").ToString());
+                                    }
+                                    if (s.Find(x => x.Equals(e.Value.ToString())) != null)
+                                    {
+                                        MessageBox.Show("Mã này đã có trong lưới nhập liệu.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "TENHH", hh.TENHH);
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "DVT", hh.DVT);
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "SOLUONG", 1);
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA", hh.DONGIA);
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", hh.DONGIA);
+                                        gvChiTiet.UpdateTotalSummary();
+                                    }
                                 }
                                 else
                                 {
@@ -551,102 +546,63 @@ namespace MATERIAL
                             }
                             else
                             {
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "TENHH", hh.TENHH);
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "DVT", hh.DVT);
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "SOLUONG", 1);
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA", hh.DONGIA);
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", hh.DONGIA);
-                                gvChiTiet.UpdateTotalSummary();
+                                MessageBox.Show("Mã tài sản này đã được nhập.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return;
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã tài sản này không chính xác.Kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
+
+                        gvChiTiet.RefreshData();
+                    }
+                }
+
+                //Thay đổi số lượng
+                if (e.Column.FieldName == "SOLUONG")
+                {
+                    if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "TENHH") != null)
+                    {
+                        double _soluong = double.Parse(e.Value.ToString());
+                        if (_soluong != 0)
+                        {
+                            tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                            if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA") != null)
+                            {
+                                double _trigiaTT = double.Parse(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA").ToString());
+                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", _trigiaTT * _soluong);
+                            }
+                            else
+                            {
+                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", 0);
+                            }
+                            gvChiTiet.UpdateTotalSummary();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Số lượng tài sản không thể bằng 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Mã tài sản này đã được nhập.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                     gvChiTiet.RefreshData();
                 }
             }
-            //Thay đổi số lượng
-            if (e.Column.FieldName == "SOLUONG")
-            {
-                if(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle,"TENHH")!=null)
-                {
-                    double _soluong = double.Parse(e.Value.ToString());
-                    if (_soluong != 0)
-                    {
-                        tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
-                        if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA") != null)
-                        {
-                            double _trigiaTT = double.Parse(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA").ToString());
-                            gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", _trigiaTT * _soluong);
-                        }
-                        else
-                        {
-                            gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", 0);
-                        }
-                        gvChiTiet.UpdateTotalSummary();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Số lượng tài sản không thể bằng 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
-            }
-            else
-            {
-                return;
-            }
-            gvChiTiet.RefreshData();
         }
 
         private void mnXoaDong_Click(object sender, EventArgs e)
         {
-            int index = 0;
-            if(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle,"BARCODE")!=null)
-            {
-                if(_them)
-                    gvChiTiet.DeleteSelectedRows();
-                else
-                {
-                    index = gvChiTiet.FocusedRowHandle;
-                    _lstBarcode.Add(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle,"BARCODE").ToString());
-                    gvChiTiet.DeleteSelectedRows();
-                }
-                if(gvChiTiet.RowCount==0)
-                {
-                    gvChiTiet.AddNewRow();
-                    gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "STT", 1);
-                }
-                else
-                {
-                    for(int i = 0;i< gvChiTiet.RowCount;i++)
-                    {
-                        gvChiTiet.FocusedRowHandle = i;
-                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle,"STT",i+1); 
-                    }
-                }
-                gvChiTiet.FocusedRowHandle = index;
-            }
-            else
-            {
-                MessageBox.Show("Chưa chọn mẫu tin.","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
+
         }
 
         private void mnXoaChiTiet_Click(object sender, EventArgs e)
         {
-            _lstBarcode.Clear();
-            for (int i = gvChiTiet.RowCount; i>=0;i--)
-            {
-                _lstBarcode.Add(gvChiTiet.GetRowCellValue(i,"BARCODE").ToString());
-                gvChiTiet.DeleteRow(i);
-            }
-            gvChiTiet.AddNewRow();
-            gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "STT", 1);
+
         }
 
         private void mnImportExcel_Click(object sender, EventArgs e)

@@ -34,6 +34,7 @@
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnLuu = new System.Windows.Forms.ToolStripButton();
             this.btnBoQua = new System.Windows.Forms.ToolStripButton();
+            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.DISABLED = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,7 +44,7 @@
             this.DIENTHOAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FAX = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CREATE_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CREATED_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grcThongTinDV = new DevExpress.XtraEditors.GroupControl();
             this.dtpCreateDate = new System.Windows.Forms.DateTimePicker();
             this.chkDisable = new System.Windows.Forms.CheckBox();
@@ -58,7 +59,6 @@
             this.txtTen = new System.Windows.Forms.TextBox();
             this.lblDienThoai = new DevExpress.XtraEditors.LabelControl();
             this.lblTen = new DevExpress.XtraEditors.LabelControl();
-            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
@@ -142,6 +142,17 @@
             this.btnBoQua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_thoat;
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnThoat.Size = new System.Drawing.Size(65, 55);
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // gcDanhSach
             // 
             this.gcDanhSach.Dock = System.Windows.Forms.DockStyle.Top;
@@ -166,7 +177,7 @@
             this.DIENTHOAI,
             this.FAX,
             this.DIACHI,
-            this.CREATE_DATE});
+            this.CREATED_DATE});
             this.gvDanhSach.DetailHeight = 284;
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
@@ -243,15 +254,16 @@
             this.DIACHI.VisibleIndex = 5;
             this.DIACHI.Width = 98;
             // 
-            // CREATE_DATE
+            // CREATED_DATE
             // 
-            this.CREATE_DATE.Caption = "NGÀY HỢP TÁC";
-            this.CREATE_DATE.FieldName = "CREATE_DATE";
-            this.CREATE_DATE.MinWidth = 21;
-            this.CREATE_DATE.Name = "CREATE_DATE";
-            this.CREATE_DATE.Visible = true;
-            this.CREATE_DATE.VisibleIndex = 6;
-            this.CREATE_DATE.Width = 108;
+            this.CREATED_DATE.Caption = "NGÀY HỢP TÁC";
+            this.CREATED_DATE.FieldName = "CREATED_DATE";
+            this.CREATED_DATE.MinWidth = 21;
+            this.CREATED_DATE.Name = "CREATED_DATE";
+            this.CREATED_DATE.ShowUnboundExpressionMenu = true;
+            this.CREATED_DATE.Visible = true;
+            this.CREATED_DATE.VisibleIndex = 6;
+            this.CREATED_DATE.Width = 108;
             // 
             // grcThongTinDV
             // 
@@ -288,7 +300,9 @@
             // 
             // dtpCreateDate
             // 
+            this.dtpCreateDate.CustomFormat = "dd/MM/yyyy";
             this.dtpCreateDate.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpCreateDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpCreateDate.Location = new System.Drawing.Point(131, 115);
             this.dtpCreateDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpCreateDate.Name = "dtpCreateDate";
@@ -419,17 +433,6 @@
             this.lblTen.TabIndex = 2;
             this.lblTen.Text = "Tên NCC";
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_thoat;
-            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnThoat.Size = new System.Drawing.Size(65, 55);
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
             // frmNHACUNGCAP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,7 +488,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn DIENTHOAI;
         private DevExpress.XtraGrid.Columns.GridColumn FAX;
         private DevExpress.XtraGrid.Columns.GridColumn DIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn CREATE_DATE;
+        private DevExpress.XtraGrid.Columns.GridColumn CREATED_DATE;
         private System.Windows.Forms.DateTimePicker dtpCreateDate;
         private System.Windows.Forms.ToolStripButton btnBoQua;
         private System.Windows.Forms.ToolStripButton btnThoat;

@@ -82,10 +82,6 @@
             this.GHICHU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TRANGTHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.contextMenuChiTiet = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.lblXoa = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblXoaChiTiet = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblImportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
@@ -94,6 +90,10 @@
             this.btnIn = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnThoat = new System.Windows.Forms.ToolStripButton();
+            this.contextMenuChiTiet = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnXoaDong = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnXoaChiTiet = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnImportExcel = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabChungTu)).BeginInit();
             this.tabChungTu.SuspendLayout();
             this.pageChiTiet.SuspendLayout();
@@ -117,8 +117,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.contextMenuChiTiet.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.contextMenuChiTiet.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabChungTu
@@ -420,6 +420,7 @@
             this.gvChiTiet.GridControl = this.gcChiTiet;
             this.gvChiTiet.Name = "gvChiTiet";
             this.gvChiTiet.OptionsEditForm.PopupEditFormWidth = 640;
+            this.gvChiTiet.OptionsView.ShowFooter = true;
             this.gvChiTiet.OptionsView.ShowGroupPanel = false;
             this.gvChiTiet.RowHeight = 20;
             this.gvChiTiet.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvChiTiet_CustomDrawRowIndicator);
@@ -462,10 +463,14 @@
             // SOLUONGCT
             // 
             this.SOLUONGCT.Caption = "SỐ LƯỢNG";
+            this.SOLUONGCT.DisplayFormat.FormatString = "{0:N0}";
+            this.SOLUONGCT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.SOLUONGCT.FieldName = "SOLUONG";
             this.SOLUONGCT.MaxWidth = 80;
             this.SOLUONGCT.MinWidth = 80;
             this.SOLUONGCT.Name = "SOLUONGCT";
+            this.SOLUONGCT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SOLUONG", "{0:N0}")});
             this.SOLUONGCT.Visible = true;
             this.SOLUONGCT.VisibleIndex = 3;
             this.SOLUONGCT.Width = 80;
@@ -484,10 +489,14 @@
             // THANHTIEN
             // 
             this.THANHTIEN.Caption = "THÀNH TIỀN";
+            this.THANHTIEN.DisplayFormat.FormatString = "{0:N0}";
+            this.THANHTIEN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.THANHTIEN.FieldName = "THANHTIEN";
             this.THANHTIEN.MaxWidth = 96;
             this.THANHTIEN.MinWidth = 96;
             this.THANHTIEN.Name = "THANHTIEN";
+            this.THANHTIEN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "THANHTIEN", "{0:N0}")});
             this.THANHTIEN.Visible = true;
             this.THANHTIEN.VisibleIndex = 5;
             this.THANHTIEN.Width = 96;
@@ -757,39 +766,6 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 640;
             // 
-            // contextMenuChiTiet
-            // 
-            this.contextMenuChiTiet.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblXoa,
-            this.lblXoaChiTiet,
-            this.lblImportExcel});
-            this.contextMenuChiTiet.Name = "contextMenuChiTiet";
-            this.contextMenuChiTiet.Size = new System.Drawing.Size(145, 82);
-            // 
-            // lblXoa
-            // 
-            this.lblXoa.BackColor = System.Drawing.Color.Transparent;
-            this.lblXoa.Name = "lblXoa";
-            this.lblXoa.Size = new System.Drawing.Size(144, 26);
-            this.lblXoa.Text = "Xóa dòng";
-            this.lblXoa.Click += new System.EventHandler(this.mnXoaDong_Click);
-            // 
-            // lblXoaChiTiet
-            // 
-            this.lblXoaChiTiet.Name = "lblXoaChiTiet";
-            this.lblXoaChiTiet.Size = new System.Drawing.Size(144, 26);
-            this.lblXoaChiTiet.Text = "Xóa chi tiết";
-            this.lblXoaChiTiet.Click += new System.EventHandler(this.mnXoaChiTiet_Click);
-            // 
-            // lblImportExcel
-            // 
-            this.lblImportExcel.Image = global::MATERIAL.Properties.Resources.icon_importexcel1;
-            this.lblImportExcel.Name = "lblImportExcel";
-            this.lblImportExcel.Size = new System.Drawing.Size(144, 26);
-            this.lblImportExcel.Text = "Import Excel";
-            this.lblImportExcel.Click += new System.EventHandler(this.mnImportExcel_Click);
-            // 
             // btnThem
             // 
             this.btnThem.Image = global::MATERIAL.Properties.Resources.icon_add1;
@@ -889,6 +865,41 @@
             this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // contextMenuChiTiet
+            // 
+            this.contextMenuChiTiet.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnXoaDong,
+            this.mnXoaChiTiet,
+            this.mnImportExcel});
+            this.contextMenuChiTiet.Name = "contextMenuChiTiet";
+            this.contextMenuChiTiet.Size = new System.Drawing.Size(145, 82);
+            // 
+            // mnXoaDong
+            // 
+            this.mnXoaDong.BackColor = System.Drawing.Color.Transparent;
+            this.mnXoaDong.Image = global::MATERIAL.Properties.Resources.icon_xoa;
+            this.mnXoaDong.Name = "mnXoaDong";
+            this.mnXoaDong.Size = new System.Drawing.Size(144, 26);
+            this.mnXoaDong.Text = "Xóa dòng";
+            this.mnXoaDong.Click += new System.EventHandler(this.mnXoaDong_Click);
+            // 
+            // mnXoaChiTiet
+            // 
+            this.mnXoaChiTiet.Image = global::MATERIAL.Properties.Resources.del_Icon_x16;
+            this.mnXoaChiTiet.Name = "mnXoaChiTiet";
+            this.mnXoaChiTiet.Size = new System.Drawing.Size(144, 26);
+            this.mnXoaChiTiet.Text = "Xóa chi tiết";
+            this.mnXoaChiTiet.Click += new System.EventHandler(this.mnXoaChiTiet_Click);
+            // 
+            // mnImportExcel
+            // 
+            this.mnImportExcel.Image = global::MATERIAL.Properties.Resources.icon_importexcel1;
+            this.mnImportExcel.Name = "mnImportExcel";
+            this.mnImportExcel.Size = new System.Drawing.Size(144, 26);
+            this.mnImportExcel.Text = "Import Excel";
+            this.mnImportExcel.Click += new System.EventHandler(this.mnImportExcel_Click);
+            // 
             // frmXuatSi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -925,9 +936,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.contextMenuChiTiet.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.contextMenuChiTiet.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -975,10 +986,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn GHICHU;
         private DevExpress.XtraGrid.Columns.GridColumn TRANGTHAI;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuChiTiet;
-        private System.Windows.Forms.ToolStripMenuItem lblXoa;
-        private System.Windows.Forms.ToolStripMenuItem lblXoaChiTiet;
-        private System.Windows.Forms.ToolStripMenuItem lblImportExcel;
         private System.Windows.Forms.ToolStripButton btnThem;
         private System.Windows.Forms.ToolStripButton btnSua;
         private System.Windows.Forms.ToolStripButton btnXoa;
@@ -999,5 +1006,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn IDKH;
         private DevExpress.XtraGrid.Columns.GridColumn HOTEN;
         private DevExpress.XtraGrid.Columns.GridColumn DIENTHOAI;
+        private System.Windows.Forms.ContextMenuStrip contextMenuChiTiet;
+        private System.Windows.Forms.ToolStripMenuItem mnXoaDong;
+        private System.Windows.Forms.ToolStripMenuItem mnXoaChiTiet;
+        private System.Windows.Forms.ToolStripMenuItem mnImportExcel;
     }
 }

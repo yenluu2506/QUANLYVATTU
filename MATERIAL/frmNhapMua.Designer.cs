@@ -61,8 +61,8 @@
             this.tabChungTu = new DevExpress.XtraTab.XtraTabControl();
             this.pageChiTiet = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtGhiChu = new DevExpress.XtraEditors.LabelControl();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
+            this.lblGhiChu = new DevExpress.XtraEditors.LabelControl();
             this.cboNhaCC = new System.Windows.Forms.ComboBox();
             this.lblNhaCC = new DevExpress.XtraEditors.LabelControl();
             this.cboDonVi = new System.Windows.Forms.ComboBox();
@@ -74,18 +74,19 @@
             this.dtNgay = new System.Windows.Forms.DateTimePicker();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.gcChiTiet = new DevExpress.XtraGrid.GridControl();
-            this.gvChiTiet = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.BARCODE = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TENHH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SOLUONGCT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.THANHTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pageDanhSach = new DevExpress.XtraTab.XtraTabPage();
             this.contextMenuChiTiet = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnXoaDong = new System.Windows.Forms.ToolStripMenuItem();
             this.mnXoaChiTiet = new System.Windows.Forms.ToolStripMenuItem();
             this.mnImportExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.gvChiTiet = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.BARCODE = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TENHH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DVT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SOLUONGCT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.THANHTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pageDanhSach = new DevExpress.XtraTab.XtraTabPage();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -106,9 +107,9 @@
             this.splitContainerControl2.Panel2.SuspendLayout();
             this.splitContainerControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTiet)).BeginInit();
+            this.contextMenuChiTiet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvChiTiet)).BeginInit();
             this.pageDanhSach.SuspendLayout();
-            this.contextMenuChiTiet.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -358,8 +359,11 @@
             this.TRANGTHAI});
             this.gvDanhSach.DetailHeight = 280;
             this.gvDanhSach.GridControl = this.gcDanhSach;
+            this.gvDanhSach.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TT", null, "{0:N0}")});
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsEditForm.PopupEditFormWidth = 640;
+            this.gvDanhSach.OptionsView.ShowFooter = true;
             this.gvDanhSach.RowHeight = 20;
             this.gvDanhSach.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvDanhSach_CustomDrawRowIndicator);
             this.gvDanhSach.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDanhSach_CustomDrawCell);
@@ -369,6 +373,8 @@
             // 
             this.DELETED_BY.Caption = "DELETED_BY";
             this.DELETED_BY.FieldName = "DELETED_BY";
+            this.DELETED_BY.ImageOptions.Alignment = System.Drawing.StringAlignment.Center;
+            this.DELETED_BY.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
             this.DELETED_BY.MaxWidth = 24;
             this.DELETED_BY.MinWidth = 24;
             this.DELETED_BY.Name = "DELETED_BY";
@@ -383,6 +389,7 @@
             this.SCT.MaxWidth = 96;
             this.SCT.MinWidth = 96;
             this.SCT.Name = "SCT";
+            this.SCT.OptionsColumn.AllowEdit = false;
             this.SCT.Visible = true;
             this.SCT.VisibleIndex = 1;
             this.SCT.Width = 96;
@@ -390,10 +397,13 @@
             // NGÀY
             // 
             this.NGÀY.Caption = "NGÀY";
-            this.NGÀY.FieldName = "NGÀY";
+            this.NGÀY.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.NGÀY.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.NGÀY.FieldName = "NGAY";
             this.NGÀY.MaxWidth = 80;
             this.NGÀY.MinWidth = 80;
             this.NGÀY.Name = "NGÀY";
+            this.NGÀY.OptionsColumn.AllowEdit = false;
             this.NGÀY.Visible = true;
             this.NGÀY.VisibleIndex = 2;
             this.NGÀY.Width = 80;
@@ -403,20 +413,27 @@
             this.SCT2.Caption = "SCT2";
             this.SCT2.FieldName = "SCT2";
             this.SCT2.Name = "SCT2";
+            this.SCT2.OptionsColumn.AllowEdit = false;
             // 
             // NGAY2
             // 
             this.NGAY2.Caption = "NGÀY NHẬP";
             this.NGAY2.FieldName = "NGAY2";
             this.NGAY2.Name = "NGAY2";
+            this.NGAY2.OptionsColumn.AllowEdit = false;
             // 
             // SOLUONG
             // 
             this.SOLUONG.Caption = "SỐ LƯỢNG";
             this.SOLUONG.FieldName = "SOLUONG";
+            this.SOLUONG.GroupFormat.FormatString = "{0:N0}";
+            this.SOLUONG.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.SOLUONG.MaxWidth = 80;
             this.SOLUONG.MinWidth = 80;
             this.SOLUONG.Name = "SOLUONG";
+            this.SOLUONG.OptionsColumn.AllowEdit = false;
+            this.SOLUONG.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SOLUONG", "{0:N0}")});
             this.SOLUONG.Visible = true;
             this.SOLUONG.VisibleIndex = 3;
             this.SOLUONG.Width = 80;
@@ -424,10 +441,15 @@
             // TONGTIEN
             // 
             this.TONGTIEN.Caption = "TỔNG TIỀN";
+            this.TONGTIEN.DisplayFormat.FormatString = "{0:N0}";
+            this.TONGTIEN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TONGTIEN.FieldName = "TONGTIEN";
             this.TONGTIEN.MaxWidth = 96;
             this.TONGTIEN.MinWidth = 96;
             this.TONGTIEN.Name = "TONGTIEN";
+            this.TONGTIEN.OptionsColumn.AllowEdit = false;
+            this.TONGTIEN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TONGTIEN", "{0:N0}")});
             this.TONGTIEN.Visible = true;
             this.TONGTIEN.VisibleIndex = 4;
             this.TONGTIEN.Width = 96;
@@ -496,8 +518,8 @@
             // 
             this.splitContainerControl2.Panel1.Appearance.BackColor = System.Drawing.Color.White;
             this.splitContainerControl2.Panel1.Appearance.Options.UseBackColor = true;
-            this.splitContainerControl2.Panel1.Controls.Add(this.textBox1);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtGhiChu);
+            this.splitContainerControl2.Panel1.Controls.Add(this.lblGhiChu);
             this.splitContainerControl2.Panel1.Controls.Add(this.cboNhaCC);
             this.splitContainerControl2.Panel1.Controls.Add(this.lblNhaCC);
             this.splitContainerControl2.Panel1.Controls.Add(this.cboDonVi);
@@ -520,27 +542,26 @@
             this.splitContainerControl2.SplitterPosition = 121;
             this.splitContainerControl2.TabIndex = 0;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(109, 90);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(674, 25);
-            this.textBox1.TabIndex = 13;
-            // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGhiChu.Appearance.Options.UseFont = true;
-            this.txtGhiChu.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtGhiChu.Location = new System.Drawing.Point(23, 90);
+            this.txtGhiChu.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGhiChu.Location = new System.Drawing.Point(109, 90);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(2);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(48, 17);
-            this.txtGhiChu.TabIndex = 12;
-            this.txtGhiChu.Text = "Ghi chú";
+            this.txtGhiChu.Size = new System.Drawing.Size(674, 25);
+            this.txtGhiChu.TabIndex = 13;
+            // 
+            // lblGhiChu
+            // 
+            this.lblGhiChu.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGhiChu.Appearance.Options.UseFont = true;
+            this.lblGhiChu.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.lblGhiChu.Location = new System.Drawing.Point(23, 90);
+            this.lblGhiChu.Margin = new System.Windows.Forms.Padding(2);
+            this.lblGhiChu.Name = "lblGhiChu";
+            this.lblGhiChu.Size = new System.Drawing.Size(48, 17);
+            this.lblGhiChu.TabIndex = 12;
+            this.lblGhiChu.Text = "Ghi chú";
             // 
             // cboNhaCC
             // 
@@ -658,6 +679,7 @@
             // gcChiTiet
             // 
             this.gcChiTiet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcChiTiet.EmbeddedNavigator.ContextMenuStrip = this.contextMenuChiTiet;
             this.gcChiTiet.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gcChiTiet.Location = new System.Drawing.Point(0, 0);
             this.gcChiTiet.MainView = this.gvChiTiet;
@@ -668,12 +690,48 @@
             this.gcChiTiet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvChiTiet});
             // 
+            // contextMenuChiTiet
+            // 
+            this.contextMenuChiTiet.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnXoaDong,
+            this.mnXoaChiTiet,
+            this.mnImportExcel});
+            this.contextMenuChiTiet.Name = "contextMenuChiTiet";
+            this.contextMenuChiTiet.Size = new System.Drawing.Size(145, 82);
+            // 
+            // mnXoaDong
+            // 
+            this.mnXoaDong.BackColor = System.Drawing.Color.Transparent;
+            this.mnXoaDong.Image = global::MATERIAL.Properties.Resources.icon_xoa;
+            this.mnXoaDong.Name = "mnXoaDong";
+            this.mnXoaDong.Size = new System.Drawing.Size(144, 26);
+            this.mnXoaDong.Text = "Xóa dòng";
+            this.mnXoaDong.Click += new System.EventHandler(this.mnXoaDong_Click);
+            // 
+            // mnXoaChiTiet
+            // 
+            this.mnXoaChiTiet.Image = global::MATERIAL.Properties.Resources.del_Icon_x16;
+            this.mnXoaChiTiet.Name = "mnXoaChiTiet";
+            this.mnXoaChiTiet.Size = new System.Drawing.Size(144, 26);
+            this.mnXoaChiTiet.Text = "Xóa chi tiết";
+            this.mnXoaChiTiet.Click += new System.EventHandler(this.mnXoaChiTiet_Click);
+            // 
+            // mnImportExcel
+            // 
+            this.mnImportExcel.Image = global::MATERIAL.Properties.Resources.icon_importexcel1;
+            this.mnImportExcel.Name = "mnImportExcel";
+            this.mnImportExcel.Size = new System.Drawing.Size(144, 26);
+            this.mnImportExcel.Text = "Import Excel";
+            this.mnImportExcel.Click += new System.EventHandler(this.mnImportExcel_Click);
+            // 
             // gvChiTiet
             // 
             this.gvChiTiet.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.BARCODE,
             this.TENHH,
             this.DVT,
+            this.DONGIA,
             this.SOLUONGCT,
             this.THANHTIEN,
             this.STT});
@@ -681,9 +739,11 @@
             this.gvChiTiet.GridControl = this.gcChiTiet;
             this.gvChiTiet.Name = "gvChiTiet";
             this.gvChiTiet.OptionsEditForm.PopupEditFormWidth = 640;
+            this.gvChiTiet.OptionsView.ShowFooter = true;
             this.gvChiTiet.OptionsView.ShowGroupPanel = false;
             this.gvChiTiet.RowHeight = 20;
             this.gvChiTiet.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvChiTiet_CustomDrawRowIndicator);
+            this.gvChiTiet.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvChiTiet_PopupMenuShowing);
             this.gvChiTiet.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvChiTiet_CellValueChanged);
             this.gvChiTiet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvChiTiet_KeyDown);
             // 
@@ -705,6 +765,7 @@
             this.TENHH.MaxWidth = 160;
             this.TENHH.MinWidth = 160;
             this.TENHH.Name = "TENHH";
+            this.TENHH.OptionsColumn.AllowEdit = false;
             this.TENHH.Visible = true;
             this.TENHH.VisibleIndex = 1;
             this.TENHH.Width = 160;
@@ -716,37 +777,62 @@
             this.DVT.MaxWidth = 64;
             this.DVT.MinWidth = 64;
             this.DVT.Name = "DVT";
+            this.DVT.OptionsColumn.AllowEdit = false;
             this.DVT.Visible = true;
             this.DVT.VisibleIndex = 2;
             this.DVT.Width = 64;
             // 
+            // DONGIA
+            // 
+            this.DONGIA.Caption = "ĐƠN GIÁ";
+            this.DONGIA.DisplayFormat.FormatString = "{0:N0}";
+            this.DONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.DONGIA.FieldName = "DONGIA";
+            this.DONGIA.MaxWidth = 100;
+            this.DONGIA.MinWidth = 100;
+            this.DONGIA.Name = "DONGIA";
+            this.DONGIA.OptionsColumn.AllowEdit = false;
+            this.DONGIA.Visible = true;
+            this.DONGIA.VisibleIndex = 3;
+            this.DONGIA.Width = 100;
+            // 
             // SOLUONGCT
             // 
             this.SOLUONGCT.Caption = "SỐ LƯỢNG";
+            this.SOLUONGCT.DisplayFormat.FormatString = "{0:N0}";
+            this.SOLUONGCT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.SOLUONGCT.FieldName = "SOLUONG";
             this.SOLUONGCT.MaxWidth = 80;
             this.SOLUONGCT.MinWidth = 80;
             this.SOLUONGCT.Name = "SOLUONGCT";
+            this.SOLUONGCT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SOLUONG", "{0:N0}")});
             this.SOLUONGCT.Visible = true;
-            this.SOLUONGCT.VisibleIndex = 3;
+            this.SOLUONGCT.VisibleIndex = 4;
             this.SOLUONGCT.Width = 80;
             // 
             // THANHTIEN
             // 
             this.THANHTIEN.Caption = "THÀNH TIỀN";
+            this.THANHTIEN.DisplayFormat.FormatString = "{0:N0}";
+            this.THANHTIEN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.THANHTIEN.FieldName = "THANHTIEN";
-            this.THANHTIEN.MaxWidth = 96;
-            this.THANHTIEN.MinWidth = 96;
+            this.THANHTIEN.MaxWidth = 150;
+            this.THANHTIEN.MinWidth = 150;
             this.THANHTIEN.Name = "THANHTIEN";
+            this.THANHTIEN.OptionsColumn.AllowEdit = false;
+            this.THANHTIEN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "THANHTIEN", "{0:N0}")});
             this.THANHTIEN.Visible = true;
-            this.THANHTIEN.VisibleIndex = 4;
-            this.THANHTIEN.Width = 96;
+            this.THANHTIEN.VisibleIndex = 5;
+            this.THANHTIEN.Width = 150;
             // 
             // STT
             // 
             this.STT.Caption = "STT";
             this.STT.FieldName = "STT";
             this.STT.Name = "STT";
+            this.STT.OptionsColumn.AllowEdit = false;
             // 
             // pageDanhSach
             // 
@@ -756,38 +842,6 @@
             this.pageDanhSach.Size = new System.Drawing.Size(812, 475);
             this.pageDanhSach.Text = "Danh Sách";
             // 
-            // contextMenuChiTiet
-            // 
-            this.contextMenuChiTiet.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnXoaDong,
-            this.mnXoaChiTiet,
-            this.mnImportExcel});
-            this.contextMenuChiTiet.Name = "contextMenuChiTiet";
-            this.contextMenuChiTiet.Size = new System.Drawing.Size(141, 70);
-            // 
-            // mnXoaDong
-            // 
-            this.mnXoaDong.BackColor = System.Drawing.Color.Transparent;
-            this.mnXoaDong.Name = "mnXoaDong";
-            this.mnXoaDong.Size = new System.Drawing.Size(140, 22);
-            this.mnXoaDong.Text = "Xóa dòng";
-            this.mnXoaDong.Click += new System.EventHandler(this.mnXoaDong_Click);
-            // 
-            // mnXoaChiTiet
-            // 
-            this.mnXoaChiTiet.Name = "mnXoaChiTiet";
-            this.mnXoaChiTiet.Size = new System.Drawing.Size(140, 22);
-            this.mnXoaChiTiet.Text = "Xóa chi tiết";
-            this.mnXoaChiTiet.Click += new System.EventHandler(this.mnXoaChiTiet_Click);
-            // 
-            // mnImportExcel
-            // 
-            this.mnImportExcel.Name = "mnImportExcel";
-            this.mnImportExcel.Size = new System.Drawing.Size(140, 22);
-            this.mnImportExcel.Text = "Import Excel";
-            this.mnImportExcel.Click += new System.EventHandler(this.mnImportExcel_Click);
-            // 
             // frmNhapMua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -795,12 +849,10 @@
             this.ClientSize = new System.Drawing.Size(814, 610);
             this.Controls.Add(this.tabChungTu);
             this.Controls.Add(this.toolStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmNhapMua";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phiếu nhập mua";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmNhapMua_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -825,9 +877,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
             this.splitContainerControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTiet)).EndInit();
+            this.contextMenuChiTiet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvChiTiet)).EndInit();
             this.pageDanhSach.ResumeLayout(false);
-            this.contextMenuChiTiet.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -876,8 +928,8 @@
         private DevExpress.XtraEditors.LabelControl lblNhaCC;
         private System.Windows.Forms.ComboBox cboDonVi;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private System.Windows.Forms.TextBox textBox1;
-        private DevExpress.XtraEditors.LabelControl txtGhiChu;
+        private System.Windows.Forms.TextBox txtGhiChu;
+        private DevExpress.XtraEditors.LabelControl lblGhiChu;
         private DevExpress.XtraGrid.GridControl gcChiTiet;
         private DevExpress.XtraGrid.Views.Grid.GridView gvChiTiet;
         private DevExpress.XtraGrid.Columns.GridColumn BARCODE;
@@ -886,11 +938,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn SOLUONGCT;
         private DevExpress.XtraGrid.Columns.GridColumn THANHTIEN;
         private DevExpress.XtraGrid.Columns.GridColumn STT;
+        private System.Windows.Forms.ToolStripButton btnIn;
+        private System.Windows.Forms.ToolStripButton btnThoat;
+        private DevExpress.XtraGrid.Columns.GridColumn DONGIA;
         private System.Windows.Forms.ContextMenuStrip contextMenuChiTiet;
         private System.Windows.Forms.ToolStripMenuItem mnXoaDong;
         private System.Windows.Forms.ToolStripMenuItem mnXoaChiTiet;
         private System.Windows.Forms.ToolStripMenuItem mnImportExcel;
-        private System.Windows.Forms.ToolStripButton btnIn;
-        private System.Windows.Forms.ToolStripButton btnThoat;
     }
 }

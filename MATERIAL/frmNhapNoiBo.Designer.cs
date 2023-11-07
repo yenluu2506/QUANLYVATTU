@@ -456,6 +456,7 @@
             this.gvChiTiet.GridControl = this.gcChiTiet;
             this.gvChiTiet.Name = "gvChiTiet";
             this.gvChiTiet.OptionsEditForm.PopupEditFormWidth = 640;
+            this.gvChiTiet.OptionsView.ShowFooter = true;
             this.gvChiTiet.RowHeight = 20;
             this.gvChiTiet.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvChiTiet_CustomDrawRowIndicator);
             // 
@@ -507,10 +508,14 @@
             // gridColumn6
             // 
             this.gridColumn6.Caption = "SỐ LƯỢNG";
+            this.gridColumn6.DisplayFormat.FormatString = "{0:N0}";
+            this.gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn6.FieldName = "SOLUONG";
             this.gridColumn6.MaxWidth = 80;
             this.gridColumn6.MinWidth = 80;
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SOLUONG", "{0:N0}")});
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 3;
             this.gridColumn6.Width = 80;
@@ -518,10 +523,14 @@
             // gridColumn7
             // 
             this.gridColumn7.Caption = "TỔNG TIỀN";
+            this.gridColumn7.DisplayFormat.FormatString = "{0:N0}";
+            this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn7.FieldName = "TONGTIEN";
             this.gridColumn7.MaxWidth = 96;
             this.gridColumn7.MinWidth = 96;
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TONGTIEN", "{0:N0}")});
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 4;
             this.gridColumn7.Width = 96;
@@ -709,6 +718,7 @@
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsEditForm.PopupEditFormWidth = 640;
+            this.gvDanhSach.OptionsView.ShowFooter = true;
             this.gvDanhSach.RowHeight = 20;
             this.gvDanhSach.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvDanhSach_CustomDrawRowIndicator);
             this.gvDanhSach.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDanhSach_CustomDrawCell);
@@ -772,10 +782,14 @@
             // SOLUONG
             // 
             this.SOLUONG.Caption = "SỐ LƯỢNG";
+            this.SOLUONG.DisplayFormat.FormatString = "{0:N0}";
+            this.SOLUONG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.SOLUONG.FieldName = "SOLUONG";
             this.SOLUONG.MaxWidth = 80;
             this.SOLUONG.MinWidth = 80;
             this.SOLUONG.Name = "SOLUONG";
+            this.SOLUONG.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SOLUONG", "{0:N0}")});
             this.SOLUONG.Visible = true;
             this.SOLUONG.VisibleIndex = 4;
             this.SOLUONG.Width = 80;
@@ -783,10 +797,14 @@
             // TONGTIEN
             // 
             this.TONGTIEN.Caption = "TỔNG TIỀN";
+            this.TONGTIEN.DisplayFormat.FormatString = "{0:N0}";
+            this.TONGTIEN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TONGTIEN.FieldName = "TONGTIEN";
             this.TONGTIEN.MaxWidth = 96;
             this.TONGTIEN.MinWidth = 96;
             this.TONGTIEN.Name = "TONGTIEN";
+            this.TONGTIEN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TONGTIEN", "{0:N0}")});
             this.TONGTIEN.Visible = true;
             this.TONGTIEN.VisibleIndex = 6;
             this.TONGTIEN.Width = 96;

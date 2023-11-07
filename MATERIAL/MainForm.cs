@@ -173,7 +173,7 @@ namespace MATERIAL
                         }
                     case "NHAPMUA":
                         {
-                            frmNhapMua frm = new frmNhapMua();
+                            frmNhapMua frm = new frmNhapMua(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }
@@ -186,6 +186,18 @@ namespace MATERIAL
                     case "NHAPNB":
                         {
                             frmNhapNoiBo frm = new frmNhapNoiBo(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "XUATSI":
+                        {
+                            frmXuatSi frm = new frmXuatSi(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "BANLE":
+                        {
+                            frmBanLe frm = new frmBanLe(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }

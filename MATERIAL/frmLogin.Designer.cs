@@ -185,10 +185,12 @@
             // 
             // frmLogin
             // 
+            this.AcceptButton = this.btnLogin;
             this.Appearance.BackColor = System.Drawing.Color.MediumTurquoise;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnThoat;
             this.ClientSize = new System.Drawing.Size(771, 488);
             this.Controls.Add(this.btnSetParam);
             this.Controls.Add(this.btnThoat);

@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmShowMembers));
             this.gcThanhVien = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.aduToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gvThanhVien = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDUSER = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,6 +81,7 @@
             this.gvThanhVien.GridControl = this.gcThanhVien;
             this.gvThanhVien.Name = "gvThanhVien";
             this.gvThanhVien.OptionsEditForm.PopupEditFormWidth = 686;
+            this.gvThanhVien.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvChucNang_PopupMenuShowing);
             // 
             // IDUSER
             // 

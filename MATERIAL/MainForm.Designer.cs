@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView3 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnBarcode = new System.Windows.Forms.ToolStripButton();
             this.btnBaoCao = new System.Windows.Forms.ToolStripButton();
@@ -67,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
@@ -198,13 +200,14 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackgroundImage = global::MATERIAL.Properties.Resources._242_242_242;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.chartDanhThuNhom2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.chartDanhThuNhom, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.chartDanhThuNhom4, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.chartDanhThuNhom3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.chartDanhThuNhom, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chartDanhThuNhom2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -244,6 +247,8 @@
             this.chartDanhThuNhom.Location = new System.Drawing.Point(3, 3);
             this.chartDanhThuNhom.Name = "chartDanhThuNhom";
             this.chartDanhThuNhom.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            sideBySideBarSeriesView3.Transparency = ((byte)(5));
+            this.chartDanhThuNhom.SeriesTemplate.View = sideBySideBarSeriesView3;
             this.chartDanhThuNhom.Size = new System.Drawing.Size(430, 261);
             this.chartDanhThuNhom.TabIndex = 0;
             // 
@@ -376,6 +381,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

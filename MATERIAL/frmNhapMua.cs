@@ -84,24 +84,25 @@ namespace MATERIAL
             cboTrangThai.DisplayMember = "_display";
             cboTrangThai.ValueMember = "_value";
 
-            loadKho();
-            loadNhaCC();
             loadKhoDanhSach();
+            //loadKho();
+            loadNhaCC();
             _lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboKho.SelectedValue.ToString());
             _bdChungTu.DataSource = _lstChungTu;
             gcDanhSach.DataSource = _bdChungTu;
 
             xuatThongTin();
-            cboDonVi.SelectedIndexChanged += CboDonVi_SelectedIndexChanged;
+            //cboDonVi.SelectedIndexChanged += CboDonVi_SelectedIndexChanged;
             cboKho.SelectedIndexChanged += CboKho_SelectedIndexChanged;
             showHideControl(true);
             _disabled(true);
+
           
         }
 
         private void CboDonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+          throw new NotImplementedException();
         }
 
         private void CboKho_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,12 +110,30 @@ namespace MATERIAL
             load_gridData();
         }
 
+        void _enabledButton(bool t)
+        {
+            btnBoQua.Enabled = t;
+            btnIn.Enabled = t;
+            btnSua.Enabled = t;
+            btnXoa.Enabled = t;
+            btnThem.Enabled = t;
+        }
         void load_gridData()
         {
-            _lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboKho.SelectedValue.ToString());
+            string madvi;
+            if (cboKho.SelectedValue != null)
+            {
+                madvi = cboKho.SelectedValue.ToString();
+                _enabledButton(true);
+            }
+            else
+            {
+                madvi = "";
+               _enabledButton(false);
+            }
+            _lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1),madvi);
             _bdChungTu.DataSource = _lstChungTu;
             gcDanhSach.DataSource = _bdChungTu;
-            xuatThongTin();
         }
         private void _bdChungTu_PositionChanged(object sender, EventArgs e)
         {
@@ -126,7 +145,6 @@ namespace MATERIAL
 
         private void CboCongTy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             loadKhoDanhSach();
         }
 
@@ -139,15 +157,22 @@ namespace MATERIAL
         void loadKhoDanhSach()
         {
             var _lstkho = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
+
             cboKho.DataSource = _lstkho;
             cboKho.DisplayMember = "TENDVI";
             cboKho.ValueMember = "MADVI";
             if (_lstkho.Count == 0)
             {
+                loadKho();
                 cboKho.Text = "";
-                cboKho.SelectedValue="";
+                cboDonVi.SelectedIndex = cboKho.SelectedIndex;
                 load_gridData();
-                
+            }
+            else
+            {
+                loadKho();
+                cboKho.SelectedIndex = 0;
+                cboDonVi.SelectedIndex = cboKho.SelectedIndex;
             }
         }
         void loadKho()
@@ -229,6 +254,12 @@ namespace MATERIAL
                     gvChiTiet.SetRowCellValue(i, "STT", i + 1);
                 }
             }
+            else
+            {
+                _bdChungTuCT.DataSource = null;
+                gcChiTiet.DataSource = _bdChungTuCT;
+            }
+
         }
 
 
@@ -411,17 +442,6 @@ namespace MATERIAL
 
                 }
             }
-            //_bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(_khoa);
-            //gcChiTiet.DataSource = _bdChungTuCT;
-            //gvChiTiet.AddNewRow();
-            //tabChungTu.SelectedTabPage = pageChiTiet;
-            //gvChiTiet.OptionsBehavior.Editable = true;
-            //contextMenuChiTiet.Enabled = true;
-            //_them = true;
-            //_sua = false;
-            //showHideControl(false);
-            //_enabled(true);
-            //_reset();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -973,6 +993,7 @@ namespace MATERIAL
             }
         }
 
+
         private void dtDenNgay_Leave(object sender, EventArgs e)
         {
             if (dtTuNgay.Value > dtDenNgay.Value)
@@ -984,6 +1005,28 @@ namespace MATERIAL
             {
                 _lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
                 _bdChungTu.DataSource = _lstChungTu;
+            }
+        }
+
+
+
+        private void dtNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtNgay.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtNgay.Value = DateTime.Now;
+                return;
+            }
+        }
+
+        private void dtNgay_Leave(object sender, EventArgs e)
+        {
+            if (dtNgay.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtNgay.Value = DateTime.Now;
+                return;
             }
         }
         bool cal(Int32 _Width, DevExpress.XtraGrid.Views.Grid.GridView _View)
@@ -1107,5 +1150,6 @@ namespace MATERIAL
                 contextMenuChiTiet.Show(view.GridControl, e.Point);
             }
         }
+
     }
 }

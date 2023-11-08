@@ -95,8 +95,6 @@
           <Property Name="CREATED_BY" Type="int" />
           <Property Name="DISABLED" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'QUANLY_VATTU.dbo.tb_KHACHHANG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="tb_KHACHHANG">
           <Key>
             <PropertyRef Name="IDKH" />
@@ -342,6 +340,7 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_DONVI" EntityType="Self.tb_DONVI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_DVT" EntityType="Self.tb_DVT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_HANGHOA" EntityType="Self.tb_HANGHOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_KHACHHANG" EntityType="Self.tb_KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_NHACUNGCAP" EntityType="Self.tb_NHACUNGCAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_NHOMHH" EntityType="Self.tb_NHOMHH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_SYS_FUNC" EntityType="Self.tb_SYS_FUNC" Schema="dbo" store:Type="Tables" />
@@ -353,16 +352,6 @@ warning 6002: The table/view 'QUANLY_VATTU.dbo.V_USER_NOTIN_GROUP' does not have
           <EntitySet Name="tb_SYS_USER" EntityType="Self.tb_SYS_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_TONKHO" EntityType="Self.tb_TONKHO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_XUATXU" EntityType="Self.tb_XUATXU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tb_KHACHHANG" EntityType="Self.tb_KHACHHANG" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [tb_KHACHHANG].[IDKH] AS [IDKH], 
-    [tb_KHACHHANG].[HOTEN] AS [HOTEN], 
-    [tb_KHACHHANG].[DIENTHOAI] AS [DIENTHOAI], 
-    [tb_KHACHHANG].[EMAIL] AS [EMAIL], 
-    [tb_KHACHHANG].[DIACHI] AS [DIACHI], 
-    [tb_KHACHHANG].[MST] AS [MST]
-    FROM [dbo].[tb_KHACHHANG] AS [tb_KHACHHANG]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="V_CHUNGTU_CT" EntityType="Self.V_CHUNGTU_CT" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_CHUNGTU_CT].[BARCODE] AS [BARCODE], 

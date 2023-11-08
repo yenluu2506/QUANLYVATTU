@@ -81,6 +81,8 @@ namespace MATERIAL
         private void btnSetParam_Click(object sender, EventArgs e)
         {
             frmSetParam frm = new frmSetParam();
+            if (File.Exists("sysparam.ini"))
+                File.Delete("sysparam.ini");
             this.Hide();
             frm.ShowDialog();
             this.Show();

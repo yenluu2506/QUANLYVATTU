@@ -21,6 +21,7 @@ namespace MATERIAL
             InitializeComponent();
         }
 
+        string chietkhau;
         public frmChietKhau(GridView gvChiTiet)
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace MATERIAL
 
             if (myFunctions.sIsNumber(txtChietKhau.Text))
             {
+                chietkhau = txtChietKhau.Text;
                for (int i = 0; i < _gvChiTiet.RowCount; i++)
                 {
                     _gvChiTiet.SetRowCellValue(i, "CHIETKHAU", txtChietKhau.Text);

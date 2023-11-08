@@ -4,6 +4,7 @@ using CrystalDecisions.Shared;
 using CrystalDecisions.Windows.Forms;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraSplashScreen;
 using MATERIAL.MyFunctions;
 using MATERIAL.MyPopup;
@@ -86,7 +87,7 @@ namespace MATERIAL
             cboTrangThai.ValueMember = "_value";
 
             loadDonVi();
-            loadDonViXuat();
+            //loadDonViXuat();
             loadDonViNhap();
             _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
             _bdChungTu.DataSource = _lstChungTu;
@@ -94,17 +95,15 @@ namespace MATERIAL
 
             xuatThongTin();
             cboDonVi.SelectedIndexChanged += CboDonVi_SelectedIndexChanged;
-            //cboKho.SelectedIndexChanged += CboKho_SelectedIndexChanged;
             showHideControl(true);
             contextMenuChiTiet.Enabled = false;
+            _disabled(true);
         }
 
         private void CboDonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
-            _bdChungTu.DataSource = _lstChungTu;
-            gcDanhSach.DataSource = _bdChungTu;
-            xuatThongTin();
+            load_gridData();
+            loadDonViNhap();
         }
         private void CboCongTy_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -126,9 +125,25 @@ namespace MATERIAL
         }
         void loadDonVi()
         {
-            cboDonVi.DataSource = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
+            var _lstkho = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
+
+            cboDonVi.DataSource = _lstkho;
             cboDonVi.DisplayMember = "TENDVI";
             cboDonVi.ValueMember = "MADVI";
+            if (_lstkho.Count == 0)
+            {
+                loadDonViXuat();
+                cboDonVi.Text = "";
+                cboDonViXuat.SelectedIndex = cboDonVi.SelectedIndex;
+                load_gridData();
+            }
+            else
+            {
+                loadDonViXuat();
+                //cboDonVi.SelectedIndex = 0;
+                cboDonViXuat.SelectedValue = cboDonVi.SelectedValue;
+                load_gridData();
+            }
         }
         void loadDonViXuat()
         {
@@ -142,10 +157,38 @@ namespace MATERIAL
             cboDonViNhap.DisplayMember = "TENDVI";
             cboDonViNhap.ValueMember = "MADVI";
         }
+
+        void _enabledButton(bool t)
+        {
+            btnBoQua.Enabled = t;
+            btnIn.Enabled = t;
+            btnSua.Enabled = t;
+            btnXoa.Enabled = t;
+            btnThem.Enabled = t;
+        }
+
+        void load_gridData()
+        {
+            string madvi;
+            if (cboDonVi.SelectedValue != null)
+            {
+                madvi = cboDonVi.SelectedValue.ToString();
+                if (cboDonViXuat.SelectedValue != null && cboDonViNhap.SelectedValue != null)
+                    _enabledButton(true);
+            }
+            else
+            {
+                madvi = "";
+                _enabledButton(false);
+            }
+            _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), madvi);
+            _bdChungTu.DataSource = _lstChungTu;
+            gcDanhSach.DataSource = _bdChungTu;
+        }
         void showHideControl(bool kt)
         {
             btnLuu.Visible = !kt;
-            btnIn.Visible = !kt;
+            btnBoQua.Visible = !kt;
             btnThem.Visible = kt;
             btnSua.Visible = kt;
             btnXoa.Visible = kt;
@@ -159,7 +202,13 @@ namespace MATERIAL
             cboDonViNhap.Enabled = t;
             dtNgay.Enabled = t;
         }
-
+        void _disabled(bool t)
+        {
+            gvDanhSach.OptionsBehavior.Editable = !t;
+            gvChiTiet.OptionsBehavior.Editable = !t;
+            contextMenuChiTiet.Enabled = !t;
+            txtGhiChu.Enabled = !t;
+        }
         void _reset()
         {
             txtSoPhieu.Text = "";
@@ -227,17 +276,6 @@ namespace MATERIAL
 
                 }
             }
-            //_bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(_khoa);
-            //gcChiTiet.DataSource = _bdChungTuCT;
-            //gvChiTiet.AddNewRow();
-            //tabChungTu.SelectedTabPage = pageChiTiet;
-            //gvChiTiet.OptionsBehavior.Editable = true;
-            //contextMenuChiTiet.Enabled = true;
-            //_them = true;
-            //_sua = false;
-            //showHideControl(false);
-            //_edControl(true);
-            //_reset();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -314,12 +352,15 @@ namespace MATERIAL
                 if (current.DELETED_BY != null)
                 {
                     //lblXoa.Visible = true;
-                    btnXoa.Visible = false;
+                    btnXoa.Enabled = false;
+                    toolStrip1.Refresh();
                 }
                 else
                 {
                     //lblXoa.Visible = false;
                     btnXoa.Enabled = true;
+                    toolStrip1.Refresh();
+
                 }
                 _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(current.KHOA);
                 gcChiTiet.DataSource = _bdChungTuCT;
@@ -327,6 +368,11 @@ namespace MATERIAL
                 {
                     gvChiTiet.SetRowCellValue(i, "STT", i + 1);
                 }
+            }
+            else
+            {
+                _bdChungTuCT.DataSource = null;
+                gcChiTiet.DataSource = _bdChungTuCT;
             }
         }
 
@@ -393,7 +439,7 @@ namespace MATERIAL
                     _ct.SOLUONG = int.Parse(gvChiTiet.GetRowCellValue(i, "SOLUONG").ToString());
                     _ct.DONGIA = double.Parse(gvChiTiet.GetRowCellValue(i, "DONGIA").ToString());
                     _ct.THANHTIEN = double.Parse(gvChiTiet.GetRowCellValue(i, "THANHTIEN").ToString());
-                    ////_chungtu.add(_ct);
+                    _chungtuct.add(_ct);
                 }
             }
         }
@@ -418,9 +464,10 @@ namespace MATERIAL
             {
                 ctu = new tb_CHUNGTU();
                 ChungTu_Info(ctu);
-                var resultCTu = _chungtu.update(ctu);
+                var resultCTu = _chungtu.add(ctu);
                 ChungTuCT_Info(resultCTu);
                 _sequence.update(_seq);
+
                 ChungTuCT_Info(resultCTu);
                 _bdChungTu.Add(resultCTu);
                 _bdChungTu.MoveLast();
@@ -503,6 +550,7 @@ namespace MATERIAL
                     {
                         _isImport = true;
                         frmDanhMuc _popDM = new frmDanhMuc(gvChiTiet, gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                        _popDM.BringToFront();
                         _popDM.ShowDialog();
                     }
                     else
@@ -565,25 +613,32 @@ namespace MATERIAL
                 {
                     if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "TENHH") != null)
                     {
-                        double _soluong = double.Parse(e.Value.ToString());
-                        if (_soluong != 0)
+                        if (myFunctions.sIsNumber(e.Value.ToString()))
                         {
-                            tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
-                            if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA") != null)
+                            double _soluong = double.Parse(e.Value.ToString());
+                            if (_soluong != 0)
                             {
-                                double _trigiaTT = double.Parse(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA").ToString());
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", _trigiaTT * _soluong);
+                                tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                                if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA") != null)
+                                {
+                                    double _trigiaTT = double.Parse(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA").ToString());
+                                    gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", _trigiaTT * _soluong);
+                                }
+                                else
+                                {
+                                    gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", 0);
+                                }
+                                gvChiTiet.UpdateTotalSummary();
                             }
                             else
                             {
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", 0);
+                                MessageBox.Show("Số lượng tài sản không thể bằng 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
-                            gvChiTiet.UpdateTotalSummary();
                         }
                         else
                         {
-                            MessageBox.Show("Số lượng tài sản không thể bằng 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            MessageBox.Show("Số lượng phải là số.", "Thông báo");
                         }
                     }
                     else
@@ -591,18 +646,57 @@ namespace MATERIAL
                         return;
                     }
                     gvChiTiet.RefreshData();
+
                 }
+
             }
         }
 
         private void mnXoaDong_Click(object sender, EventArgs e)
         {
-
+            int index = 0;
+            if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE") != null)
+            {
+                if (_them)
+                    gvChiTiet.DeleteSelectedRows();
+                else
+                {
+                    index = gvChiTiet.FocusedRowHandle;
+                    _lstBarcode.Add(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                    gvChiTiet.DeleteSelectedRows();
+                }
+                if (gvChiTiet.RowCount == 0)
+                {
+                    gvChiTiet.AddNewRow();
+                    gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "STT", 1);
+                }
+                else
+                {
+                    for (int i = 0; i < gvChiTiet.RowCount; i++)
+                    {
+                        gvChiTiet.FocusedRowHandle = i;
+                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "STT", i + 1);
+                    }
+                }
+                gvChiTiet.FocusedRowHandle = index;
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn mẫu tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void mnXoaChiTiet_Click(object sender, EventArgs e)
         {
-
+            _lstBarcode.Clear();
+            for (int i = gvChiTiet.RowCount - 1; i >= 0; i--)
+            {
+                _lstBarcode.Add(gvChiTiet.GetRowCellValue(i, "BARCODE").ToString());
+                gvChiTiet.DeleteRow(i);
+            }
+            gvChiTiet.AddNewRow();
+            gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "STT", 1);
         }
 
         private void mnImportExcel_Click(object sender, EventArgs e)
@@ -867,6 +961,7 @@ namespace MATERIAL
                 MessageBox.Show("Ngày không hợp lệ.", "Lỗi",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+         
         }
 
         private void dtTuNgay_Leave(object sender, EventArgs e)
@@ -878,9 +973,10 @@ namespace MATERIAL
             }
             else
             {
-                //_lstChungTu = _chungtu.getList(2,dtTuNgay.Value.AddDays(1),cboDonVi.SelectedValue.ToString());
-                _bdChungTu.DataSource= _lstChungTu;
+                _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value, cboDonVi.SelectedValue.ToString());
+                _bdChungTu.DataSource = _lstChungTu;
             }
+
         }
 
         private void dtDenNgay_ValueChanged(object sender, EventArgs e)
@@ -890,7 +986,7 @@ namespace MATERIAL
                 MessageBox.Show("Ngày không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+        
         }
 
         private void dtDenNgay_Leave(object sender, EventArgs e)
@@ -902,8 +998,29 @@ namespace MATERIAL
             }
             else
             {
-                //_lstChungTu = _chungtu.getList(2, dtTuNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
+                _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value, cboDonVi.SelectedValue.ToString());
                 _bdChungTu.DataSource = _lstChungTu;
+            }
+
+        }
+
+        private void dtNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtNgay.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtNgay.Value = DateTime.Now;
+                return;
+            }
+        }
+
+        private void dtNgay_Leave(object sender, EventArgs e)
+        {
+            if (dtNgay.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtNgay.Value = DateTime.Now;
+                return;
             }
         }
 
@@ -1012,6 +1129,15 @@ namespace MATERIAL
             else
             {
                 MessageBox.Show("Không có dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void gvChiTiet_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.HitInfo.InRow && (_sua||_them) )
+            {
+                GridView view = sender as GridView;
+                view.FocusedRowHandle = e.HitInfo.RowHandle;
+                contextMenuChiTiet.Show(view.GridControl, e.Point);
             }
         }
     }

@@ -63,7 +63,7 @@ namespace MATERIAL
 
             _bdChungTu.PositionChanged += _bdChungTu_PositionChanged;
             loadCongTy();
-            //cboCongTy.SelectedValue = myFunctions._macty;
+            cboCongTy.SelectedValue = myFunctions._macty;
             cboCongTy.SelectedIndexChanged += CboCongTy_SelectedIndexChanged;
 
             _trangthai = _TRANGTHAI.getList();
@@ -74,26 +74,34 @@ namespace MATERIAL
             loadDonVi();
             loadDonViXuat();
             loadDonViNhap();
-            //if (myFunctions._madvi = "~")
-            //{
-            //    cboDonVi.SelectedValue = "CTKHO1";
-            //    cboDonVi.Enabled = false;
-            //}
-            //else
-            //{
-            //    cboDonVi.SelectedValue = myFunctions._madvi;
-            //    cboDonVi.Enabled = false;   
-            //}
+            xuatThongTin();
+            if (myFunctions._madvi == "~")
+            {
+                cboDonVi.SelectedValue = "CTKHO1";
+                cboDonVi.Enabled = false;
+            }
+            else
+            {
+                cboDonVi.SelectedValue = myFunctions._madvi;
+                cboDonVi.Enabled = false;
+            }
             _lstChungTu = _chungtu.getPhieuNhap(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
             _bdChungTu.DataSource = _lstChungTu;
             gcDanhSach.DataSource = _bdChungTu;
-
-            xuatThongTin();
+           
+           
             cboDonVi.SelectedIndexChanged += CboDonVi_SelectedIndexChanged;
             btnTaoMa.Enabled = false;
             _edControl(false);
+            _disabled(true);
         }
 
+        void _disabled(bool t)
+        {
+            gvDanhSach.OptionsBehavior.Editable = !t;
+            gvChiTiet.OptionsBehavior.Editable = !t;
+            txtGhiChu.Enabled = !t;
+        }
         private void CboDonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
             _lstChungTu = _chungtu.getPhieuNhap(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
@@ -105,6 +113,7 @@ namespace MATERIAL
         private void CboCongTy_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadDonVi();
+         
         }
 
         private void _bdChungTu_PositionChanged(object sender, EventArgs e)
@@ -123,9 +132,10 @@ namespace MATERIAL
         }
         void loadDonVi()
         {
-            cboDonViXuat.DataSource = _donvi.getAll(cboCongTy.SelectedValue.ToString());
-            cboDonViXuat.DisplayMember = "TENDVI";
-            cboDonViXuat.ValueMember = "MADVI";
+            cboDonVi.DisplayMember = "TENDVI";
+            cboDonVi.ValueMember = "MADVI";
+            cboDonVi.DataSource = _donvi.getAll(cboCongTy.SelectedValue.ToString());
+
         }
 
         void loadDonViXuat()
@@ -164,10 +174,10 @@ namespace MATERIAL
             {
                 tb_CHUNGTU ctu;
                 string madvi = "";
-                //if (myFunctions._madvi == "~")
-                //    madvi = "CTKHO1";
-                //else
-                //    madvi = cboDonVi.SelectedValue.ToString();
+                if (myFunctions._madvi == "~")
+                    madvi = "CTKHO1";
+                else
+                    madvi = cboDonVi.SelectedValue.ToString();
                 tb_DONVI dvi = _donvi.getItem(madvi);
                 _seq = _sequence.getItem("NNB@" + DateTime.Today.Year.ToString() + "@" + dvi.KYHIEU);
                 if (_seq == null)
@@ -214,13 +224,14 @@ namespace MATERIAL
                 dtNgay.Value = current.NGAY.Value;
                 txtSoPhieu.Text = current.SCT;
                 txtGhiChu.Text = current.GHICHU;
+                loadDonViXuat();
+                loadDonViNhap();
                 cboDonViXuat.SelectedValue = current.MADVI;
                 cboDonViNhap.SelectedValue = current.MADVI2;
                 if(current.NGAY2!=null)
                 {
                     dtNgayNhap.Value=current.NGAY2.Value;
                 }
-                dtNgayNhap.Value = current.NGAY2.Value;
                 txtSoPhieuNhap.Text = current.SCT2;
                 cboTrangThai.SelectedValue = current.TRANGTHAI;
                 if (current.SCT2 != null)

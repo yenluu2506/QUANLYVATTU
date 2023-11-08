@@ -38,7 +38,7 @@ namespace MATERIAL
             _donvi = new DONVI();
             _tonkho = new TONKHO();
             loadDonVi();
-            cboDonVi.SelectedValue = myFunctions._macty;
+            cboDonVi.SelectedValue = myFunctions._madvi;
             dtChonKy.Value = DateTime.Now;
             loadTonKho(myFunctions._macty, DateTime.Now.Year, DateTime.Now.Month);
             _lstHH = _tonkho.getTonKhoCty(myFunctions._macty, dtChonKy.Value.Year, dtChonKy.Value.Month);

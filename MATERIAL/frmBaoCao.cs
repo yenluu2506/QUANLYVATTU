@@ -30,6 +30,7 @@ namespace MATERIAL
             InitializeComponent();
             this._user= user;
         }
+        
         tb_SYS_USER _user;
         SYS_USER _sysUser;
         SYS_REPORT _sysReport;
@@ -43,7 +44,14 @@ namespace MATERIAL
             _sysReport = new SYS_REPORT();
             _sysUser = new SYS_USER();
             _sysRightRep= new SYS_RIGHT_REP();
-            lstDanhSach.DataSource = _sysReport.getlistByRight(_sysRightRep.getListByUser(_user.IDUSER));
+            var right = _sysRightRep.getListByUser(_user.IDUSER);
+            if (right.Count == 0)
+            {
+                MessageBox.Show("Không có quyền thao tác");
+                this.Close();
+            }
+            else
+                lstDanhSach.DataSource = _sysReport.getlistByRight(right);
             lstDanhSach.DisplayMember = "DESCRIPTION";
             lstDanhSach.ValueMember = "REP_CODE";
             lstDanhSach.SelectedIndexChanged += LstDanhSach_SelectedIndexChanged;
@@ -57,34 +65,47 @@ namespace MATERIAL
 
         void loadUserControl()
         {
-            tb_SYS_REPORT rep = _sysReport.getItem(int.Parse(lstDanhSach.SelectedValue.ToString()));
+            int rep_code = 0;
+            if (lstDanhSach.SelectedValue != null)
+            {
+                rep_code = int.Parse(lstDanhSach.SelectedValue.ToString());
+            }
+            else
+            {
+                rep_code = 0;
+            }
+            tb_SYS_REPORT rep = _sysReport.getItem(rep_code);
             if (_panel != null)
                 _panel.Dispose();
             _panel = new Panel();
             _panel.Dock = DockStyle.Top;
             _panel.MinimumSize = new Size(_panel.Width, 500);
             List<Control> _ctrl = new List<Control>();
-            if (rep.TUNGAY == true)
+            if (rep != null)
             {
-                _uTuNgay = new ucTuNgay(rep.TONKHO.Value);
-                _uTuNgay.Dock = DockStyle.Top;
-                _ctrl.Add(_uTuNgay);
+                if (rep.TUNGAY == true)
+                {
+                    _uTuNgay = new ucTuNgay();
+                    _uTuNgay.Dock = DockStyle.Top;
+                    _ctrl.Add(_uTuNgay);
+                }
+                if (rep.MACTY == true)
+                {
+                    _uCongTy = new ucCongTy();
+                    _uCongTy.Dock = DockStyle.Top;
+                    _ctrl.Add(_uCongTy);
+                }
+                if (rep.MADVI == true)
+                {
+                    _uDonVi = new ucDonVi();
+                    _uDonVi.Dock = DockStyle.Top;
+                    _ctrl.Add(_uDonVi);
+                }
+                _ctrl.Reverse();
+                _panel.Controls.AddRange(_ctrl.ToArray());
+                this.splBaoCao.Panel2.Controls.Add(_panel);
             }
-            if (rep.MACTY == true)
-            {
-                _uCongTy = new ucCongTy();
-                _uCongTy.Dock = DockStyle.Top;
-                _ctrl.Add(_uCongTy);
-            }
-            if (rep.MADVI == true)
-            {
-                _uDonVi = new ucDonVi();
-                _uDonVi.Dock = DockStyle.Top;
-                _ctrl.Add(_uDonVi);
-            }
-            _ctrl.Reverse();
-            _panel.Controls.AddRange(_ctrl.ToArray());
-            this.splBaoCao.Panel2.Controls.Add(_panel);
+
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)

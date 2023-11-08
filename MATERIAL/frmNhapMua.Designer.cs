@@ -664,6 +664,8 @@
             this.dtNgay.Name = "dtNgay";
             this.dtNgay.Size = new System.Drawing.Size(131, 25);
             this.dtNgay.TabIndex = 3;
+            this.dtNgay.ValueChanged += new System.EventHandler(this.dtNgay_ValueChanged);
+            this.dtNgay.Leave += new System.EventHandler(this.dtNgay_Leave);
             // 
             // labelControl5
             // 

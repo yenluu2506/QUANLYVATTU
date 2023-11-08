@@ -28,6 +28,8 @@ namespace POS
             InitializeComponent();
             this._user = user;
         }
+        string chietkhau;
+
         tb_SYS_USER _user;
         int _right;
         CONGTY _congty;
@@ -140,7 +142,7 @@ namespace POS
             string madvi = "";
             if (myFunctions._madvi == "~")
             {
-                madvi = "CTKH01";
+                madvi = "CTKHO1";
             }
             else
             {
@@ -162,10 +164,10 @@ namespace POS
             chungtu.CREATED_BY = _user.IDUSER;
             chungtu.CREATED_DATE = DateTime.Now;
             chungtu.LCT = 4;
-            //if (txtChietKhau.Text == "")
-            //    chungtu.CHIETKHAU = null;
-            //else
-            //    chungtu.CHIETKHAU = int.Parse(txtChietKhau.Text);
+            if (chietkhau != null)
+            {
+                chungtu.CHIETKHAU = int.Parse(chietkhau);
+            }
             chungtu.MACTY = myFunctions._macty;
             chungtu.MADVI = madvi;
             chungtu.MADVI2 = "1";
@@ -209,7 +211,7 @@ namespace POS
                     if (gvChiTiet.GetRowCellValue(i, "CHIETKHAU") != null)
                         _ct.CHIETKHAU = int.Parse(gvChiTiet.GetRowCellValue(i, "CHIETKHAU").ToString());
                     _ct.THANHTIEN = double.Parse(gvChiTiet.GetRowCellValue(i, "THANHTIEN").ToString());
-                    ////_chungtu.add(_ct);
+                    _chungtuct.add(_ct);
                 }
             }
         }

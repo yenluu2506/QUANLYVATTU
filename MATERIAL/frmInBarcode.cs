@@ -69,7 +69,7 @@ namespace MATERIAL
             }
 
             rptPrintBarcode rpt = new rptPrintBarcode();
-            rpt.DataSource = lst;
+            rpt.DataSource = lst1;
             rpt.ShowPreviewDialog();
         }
 

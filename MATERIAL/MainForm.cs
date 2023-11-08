@@ -55,7 +55,7 @@ namespace MATERIAL
                 chartDanhThuNhom.Series.Add(_seri);
             _seri.Label.TextPattern = "{A:} {VP: p0}";
 
-            Series _seri2 = new Series("Doanh thu bán hàng theo nhóm hàng", ViewType.Pie3D);
+            Series _seri2 = new Series("Doanh thu bán hàng theo nhóm hàng", ViewType.Waterfall);
             var lst2 = _thongke.DoanhThuTheoNhomHangHoa();
             foreach (var item in lst2)
             {
@@ -171,6 +171,12 @@ namespace MATERIAL
                             frm.ShowDialog();
                             break;
                         }
+                    case "KHACHHANG":
+                        {
+                            frmKhachHang frm = new frmKhachHang();
+                            frm.ShowDialog();
+                            break;
+                        }
                     case "NHAPMUA":
                         {
                             frmNhapMua frm = new frmNhapMua(_user, _uRight.USER_RIGHT.Value);
@@ -204,6 +210,12 @@ namespace MATERIAL
                     case "TONKHOCTY":
                         {
                             frmTonKhoCongTy frm = new frmTonKhoCongTy(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "TONKHODVI":
+                        {
+                            frmTonKhoDonVi frm = new frmTonKhoDonVi(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }

@@ -63,6 +63,16 @@ namespace MATERIAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _242_242_242 {
+            get {
+                object obj = ResourceManager.GetObject("242-242-242", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap banner2 {
             get {
                 object obj = ResourceManager.GetObject("banner2", resourceCulture);

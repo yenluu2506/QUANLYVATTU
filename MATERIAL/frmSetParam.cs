@@ -57,7 +57,7 @@ namespace MATERIAL
             string madvi = (cboDonVi.Text.Trim() == "")? "~": cboDonVi.SelectedValue.ToString();
             SYS_PARAM _sysParam = new SYS_PARAM(macty, madvi);
             _sysParam.SaveFile();
-            MessageBox.Show("Xác lập đươn vị sử dụng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Xác lập đơn vị sử dụng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

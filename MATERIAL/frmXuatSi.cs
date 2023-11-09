@@ -85,7 +85,7 @@ namespace MATERIAL
             cboTrangThai.DisplayMember = "_display";
             cboTrangThai.ValueMember = "_value";
 
-            
+
             loadDonVi();
             loadDonViXuat();
             loadKhachHang();
@@ -115,26 +115,26 @@ namespace MATERIAL
             cboCongTy.DisplayMember = "TENCTY";
             cboCongTy.ValueMember = "MACTY";
         }
-        void _enabledButton(bool t)
-        {
-            btnBoQua.Enabled = t;
-            btnIn.Enabled = t;
-            btnSua.Enabled = t;
-            btnXoa.Enabled = t;
-            btnThem.Enabled = t;
-        }
+        //void _enabledButton(bool t)
+        //{
+        //    btnBoQua.Enabled = t;
+        //    btnIn.Enabled = t;
+        //    btnSua.Enabled = t;
+        //    btnXoa.Enabled = t;
+        //    btnThem.Enabled = t;
+        //}
         void load_gridData()
         {
             string madvi;
             if (cboDonVi.SelectedValue != null)
             {
                 madvi = cboDonVi.SelectedValue.ToString();
-                _enabledButton(true);
+                showHideControl(true);
             }
             else
             {
                 madvi = "";
-                _enabledButton(false);
+                showHideControl(false);
             }
             _lstChungTu = _chungtu.getList(3, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), madvi);
             _bdChungTu.DataSource = _lstChungTu;
@@ -157,7 +157,6 @@ namespace MATERIAL
             else
             {
                 loadDonViXuat();
-                //cboDonVi.SelectedIndex = 0;
                 cboDonViXuat.SelectedValue = cboDonVi.SelectedValue;
                 load_gridData();
             }
@@ -177,7 +176,7 @@ namespace MATERIAL
         void showHideControl(bool kt)
         {
             btnLuu.Visible = !kt;
-            btnIn.Visible = !kt;
+            btnBoQua.Visible = !kt;
             btnThem.Visible = kt;
             btnSua.Visible = kt;
             btnXoa.Visible = kt;
@@ -282,17 +281,6 @@ namespace MATERIAL
 
                 }
             }
-            _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(_khoa);
-            gcChiTiet.DataSource = _bdChungTuCT;
-            gvChiTiet.AddNewRow();
-            tabChungTu.SelectedTabPage = pageChiTiet;
-            gvChiTiet.OptionsBehavior.Editable = true;
-            contextMenuChiTiet.Enabled = true;
-            _them = true;
-            _sua = false;
-            showHideControl(false);
-            _edControl(true);
-            _reset();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -663,7 +651,7 @@ namespace MATERIAL
                     _ct.BARCODE = gvChiTiet.GetRowCellValue(i, "BARCODE").ToString();
                     _ct.SOLUONG = int.Parse(gvChiTiet.GetRowCellValue(i, "SOLUONG").ToString());
                     _ct.DONGIA = double.Parse(gvChiTiet.GetRowCellValue(i, "DONGIA").ToString());
-                    if(gvChiTiet.GetRowCellValue(i, "CHIETKHAU") != null)
+                    if (gvChiTiet.GetRowCellValue(i, "CHIETKHAU") != null)
                         _ct.CHIETKHAU = int.Parse(gvChiTiet.GetRowCellValue(i, "CHIETKHAU").ToString());
                     _ct.THANHTIEN = double.Parse(gvChiTiet.GetRowCellValue(i, "THANHTIEN").ToString());
                     _chungtuct.add(_ct);
@@ -732,7 +720,7 @@ namespace MATERIAL
                 txtChietKhau.Text = current.CHIETKHAU.ToString();
                 loadDonViXuat();
                 cboDonViXuat.SelectedValue = current.MADVI;
-                if(current.MADVI2 != null)
+                if (current.MADVI2 != null)
                     lkKhachHang.EditValue = current.MADVI2;
 
                 cboTrangThai.SelectedValue = current.TRANGTHAI;
@@ -790,7 +778,7 @@ namespace MATERIAL
                 chungtu.CHIETKHAU = int.Parse(txtChietKhau.Text);
             chungtu.MACTY = cboCongTy.SelectedValue.ToString();
             chungtu.MADVI = cboDonViXuat.SelectedValue.ToString();
-            if(lkKhachHang.EditValue != null)
+            if (lkKhachHang.EditValue != null)
                 chungtu.MADVI2 = lkKhachHang.EditValue.ToString();
             chungtu.TRANGTHAI = int.Parse(cboTrangThai.SelectedValue.ToString());
             chungtu.GHICHU = txtGhiChu.Text;
@@ -1044,7 +1032,7 @@ namespace MATERIAL
                     _bdChungTu.DataSource = _lstChungTu;
                     xuatThongTin();
                 }
-                
+
             }
         }
 
@@ -1176,7 +1164,7 @@ namespace MATERIAL
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
 
-            if (!myFunctions.sIsNumber(txtChietKhau.Text)){
+            if (!myFunctions.sIsNumber(txtChietKhau.Text)) {
                 MessageBox.Show("Chiết khấu nhập vào phải là số nguyên");
                 return;
             }
@@ -1190,7 +1178,7 @@ namespace MATERIAL
 
         private void gvChiTiet_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-            if (e.HitInfo.InRow && _sua)
+            if (e.HitInfo.InRow && (_sua||_them))
             {
                 GridView view = sender as GridView;
                 view.FocusedRowHandle = e.HitInfo.RowHandle;

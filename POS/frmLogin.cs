@@ -74,6 +74,8 @@ namespace POS
         {
             frmSetParam frm = new frmSetParam();
             this.Hide();
+            if (File.Exists("sysparam.ini"))
+                File.Delete("sysparam.ini");
             frm.ShowDialog();
             this.Show();
         }

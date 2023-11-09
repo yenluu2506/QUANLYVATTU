@@ -78,12 +78,12 @@ namespace MATERIAL
             if (myFunctions._madvi == "~")
             {
                 cboDonVi.SelectedValue = "CTKHO1";
-                cboDonVi.Enabled = false;
+                //cboDonVi.Enabled = false;
             }
             else
             {
                 cboDonVi.SelectedValue = myFunctions._madvi;
-                cboDonVi.Enabled = false;
+                //cboDonVi.Enabled = false;
             }
             _lstChungTu = _chungtu.getPhieuNhap(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
             _bdChungTu.DataSource = _lstChungTu;

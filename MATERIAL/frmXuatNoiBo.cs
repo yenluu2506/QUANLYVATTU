@@ -87,7 +87,6 @@ namespace MATERIAL
             cboTrangThai.ValueMember = "_value";
 
             loadDonVi();
-            //loadDonViXuat();
             loadDonViNhap();
             _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
             _bdChungTu.DataSource = _lstChungTu;
@@ -95,25 +94,27 @@ namespace MATERIAL
 
             xuatThongTin();
             cboDonVi.SelectedIndexChanged += CboDonVi_SelectedIndexChanged;
-            showHideControl(true);
-            contextMenuChiTiet.Enabled = false;
+            showHideControl(false,true);
             _disabled(true);
         }
 
         private void CboDonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_gridData();
             loadDonViNhap();
+            load_gridData();
         }
         private void CboCongTy_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadDonVi();
+            load_gridData();
         }
         private void _bdChungTu_PositionChanged(object sender, EventArgs e)
         {
             if (!_them)
             {
                 xuatThongTin();
+                if (_bdChungTu.Count == 0)
+                    _enabledButton(false);
             }
         }
 
@@ -135,14 +136,11 @@ namespace MATERIAL
                 loadDonViXuat();
                 cboDonVi.Text = "";
                 cboDonViXuat.SelectedIndex = cboDonVi.SelectedIndex;
-                load_gridData();
             }
             else
             {
                 loadDonViXuat();
-                //cboDonVi.SelectedIndex = 0;
                 cboDonViXuat.SelectedValue = cboDonVi.SelectedValue;
-                load_gridData();
             }
         }
         void loadDonViXuat()
@@ -160,11 +158,9 @@ namespace MATERIAL
 
         void _enabledButton(bool t)
         {
-            btnBoQua.Enabled = t;
             btnIn.Enabled = t;
             btnSua.Enabled = t;
             btnXoa.Enabled = t;
-            btnThem.Enabled = t;
         }
 
         void load_gridData()
@@ -174,24 +170,25 @@ namespace MATERIAL
             {
                 madvi = cboDonVi.SelectedValue.ToString();
                 if (cboDonViXuat.SelectedValue != null && cboDonViNhap.SelectedValue != null)
-                    _enabledButton(true);
+                    btnThem.Enabled = true;
             }
             else
             {
                 madvi = "";
-                _enabledButton(false);
+                showHideControl(false, false);
             }
             _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), madvi);
             _bdChungTu.DataSource = _lstChungTu;
             gcDanhSach.DataSource = _bdChungTu;
         }
-        void showHideControl(bool kt)
+        void showHideControl(bool group_skip, bool group_edit)
         {
-            btnLuu.Visible = !kt;
-            btnBoQua.Visible = !kt;
-            btnThem.Visible = kt;
-            btnSua.Visible = kt;
-            btnXoa.Visible = kt;
+            btnLuu.Visible = group_skip;
+            btnBoQua.Visible = group_skip;
+            btnIn.Enabled = group_edit;
+            btnThem.Enabled = group_edit;
+            btnSua.Enabled = group_edit;
+            btnXoa.Enabled = group_edit;
         }
 
         void _edControl(bool t)
@@ -207,7 +204,6 @@ namespace MATERIAL
             gvDanhSach.OptionsBehavior.Editable = !t;
             gvChiTiet.OptionsBehavior.Editable = !t;
             contextMenuChiTiet.Enabled = !t;
-            txtGhiChu.Enabled = !t;
         }
         void _reset()
         {
@@ -235,7 +231,7 @@ namespace MATERIAL
             contextMenuChiTiet.Enabled = true;
             _them = true;
             _sua = false;
-            showHideControl(false);
+            showHideControl(true,false);
             _edControl(true);
             _reset();
         }
@@ -253,7 +249,7 @@ namespace MATERIAL
                 {
                     _them = false;
                     _sua = true;
-                    showHideControl(false);
+                    showHideControl(true,false);
                     _edControl(true);
                     tabChungTu.SelectedTabPage = pageChiTiet;
                     tabChungTu.TabPages[0].PageEnabled = false;
@@ -308,7 +304,7 @@ namespace MATERIAL
             gvChiTiet.OptionsBehavior.Editable = false;
             contextMenuChiTiet.Enabled = false;
             tabChungTu.TabPages[0].PageEnabled = true;
-            showHideControl(true);
+            showHideControl(false,true);
             _edControl(false);
         }
 
@@ -316,7 +312,7 @@ namespace MATERIAL
         {
             _them = false;
             _sua = false;
-            showHideControl(true);
+            showHideControl(false,true);
             _reset();
             _edControl(false);
             xuatThongTin();
@@ -353,15 +349,12 @@ namespace MATERIAL
                 {
                     //lblXoa.Visible = true;
                     btnXoa.Enabled = false;
-                    toolStrip1.Refresh();
                 }
-                else
-                {
-                    //lblXoa.Visible = false;
-                    btnXoa.Enabled = true;
-                    toolStrip1.Refresh();
-
-                }
+                //else
+                //{
+                //    //lblXoa.Visible = false;
+                //    btnXoa.Enabled = true;
+                //}
                 _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(current.KHOA);
                 gcChiTiet.DataSource = _bdChungTuCT;
                 for (int i = 0; i < gvChiTiet.RowCount; i++)

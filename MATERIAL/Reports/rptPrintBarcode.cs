@@ -18,12 +18,12 @@ namespace MATERIAL.Reports
 
         private void xrGia_BeforePrint(object sender, CancelEventArgs e)
         {
-            XRLabel label = new XRLabel();
+            XRLabel label = sender as XRLabel;
             string fileName = label.DataBindings[0].DataMember;
             double value = Convert.ToDouble(GetCurrentColumnValue(fileName));
             if (value == 0)
             {
-                label.Text = "0";
+                label.Text = "0 đ";
             }
             else
             {

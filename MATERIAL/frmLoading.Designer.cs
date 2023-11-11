@@ -57,9 +57,9 @@
             this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(236, 422);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(310, 20);
+            this.label2.Size = new System.Drawing.Size(305, 20);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Load Application.. Please        Wait..";
+            this.label2.Text = "Load Application..        Please wait..";
             // 
             // label1
             // 
@@ -81,7 +81,7 @@
             // 
             this.Percentage.AutoSize = true;
             this.Percentage.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Percentage.Location = new System.Drawing.Point(468, 422);
+            this.Percentage.Location = new System.Drawing.Point(392, 423);
             this.Percentage.Name = "Percentage";
             this.Percentage.Size = new System.Drawing.Size(22, 19);
             this.Percentage.TabIndex = 11;

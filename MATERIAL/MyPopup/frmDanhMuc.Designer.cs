@@ -93,6 +93,8 @@
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsEditForm.PopupEditFormWidth = 686;
+            this.gvDanhSach.OptionsFind.AlwaysVisible = true;
+            this.gvDanhSach.OptionsFind.FindNullPrompt = "Nhập tìm kiếm...";
             this.gvDanhSach.OptionsSelection.MultiSelect = true;
             // 
             // BARCODE

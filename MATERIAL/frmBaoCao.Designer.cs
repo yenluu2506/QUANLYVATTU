@@ -48,18 +48,18 @@
             this.splBaoCao.Location = new System.Drawing.Point(0, 0);
             this.splBaoCao.Name = "splBaoCao";
             // 
-            // splBaoCao.splBaoCao_Panel1
+            // splBaoCao.Panel1
             // 
             this.splBaoCao.Panel1.Controls.Add(this.lstDanhSach);
             this.splBaoCao.Panel1.Text = "Panel1";
             // 
-            // splBaoCao.splBaoCao_Panel2
+            // splBaoCao.Panel2
             // 
             this.splBaoCao.Panel2.Controls.Add(this.btnDong);
             this.splBaoCao.Panel2.Controls.Add(this.btnXacNhan);
             this.splBaoCao.Panel2.Text = "Panel2";
-            this.splBaoCao.Size = new System.Drawing.Size(844, 453);
-            this.splBaoCao.SplitterPosition = 356;
+            this.splBaoCao.Size = new System.Drawing.Size(911, 453);
+            this.splBaoCao.SplitterPosition = 325;
             this.splBaoCao.TabIndex = 0;
             // 
             // lstDanhSach
@@ -69,7 +69,7 @@
             this.lstDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstDanhSach.Location = new System.Drawing.Point(0, 0);
             this.lstDanhSach.Name = "lstDanhSach";
-            this.lstDanhSach.Size = new System.Drawing.Size(356, 453);
+            this.lstDanhSach.Size = new System.Drawing.Size(325, 453);
             this.lstDanhSach.TabIndex = 0;
             // 
             // btnDong
@@ -77,7 +77,7 @@
             this.btnDong.Appearance.Font = new System.Drawing.Font("Constantia", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDong.Appearance.Options.UseFont = true;
             this.btnDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDong.ImageOptions.Image")));
-            this.btnDong.Location = new System.Drawing.Point(246, 409);
+            this.btnDong.Location = new System.Drawing.Point(295, 409);
             this.btnDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(117, 33);
@@ -90,7 +90,7 @@
             this.btnXacNhan.Appearance.Font = new System.Drawing.Font("Constantia", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXacNhan.Appearance.Options.UseFont = true;
             this.btnXacNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhan.ImageOptions.Image")));
-            this.btnXacNhan.Location = new System.Drawing.Point(118, 409);
+            this.btnXacNhan.Location = new System.Drawing.Point(167, 409);
             this.btnXacNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(117, 33);
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 453);
+            this.ClientSize = new System.Drawing.Size(911, 453);
             this.Controls.Add(this.splBaoCao);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

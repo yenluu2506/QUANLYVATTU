@@ -27,47 +27,29 @@ namespace DataLayer
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<tb_CHUNGTU> tb_CHUNGTU { get; set; }
+        public virtual DbSet<tb_CHUNGTU_CT> tb_CHUNGTU_CT { get; set; }
         public virtual DbSet<tb_CONGTY> tb_CONGTY { get; set; }
         public virtual DbSet<tb_DONVI> tb_DONVI { get; set; }
         public virtual DbSet<tb_DVT> tb_DVT { get; set; }
         public virtual DbSet<tb_HANGHOA> tb_HANGHOA { get; set; }
+        public virtual DbSet<tb_KHACHHANG> tb_KHACHHANG { get; set; }
         public virtual DbSet<tb_NHACUNGCAP> tb_NHACUNGCAP { get; set; }
         public virtual DbSet<tb_NHOMHH> tb_NHOMHH { get; set; }
         public virtual DbSet<tb_SYS_FUNC> tb_SYS_FUNC { get; set; }
         public virtual DbSet<tb_SYS_GROUP> tb_SYS_GROUP { get; set; }
+        public virtual DbSet<tb_SYS_REPORT> tb_SYS_REPORT { get; set; }
         public virtual DbSet<tb_SYS_RIGHT> tb_SYS_RIGHT { get; set; }
         public virtual DbSet<tb_SYS_RIGHT_REP> tb_SYS_RIGHT_REP { get; set; }
         public virtual DbSet<tb_SYS_SEQUENCE> tb_SYS_SEQUENCE { get; set; }
         public virtual DbSet<tb_SYS_USER> tb_SYS_USER { get; set; }
-        public virtual DbSet<tb_TONKHO> tb_TONKHO { get; set; }
         public virtual DbSet<tb_XUATXU> tb_XUATXU { get; set; }
         public virtual DbSet<V_CHUNGTU_CT> V_CHUNGTU_CT { get; set; }
         public virtual DbSet<V_FUNC_SYS_RIGHT> V_FUNC_SYS_RIGHT { get; set; }
         public virtual DbSet<V_REP_SYS_RIGHT_REP> V_REP_SYS_RIGHT_REP { get; set; }
         public virtual DbSet<V_USER_IN_GROUP> V_USER_IN_GROUP { get; set; }
         public virtual DbSet<V_USER_NOTIN_GROUP> V_USER_NOTIN_GROUP { get; set; }
-        public virtual DbSet<tb_CHUNGTU_CT> tb_CHUNGTU_CT { get; set; }
-        public virtual DbSet<tb_CHUNGTU> tb_CHUNGTU { get; set; }
-        public virtual DbSet<tb_SYS_REPORT> tb_SYS_REPORT { get; set; }
-        public virtual DbSet<tb_KHACHHANG> tb_KHACHHANG { get; set; }
-    
-        public virtual int TINH_TONKHO_DONVI(Nullable<System.DateTime> nGAYC, string mADVI)
-        {
-            var nGAYCParameter = nGAYC.HasValue ?
-                new ObjectParameter("NGAYC", nGAYC) :
-                new ObjectParameter("NGAYC", typeof(System.DateTime));
-    
-            var mADVIParameter = mADVI != null ?
-                new ObjectParameter("MADVI", mADVI) :
-                new ObjectParameter("MADVI", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TINH_TONKHO_DONVI", nGAYCParameter, mADVIParameter);
-        }
-    
-        public virtual int spNGAY_TINHTON(ObjectParameter nGAYC, ObjectParameter nGAYD, ObjectParameter nAM, ObjectParameter kY)
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spNGAY_TINHTON", nGAYC, nGAYD, nAM, kY);
-        }
+        public virtual DbSet<tb_TONKHO> tb_TONKHO { get; set; }
     
         [DbFunction("Entities", "FN_DOANHTHU_THEONHOMHANG")]
         public virtual IQueryable<FN_DOANHTHU_THEONHOMHANG_Result> FN_DOANHTHU_THEONHOMHANG(Nullable<System.DateTime> nGAYD, Nullable<System.DateTime> nGAYC)
@@ -81,6 +63,41 @@ namespace DataLayer
                 new ObjectParameter("NGAYC", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FN_DOANHTHU_THEONHOMHANG_Result>("[Entities].[FN_DOANHTHU_THEONHOMHANG](@NGAYD, @NGAYC)", nGAYDParameter, nGAYCParameter);
+        }
+    
+        public virtual int rep_tonkho_dvi(Nullable<System.DateTime> nGAYD, Nullable<System.DateTime> nGAYC, string mADVI)
+        {
+            var nGAYDParameter = nGAYD.HasValue ?
+                new ObjectParameter("NGAYD", nGAYD) :
+                new ObjectParameter("NGAYD", typeof(System.DateTime));
+    
+            var nGAYCParameter = nGAYC.HasValue ?
+                new ObjectParameter("NGAYC", nGAYC) :
+                new ObjectParameter("NGAYC", typeof(System.DateTime));
+    
+            var mADVIParameter = mADVI != null ?
+                new ObjectParameter("MADVI", mADVI) :
+                new ObjectParameter("MADVI", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("rep_tonkho_dvi", nGAYDParameter, nGAYCParameter, mADVIParameter);
+        }
+    
+        public virtual int spNGAY_TINHTON(ObjectParameter nGAYC, ObjectParameter nGAYD, ObjectParameter nAM, ObjectParameter kY)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spNGAY_TINHTON", nGAYC, nGAYD, nAM, kY);
+        }
+    
+        public virtual int TINH_TONKHO_DONVI(Nullable<System.DateTime> nGAYC, string mADVI)
+        {
+            var nGAYCParameter = nGAYC.HasValue ?
+                new ObjectParameter("NGAYC", nGAYC) :
+                new ObjectParameter("NGAYC", typeof(System.DateTime));
+    
+            var mADVIParameter = mADVI != null ?
+                new ObjectParameter("MADVI", mADVI) :
+                new ObjectParameter("MADVI", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TINH_TONKHO_DONVI", nGAYCParameter, mADVIParameter);
         }
     }
 }

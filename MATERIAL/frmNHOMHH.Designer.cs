@@ -35,6 +35,7 @@
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnLuu = new System.Windows.Forms.ToolStripButton();
             this.btnBoQua = new System.Windows.Forms.ToolStripButton();
+            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.adu = new System.Windows.Forms.ToolStripTextBox();
@@ -47,7 +48,6 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -123,7 +123,7 @@
             // 
             // btnBoQua
             // 
-            this.btnBoQua.Image = global::MATERIAL.Properties.Resources.icon_boqua;
+            this.btnBoQua.Image = global::MATERIAL.Properties.Resources.print;
             this.btnBoQua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBoQua.Name = "btnBoQua";
             this.btnBoQua.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -131,6 +131,17 @@
             this.btnBoQua.Text = "Bỏ qua";
             this.btnBoQua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_thoat;
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnThoat.Size = new System.Drawing.Size(65, 55);
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // gcDanhSach
             // 
@@ -277,17 +288,6 @@
             this.labelControl3.Size = new System.Drawing.Size(133, 17);
             this.labelControl3.TabIndex = 9;
             this.labelControl3.Text = "Tên Nhóm Hàng Hóa";
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Image = global::MATERIAL.Properties.Resources.icon_thoat;
-            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnThoat.Size = new System.Drawing.Size(65, 55);
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // frmNHOMHH
             // 

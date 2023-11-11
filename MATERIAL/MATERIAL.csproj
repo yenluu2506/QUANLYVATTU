@@ -226,6 +226,12 @@
     <Compile Include="frmInBarcode.Designer.cs">
       <DependentUpon>frmInBarcode.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKhachHang.Designer.cs">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +385,9 @@
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmChietKhau.resx">
+      <DependentUpon>frmChietKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDONVITINH.resx">
       <DependentUpon>frmDONVITINH.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInBarcode.resx">
       <DependentUpon>frmInBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKhachHang.resx">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoading.resx">
       <DependentUpon>frmLoading.cs</DependentUpon>
@@ -526,11 +538,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\rfgd4.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\skip.png" />
     <None Include="Resources\tinhton.png" />
     <None Include="Resources\loading1.png" />
     <None Include="Resources\staff1.png" />
     <None Include="Resources\8541700_barcode_code_icon.png" />
     <None Include="Resources\fload.jpg" />
+    <None Include="Resources\242-242-242.jpg" />
+    <None Include="Resources\banner.png" />
+    <None Include="Resources\368429255_700478678465809_4855020385658327382_n.jpg" />
     <Content Include="Resources\icon_cuctayxoa.jpg" />
     <Content Include="Resources\icon_cuctayxoa.png" />
     <None Include="Resources\staff.png" />

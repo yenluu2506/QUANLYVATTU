@@ -13,34 +13,31 @@ using System.Windows.Forms;
 
 namespace MATERIAL
 {
-    public partial class frmNHACUNGCAP : DevExpress.XtraEditors.XtraForm
+    public partial class frmKhachHang : DevExpress.XtraEditors.XtraForm
     {
-        public frmNHACUNGCAP()
+        public frmKhachHang()
         {
             InitializeComponent();
         }
-
-        NHACUNGCAP _ncc;
+        KHACHHANG _khachhang;
         bool _them;
-        string _mancc;
+        string _idkh;
 
-        private void frmNHACUNGCAP_Load(object sender, EventArgs e)
+        private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            _ncc = new NHACUNGCAP();
+            _khachhang = new KHACHHANG();
             showHideControl(true);
             _enabled(false);
+            txtMa.Enabled = false;
             loadData();
         }
-
         void _enabled(bool t)
         {
             txtTen.Enabled = t;
             txtDienThoai.Enabled = t;
-            txtFax.Enabled = t;
             txtEmail.Enabled = t;
             txtDiaChi.Enabled = t;
-            dtpCreateDate.Enabled = t;
-            chkDisable.Enabled = t;
+            txtMST.Enabled = t;
         }
 
         void showHideControl(bool t)
@@ -55,17 +52,16 @@ namespace MATERIAL
 
         void _reset()
         {
+            txtMa.Text = "";
             txtTen.Text = "";
             txtDienThoai.Text = "";
-            txtFax.Text = "";
             txtEmail.Text = "";
             txtDiaChi.Text = "";
-            dtpCreateDate.Value = DateTime.Now;
-            chkDisable.Checked = false;
+            txtMST.Text = "";
         }
         void loadData()
         {
-            gcDanhSach.DataSource = _ncc.getAll();
+            gcDanhSach.DataSource = _khachhang.getAll();
             gvDanhSach.OptionsBehavior.Editable = false;
         }
 
@@ -75,6 +71,7 @@ namespace MATERIAL
             showHideControl(false);
             _enabled(true);
             _reset();
+            txtMa.Enabled = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -82,13 +79,14 @@ namespace MATERIAL
             _them = false;
             _enabled(true);
             showHideControl(false);
+            txtMa.Enabled = false;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _ncc.delete(_mancc);
+                _khachhang.delete(_idkh);
             }
             loadData();
         }
@@ -97,32 +95,30 @@ namespace MATERIAL
         {
             if (_them)
             {
-                tb_NHACUNGCAP ncc = new tb_NHACUNGCAP();
-                ncc.TENNCC = txtTen.Text;
-                ncc.DIACHI = txtDiaChi.Text;
-                ncc.DIENTHOAI = txtDienThoai.Text;
-                ncc.FAX = txtFax.Text;
-                ncc.EMAIL = txtEmail.Text;
-                ncc.CREATED_DATE = dtpCreateDate.Value;
-                ncc.DISABLED = chkDisable.Checked;
-                _ncc.add(ncc);
+                tb_KHACHHANG kh = new tb_KHACHHANG();
+                kh.IDKH = txtMa.Text;
+                kh.HOTEN = txtTen.Text;
+                kh.DIACHI = txtDiaChi.Text;
+                kh.DIENTHOAI = txtDienThoai.Text;
+                kh.EMAIL = txtEmail.Text;
+                kh.MST = txtMST.Text;
+                _khachhang.add(kh);
             }
             else
             {
-                tb_NHACUNGCAP ncc = _ncc.getItem(_mancc);
-                ncc.TENNCC = txtTen.Text;
-                ncc.DIACHI = txtDiaChi.Text;
-                ncc.DIENTHOAI = txtDienThoai.Text;
-                ncc.FAX = txtFax.Text;
-                ncc.EMAIL = txtEmail.Text;
-                ncc.CREATED_DATE = dtpCreateDate.Value;
-                ncc.DISABLED = chkDisable.Checked;
-                _ncc.update(ncc);
+                tb_KHACHHANG kh = _khachhang.getInfoKH(_idkh);
+                kh.HOTEN = txtTen.Text;
+                kh.DIACHI = txtDiaChi.Text;
+                kh.DIENTHOAI = txtDienThoai.Text;
+                kh.EMAIL = txtEmail.Text;
+                kh.MST = txtMST.Text;
+                _khachhang.update(kh);
             }
             _them = false;
             loadData();
             _enabled(false);
             showHideControl(true);
+            txtMa.Enabled = false;
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)
@@ -130,6 +126,7 @@ namespace MATERIAL
             _them = false;
             showHideControl(true);
             _enabled(false);
+            txtMa.Enabled = false;
             loadData();
         }
 
@@ -138,28 +135,22 @@ namespace MATERIAL
             this.Close();
         }
 
+        private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+
+        }
+
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
             if (gvDanhSach.RowCount > 0)
             {
-                _mancc = gvDanhSach.GetFocusedRowCellValue("MANCC").ToString();
-                txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TENNCC").ToString();
+                _idkh = gvDanhSach.GetFocusedRowCellValue("IDKH").ToString();
+                txtMa.Text = gvDanhSach.GetFocusedRowCellValue("IDKH").ToString();
+                txtTen.Text = gvDanhSach.GetFocusedRowCellValue("HOTEN").ToString();
                 txtDienThoai.Text = gvDanhSach.GetFocusedRowCellValue("DIENTHOAI").ToString();
-                txtFax.Text = gvDanhSach.GetFocusedRowCellValue("FAX").ToString();
                 txtEmail.Text = gvDanhSach.GetFocusedRowCellValue("EMAIL").ToString();
                 txtDiaChi.Text = gvDanhSach.GetFocusedRowCellValue("DIACHI").ToString();
-                dtpCreateDate.Value = (DateTime)gvDanhSach.GetFocusedRowCellValue("CREATED_DATE");
-                chkDisable.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
-            }
-        }
-
-        private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
-        {
-            if (e.Column.Name == "DISABLED" && bool.Parse(e.CellValue.ToString()) == true)
-            {
-                Image img = Properties.Resources.del_Icon_x16;
-                e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
-                e.Handled = true;
+                txtMST.Text = gvDanhSach.GetFocusedRowCellValue("MST").ToString();
             }
         }
     }

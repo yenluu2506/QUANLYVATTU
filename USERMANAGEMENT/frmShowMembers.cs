@@ -1,6 +1,7 @@
 ﻿using BusinesssLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +53,16 @@ namespace USERMANAGEMENT
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gvChucNang_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            if (e.HitInfo.InRow)
+            {
+                GridView view = sender as GridView;
+                view.FocusedRowHandle = e.HitInfo.RowHandle;
+                contextMenuStrip1.Show(view.GridControl, e.Point);
+            }
         }
 
     }

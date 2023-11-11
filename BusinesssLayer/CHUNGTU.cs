@@ -88,12 +88,15 @@ namespace BusinesssLayer
                 throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu." + ex.Message);
             }
         }
-        public void deleteAll(Guid khoa,int V)
+        public tb_CHUNGTU delete(Guid khoa,int idUser)
         {
-            tb_CHUNGTU _ct = db.tb_CHUNGTU.FirstOrDefault(x => x.KHOA == khoa && x.TRANGTHAI == V);
+            tb_CHUNGTU _ct = db.tb_CHUNGTU.FirstOrDefault(x => x.KHOA == khoa);
+            _ct.DELETED_BY = idUser;
+            _ct.DELETED_DATE= DateTime.Now;
             try
             {
                 db.SaveChanges();
+                return _ct;
             }
             catch (Exception ex)
             {

@@ -28,11 +28,17 @@ namespace MATERIAL
         {
             InitializeComponent();
         }
+        public frmNhapMua(tb_SYS_USER user, int right)
+        {
+            InitializeComponent();
+            this._user = user;
+            this._right = right;
+
+        }
         tb_SYS_USER _user;
         int _right;
         bool _them;
         bool _sua = false;
-        bool _import;
         List<string> _lstBarcode;
         string err = "";
         List<_TRANGTHAI> _trangthai;
@@ -53,7 +59,7 @@ namespace MATERIAL
 
         private void frmNhapMua_Load(object sender, EventArgs e)
         {
-            _import = false;
+            _isImport = false;
             _lstBarcode = new List<string>();
             _congty = new CONGTY();
             _donvi = new DONVI();
@@ -69,47 +75,66 @@ namespace MATERIAL
             dtDenNgay.Value = DateTime.Now;
 
             _bdChungTu.PositionChanged += _bdChungTu_PositionChanged;
-
-            _enabled(false);
             loadCongTy();
-            cboCongTy.SelectedValue = "CT01";
+            cboCongTy.SelectedValue = myFunctions._macty;
             cboCongTy.SelectedIndexChanged += CboCongTy_SelectedIndexChanged;
+
             _trangthai = _TRANGTHAI.getList();
             cboTrangThai.DataSource = _trangthai;
             cboTrangThai.DisplayMember = "_display";
             cboTrangThai.ValueMember = "_value";
 
-            loadKho();
             loadKhoDanhSach();
-            _lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboKho.SelectedValue.ToString());
-            _bdChungTu.DataSource = _lstChungTu;
-            gcDanhSach.DataSource = _bdChungTu;
-
-            xuatThongTin();
-            cboDonVi.SelectedIndexChanged += CboDonVi_SelectedIndexChanged;
-            cboKho.SelectedIndexChanged += CboKho_SelectedIndexChanged;
-            loadDonVi();
+            //loadKho();
             loadNhaCC();
-            cboCongTy.SelectedValue = "CT01";
-            showHideControl(true);
-        }
-
-        private void CboKho_SelectedIndexChanged(object sender, EventArgs e)
-        {
             _lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboKho.SelectedValue.ToString());
             _bdChungTu.DataSource = _lstChungTu;
             gcDanhSach.DataSource = _bdChungTu;
+
             xuatThongTin();
+            //cboDonVi.SelectedIndexChanged += CboDonVi_SelectedIndexChanged;
+            cboKho.SelectedIndexChanged += CboKho_SelectedIndexChanged;
+            showHideControl(true);
+            _disabled(true);
+
+          
         }
 
         private void CboDonVi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _lstChungTu = _chungtu.getList(2, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
-            _bdChungTu.DataSource = _lstChungTu;
-            gcDanhSach.DataSource = _bdChungTu;
-            xuatThongTin();
+          throw new NotImplementedException();
         }
 
+        private void CboKho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            load_gridData();
+        }
+
+        void _enabledButton(bool t)
+        {
+            btnBoQua.Enabled = t;
+            btnIn.Enabled = t;
+            btnSua.Enabled = t;
+            btnXoa.Enabled = t;
+            btnThem.Enabled = t;
+        }
+        void load_gridData()
+        {
+            string madvi;
+            if (cboKho.SelectedValue != null)
+            {
+                madvi = cboKho.SelectedValue.ToString();
+                _enabledButton(true);
+            }
+            else
+            {
+                madvi = "";
+               _enabledButton(false);
+            }
+            _lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1),madvi);
+            _bdChungTu.DataSource = _lstChungTu;
+            gcDanhSach.DataSource = _bdChungTu;
+        }
         private void _bdChungTu_PositionChanged(object sender, EventArgs e)
         {
             if (!_them)
@@ -118,29 +143,109 @@ namespace MATERIAL
             }
         }
 
+        private void CboCongTy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadKhoDanhSach();
+        }
+
+        void loadCongTy()
+        {
+            cboCongTy.DataSource = _congty.getAll();
+            cboCongTy.DisplayMember = "TENCTY";
+            cboCongTy.ValueMember = "MACTY";
+        }
+        void loadKhoDanhSach()
+        {
+            var _lstkho = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
+
+            cboKho.DataSource = _lstkho;
+            cboKho.DisplayMember = "TENDVI";
+            cboKho.ValueMember = "MADVI";
+            if (_lstkho.Count == 0)
+            {
+                loadKho();
+                cboKho.Text = "";
+                cboDonVi.SelectedIndex = cboKho.SelectedIndex;
+                load_gridData();
+            }
+            else
+            {
+                loadKho();
+                cboKho.SelectedIndex = 0;
+                cboDonVi.SelectedIndex = cboKho.SelectedIndex;
+            }
+        }
+        void loadKho()
+        {
+            cboDonVi.DisplayMember = "TENDVI";
+            cboDonVi.ValueMember = "MADVI";
+            cboDonVi.DataSource = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
+        }
+
+        void loadNhaCC()
+        {
+            cboNhaCC.DataSource = _nhaCC.getAll();
+            cboNhaCC.DisplayMember = "TENNCC";
+            cboNhaCC.ValueMember = "MANCC";
+        }
+
+        void _enabled(bool t)
+        {
+            txtGhiChu.Enabled = t;
+            cboTrangThai.Enabled = t;
+            cboDonVi.Enabled = t;
+            cboNhaCC.Enabled = t;
+            dtNgay.Enabled = t;
+        }
+
+        void _disabled(bool t)
+        {
+            gvDanhSach.OptionsBehavior.Editable = !t;
+            gvChiTiet.OptionsBehavior.Editable = !t;
+            contextMenuChiTiet.Enabled = !t;
+            txtGhiChu.Enabled = !t;
+        }
+        void showHideControl(bool t)
+        {
+            btnThem.Visible = t;
+            btnSua.Visible = t;
+            btnXoa.Visible = t;
+            //btnThoat.Visible = t;
+            btnLuu.Visible = !t;
+            btnBoQua.Visible = !t;
+        }
+        void _reset()
+        {
+            txtSoPhieu.Text = "";
+            txtGhiChu.Text = "";
+        }
+
         private void xuatThongTin()
         {   
             tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
             if (current != null)
             {
                 pKhoa = current.KHOA;
-                tb_DONVI _dvi = _donvi.getItem(current.MADVI);
+                //tb_DONVI _dvi = _donvi.getItem(current.MADVI);
                 dtNgay.Value = current.NGAY.Value;
                 txtSoPhieu.Text = current.SCT;
                 txtGhiChu.Text = current.GHICHU;
-                cboDonVi.SelectedValue = current.MADVI;
+                cboDonVi.SelectedValue = current.MADVI; 
                 cboNhaCC.SelectedValue =current.MADVI2;
 
                 cboTrangThai.SelectedValue = current.TRANGTHAI;
                 if (current.DELETED_BY != null)
                 {
                     //lblXoa.Visible = true;
-                    btnXoa.Visible = false;
+                    btnXoa.Enabled = false;
+                    toolStrip1.Refresh();
                 }
                 else
                 {
                     //lblXoa.Visible = false;
                     btnXoa.Enabled = true;
+                    toolStrip1.Refresh();
+
                 }
                 _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(current.KHOA);
                 gcChiTiet.DataSource = _bdChungTuCT;
@@ -149,6 +254,12 @@ namespace MATERIAL
                     gvChiTiet.SetRowCellValue(i, "STT", i + 1);
                 }
             }
+            else
+            {
+                _bdChungTuCT.DataSource = null;
+                gcChiTiet.DataSource = _bdChungTuCT;
+            }
+
         }
 
 
@@ -170,7 +281,7 @@ namespace MATERIAL
                 chungtu.KHOA = Guid.NewGuid();
                 chungtu.NGAY = dtNgay.Value;
                 chungtu.SCT = _seq.SEQVALUE.Value.ToString("000000") + @"/" + DateTime.Today.Year.ToString().Substring(2, 2) + @"/NHM/" + dvi.KYHIEU;
-                chungtu.CREATED_BY = 1;
+                chungtu.CREATED_BY = _user.IDUSER;
                 chungtu.CREATED_DATE = DateTime.Now;
             }
             chungtu.LCT = 1;
@@ -194,7 +305,7 @@ namespace MATERIAL
             }
         NEXT:
             chungtu.TONGTIEN = _TONGCONG;
-            chungtu.UPDATED_BY = 1;
+            chungtu.UPDATED_BY = _user.IDUSER;
             chungtu.UPDATED_DATE = DateTime.Now;
         }
 
@@ -247,14 +358,6 @@ namespace MATERIAL
                 ChungTuCT_Info(resultCTu);
                 _bdChungTu.Add(resultCTu);
                 _bdChungTu.MoveLast();
-                //ChungTuCT_Info(resultCTu);
-                //_lstChungTu = null;
-                //_lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
-                //_bdChungTu.DataSource = _lstChungTu;
-                //gvDanhSach.ClearSorting();
-                //gvDanhSach.RefreshData();
-                //var obj = _bdChungTu.List.OfType<tb_CHUNGTU>().ToList().Find(c => c.SCT == resultCTu.SCT);
-                //_bdChungTu.Position = _bdChungTu.IndexOf(obj);
             }
             else
             {
@@ -279,68 +382,7 @@ namespace MATERIAL
             tabChungTu.SelectedTabPage = pageDanhSach;
         }
 
-        private void CboCongTy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loadDonVi();
-            loadKho();
-        }
-
-        void loadCongTy()
-        {
-            cboCongTy.DataSource = _congty.getAll();
-            cboCongTy.DisplayMember = "TENCTY";
-            cboCongTy.ValueMember = "MACTY";
-        }
-        void loadDonVi()
-        {
-            cboDonVi.DataSource = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
-            cboDonVi.DisplayMember = "TENDVI";
-            cboDonVi.ValueMember = "MADVI";
-        }
-        void loadKhoDanhSach()
-        {
-            cboKho.DataSource = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
-            cboKho.DisplayMember = "TENDVI";
-            cboKho.ValueMember = "MADVI";
-        }
-        void loadKho()
-        {
-            cboDonVi.DataSource = _donvi.getKhoByCty(cboCongTy.SelectedValue.ToString());
-            cboDonVi.DisplayMember = "TENDVI";
-            cboDonVi.ValueMember = "MADVI";
-        }
-
-        void loadNhaCC()
-        {
-            cboNhaCC.DataSource = _nhaCC.getAll();
-            cboNhaCC.DisplayMember = "TENNCC";
-            cboNhaCC.ValueMember = "MANCC";
-        }
-
-        void _enabled(bool t)
-        {
-            txtGhiChu.Enabled = t;
-            cboTrangThai.Enabled = t;
-            cboDonVi.Enabled = t;
-            cboNhaCC.Enabled = t;
-            dtNgay.Enabled = t;
-        }
-
-        void showHideControl(bool t)
-        {
-            btnThem.Visible = t;
-            btnSua.Visible = t;
-            btnXoa.Visible = t;
-            btnThoat.Visible = t;
-            btnLuu.Visible = !t;
-            btnBoQua.Visible = !t;
-        }
-        void _reset()
-        {
-            txtSoPhieu.Text = "";
-            txtGhiChu.Text = "";
-        }
-
+      
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (_right == 1)
@@ -400,17 +442,6 @@ namespace MATERIAL
 
                 }
             }
-            _bdChungTuCT.DataSource = _chungtuct.getListByKhoaFull(_khoa);
-            gcChiTiet.DataSource = _bdChungTuCT;
-            gvChiTiet.AddNewRow();
-            tabChungTu.SelectedTabPage = pageChiTiet;
-            gvChiTiet.OptionsBehavior.Editable = true;
-            contextMenuChiTiet.Enabled = true;
-            _them = true;
-            _sua = false;
-            showHideControl(false);
-            _enabled(true);
-            _reset();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -426,8 +457,8 @@ namespace MATERIAL
                 {
                     tb_CHUNGTU current = (tb_CHUNGTU)_bdChungTu.Current;
                     int index = _bdChungTu.Position;
-                    _chungtu.deleteAll(current.KHOA, 1);
-                    gvDanhSach.SetRowCellValue(index, "DELETED_BY", 0);
+                    _chungtu.delete(current.KHOA, _user.IDUSER);
+                    gvDanhSach.SetRowCellValue(index, "DELETED_BY", _user.IDUSER);
                     //lblXoa.Visible = true;
                 }
                 else
@@ -498,36 +529,45 @@ namespace MATERIAL
 
         private void gvChiTiet_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            if (!_isImport)
+             if (!_isImport)
             {
                 if (e.Column.FieldName == "BARCODE")
                 {
-                    if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString().IndexOf(".") == 0)
+                    if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString().IndexOf(".") == 0) 
                     {
                         _isImport = true;
                         frmDanhMuc _popDM = new frmDanhMuc(gvChiTiet, gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
-                        _popDM.TopMost= true;
+                        _popDM.BringToFront();
                         _popDM.ShowDialog();
                     }
-                }
-                else
-                {
-                    tb_HANGHOA hh = _hanghoa.getItem(e.Value.ToString());
-                    if (hh != null)
+                    else
                     {
-                        if (_hanghoa.checkExist(hh.BARCODE))
+                        tb_HANGHOA hh = _hanghoa.getItem(e.Value.ToString());
+                        if (hh != null)
                         {
-                            List<string> s = new List<string>();
-                            if (gvChiTiet.RowCount > 1)
+                            if (_hanghoa.checkExist(hh.BARCODE))
                             {
-                                for (int i = 0; i < gvChiTiet.RowCount - 1; i++)
+                                List<string> s = new List<string>();
+                                if (gvChiTiet.RowCount > 1)
                                 {
-                                    s.Add(gvChiTiet.GetRowCellValue(i, "BARCODE").ToString());
-                                }
-                                if (s.Find(x => x.Equals(e.Value.ToString())) != null)
-                                {
-                                    MessageBox.Show("Mã này đã có trong lưới nhập liệu.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
+                                    for (int i = 0; i < gvChiTiet.RowCount - 1; i++)
+                                    {
+                                        s.Add(gvChiTiet.GetRowCellValue(i, "BARCODE").ToString());
+                                    }
+                                    if (s.Find(x => x.Equals(e.Value.ToString())) != null)
+                                    {
+                                        MessageBox.Show("Mã này đã có trong lưới nhập liệu.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "TENHH", hh.TENHH);
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "DVT", hh.DVT);
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "SOLUONG", 1);
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA", hh.DONGIA);
+                                        gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", hh.DONGIA);
+                                        gvChiTiet.UpdateTotalSummary();
+                                    }
                                 }
                                 else
                                 {
@@ -541,55 +581,62 @@ namespace MATERIAL
                             }
                             else
                             {
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "TENHH", hh.TENHH);
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "DVT", hh.DVT);
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "SOLUONG", 1);
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA", hh.DONGIA);
-                                gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", hh.DONGIA);
-                                gvChiTiet.UpdateTotalSummary();
+                                MessageBox.Show("Mã tài sản này đã được nhập.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return;
                             }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Mã tài sản này đã được nhập.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return;
-                    }
-                    gvChiTiet.RefreshData();
-                }
-            }
-            //Thay đổi số lượng
-            if (e.Column.FieldName == "SOLUONG")
-            {
-                if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "TENHH") != null)
-                {
-                    double _soluong = double.Parse(e.Value.ToString());
-                    if (_soluong != 0)
-                    {
-                        tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
-                        if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA") != null)
-                        {
-                            double _trigiaTT = double.Parse(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA").ToString());
-                            gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", _trigiaTT * _soluong);
                         }
                         else
                         {
-                            gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", 0);
+                            MessageBox.Show("Mã tài sản này không chính xác.Kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
                         }
-                        gvChiTiet.UpdateTotalSummary();
+
+                        gvChiTiet.RefreshData();
+                    }
+                }
+
+            //Thay đổi số lượng
+                if (e.Column.FieldName == "SOLUONG")
+                {
+                    if(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle,"TENHH")!=null)
+                    {
+                        if (myFunctions.sIsNumber(e.Value.ToString()))
+                        {
+                            double _soluong = double.Parse(e.Value.ToString());
+                            if (_soluong != 0)
+                            {
+                                tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                                if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA") != null)
+                                {
+                                    double _trigiaTT = double.Parse(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA").ToString());
+                                    gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", _trigiaTT * _soluong);
+                                }
+                                else
+                                {
+                                    gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "THANHTIEN", 0);
+                                }
+                                gvChiTiet.UpdateTotalSummary();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Số lượng tài sản không thể bằng 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Số lượng phải là số.", "Thông báo");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Số lượng tài sản không thể bằng 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                     gvChiTiet.RefreshData();
+                
                 }
-            }
-            else
-            {
-                return;
-            }
-            gvChiTiet.RefreshData();
+
+             }
         }
 
         private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
@@ -946,6 +993,7 @@ namespace MATERIAL
             }
         }
 
+
         private void dtDenNgay_Leave(object sender, EventArgs e)
         {
             if (dtTuNgay.Value > dtDenNgay.Value)
@@ -957,6 +1005,28 @@ namespace MATERIAL
             {
                 _lstChungTu = _chungtu.getList(1, dtTuNgay.Value, dtDenNgay.Value.AddDays(1), cboDonVi.SelectedValue.ToString());
                 _bdChungTu.DataSource = _lstChungTu;
+            }
+        }
+
+
+
+        private void dtNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtNgay.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtNgay.Value = DateTime.Now;
+                return;
+            }
+        }
+
+        private void dtNgay_Leave(object sender, EventArgs e)
+        {
+            if (dtNgay.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtNgay.Value = DateTime.Now;
+                return;
             }
         }
         bool cal(Int32 _Width, DevExpress.XtraGrid.Views.Grid.GridView _View)
@@ -1068,17 +1138,18 @@ namespace MATERIAL
 
         private void btnIn_Click(object sender, EventArgs e)
         {
+            this.Hide();
             XuatReport("PHIEU_NHAPMUA_NCC", "Phiếu nhập mua nhà cung cấp");
         }
-
         private void gvChiTiet_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-                if (e.HitInfo.InRow)
-                {
-                    GridView view = sender as GridView;
-                    view.FocusedRowHandle = e.HitInfo.RowHandle;
-                    contextMenuChiTiet.Show(view.GridControl, e.Point);
-                }
+            if (e.HitInfo.InRow && _sua)
+            {
+                GridView view = sender as GridView;
+                view.FocusedRowHandle = e.HitInfo.RowHandle;
+                contextMenuChiTiet.Show(view.GridControl, e.Point);
+            }
         }
+
     }
 }

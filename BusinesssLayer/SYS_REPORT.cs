@@ -22,6 +22,7 @@ namespace BusinesssLayer
         {
             return db.tb_SYS_REPORT.ToList();
         }
+
         public List<tb_SYS_REPORT> getlistByRight(List<tb_SYS_RIGHT_REP> lst)
         {
             List<int> rep = lst.Select(ls => ls.REP_CODE).ToList();

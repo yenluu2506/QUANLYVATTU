@@ -100,19 +100,24 @@ namespace BusinesssLayer
 
         public void deleteAll(Guid khoact)
         {
-            tb_CHUNGTU_CT chungtuct = db.tb_CHUNGTU_CT.FirstOrDefault(x => x.KHOACT == khoact);
-            if (chungtuct != null)
+            int index = db.tb_CHUNGTU_CT.Count(x => x.KHOA == khoact);
+            for(int i = 0; i < index; i++)
             {
-                try
+                tb_CHUNGTU_CT chungtuct = db.tb_CHUNGTU_CT.FirstOrDefault(x => x.KHOA == khoact);
+                if (chungtuct != null)
                 {
-                    db.tb_CHUNGTU_CT.Remove(chungtuct); // Xóa bản ghi khỏi cơ sở dữ liệu
-                    db.SaveChanges(); // Lưu thay đổi
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu." + ex.Message);
+                    try
+                    {
+                        db.tb_CHUNGTU_CT.Remove(chungtuct); // Xóa bản ghi khỏi cơ sở dữ liệu
+                        db.SaveChanges(); // Lưu thay đổi
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu." + ex.Message);
+                    }
                 }
             }
+         
         }
     }
 }

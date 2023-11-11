@@ -38,8 +38,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cboDonViNhap = new System.Windows.Forms.ComboBox();
             this.lblNhaCC = new DevExpress.XtraEditors.LabelControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtGhiChu = new DevExpress.XtraEditors.LabelControl();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
+            this.lblGhiChu = new DevExpress.XtraEditors.LabelControl();
             this.cboTrangThai = new System.Windows.Forms.ComboBox();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtSoPhieu = new System.Windows.Forms.TextBox();
@@ -52,6 +52,7 @@
             this.TENHH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SOLUONGCT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.THANHTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -59,7 +60,7 @@
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.DELETED_BY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SCT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NGÀY = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NGAY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SCT2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAY2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -81,13 +82,13 @@
             this.btnSua = new System.Windows.Forms.ToolStripButton();
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnLuu = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnBoQua = new System.Windows.Forms.ToolStripButton();
             this.btnIn = new System.Windows.Forms.ToolStripButton();
             this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.contextMenuChiTiet = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.lblXoa = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblXoaChiTiet = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblImportExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnXoaDong = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnXoaChiTiet = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnImportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.pageChiTiet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).BeginInit();
@@ -148,8 +149,8 @@
             this.splitContainerControl2.Panel1.Appearance.Options.UseBackColor = true;
             this.splitContainerControl2.Panel1.Controls.Add(this.groupBox1);
             this.splitContainerControl2.Panel1.Controls.Add(this.groupBox2);
-            this.splitContainerControl2.Panel1.Controls.Add(this.textBox1);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtGhiChu);
+            this.splitContainerControl2.Panel1.Controls.Add(this.lblGhiChu);
             this.splitContainerControl2.Panel1.Controls.Add(this.cboTrangThai);
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl7);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtSoPhieu);
@@ -236,27 +237,26 @@
             this.lblNhaCC.TabIndex = 12;
             this.lblNhaCC.Text = "Đơn vị";
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(110, 91);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(674, 25);
-            this.textBox1.TabIndex = 13;
-            // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGhiChu.Appearance.Options.UseFont = true;
-            this.txtGhiChu.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtGhiChu.Location = new System.Drawing.Point(23, 95);
+            this.txtGhiChu.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGhiChu.Location = new System.Drawing.Point(110, 91);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(2);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(48, 17);
-            this.txtGhiChu.TabIndex = 12;
-            this.txtGhiChu.Text = "Ghi chú";
+            this.txtGhiChu.Size = new System.Drawing.Size(674, 25);
+            this.txtGhiChu.TabIndex = 13;
+            // 
+            // lblGhiChu
+            // 
+            this.lblGhiChu.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGhiChu.Appearance.Options.UseFont = true;
+            this.lblGhiChu.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.lblGhiChu.Location = new System.Drawing.Point(23, 95);
+            this.lblGhiChu.Margin = new System.Windows.Forms.Padding(2);
+            this.lblGhiChu.Name = "lblGhiChu";
+            this.lblGhiChu.Size = new System.Drawing.Size(48, 17);
+            this.lblGhiChu.TabIndex = 12;
+            this.lblGhiChu.Text = "Ghi chú";
             // 
             // cboTrangThai
             // 
@@ -306,13 +306,15 @@
             // dtNgay
             // 
             this.dtNgay.CustomFormat = "dd/MM/yyyy";
-            this.dtNgay.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgay.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtNgay.Location = new System.Drawing.Point(109, 11);
             this.dtNgay.Margin = new System.Windows.Forms.Padding(2);
             this.dtNgay.Name = "dtNgay";
-            this.dtNgay.Size = new System.Drawing.Size(131, 25);
+            this.dtNgay.Size = new System.Drawing.Size(131, 24);
             this.dtNgay.TabIndex = 3;
+            this.dtNgay.ValueChanged += new System.EventHandler(this.dtNgay_ValueChanged);
+            this.dtNgay.Leave += new System.EventHandler(this.dtNgay_Leave);
             // 
             // labelControl5
             // 
@@ -345,15 +347,18 @@
             this.TENHH,
             this.DVT,
             this.SOLUONGCT,
+            this.DONGIA,
             this.THANHTIEN,
             this.STT});
             this.gvChiTiet.DetailHeight = 280;
             this.gvChiTiet.GridControl = this.gcChiTiet;
             this.gvChiTiet.Name = "gvChiTiet";
             this.gvChiTiet.OptionsEditForm.PopupEditFormWidth = 640;
+            this.gvChiTiet.OptionsView.ShowFooter = true;
             this.gvChiTiet.OptionsView.ShowGroupPanel = false;
             this.gvChiTiet.RowHeight = 20;
             this.gvChiTiet.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvChiTiet_CustomDrawRowIndicator);
+            this.gvChiTiet.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvChiTiet_PopupMenuShowing);
             this.gvChiTiet.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvChiTiet_CellValueChanged);
             this.gvChiTiet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvChiTiet_KeyDown);
             // 
@@ -393,24 +398,45 @@
             // SOLUONGCT
             // 
             this.SOLUONGCT.Caption = "SỐ LƯỢNG";
+            this.SOLUONGCT.DisplayFormat.FormatString = "{0:N0}";
+            this.SOLUONGCT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.SOLUONGCT.FieldName = "SOLUONG";
-            this.SOLUONGCT.MaxWidth = 80;
-            this.SOLUONGCT.MinWidth = 80;
+            this.SOLUONGCT.MaxWidth = 60;
+            this.SOLUONGCT.MinWidth = 60;
             this.SOLUONGCT.Name = "SOLUONGCT";
+            this.SOLUONGCT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SOLUONG", "{0:N0}")});
             this.SOLUONGCT.Visible = true;
             this.SOLUONGCT.VisibleIndex = 3;
-            this.SOLUONGCT.Width = 80;
+            this.SOLUONGCT.Width = 60;
+            // 
+            // DONGIA
+            // 
+            this.DONGIA.Caption = "ĐƠN GIÁ";
+            this.DONGIA.DisplayFormat.FormatString = "{0:N0}";
+            this.DONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.DONGIA.FieldName = "DONGIA";
+            this.DONGIA.MaxWidth = 80;
+            this.DONGIA.MinWidth = 50;
+            this.DONGIA.Name = "DONGIA";
+            this.DONGIA.Visible = true;
+            this.DONGIA.VisibleIndex = 4;
+            this.DONGIA.Width = 80;
             // 
             // THANHTIEN
             // 
             this.THANHTIEN.Caption = "THÀNH TIỀN";
+            this.THANHTIEN.DisplayFormat.FormatString = "{0:N0}";
+            this.THANHTIEN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.THANHTIEN.FieldName = "THANHTIEN";
-            this.THANHTIEN.MaxWidth = 96;
+            this.THANHTIEN.MaxWidth = 120;
             this.THANHTIEN.MinWidth = 96;
             this.THANHTIEN.Name = "THANHTIEN";
+            this.THANHTIEN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "THANHTIEN", "{0:N0}")});
             this.THANHTIEN.Visible = true;
-            this.THANHTIEN.VisibleIndex = 4;
-            this.THANHTIEN.Width = 96;
+            this.THANHTIEN.VisibleIndex = 5;
+            this.THANHTIEN.Width = 120;
             // 
             // STT
             // 
@@ -444,7 +470,7 @@
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.DELETED_BY,
             this.SCT,
-            this.NGÀY,
+            this.NGAY,
             this.SCT2,
             this.NGAY2,
             this.SOLUONG,
@@ -482,16 +508,18 @@
             this.SCT.VisibleIndex = 1;
             this.SCT.Width = 96;
             // 
-            // NGÀY
+            // NGAY
             // 
-            this.NGÀY.Caption = "NGÀY";
-            this.NGÀY.FieldName = "NGÀY";
-            this.NGÀY.MaxWidth = 80;
-            this.NGÀY.MinWidth = 80;
-            this.NGÀY.Name = "NGÀY";
-            this.NGÀY.Visible = true;
-            this.NGÀY.VisibleIndex = 2;
-            this.NGÀY.Width = 80;
+            this.NGAY.Caption = "NGÀY";
+            this.NGAY.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.NGAY.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.NGAY.FieldName = "NGAY";
+            this.NGAY.MaxWidth = 80;
+            this.NGAY.MinWidth = 80;
+            this.NGAY.Name = "NGAY";
+            this.NGAY.Visible = true;
+            this.NGAY.VisibleIndex = 2;
+            this.NGAY.Width = 80;
             // 
             // SCT2
             // 
@@ -601,6 +629,7 @@
             this.cboDonVi.Name = "cboDonVi";
             this.cboDonVi.Size = new System.Drawing.Size(514, 25);
             this.cboDonVi.TabIndex = 7;
+            this.cboDonVi.SelectedIndexChanged += new System.EventHandler(this.CboDonVi_SelectedIndexChanged);
             // 
             // labelControl4
             // 
@@ -622,6 +651,7 @@
             this.cboCongTy.Name = "cboCongTy";
             this.cboCongTy.Size = new System.Drawing.Size(514, 25);
             this.cboCongTy.TabIndex = 5;
+            this.cboCongTy.SelectedIndexChanged += new System.EventHandler(this.CboCongTy_SelectedIndexChanged);
             // 
             // labelControl3
             // 
@@ -637,12 +667,12 @@
             // dtDenNgay
             // 
             this.dtDenNgay.CustomFormat = "dd/MM/yyyy";
-            this.dtDenNgay.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtDenNgay.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtDenNgay.Location = new System.Drawing.Point(521, 12);
             this.dtDenNgay.Margin = new System.Windows.Forms.Padding(2);
             this.dtDenNgay.Name = "dtDenNgay";
-            this.dtDenNgay.Size = new System.Drawing.Size(161, 25);
+            this.dtDenNgay.Size = new System.Drawing.Size(161, 24);
             this.dtDenNgay.TabIndex = 3;
             this.dtDenNgay.ValueChanged += new System.EventHandler(this.dtDenNgay_ValueChanged);
             this.dtDenNgay.Leave += new System.EventHandler(this.dtDenNgay_Leave);
@@ -661,12 +691,12 @@
             // dtTuNgay
             // 
             this.dtTuNgay.CustomFormat = "dd/MM/yyyy";
-            this.dtTuNgay.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtTuNgay.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtTuNgay.Location = new System.Drawing.Point(167, 12);
             this.dtTuNgay.Margin = new System.Windows.Forms.Padding(2);
             this.dtTuNgay.Name = "dtTuNgay";
-            this.dtTuNgay.Size = new System.Drawing.Size(161, 25);
+            this.dtTuNgay.Size = new System.Drawing.Size(161, 24);
             this.dtTuNgay.TabIndex = 1;
             this.dtTuNgay.ValueChanged += new System.EventHandler(this.dtTuNgay_ValueChanged);
             this.dtTuNgay.Leave += new System.EventHandler(this.dtTuNgay_Leave);
@@ -693,7 +723,7 @@
             this.btnSua,
             this.btnXoa,
             this.btnLuu,
-            this.toolStripButton1,
+            this.btnBoQua,
             this.btnIn,
             this.btnThoat});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -748,20 +778,20 @@
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // toolStripButton1
+            // btnBoQua
             // 
-            this.toolStripButton1.Image = global::MATERIAL.Properties.Resources.icon_boqua;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolStripButton1.Size = new System.Drawing.Size(72, 55);
-            this.toolStripButton1.Text = "Bỏ qua";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton1.Click += new System.EventHandler(this.btnBoQua_Click);
+            this.btnBoQua.Image = global::MATERIAL.Properties.Resources.icon_boqua;
+            this.btnBoQua.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBoQua.Name = "btnBoQua";
+            this.btnBoQua.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnBoQua.Size = new System.Drawing.Size(72, 55);
+            this.btnBoQua.Text = "Bỏ qua";
+            this.btnBoQua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // btnIn
             // 
-            this.btnIn.Image = global::MATERIAL.Properties.Resources.icon_boqua;
+            this.btnIn.Image = global::MATERIAL.Properties.Resources.print;
             this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnIn.Name = "btnIn";
             this.btnIn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -785,31 +815,36 @@
             // 
             this.contextMenuChiTiet.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblXoa,
-            this.lblXoaChiTiet,
-            this.lblImportExcel});
+            this.mnXoaDong,
+            this.mnXoaChiTiet,
+            this.mnImportExcel});
             this.contextMenuChiTiet.Name = "contextMenuChiTiet";
             this.contextMenuChiTiet.Size = new System.Drawing.Size(145, 82);
             // 
-            // lblXoa
+            // mnXoaDong
             // 
-            this.lblXoa.BackColor = System.Drawing.Color.Transparent;
-            this.lblXoa.Name = "lblXoa";
-            this.lblXoa.Size = new System.Drawing.Size(144, 26);
-            this.lblXoa.Text = "Xóa dòng";
+            this.mnXoaDong.BackColor = System.Drawing.Color.Transparent;
+            this.mnXoaDong.Image = global::MATERIAL.Properties.Resources.icon_xoa;
+            this.mnXoaDong.Name = "mnXoaDong";
+            this.mnXoaDong.Size = new System.Drawing.Size(144, 26);
+            this.mnXoaDong.Text = "Xóa dòng";
+            this.mnXoaDong.Click += new System.EventHandler(this.mnXoaDong_Click);
             // 
-            // lblXoaChiTiet
+            // mnXoaChiTiet
             // 
-            this.lblXoaChiTiet.Name = "lblXoaChiTiet";
-            this.lblXoaChiTiet.Size = new System.Drawing.Size(144, 26);
-            this.lblXoaChiTiet.Text = "Xóa chi tiết";
+            this.mnXoaChiTiet.Image = global::MATERIAL.Properties.Resources.del_Icon_x16;
+            this.mnXoaChiTiet.Name = "mnXoaChiTiet";
+            this.mnXoaChiTiet.Size = new System.Drawing.Size(144, 26);
+            this.mnXoaChiTiet.Text = "Xóa chi tiết";
+            this.mnXoaChiTiet.Click += new System.EventHandler(this.mnXoaChiTiet_Click);
             // 
-            // lblImportExcel
+            // mnImportExcel
             // 
-            this.lblImportExcel.Image = global::MATERIAL.Properties.Resources.icon_importexcel1;
-            this.lblImportExcel.Name = "lblImportExcel";
-            this.lblImportExcel.Size = new System.Drawing.Size(144, 26);
-            this.lblImportExcel.Text = "Import Excel";
+            this.mnImportExcel.Image = global::MATERIAL.Properties.Resources.icon_importexcel1;
+            this.mnImportExcel.Name = "mnImportExcel";
+            this.mnImportExcel.Size = new System.Drawing.Size(144, 26);
+            this.mnImportExcel.Text = "Import Excel";
+            this.mnImportExcel.Click += new System.EventHandler(this.mnImportExcel_Click);
             // 
             // frmXuatNoiBo
             // 
@@ -822,6 +857,7 @@
             this.Name = "frmXuatNoiBo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmXuatNoiBo";
+            this.Load += new System.EventHandler(this.frmXuatNoiBo_Load);
             this.pageChiTiet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).EndInit();
             this.splitContainerControl2.Panel1.ResumeLayout(false);
@@ -862,8 +898,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn TRANGTHAI;
         private DevExpress.XtraTab.XtraTabPage pageChiTiet;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
-        private System.Windows.Forms.TextBox textBox1;
-        private DevExpress.XtraEditors.LabelControl txtGhiChu;
+        private System.Windows.Forms.TextBox txtGhiChu;
+        private DevExpress.XtraEditors.LabelControl lblGhiChu;
         private System.Windows.Forms.ComboBox cboTrangThai;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private System.Windows.Forms.TextBox txtSoPhieu;
@@ -883,7 +919,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
         private DevExpress.XtraGrid.Columns.GridColumn DELETED_BY;
         private DevExpress.XtraGrid.Columns.GridColumn SCT;
-        private DevExpress.XtraGrid.Columns.GridColumn NGÀY;
+        private DevExpress.XtraGrid.Columns.GridColumn NGAY;
         private DevExpress.XtraGrid.Columns.GridColumn SCT2;
         private DevExpress.XtraGrid.Columns.GridColumn NGAY2;
         private DevExpress.XtraGrid.Columns.GridColumn SOLUONG;
@@ -906,17 +942,18 @@
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnLuu;
         private System.Windows.Forms.ToolStripButton btnIn;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnBoQua;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboDonViXuat;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cboDonViNhap;
         private DevExpress.XtraEditors.LabelControl lblNhaCC;
-        private System.Windows.Forms.ContextMenuStrip contextMenuChiTiet;
-        private System.Windows.Forms.ToolStripMenuItem lblXoa;
-        private System.Windows.Forms.ToolStripMenuItem lblXoaChiTiet;
-        private System.Windows.Forms.ToolStripMenuItem lblImportExcel;
         private System.Windows.Forms.ToolStripButton btnThoat;
+        private System.Windows.Forms.ContextMenuStrip contextMenuChiTiet;
+        private System.Windows.Forms.ToolStripMenuItem mnXoaDong;
+        private System.Windows.Forms.ToolStripMenuItem mnXoaChiTiet;
+        private System.Windows.Forms.ToolStripMenuItem mnImportExcel;
+        private DevExpress.XtraGrid.Columns.GridColumn DONGIA;
     }
 }

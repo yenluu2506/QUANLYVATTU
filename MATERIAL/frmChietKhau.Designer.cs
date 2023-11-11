@@ -82,7 +82,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtChietKhau;
         private System.Windows.Forms.Button btnCapNhat;
+        public System.Windows.Forms.TextBox txtChietKhau;
     }
 }

@@ -31,6 +31,8 @@ namespace MATERIAL
             this._user = user;
             this._right = right;
         }
+
+        string chietkhau;
         tb_SYS_USER _user;
         int _right;
         CONGTY _congty;
@@ -71,6 +73,7 @@ namespace MATERIAL
         {
             frmChietKhau frm = new frmChietKhau(gvChiTiet);
             frm.ShowDialog();
+            chietkhau = frm.txtChietKhau.Text;
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -97,7 +100,7 @@ namespace MATERIAL
             int index = 0;
             if(e.KeyCode==Keys.Enter)
             {
-                if(myFunctions.sIsNumber(txtBarcode.Text))
+                if(!myFunctions.sIsNumber(txtBarcode.Text))
                 {
                     MessageBox.Show("Mã hàng không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -143,7 +146,7 @@ namespace MATERIAL
             string madvi = "";
             if(myFunctions._madvi == "~")
             {
-                madvi = "CTKH01";
+                madvi = "CTKHO1";
             }
             else
             {
@@ -164,29 +167,29 @@ namespace MATERIAL
                 chungtu.SCT = _seq.SEQVALUE.Value.ToString("000000") + @"/" + DateTime.Today.Year.ToString().Substring(2, 2) + @"/BLE/" + dvi.KYHIEU;
                 chungtu.CREATED_BY = _user.IDUSER;
                 chungtu.CREATED_DATE = DateTime.Now;
-            chungtu.LCT = 4;
-            //if (txtChietKhau.Text == "")
-            //    chungtu.CHIETKHAU = null;
-            //else
-            //    chungtu.CHIETKHAU = int.Parse(txtChietKhau.Text);
-            chungtu.MACTY = myFunctions._macty;
-            chungtu.MADVI = madvi;
-            chungtu.MADVI2 = "1";
-            chungtu.TRANGTHAI = 2;
-            //chungtu.GHICHU = txtGhiChu.Text;
-            chungtu.SOLUONG = int.Parse(gvChiTiet.Columns["SOLUONG"].SummaryItem.SummaryValue.ToString());
-            for (int i = 0; i < gvChiTiet.RowCount; i++)
-            {
-                if (gvChiTiet.GetRowCellValue(i, "TENHH") == null)
+                chungtu.LCT = 4;
+                if(chietkhau != null)
                 {
-                    gvChiTiet.DeleteRow(i);
-                    goto NEXT;
+                    chungtu.CHIETKHAU = int.Parse(chietkhau);
                 }
-                else
+                chungtu.MACTY = myFunctions._macty;
+                chungtu.MADVI = madvi;
+                chungtu.MADVI2 = "1";
+                chungtu.TRANGTHAI = 2;
+                //chungtu.GHICHU = txtGhiChu.Text;
+                chungtu.SOLUONG = int.Parse(gvChiTiet.Columns["SOLUONG"].SummaryItem.SummaryValue.ToString());
+                for (int i = 0; i < gvChiTiet.RowCount; i++)
                 {
-                    _TONGCONG += double.Parse(gvChiTiet.GetRowCellValue(i, gvChiTiet.Columns["THANHTIEN"]).ToString());
+                    if (gvChiTiet.GetRowCellValue(i, "TENHH") == null)
+                    {
+                        gvChiTiet.DeleteRow(i);
+                        goto NEXT;
+                    }
+                    else
+                    {
+                        _TONGCONG += double.Parse(gvChiTiet.GetRowCellValue(i, gvChiTiet.Columns["THANHTIEN"]).ToString());
+                    }
                 }
-            }
         NEXT:
             chungtu.TONGTIEN = _TONGCONG;
             chungtu.UPDATED_BY = _user.IDUSER;
@@ -212,7 +215,7 @@ namespace MATERIAL
                     if (gvChiTiet.GetRowCellValue(i, "CHIETKHAU") != null)
                         _ct.CHIETKHAU = int.Parse(gvChiTiet.GetRowCellValue(i, "CHIETKHAU").ToString());
                     _ct.THANHTIEN = double.Parse(gvChiTiet.GetRowCellValue(i, "THANHTIEN").ToString());
-                    ////_chungtu.add(_ct);
+                    _chungtuct.add(_ct);
                 }
             }
         }
@@ -223,7 +226,7 @@ namespace MATERIAL
             {
                 tb_CHUNGTU ctu = new tb_CHUNGTU();
                 ChungTu_Info(ctu);
-                var resultCTu = _chungtu.update(ctu);
+                var resultCTu = _chungtu.add(ctu);
                 pKhoa = resultCTu.KHOA;
                 _sequence.update(_seq);
                 ChungTuCT_Info(resultCTu);

@@ -46,7 +46,7 @@ namespace MATERIAL
             _thongke = new THONGKE();
             leftMenu();
             //biểu đồ doanh thu
-            Series _seri = new Series("Doanh thu bán hàng theo nhóm hàng", ViewType.Pie);
+            Series _seri = new Series("Doanh thu bán hàng theo nhóm hàng", ViewType.Pie3D);
             var lst = _thongke.DoanhThuTheoNhomHangHoa();
             foreach (var item in lst)
             {
@@ -55,7 +55,7 @@ namespace MATERIAL
                 chartDanhThuNhom.Series.Add(_seri);
             _seri.Label.TextPattern = "{A:} {VP: p0}";
 
-            Series _seri2 = new Series("Doanh thu bán hàng theo nhóm hàng", ViewType.Pie3D);
+            Series _seri2 = new Series("Doanh thu bán hàng theo nhóm hàng", ViewType.Spline3D);
             var lst2 = _thongke.DoanhThuTheoNhomHangHoa();
             foreach (var item in lst2)
             {
@@ -171,9 +171,15 @@ namespace MATERIAL
                             frm.ShowDialog();
                             break;
                         }
+                    case "KHACHHANG":
+                        {
+                            frmKhachHang frm = new frmKhachHang();
+                            frm.ShowDialog();
+                            break;
+                        }
                     case "NHAPMUA":
                         {
-                            frmNhapMua frm = new frmNhapMua();
+                            frmNhapMua frm = new frmNhapMua(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }
@@ -186,6 +192,18 @@ namespace MATERIAL
                     case "NHAPNB":
                         {
                             frmNhapNoiBo frm = new frmNhapNoiBo(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "XUATSI":
+                        {
+                            frmXuatSi frm = new frmXuatSi(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "BANLE":
+                        {
+                            frmBanLe frm = new frmBanLe(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }

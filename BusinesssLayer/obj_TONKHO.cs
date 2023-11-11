@@ -15,8 +15,8 @@ namespace BusinesssLayer
         public string MACTY { get; set; }
         public string MADVI { get; set; }
         public string BARCODE { get; set; }
-        public string LG_DAU { get; set; }
-        public string LG_NHAPMUA { get; set; }
+        public Nullable<int> LG_DAU { get; set; }
+        public Nullable<int> LG_NHAPMUA { get; set; }
         public Nullable<int> LG_NHAPNB { get; set; }
         public Nullable<int> LG_XUATNB { get; set; }
         public Nullable<int> LG_XUATSI { get; set; }

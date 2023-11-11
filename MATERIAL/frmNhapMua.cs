@@ -56,6 +56,7 @@ namespace MATERIAL
         List<tb_CHUNGTU> _lstChungTu;
         bool _isImport;
         Guid pKhoa;
+        TONKHO _tonkho;
 
         private void frmNhapMua_Load(object sender, EventArgs e)
         {
@@ -70,6 +71,7 @@ namespace MATERIAL
             _nhaCC = new NHACUNGCAP();
             _bdChungTu = new BindingSource();
             _bdChungTuCT = new BindingSource();
+            _tonkho = new TONKHO();
 
             dtTuNgay.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             dtDenNgay.Value = DateTime.Now;
@@ -600,7 +602,7 @@ namespace MATERIAL
                 {
                     if(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle,"TENHH")!=null)
                     {
-                        if (myFunctions.sIsNumber(e.Value.ToString()))
+                        if (myFunctions.cIsNumber(e.Value.ToString()))
                         {
                             double _soluong = double.Parse(e.Value.ToString());
                             if (_soluong != 0)
@@ -625,7 +627,7 @@ namespace MATERIAL
                         }
                         else
                         {
-                            MessageBox.Show("Số lượng phải là số.", "Thông báo");
+                            MessageBox.Show("Số lượng phải là số hợp lệ.", "Thông báo");
                         }
                     }
                     else
@@ -1143,7 +1145,7 @@ namespace MATERIAL
         }
         private void gvChiTiet_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-            if (e.HitInfo.InRow && _sua)
+            if (e.HitInfo.InRow)
             {
                 GridView view = sender as GridView;
                 view.FocusedRowHandle = e.HitInfo.RowHandle;

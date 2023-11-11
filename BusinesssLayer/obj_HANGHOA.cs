@@ -22,5 +22,6 @@ namespace BusinesssLayer
         public string MOTA { get; set; }
         public DateTime? CREATED_DATE { get; set; }
         public bool? DISABLED { get; set; }
+        public int? slton { get; set; }
     }
 }

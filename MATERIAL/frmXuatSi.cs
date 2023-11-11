@@ -57,7 +57,7 @@ namespace MATERIAL
         List<tb_CHUNGTU> _lstChungTu;
         bool _isImport;
         Guid pKhoa;
-
+        TONKHO _tonkho;
         private void frmXuatSi_Load(object sender, EventArgs e)
         {
             _isImport = false;
@@ -71,6 +71,7 @@ namespace MATERIAL
             _sequence = new SYS_SEQUENCE();
             _bdChungTuCT = new BindingSource();
             _bdChungTu = new BindingSource();
+            _tonkho = new TONKHO();
 
             dtTuNgay.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             dtDenNgay.Value = DateTime.Now;
@@ -962,12 +963,19 @@ namespace MATERIAL
                 {
                     if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "TENHH") != null)
                     {
-                        if (myFunctions.sIsNumber(e.Value.ToString()))
+                        if (myFunctions.cIsNumber(e.Value.ToString()))
                         {
                             double _soluong = double.Parse(e.Value.ToString());
                             if (_soluong != 0)
                             {
+                                tb_TONKHO tk = _tonkho.getSoLuongTon(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString(), cboDonVi.SelectedValue.ToString(), DateTime.Now.Year, DateTime.Now.Month);
                                 tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                                if (_soluong > tk.LG_CUOI)
+                                {
+                                    MessageBox.Show("Số lượng tồn không đủ - Max : " + tk.LG_CUOI, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "SOLUONG", 1);
+                                    return;
+                                }
                                 if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA") != null)
                                 {
                                     double _trigiaTT = double.Parse(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA").ToString());
@@ -1178,7 +1186,7 @@ namespace MATERIAL
 
         private void gvChiTiet_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-            if (e.HitInfo.InRow && (_sua||_them))
+            if (e.HitInfo.InRow)
             {
                 GridView view = sender as GridView;
                 view.FocusedRowHandle = e.HitInfo.RowHandle;

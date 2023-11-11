@@ -89,5 +89,10 @@ namespace BusinesssLayer
             }
             return lstTK;
         }
+
+        public tb_TONKHO getSoLuongTon(string barcode,string madvi, int? nam, int? ky)
+        {
+            return db.tb_TONKHO.FirstOrDefault(x =>x.BARCODE==barcode&& x.MADVI == madvi && x.NAM == nam && x.KY == ky);
+        }
     }
 }

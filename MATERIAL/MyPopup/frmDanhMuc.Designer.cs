@@ -133,6 +133,8 @@
             // DONGIA
             // 
             this.DONGIA.Caption = "ĐƠN GIÁ";
+            this.DONGIA.DisplayFormat.FormatString = "{0:N0}";
+            this.DONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.DONGIA.FieldName = "DONGIA";
             this.DONGIA.MaxWidth = 86;
             this.DONGIA.MinWidth = 86;

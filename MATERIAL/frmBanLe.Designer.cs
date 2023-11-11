@@ -88,11 +88,12 @@
             this.gvChiTiet.DetailHeight = 280;
             this.gvChiTiet.GridControl = this.gcChiTiet;
             this.gvChiTiet.Name = "gvChiTiet";
-            this.gvChiTiet.OptionsBehavior.Editable = false;
             this.gvChiTiet.OptionsEditForm.PopupEditFormWidth = 640;
             this.gvChiTiet.OptionsView.ShowFooter = true;
             this.gvChiTiet.OptionsView.ShowGroupPanel = false;
             this.gvChiTiet.RowHeight = 20;
+            this.gvChiTiet.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvChiTiet_CellValueChanged);
+            this.gvChiTiet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvChiTiet_KeyDown);
             // 
             // BARCODE
             // 
@@ -112,6 +113,7 @@
             this.TENHH.MaxWidth = 250;
             this.TENHH.MinWidth = 250;
             this.TENHH.Name = "TENHH";
+            this.TENHH.OptionsColumn.AllowEdit = false;
             this.TENHH.Visible = true;
             this.TENHH.VisibleIndex = 1;
             this.TENHH.Width = 250;
@@ -123,6 +125,7 @@
             this.DVT.MaxWidth = 50;
             this.DVT.MinWidth = 50;
             this.DVT.Name = "DVT";
+            this.DVT.OptionsColumn.AllowEdit = false;
             this.DVT.Visible = true;
             this.DVT.VisibleIndex = 2;
             this.DVT.Width = 50;
@@ -151,6 +154,7 @@
             this.DONGIA.MaxWidth = 120;
             this.DONGIA.MinWidth = 120;
             this.DONGIA.Name = "DONGIA";
+            this.DONGIA.OptionsColumn.AllowEdit = false;
             this.DONGIA.Visible = true;
             this.DONGIA.VisibleIndex = 4;
             this.DONGIA.Width = 120;
@@ -162,6 +166,7 @@
             this.CHIETKHAU.MaxWidth = 120;
             this.CHIETKHAU.MinWidth = 120;
             this.CHIETKHAU.Name = "CHIETKHAU";
+            this.CHIETKHAU.OptionsColumn.AllowEdit = false;
             this.CHIETKHAU.Visible = true;
             this.CHIETKHAU.VisibleIndex = 5;
             this.CHIETKHAU.Width = 120;
@@ -175,6 +180,7 @@
             this.THANHTIEN.MaxWidth = 150;
             this.THANHTIEN.MinWidth = 150;
             this.THANHTIEN.Name = "THANHTIEN";
+            this.THANHTIEN.OptionsColumn.AllowEdit = false;
             this.THANHTIEN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "THANHTIEN", "{0:N0}")});
             this.THANHTIEN.Visible = true;
@@ -186,6 +192,7 @@
             this.STT.Caption = "STT";
             this.STT.FieldName = "STT";
             this.STT.Name = "STT";
+            this.STT.OptionsColumn.AllowEdit = false;
             // 
             // txtBarcode
             // 

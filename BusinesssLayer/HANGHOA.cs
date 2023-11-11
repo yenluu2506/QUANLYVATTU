@@ -100,6 +100,7 @@ namespace BusinesssLayer
                 hh.TENHH = item.TENHH;
                 hh.TENTAT = item.TENTAT;
                 hh.IDNHOM = item.IDNHOM;
+                hh.DONGIA = item.DONGIA;
                 var n = db.tb_NHOMHH.FirstOrDefault(x=>x.IDNHOM == item.IDNHOM);
                 hh.TENNHOM = n.TENNHOM;
                 hh.MAXX = item.MAXX;

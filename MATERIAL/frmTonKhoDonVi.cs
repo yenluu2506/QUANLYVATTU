@@ -38,10 +38,11 @@ namespace MATERIAL
             _donvi = new DONVI();
             _tonkho = new TONKHO();
             loadDonVi();
-            cboDonVi.SelectedValue = myFunctions._madvi;
+            if (myFunctions._madvi == "~")
+                cboDonVi.SelectedValue = "CTKHO1";
             dtChonKy.Value = DateTime.Now;
-            loadTonKho(myFunctions._madvi, DateTime.Now.Year, DateTime.Now.Month);
-            _lstHH = _tonkho.getTonKhoDvi(myFunctions._madvi, dtChonKy.Value.Year, dtChonKy.Value.Month);
+            loadTonKho(cboDonVi.SelectedValue.ToString(), DateTime.Now.Year, DateTime.Now.Month);
+            _lstHH = _tonkho.getTonKhoDvi(cboDonVi.SelectedValue.ToString(), dtChonKy.Value.Year, dtChonKy.Value.Month);
         }
         void loadDonVi()
         {
@@ -51,7 +52,7 @@ namespace MATERIAL
         }
         void loadTonKho(string madvi, int nam, int ky)
         {
-            gcTonKho.DataSource = _tonkho.getTonKhoCty(madvi, nam, ky);
+            gcTonKho.DataSource = _tonkho.getTonKhoDvi(madvi, nam, ky);
             gvTonKho.OptionsBehavior.Editable = false;
         }
 

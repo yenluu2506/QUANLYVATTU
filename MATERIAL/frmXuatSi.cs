@@ -361,7 +361,7 @@ namespace MATERIAL
         private void mnXoaChiTiet_Click(object sender, EventArgs e)
         {
             _lstBarcode.Clear();
-            for (int i = gvChiTiet.RowCount; i >= 0; i--)
+            for (int i = gvChiTiet.RowCount-1; i >= 0; i--)// đúng là yến lưu code, vô địch sai chính tả thiếu code :>
             {
                 _lstBarcode.Add(gvChiTiet.GetRowCellValue(i, "BARCODE").ToString());
                 gvChiTiet.DeleteRow(i);
@@ -970,6 +970,13 @@ namespace MATERIAL
                             {
                                 tb_TONKHO tk = _tonkho.getSoLuongTon(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString(), cboDonVi.SelectedValue.ToString(), DateTime.Now.Year, DateTime.Now.Month);
                                 tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                                if (tk.LG_CUOI == 0)
+                                {
+                                    MessageBox.Show("Số lượng tồn không đủ - Số lượng : " + tk.LG_CUOI, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    gvChiTiet.DeleteSelectedRows();
+                                    gvChiTiet.AddNewRow();
+                                    return;
+                                }
                                 if (_soluong > tk.LG_CUOI)
                                 {
                                     MessageBox.Show("Số lượng tồn không đủ - Max : " + tk.LG_CUOI, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1180,7 +1187,7 @@ namespace MATERIAL
             for (int i = 0; i < gvChiTiet.RowCount; i++)
             {
                 gvChiTiet.SetRowCellValue(i, "CHIETKHAU", txtChietKhau.Text);
-                gvChiTiet.SetRowCellValue(i, "THANHTIEN", (int.Parse(gvChiTiet.GetRowCellValue(i, "DONGIA").ToString()) * (1 - double.Parse(txtChietKhau.Text) / 100)));
+                gvChiTiet.SetRowCellValue(i, "THANHTIEN", double.Parse(gvChiTiet.GetRowCellValue(i, "DONGIA").ToString()) * double.Parse(gvChiTiet.GetRowCellValue(i, "SOLUONG").ToString()) * (1 - double.Parse(txtChietKhau.Text) / 100));
             }
         }
 

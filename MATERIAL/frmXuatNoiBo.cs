@@ -614,13 +614,13 @@ namespace MATERIAL
                             {
                                 tb_TONKHO tk = _tonkho.getSoLuongTon(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString(), cboDonVi.SelectedValue.ToString(), DateTime.Now.Year, DateTime.Now.Month);
                                 tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
-                                //if (tk.LG_CUOI == 0)
-                                //{
-                                //    MessageBox.Show("Số lượng tồn không đủ - Số lượng : " + tk.LG_CUOI, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                //    gvChiTiet.DeleteSelectedRows();
-                                //    gvChiTiet.AddNewRow();
-                                //    return;
-                                //}
+                                if (tk.LG_CUOI == 0)
+                                {
+                                    MessageBox.Show("Số lượng tồn không đủ - Số lượng : " + tk.LG_CUOI, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    gvChiTiet.DeleteSelectedRows();
+                                    gvChiTiet.AddNewRow();
+                                    return;
+                                }
                                 if (_soluong > tk.LG_CUOI)
                                 {
                                     MessageBox.Show("Số lượng tồn không đủ - Max : " + tk.LG_CUOI, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);

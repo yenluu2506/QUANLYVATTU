@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView2 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnBarcode = new System.Windows.Forms.ToolStripButton();
             this.btnBaoCao = new System.Windows.Forms.ToolStripButton();
@@ -68,7 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
@@ -171,7 +171,13 @@
             // 
             // navMain
             // 
-            this.navMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.navMain.Appearance.Background.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.navMain.Appearance.Background.Options.UseFont = true;
+            this.navMain.Appearance.GroupHeader.Font = new System.Drawing.Font("Constantia", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.navMain.Appearance.GroupHeader.Options.UseFont = true;
+            this.navMain.Appearance.Item.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.navMain.Appearance.Item.Options.UseFont = true;
+            this.navMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.navMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navMain.Font = new System.Drawing.Font("Constantia", 12F);
             this.navMain.LargeImages = this.lagreImage;
@@ -189,8 +195,10 @@
             // 
             this.lagreImage.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("lagreImage.ImageStream")));
             this.lagreImage.TransparentColor = System.Drawing.Color.Transparent;
-            this.lagreImage.Images.SetKeyName(0, "menu.png");
+            this.lagreImage.Images.SetKeyName(0, "623084_burger_menu_category_interface_list_icon.png");
             this.lagreImage.Images.SetKeyName(1, "9044648_import_export_icon.png");
+            this.lagreImage.Images.SetKeyName(2, "7830819_warehouse_cart_packages_icon.png");
+            this.lagreImage.Images.SetKeyName(3, "4801310_android_operative_robot_system_technology_icon.png");
             // 
             // smallImage
             // 
@@ -248,8 +256,8 @@
             this.chartDanhThuNhom.Location = new System.Drawing.Point(3, 3);
             this.chartDanhThuNhom.Name = "chartDanhThuNhom";
             this.chartDanhThuNhom.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            sideBySideBarSeriesView2.Transparency = ((byte)(5));
-            this.chartDanhThuNhom.SeriesTemplate.View = sideBySideBarSeriesView2;
+            sideBySideBarSeriesView1.Transparency = ((byte)(5));
+            this.chartDanhThuNhom.SeriesTemplate.View = sideBySideBarSeriesView1;
             this.chartDanhThuNhom.Size = new System.Drawing.Size(430, 261);
             this.chartDanhThuNhom.TabIndex = 0;
             // 
@@ -384,7 +392,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDanhThuNhom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

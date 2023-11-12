@@ -96,7 +96,7 @@ namespace POS
             int index = 0;
             if (e.KeyCode == Keys.Enter)
             {
-                if (myFunctions.sIsNumber(txtBarcode.Text))
+                if (!myFunctions.sIsNumber(txtBarcode.Text))
                 {
                     MessageBox.Show("Mã hàng không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -222,7 +222,7 @@ namespace POS
             {
                 tb_CHUNGTU ctu = new tb_CHUNGTU();
                 ChungTu_Info(ctu);
-                var resultCTu = _chungtu.update(ctu);
+                var resultCTu = _chungtu.add(ctu);
                 pKhoa = resultCTu.KHOA;
                 _sequence.update(_seq);
                 ChungTuCT_Info(resultCTu);

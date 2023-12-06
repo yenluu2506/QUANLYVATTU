@@ -1,6 +1,9 @@
 ﻿using BusinesssLayer;
 using DevExpress.XtraEditors;
+<<<<<<< HEAD
 using MATERIAL.MyFunctions;
+=======
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,11 +25,16 @@ namespace MATERIAL.ucControls
         public frmShowDonVi(TextBox txtDonVi)
         {
             InitializeComponent();
+<<<<<<< HEAD
             this._txtDonVi=txtDonVi;
+=======
+            this._txtDonVi = txtDonVi;
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
         }
         TextBox _txtDonVi;
         DONVI _donvi;
         CONGTY _congty;
+<<<<<<< HEAD
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
@@ -42,6 +50,12 @@ namespace MATERIAL.ucControls
         {
             CONGTY _congty = new CONGTY();
             _donvi=new DONVI();
+=======
+        private void frmShowDonVi_Load(object sender, EventArgs e)
+        {
+            CONGTY _congty = new CONGTY();
+            _donvi = new DONVI();
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
             loadCongTy();
             loadDonVi();
             cboCongTy.SelectedIndexChanged += CboCongTy_SelectedIndexChanged;
@@ -53,6 +67,18 @@ namespace MATERIAL.ucControls
             loadDonVi();
         }
 
+<<<<<<< HEAD
+=======
+        private void btnThucHien_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
         void loadCongTy()
         {
             cboCongTy.DataSource = _congty.getAll();

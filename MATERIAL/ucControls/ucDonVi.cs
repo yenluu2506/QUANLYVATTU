@@ -1,5 +1,9 @@
 ﻿using BusinesssLayer;
+<<<<<<< HEAD
 using MATERIAL.MyFunctions;
+=======
+using DataLayer;
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,23 +22,40 @@ namespace MATERIAL.ucControls
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
 
         CONGTY _congty;
         DONVI _donvi;
+=======
+        CONGTY _congty;
+        DONVI _donvi;
+        private void linkDonVi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
 
         private void ucDonVi_Load(object sender, EventArgs e)
         {
             _congty = new CONGTY();
             _donvi = new DONVI();
             loadCongTy();
+<<<<<<< HEAD
             cboCongTy.Enabled= false;
+=======
+            cboCongTy.Enabled = false;
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
             cboCongTy.SelectedIndexChanged += CboCongTy_SelectedIndexChanged;
             loadDonVi();
             if (myFunctions._madvi == "~")
                 cboDonVi.Enabled = true;
             else
             {
+<<<<<<< HEAD
                 cboDonVi.SelectedValue=myFunctions._madvi;
+=======
+                cboDonVi.SelectedValue = myFunctions._madvi;
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
                 cboDonVi.Enabled = false;
             }
         }

@@ -1,10 +1,15 @@
 ﻿using BusinesssLayer;
+<<<<<<< HEAD
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using CrystalDecisions.Windows.Forms;
 using DataLayer;
 using DevExpress.XtraEditors;
 using MATERIAL.MyFunctions;
+=======
+using DataLayer;
+using DevExpress.XtraEditors;
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
 using MATERIAL.ucControls;
 using System;
 using System.Collections.Generic;
@@ -24,6 +29,7 @@ namespace MATERIAL
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
 
         public frmBaoCao(tb_SYS_USER user)
         {
@@ -31,6 +37,13 @@ namespace MATERIAL
             this._user= user;
         }
         
+=======
+        public frmBaoCao(tb_SYS_USER user)
+        {
+            InitializeComponent();
+            this._user = user;
+        }
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
         tb_SYS_USER _user;
         SYS_USER _sysUser;
         SYS_REPORT _sysReport;
@@ -43,6 +56,7 @@ namespace MATERIAL
         {
             _sysReport = new SYS_REPORT();
             _sysUser = new SYS_USER();
+<<<<<<< HEAD
             _sysRightRep= new SYS_RIGHT_REP();
             var right = _sysRightRep.getListByUser(_user.IDUSER);
             if (right.Count == 0)
@@ -52,6 +66,10 @@ namespace MATERIAL
             }
             else
                 lstDanhSach.DataSource = _sysReport.getlistByRight(right);
+=======
+            _sysRightRep = new SYS_RIGHT_REP();
+            lstDanhSach.DataSource = _sysReport.getlistByRight(_sysRightRep.getListByUser(_user.IDUSER));
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
             lstDanhSach.DisplayMember = "DESCRIPTION";
             lstDanhSach.ValueMember = "REP_CODE";
             lstDanhSach.SelectedIndexChanged += LstDanhSach_SelectedIndexChanged;
@@ -62,11 +80,18 @@ namespace MATERIAL
         {
             loadUserControl();
         }
+<<<<<<< HEAD
 
         void loadUserControl()
         {
             int rep_code = 0;
             if (lstDanhSach.SelectedValue != null)
+=======
+        void loadUserControl()
+        {
+            int rep_code = 0;
+            if(lstDanhSach.SelectedValue != null)
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
             {
                 rep_code = int.Parse(lstDanhSach.SelectedValue.ToString());
             }
@@ -81,11 +106,19 @@ namespace MATERIAL
             _panel.Dock = DockStyle.Top;
             _panel.MinimumSize = new Size(_panel.Width, 500);
             List<Control> _ctrl = new List<Control>();
+<<<<<<< HEAD
             if (rep != null)
             {
                 if (rep.TUNGAY == true)
                 {
                     _uTuNgay = new ucTuNgay();
+=======
+            if(rep != null)
+            {
+                if (rep.TUNGAY == true)
+                {
+                    _uTuNgay = new ucTuNgay(rep.TONKHO.Value);
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
                     _uTuNgay.Dock = DockStyle.Top;
                     _ctrl.Add(_uTuNgay);
                 }
@@ -105,6 +138,7 @@ namespace MATERIAL
                 _panel.Controls.AddRange(_ctrl.ToArray());
                 this.splBaoCao.Panel2.Controls.Add(_panel);
             }
+<<<<<<< HEAD
 
         }
 
@@ -132,6 +166,33 @@ namespace MATERIAL
                 doc.SetParameterValue("@NGAYC", _uTuNgay.dtDenNgay.Value);//ai code đây??? VIDEO 26 LÀM GÌ CÓ CODEsao không vô mkhoongcoi eooicoi rồi mới sửa cái này đấy
             }
 
+=======
+            
+        }
+
+        private void btnThucHien_Click(object sender, EventArgs e)
+        {
+            tb_SYS_REPORT rp = _sysReport.getItem(int.Parse(lstDanhSach.SelectedValue.ToString()));
+            Form frm = new Form();
+            CrystalReportViewer crv = new CrystalReportViewer();
+            crv.ShowGroupTreeButton = false;
+            crv.ShowParameterPanelButton = false;
+            crv.ToolPanelView = ToolPanelViewType.None;
+            TableLogOnInfo Thongtin;
+            ReportDocument doc = new ReportDocument();
+            doc.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\" + rp.REP_NAME + @".rpt");
+            Thongtin = doc.Database.Tables[0].LogOnInfo;
+            Thongtin.ConnectionInfo.ServerName = myFunctions._srv;
+            Thongtin.ConnectionInfo.DatabaseName = myFunctions._db; 
+            Thongtin.ConnectionInfo.UserID = myFunctions._us; 
+            Thongtin.ConnectionInfo.Password = myFunctions._pw; 
+            doc.Database.Tables[0].ApplyLogOnInfo(Thongtin);
+            if (rp.TUNGAY == true)
+            {
+                doc.SetParameterValue("@NGAYD", _uTuNgay.dtTuNgay.Value); 
+                doc.SetParameterValue("@NGAYC", _uTuNgay.dtDenNgay.Value);
+            }
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
             if (rp.MACTY == true)
             {
                 doc.SetParameterValue("@MACTY", _uCongTy.cboCongTy.SelectedValue.ToString());
@@ -139,6 +200,7 @@ namespace MATERIAL
 
             if (rp.MADVI == true)
             {
+<<<<<<< HEAD
                 //doc.SetParameterValue("@MACTY", _uDonVi.cboCongTy.SelectedValue.ToString());
                 doc.SetParameterValue("@MADVI", _uDonVi.cboDonVi.SelectedValue.ToString());
             }
@@ -148,6 +210,17 @@ namespace MATERIAL
             Crv.Refresh();
             frm.Text = rp.DESCRIPTION;
             frm.WindowState= FormWindowState.Maximized;
+=======
+                doc.SetParameterValue("@MACTY",_uDonVi.cboCongTy.SelectedValue.ToString());
+                doc.SetParameterValue("@MADVI",_uDonVi.cboDonVi.SelectedValue.ToString());
+            }
+            crv.Dock = DockStyle.Fill; 
+            crv.ReportSource = doc; 
+            frm.Controls.Add(crv); 
+            crv.Refresh();
+            frm.Text = rp.DESCRIPTION;
+            frm.WindowState = FormWindowState.Maximized;
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
             frm.ShowDialog();
         }
 

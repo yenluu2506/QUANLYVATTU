@@ -1,5 +1,8 @@
 ﻿using BusinesssLayer;
+<<<<<<< HEAD
 using MATERIAL.MyFunctions;
+=======
+>>>>>>> d171d2e404948165d09d9b901876e18effaa02a8
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

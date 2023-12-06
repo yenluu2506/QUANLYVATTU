@@ -92,11 +92,6 @@ namespace MATERIAL
             }
         }
 
-        private void btnHeThong_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBaoCao_Click(object sender, EventArgs e)
         {
             frmBaoCao frm = new frmBaoCao(_user);

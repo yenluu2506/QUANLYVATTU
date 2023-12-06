@@ -124,6 +124,7 @@
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(306, 56);
             this.txtBarcode.TabIndex = 7;
+            this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarCode_KeyDown);
             // 
             // gcChiTiet
             // 
@@ -152,6 +153,7 @@
             this.gvChiTiet.Name = "gvChiTiet";
             this.gvChiTiet.OptionsBehavior.Editable = false;
             this.gvChiTiet.OptionsEditForm.PopupEditFormWidth = 640;
+            this.gvChiTiet.OptionsView.ShowFooter = true;
             this.gvChiTiet.OptionsView.ShowGroupPanel = false;
             this.gvChiTiet.RowHeight = 20;
             // 

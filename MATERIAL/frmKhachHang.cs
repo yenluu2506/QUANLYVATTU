@@ -147,10 +147,18 @@ namespace MATERIAL
                 _idkh = gvDanhSach.GetFocusedRowCellValue("IDKH").ToString();
                 txtMa.Text = gvDanhSach.GetFocusedRowCellValue("IDKH").ToString();
                 txtTen.Text = gvDanhSach.GetFocusedRowCellValue("HOTEN").ToString();
-                txtDienThoai.Text = gvDanhSach.GetFocusedRowCellValue("DIENTHOAI").ToString();
-                txtEmail.Text = gvDanhSach.GetFocusedRowCellValue("EMAIL").ToString();
-                txtDiaChi.Text = gvDanhSach.GetFocusedRowCellValue("DIACHI").ToString();
-                txtMST.Text = gvDanhSach.GetFocusedRowCellValue("MST").ToString();
+                txtDienThoai.Text = gvDanhSach.GetFocusedRowCellValue("DIENTHOAI") != null
+                    ? gvDanhSach.GetFocusedRowCellValue("DIENTHOAI").ToString()
+                    : "";
+                txtEmail.Text = gvDanhSach.GetFocusedRowCellValue("EMAIL") != null
+                    ? gvDanhSach.GetFocusedRowCellValue("EMAIL").ToString()
+                    : "";
+                txtDiaChi.Text = gvDanhSach.GetFocusedRowCellValue("DIACHI") != null
+                    ? gvDanhSach.GetFocusedRowCellValue("DIACHI").ToString()
+                    : "";
+                txtMST.Text = gvDanhSach.GetFocusedRowCellValue("MST") != null
+                    ? gvDanhSach.GetFocusedRowCellValue("MST").ToString()
+                    : "";
             }
         }
     }

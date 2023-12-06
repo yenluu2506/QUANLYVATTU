@@ -61,17 +61,17 @@ namespace MATERIAL.MyPopup
             List<string> _exist = new List<string>();
             if (_gvChitiet.RowCount > 1)
             {
-                for (int i = 0; i < _gvChitiet.RowCount; i++)
+                if(_gvChitiet.GetRowCellValue(_gvChitiet.RowCount-1,"TENHH")!= null)
                 {
-                    _exist.Add(_gvChitiet.GetRowCellValue(i, "BARCODE").ToString());
+                    for (int i = 0; i < _gvChitiet.RowCount; i++)
+                        _exist.Add(_gvChitiet.GetRowCellValue(i, "BARCODE").ToString());
                 }
-            }
-            else
-            {
-                for (int i = 0; i < _gvChitiet.RowCount - 1; i++)
+                else
                 {
-                    _exist.Add(_gvChitiet.GetRowCellValue(i, "BARCODE").ToString());
+                    for (int i = 0; i < _gvChitiet.RowCount - 1; i++)
+                        _exist.Add(_gvChitiet.GetRowCellValue(i, "BARCODE").ToString());
                 }
+
             }
 
             //kiểm tra trước khi import

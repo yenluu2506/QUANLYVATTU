@@ -129,7 +129,7 @@ namespace MATERIAL
             if (rp.TUNGAY == true)
             {
                 doc.SetParameterValue("@NGAYD", _uTuNgay.dtTuNgay.Value);
-                doc.SetParameterValue("@NGAYD", _uTuNgay.dtDenNgay.Value);
+                doc.SetParameterValue("@NGAYC", _uTuNgay.dtDenNgay.Value);//ai code đây??? VIDEO 26 LÀM GÌ CÓ CODEsao không vô mkhoongcoi eooicoi rồi mới sửa cái này đấy
             }
 
             if (rp.MACTY == true)

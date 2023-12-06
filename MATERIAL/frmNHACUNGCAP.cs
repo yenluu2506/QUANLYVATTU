@@ -29,6 +29,8 @@ namespace MATERIAL
             _ncc = new NHACUNGCAP();
             showHideControl(true);
             _enabled(false);
+            txtMaNCC.Enabled = false;
+
             loadData();
         }
 
@@ -72,6 +74,7 @@ namespace MATERIAL
         private void btnThem_Click(object sender, EventArgs e)
         {
             _them = true;
+            txtMaNCC.Enabled = true;
             showHideControl(false);
             _enabled(true);
             _reset();
@@ -98,6 +101,7 @@ namespace MATERIAL
             if (_them)
             {
                 tb_NHACUNGCAP ncc = new tb_NHACUNGCAP();
+                ncc.MANCC = txtMaNCC.Text;
                 ncc.TENNCC = txtTen.Text;
                 ncc.DIACHI = txtDiaChi.Text;
                 ncc.DIENTHOAI = txtDienThoai.Text;
@@ -143,6 +147,7 @@ namespace MATERIAL
             if (gvDanhSach.RowCount > 0)
             {
                 _mancc = gvDanhSach.GetFocusedRowCellValue("MANCC").ToString();
+                txtMaNCC.Text = gvDanhSach.GetFocusedRowCellValue("MANCC").ToString();
                 txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TENNCC").ToString();
                 txtDienThoai.Text = gvDanhSach.GetFocusedRowCellValue("DIENTHOAI").ToString();
                 txtFax.Text = gvDanhSach.GetFocusedRowCellValue("FAX").ToString();

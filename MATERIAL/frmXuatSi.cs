@@ -57,7 +57,7 @@ namespace MATERIAL
         List<tb_CHUNGTU> _lstChungTu;
         bool _isImport;
         Guid pKhoa;
-
+        TONKHO _tonkho;
         private void frmXuatSi_Load(object sender, EventArgs e)
         {
             _isImport = false;
@@ -71,6 +71,7 @@ namespace MATERIAL
             _sequence = new SYS_SEQUENCE();
             _bdChungTuCT = new BindingSource();
             _bdChungTu = new BindingSource();
+            _tonkho = new TONKHO();
 
             dtTuNgay.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             dtDenNgay.Value = DateTime.Now;
@@ -360,7 +361,7 @@ namespace MATERIAL
         private void mnXoaChiTiet_Click(object sender, EventArgs e)
         {
             _lstBarcode.Clear();
-            for (int i = gvChiTiet.RowCount; i >= 0; i--)
+            for (int i = gvChiTiet.RowCount-1; i >= 0; i--)// đúng là yến lưu code, vô địch sai chính tả thiếu code :>
             {
                 _lstBarcode.Add(gvChiTiet.GetRowCellValue(i, "BARCODE").ToString());
                 gvChiTiet.DeleteRow(i);
@@ -962,12 +963,26 @@ namespace MATERIAL
                 {
                     if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "TENHH") != null)
                     {
-                        if (myFunctions.sIsNumber(e.Value.ToString()))
+                        if (myFunctions.cIsNumber(e.Value.ToString()))
                         {
                             double _soluong = double.Parse(e.Value.ToString());
                             if (_soluong != 0)
                             {
+                                tb_TONKHO tk = _tonkho.getSoLuongTon(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString(), cboDonVi.SelectedValue.ToString(), DateTime.Now.Year, DateTime.Now.Month);
                                 tb_HANGHOA hh = _hanghoa.getItem(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "BARCODE").ToString());
+                                if (tk.LG_CUOI == 0)
+                                {
+                                    MessageBox.Show("Số lượng tồn không đủ - Số lượng : " + tk.LG_CUOI, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    gvChiTiet.DeleteSelectedRows();
+                                    gvChiTiet.AddNewRow();
+                                    return;
+                                }
+                                if (_soluong > tk.LG_CUOI)
+                                {
+                                    MessageBox.Show("Số lượng tồn không đủ - Max : " + tk.LG_CUOI, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    gvChiTiet.SetRowCellValue(gvChiTiet.FocusedRowHandle, "SOLUONG", 1);
+                                    return;
+                                }
                                 if (gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA") != null)
                                 {
                                     double _trigiaTT = double.Parse(gvChiTiet.GetRowCellValue(gvChiTiet.FocusedRowHandle, "DONGIA").ToString());
@@ -1172,13 +1187,13 @@ namespace MATERIAL
             for (int i = 0; i < gvChiTiet.RowCount; i++)
             {
                 gvChiTiet.SetRowCellValue(i, "CHIETKHAU", txtChietKhau.Text);
-                gvChiTiet.SetRowCellValue(i, "THANHTIEN", (int.Parse(gvChiTiet.GetRowCellValue(i, "DONGIA").ToString()) * (1 - double.Parse(txtChietKhau.Text) / 100)));
+                gvChiTiet.SetRowCellValue(i, "THANHTIEN", double.Parse(gvChiTiet.GetRowCellValue(i, "DONGIA").ToString()) * double.Parse(gvChiTiet.GetRowCellValue(i, "SOLUONG").ToString()) * (1 - double.Parse(txtChietKhau.Text) / 100));
             }
         }
 
         private void gvChiTiet_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-            if (e.HitInfo.InRow && (_sua||_them))
+            if (e.HitInfo.InRow)
             {
                 GridView view = sender as GridView;
                 view.FocusedRowHandle = e.HitInfo.RowHandle;

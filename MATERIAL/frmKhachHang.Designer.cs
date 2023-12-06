@@ -406,6 +406,7 @@
             this.Controls.Add(this.gcDanhSach);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmKhachHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmKhachHang";
             this.Load += new System.EventHandler(this.frmKhachHang_Load);
             this.toolStrip1.ResumeLayout(false);

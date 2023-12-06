@@ -59,6 +59,8 @@
             this.txtTen = new System.Windows.Forms.TextBox();
             this.lblDienThoai = new DevExpress.XtraEditors.LabelControl();
             this.lblTen = new DevExpress.XtraEditors.LabelControl();
+            this.txtMaNCC = new System.Windows.Forms.TextBox();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
@@ -277,6 +279,8 @@
             this.grcThongTinDV.AppearanceCaption.Options.UseBorderColor = true;
             this.grcThongTinDV.AppearanceCaption.Options.UseFont = true;
             this.grcThongTinDV.AppearanceCaption.Options.UseForeColor = true;
+            this.grcThongTinDV.Controls.Add(this.txtMaNCC);
+            this.grcThongTinDV.Controls.Add(this.labelControl4);
             this.grcThongTinDV.Controls.Add(this.dtpCreateDate);
             this.grcThongTinDV.Controls.Add(this.chkDisable);
             this.grcThongTinDV.Controls.Add(this.txtEmail);
@@ -303,7 +307,7 @@
             this.dtpCreateDate.CustomFormat = "dd/MM/yyyy";
             this.dtpCreateDate.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCreateDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpCreateDate.Location = new System.Drawing.Point(131, 115);
+            this.dtpCreateDate.Location = new System.Drawing.Point(131, 167);
             this.dtpCreateDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpCreateDate.Name = "dtpCreateDate";
             this.dtpCreateDate.Size = new System.Drawing.Size(291, 25);
@@ -314,7 +318,7 @@
             this.chkDisable.AutoSize = true;
             this.chkDisable.BackColor = System.Drawing.Color.Transparent;
             this.chkDisable.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDisable.Location = new System.Drawing.Point(131, 158);
+            this.chkDisable.Location = new System.Drawing.Point(451, 51);
             this.chkDisable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkDisable.Name = "chkDisable";
             this.chkDisable.Size = new System.Drawing.Size(74, 22);
@@ -325,7 +329,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(547, 115);
+            this.txtEmail.Location = new System.Drawing.Point(547, 167);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(291, 25);
@@ -334,7 +338,7 @@
             // txtFax
             // 
             this.txtFax.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFax.Location = new System.Drawing.Point(547, 75);
+            this.txtFax.Location = new System.Drawing.Point(547, 127);
             this.txtFax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(291, 25);
@@ -343,7 +347,7 @@
             // txtDiaChi
             // 
             this.txtDiaChi.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiaChi.Location = new System.Drawing.Point(547, 37);
+            this.txtDiaChi.Location = new System.Drawing.Point(547, 89);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(291, 25);
@@ -353,7 +357,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(35, 120);
+            this.labelControl1.Location = new System.Drawing.Point(35, 172);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(87, 18);
@@ -364,7 +368,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(451, 120);
+            this.labelControl2.Location = new System.Drawing.Point(451, 172);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(35, 17);
@@ -375,7 +379,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(451, 80);
+            this.labelControl3.Location = new System.Drawing.Point(451, 132);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(22, 17);
@@ -386,7 +390,7 @@
             // 
             this.lblDiaChi.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiaChi.Appearance.Options.UseFont = true;
-            this.lblDiaChi.Location = new System.Drawing.Point(451, 42);
+            this.lblDiaChi.Location = new System.Drawing.Point(451, 94);
             this.lblDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblDiaChi.Name = "lblDiaChi";
             this.lblDiaChi.Size = new System.Drawing.Size(46, 18);
@@ -396,7 +400,7 @@
             // txtDienThoai
             // 
             this.txtDienThoai.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDienThoai.Location = new System.Drawing.Point(131, 75);
+            this.txtDienThoai.Location = new System.Drawing.Point(131, 127);
             this.txtDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(289, 25);
@@ -405,7 +409,7 @@
             // txtTen
             // 
             this.txtTen.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTen.Location = new System.Drawing.Point(131, 37);
+            this.txtTen.Location = new System.Drawing.Point(131, 89);
             this.txtTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(289, 25);
@@ -415,7 +419,7 @@
             // 
             this.lblDienThoai.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDienThoai.Appearance.Options.UseFont = true;
-            this.lblDienThoai.Location = new System.Drawing.Point(35, 80);
+            this.lblDienThoai.Location = new System.Drawing.Point(35, 132);
             this.lblDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblDienThoai.Name = "lblDienThoai";
             this.lblDienThoai.Size = new System.Drawing.Size(72, 18);
@@ -426,12 +430,32 @@
             // 
             this.lblTen.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTen.Appearance.Options.UseFont = true;
-            this.lblTen.Location = new System.Drawing.Point(35, 42);
+            this.lblTen.Location = new System.Drawing.Point(35, 94);
             this.lblTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblTen.Name = "lblTen";
             this.lblTen.Size = new System.Drawing.Size(56, 17);
             this.lblTen.TabIndex = 2;
             this.lblTen.Text = "Tên NCC";
+            // 
+            // txtMaNCC
+            // 
+            this.txtMaNCC.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaNCC.Location = new System.Drawing.Point(131, 51);
+            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMaNCC.Name = "txtMaNCC";
+            this.txtMaNCC.Size = new System.Drawing.Size(289, 25);
+            this.txtMaNCC.TabIndex = 20;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(35, 56);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(52, 17);
+            this.labelControl4.TabIndex = 19;
+            this.labelControl4.Text = "Mã NCC";
             // 
             // frmNHACUNGCAP
             // 
@@ -492,5 +516,7 @@
         private System.Windows.Forms.DateTimePicker dtpCreateDate;
         private System.Windows.Forms.ToolStripButton btnBoQua;
         private System.Windows.Forms.ToolStripButton btnThoat;
+        private System.Windows.Forms.TextBox txtMaNCC;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }
